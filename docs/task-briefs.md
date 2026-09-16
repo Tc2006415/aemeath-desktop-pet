@@ -1,5 +1,11 @@
 # 专题任务交接
 
+仓库：https://github.com/Tc2006415/aemeath-desktop-pet （私有）。
+
+首阶段 Issue：程序 #1、动画 #2、联动 #3、测试 #4。
+
+游戏风格概念图：assets/concepts/aemeath-game-style-v2.png。
+
 所有任务先读 AGENTS.md。初始任务仅交付设计与技术验证材料；软件实现以被接受的 ADR 和接口为前提。以下路径为提案文档所有权，其他目录暂不分配实现权。
 
 ## 程序：docs/proposals/desktop-runtime.md

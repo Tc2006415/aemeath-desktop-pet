@@ -42,7 +42,7 @@ Files: src/Aemeath.Host/{PetWindow,DiagnosticWindow,NativeMethods,App}.cs; asset
 - [x] Capture mouse on press, store global physical cursor minus window origin, update SetWindowPos on MouseMove, release/cancel idempotently on mouse-up/capture-loss/deactivation/exit. Keep manually selected idle-soft playing during drag.
 - [x] Load/reload packages atomically: retain old valid package on rejection, visibly mark disabled actions, first-load failure leaves control window usable. No task completion mapping.
 - [x] Add bounded opt-in application diagnostics for own HWND/DPI/render/drag/shutdown events. Run build/tests, publish local self-contained directory and launch; report actual evidence separately from pending real UI checks.
-- [ ] Final scope/diff review, progress report, commit and push original branch. Leave Draft PR open for PM/QA.
+- [x] Final scope/diff review, progress report, commit and push original branch. Leave Draft PR open for PM/QA.
 
 ## Actual execution evidence
 
@@ -75,3 +75,13 @@ Initial complete-host publish provenance (code commit `e0e0eac238f06ce4d1c43d2d8
 These identify this local directory build, not a signed release. Both the executable and its adjacent runtime/assets directory are required. Full UI and clean-machine gates remain as listed above.
 
 Review follow-up: load status is now set before showing the pixel window, so Loaded/ApplyLayout errors remain visible. scripts/validate.ps1 after this change passed locked restore, build 0 warnings/errors and 20/20 tests. QA independently rebuilt and ran e0e0eac loop/once/bad-neutral probes successfully; actual input/visual checks remain pending.
+
+## Final code and review record
+
+Final code revision: `c04e96f5d238d67247a39d354a6b1bfbf79038f3`. Rebuilt/published with `./scripts/build.ps1 -Publish`: locked restore and build passed with 0 warnings/0 errors. Final `./scripts/smoke-host.ps1 -Clip idle-smile -Scale 1` exited 0 (PID 10604), one natural-end, neutral fallback, render callback and shutdown recorded. This targeted rerun followed the error-order change; prior loop/bad-neutral and unit evidence is retained rather than represented as new UI testing.
+
+Current local directory executable SHA256: `95229046DB77D7ECB64649D70353FD6D1C1E7D3129106D0D5753D417AADC6792`; Aemeath.Host.dll SHA256: `570CB3DDBFE8898299700E60F62681AF0FAECFBFFA275E18A5B21FB5E8B66CB2`. These supersede the e0e0eac artifact hashes above.
+
+QA independently reviewed c04e96f's change order and confirmed that the same LoadPackage call no longer overwrites Loaded positioning errors. This was code-path review, without injecting a real display failure. QA reported no other confirmed blocking code issue in the reviewed paths; its independent runtime evidence remains labeled e0e0eac. This is not a claim of exhaustive defect absence or native UI gate acceptance.
+
+Final diff is confined to the authorized host/presentation/tests/diagnostic assets/build files and this progress document. Original Draft PR #8 remains open for PM integration; no merge, issue close, public publication, startup registration, state reducer, real Codex event connection or additional task was performed. Next handoff is the manual Windows checks listed above, with H3/H6 kept separate.

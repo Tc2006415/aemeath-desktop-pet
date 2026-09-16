@@ -1,6 +1,8 @@
 # 爱弥斯像素桌宠动画规格提案
 
-状态：ART-001 v1.0 待验收，未接受；2026-09-16。关联 [Issue #2](https://github.com/Tc2006415/aemeath-desktop-pet/issues/2)。首稿基准 c78a545；本轮按 origin/main 的任务卡补充视频复核，不进入实现。
+历史交付记录：ART-001 v1.0 于2026-09-16提交待验收。关联 [Issue #2](https://github.com/Tc2006415/aemeath-desktop-pet/issues/2)。首稿基准 c78a545；该轮按当时 origin/main 的任务卡补充视频复核，未进入实现。
+
+后续状态：PM 已验收 ART-001 提交 `d54730b`，仅接受参考分析与规格文档，未验收角色素材或逐帧复刻。PM 决策 `bf673927` 已确定独立 Windows 桌宠。ART-002 的单一素材格式候选见 [animation-assets-v1.md](../specs/animation-assets-v1.md)，待 PM 统一接受；首角色包收敛为neutral、idle-soft、idle-smile及拖动三段，旧文下述47帧范围和多种格式仅留作历史建议。视频采样及循环证据限制继续有效。
 
 本次仅交付规格和参考证据整理，不含动画成品、播放器实现或共享接口变更。以下尺寸、帧数、时长、优先级均为制作建议，不是游戏实测值，也不是已确定的运行时协议。实施以统筹接受 ADR 和素材接口为前提。
 

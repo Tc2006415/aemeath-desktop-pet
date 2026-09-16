@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "packageId": "aemeath-v1",
+  "packageVersion": "0.1.0",
+  "packageKind": "character",
+  "sourceScale": 1,
+  "frameSize": { "width": 96, "height": 104 },
+  "anchor": { "x": 48, "y": 94 },
+  "fallbackAction": "neutral",
+  "actions": {
+    "neutral": {
+      "playback": "loop",
+      "origin": "original",
+      "frames": [{ "path": "frames/neutral.png", "durationMs": 1000 }]
+    }
+  }
+}

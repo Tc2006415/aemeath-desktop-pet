@@ -14,6 +14,7 @@ internal static class DiagnosticChecks
     [STAThread]
     private static int Main(string[] args)
     {
+        if (args.Length == 1 && args[0] == "interaction") return InteractionChecks.Run();
         if (args.Length == 2 && args[0] == "reject-package")
         {
             Run("reparse package must reject before decoder", () => {

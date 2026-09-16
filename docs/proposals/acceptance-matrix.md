@@ -116,3 +116,37 @@ T、C 和播放时长由被接受的规格提供，不在此编造秒数。边�
 提交前检查仅覆盖：单一文件所有权、Markdown 差异/空白、用例 ID 唯一性、必需场景与证据列完整性。实际命令与结果在交付报告/PR 中记录，不能将文档检查称为运行时测试通过。
 
 交接给统筹：先确认 D1–D7 的判据与责任归属，尤其拖动期间终态的补播/恢复、过期与断连边界、并行任务呈现。程序/动画/联动任务提供接受后的规格版本和实现 PR，测试任务再将本矩阵映射为真实测试与实机记录。任何跨模块接口、技术栈和合并决定仍归统筹。
+
+## QA-005：neutral 单帧包独立验收（2026-09-16）
+
+结论：**neutral-only 包的格式、现行加载器读取、automatic 缺动作回退及自有宿主进程检查通过；静态轮廓未见阻塞问题。** 不代表五个未交付动作、原生拖动或完整动画通过。最终造型认可留给用户/PM。
+
+本轮以 PM 对话任务卡 QA-005 为范围，读取现行协作文件与 ADR 0003。将本地 `codex/runtime-direction` 快进引入至 `e597d4a`，包含 ART `960aea68f02b484ef8b6c979259ac17409ab69f3`，未重写任何提交。只新增必要 QA 检查及本节结果，不改生产代码、资源、锁文件或接口。
+
+### 输入与复用证据
+
+输入为 `assets/characters/aemeath-v1/manifest.json` 与 `frames/neutral.png`：包 aemeath-v1 / 0.1.0 / character，96×104，sourceScale=1，锚点(48,94)，neutral 原创单帧循环1000ms。其余五动作未声明，disabled=[] 只说明没有被停用的已声明动作。
+
+`git diff 9f0494d HEAD -- src` 无输出，生产代码与 QA-004 已验证的宿主一致，复用其发布产物；exe SHA-256 `A77738411EACE423A8B45A106D98F0BB0A994E696A2010FF2931B3D87F0118F1`。未重跑完整旧测试套件或无关 DPI 组合。
+
+### 实际验证命令与结果
+
+在 QA worktree 根目录运行，SDK 10.0.401，`$sdkExe = Join-Path $env:LOCALAPPDATA 'Aemeath/toolchains/dotnet/10.0.401/dotnet.exe'`。
+
+| 对应矩阵 / 命令 | 实际结果 |
+| --- | --- |
+| A14 / `./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/frames/neutral.png` | 退出0；96×104、RGBA8、8860字节，透明6876、不透明3108、半透明0，恰好两种alpha。SHA-256 `5C8F851A87F2E7C336365CE0323C76BB6FEFD6F6EB65D6EB5C76BAF701EE8E0D`，与PM/ART一致 |
+| A14/A15 / `& $sdkExe run --project scripts/qa/DiagnosticChecks.csproj -c Release --no-restore -- neutral-package assets/characters/aemeath-v1` | 退出0；实际 PackageLoader.Load + PngDecoder.Decode 读取成功，一图一片段，无被停用动作。自动模式在999/1000/14999/15000/15001/1000000ms保持neutral、同一播放实例、无完成事件；重复 BeginDrag/EndDrag API 后仍安全回neutral，不代表真实鼠标操作 |
+| W01/A14（进程部分） / `./scripts/qa/Test-NeutralProcess.ps1` | 修正探针后退出0；独立自有PID53328正常退出，显式加载角色绝对目录、automatic模式，日志含control-rendered/package-loaded/pet-loaded/render-callback/shutdown。neutral观测时段16942ms，覆盖15秒阈值，无错误、拒绝、自然结束或播放实例重启 |
+| V02（静态部分） / `./scripts/qa/New-NeutralInspectionPreview.ps1`，再用view_image查看生成检查图 | 退出0；仅在artifacts生成浅白/深灰背景、1×/2×/4×整数复制预览，未写回角色成品。另直接view_image查看原始1×帧与ART既有4×图 |
+| 交付范围 / `git diff --cached --check`、`git diff --cached --name-only` | 提交前确认无空白错误，暂存内容仅本矩阵与scripts/qa |
+
+自有进程日志：`artifacts/qa-neutral-d7bde7b069254964a8954dcdf21067b5.jsonl`。使用 `-WindowStyle Hidden` 请求后台启动；这是自有应用日志证据，不是OS窗口可见性证明或原生UI验收。
+
+首次进程探针错误地要求只有一条frame日志，退出1。实际日志是加载与布局重绘各记录一次完全相同的neutral帧及PlaybackId=2，随后正常shutdown；代码 `ApplyLayout` 会清 lastFrame 再 Draw。这是QA断言错误，不是角色播放重启。探针已改为允许重绘，要求全部帧为automatic neutral且播放实例唯一；重跑上述PID53328通过。没有修改产品代码掩盖失败。
+
+### 视觉检查与限制
+
+实际预览 `artifacts/qa-neutral-background-preview.png` 的六组画面后：头冠与粉发间留空可辨，侧羽饰和下方羽尖均有保留，粉发、眼睛与紧凑身体可辨，未观察到明显裁边；透明区域显示各自检查背景，没有整块不透明底色。二值alpha由读取结果证明，检查预览不能代替真实桌面透明合成。4×下冠尖/冠线仍有不规则、零散像素，1×细节较少；不宣称边缘完美或逐像素复刻游戏。
+
+允许作为已检查的neutral单帧继续交接；五动作未交付，不计算为完整角色动画包。静态资源的4×预览不表示宿主支持4×（宿主现有倍率为1/2/3）。未操作原生窗口、未注入鼠标或键盘，未验真实拖动、跨屏、讲述人及首次启动坏素材；相关旧待验项保持不变。没有真实Codex联动，也未改默认包或发布。完成即交PM，等待下一张任务卡；沿用Draft PR #6，实际提交哈希随交接消息提供。

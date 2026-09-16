@@ -1,8 +1,8 @@
 # 首批角色素材制作记录
 
-状态：ART-005 已导出并由现有宿主实际加载 neutral 单帧包，待 PM/QA 外观与交互验收；不是完整六动作首包。2026-09-16。
+状态：ART-005 neutral 已获 PM/QA 本阶段验收；ART-006 的 idle-soft/idle-smile 已交付可加载候选，但存在头冠1px重绘差异，未满足无抖动视觉门槛，不能作为已验动画。不是完整六动作首包。2026-09-16。
 
-最新产物：ART-005 neutral 正式格式帧见本文末节。用户已接受 v2 头饰方向，并明确授权最近邻缩放、alpha 阈值及整数像素对齐。下列 ART-003/004 的“未获授权”“等待确认”是历史状态，已由本次授权取代；没有动画扩展授权。全部原图保留。
+最新产物：ART-006 两动作候选见本文末节；已验 neutral 保持原件。用户已接受 v2 头饰方向，并明确授权最近邻缩放、alpha 阈值及整数像素对齐，本卡另授权 idle-soft/idle-smile。下列 ART-003/004 的“未获授权”“等待确认”是历史状态，已由后续授权取代。全部原图保留。
 
 ## 基线、范围和产物
 
@@ -116,3 +116,87 @@ $artProbe.WaitForExit(15000)
 [本次完整自有进程日志](../../assets/characters/aemeath-v1/source/neutral-host-validation.jsonl)记录加载 `aemeath-v1`，Kind=character，disabled=[]；这是没有失效的已声明动作，不表示六动作齐全。另五动作 idle-soft、idle-smile、drag-pickup、drag-hold、drag-release 未声明，尚未交付。实测日志 dpi=144、scale=2、192×208 px，clientOffsetX/Y均为0；日志不能代替原生UI视觉验收。本轮没有桌面截图、拖动/中断、浅深背景或跨屏DPI验收，没有真实Codex状态联动或发布。
 
 交接：PM/QA以本次 neutral 包做下一步外观和实机验收，通过后再派多动作。本分支仅提交角色资源及此记录，复用 Draft PR #5；未合并PR、关闭Issue或新增任务。
+
+## ART-006：两动作候选及未通过的视觉门槛
+
+本卡在自己的 worktree 将 `codex/runtime-direction` 快进到 `9f7d270`，已读 README、开发流程、任务交接及 ADR0001–0003。PM 传达 neutral 的静态/格式和 QA-005 验收已通过，QA提交90a2210已进入统筹分支。当前任务卡只保存在任务对话；本节是实际制作与验证记录。尝试用 `gh issue view 2 --json title,body,state` 以及历史文档的 CLI 绝对路径读取 Issue 均失败，当前机器没有这些可调用路径；不声称已重新读取远端 Issue。以本卡明确范围和现行契约执行。
+
+**交付性质：供复核的候选，不是动画视觉验收通过。** 已有真实局部动作变化，格式、引用、时长及宿主自动切换通过；冠尖、细线与局部色块仍有重绘差异。未在此授权之外做锁区拼接、手工描线、调色或重采样补帧来掩盖问题。未绘制拖动/状态动作，未修改程序、测试、接口或锁文件。
+
+### 图像来源和帧安排
+
+使用内置 imagegen 共4次，一次一张，输入均为 v3 清理源图（编辑目标）和已验 neutral（位置/轮廓参考）。四个工具原件均保留，源图和每次完整提示词已原样归档 source。闭眼笑仅借鉴已有 ART-001 所记录的游戏闭眼笑姿态，开闭眼连接为原创改编；没有追加视频考据或宣称游戏逐帧复刻。
+
+| 正式格式候选 | source源图/提示词同名前缀 | 工具原始文件名 | 实际姿态 |
+| --- | --- | --- | --- |
+| `frames/soft-a.png` | `soft-a-generated-v1` | `exec-4f3a318e-2fcf-4433-bf88-ea95aad181e7.png` | 发梢抬起、下方羽饰内收较大，衣襟略变化 |
+| `frames/soft-b.png` | `soft-b-generated-v1` | `exec-88447047-293b-44a3-aef5-fcc49cc1e9a8.png` | 发梢抬起、羽尖内收较小 |
+| `frames/smile-half.png` | `smile-half-generated-v1` | `exec-906fa4ec-fa50-4ac4-9630-a3744f641405.png` | 半闭眼，仍可见金色眼睛 |
+| `frames/smile-closed.png` | `smile-closed-generated-v1` | `exec-091dd6ba-9d0c-4ad9-a23f-fb99bd700539.png` | 闭眼弧线和笑嘴 |
+
+工具原件所在目录统一为 `C:/Users/bigxi/.codex/generated_images/01a0abdf-e294-78d3-a6b8-eb0cef96a2a9/`。保留v1/v2/v3及已验neutral，neutral SHA-256仍为 `5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d`。
+
+manifest 升为0.2.0，仍为 schema1、character、sourceScale1、96×104、anchor(48,94)，共3动作5张实际图片：
+
+| 动作 | 第1–6时序项 | 时长ms | 来源/播放 |
+| --- | --- | --- | --- |
+| idle-soft | neutral → soft-b → soft-a → soft-a → soft-b → neutral | 400,150,150,400,150,150；总1400 | original / loop |
+| idle-smile | neutral → smile-half → smile-closed → smile-half → neutral → neutral | 120,120,500,120,120,220；总1200 | adaptation / once |
+
+呼吸按生成后的实际幅度排序，B是中间态、A是最大内收；A连续两个时序项合计550ms为顶点停留，首尾neutral形成550ms休止。笑脸闭眼保持500ms，末两项neutral合计340ms为收势。每动作3张不同姿态；复用是往返/停留，不是六张重复图充数。没有程序整图平移形成动作。
+
+### 转换、逐帧检查与已知问题
+
+[export-idle.py](../../assets/characters/aemeath-v1/source/export-idle.py)无新增依赖，复用既有PNG读写函数。每张源图都是1205×1306，固定全画布像素中心最近邻到96×104、阈值128、偏移(0,+5)，与neutral同参数；不按各帧包围盒缩放/居中。所有源图SHA、正式帧SHA及参数见 [idle-export-report.json](../../assets/characters/aemeath-v1/source/idle-export-report.json)。
+
+| 帧 | Bytes | 不透明像素 | 可见包围框（含端点） | 脚部末行 | 上半头部alpha差异数* |
+| --- | --- | --- | --- | --- | --- |
+| soft-a | 8566 | 2982 | (14,21)–(81,95) | 93 | 29 |
+| soft-b | 8728 | 3028 | (11,21)–(84,96) | 93 | 18 |
+| smile-half | 8945 | 3141 | (9,21)–(86,97) | 93 | 26 |
+| smile-closed | 8843 | 3148 | (9,21)–(86,97) | 93 | 26 |
+
+*相对neutral，统计y=22…55的alpha变化；不含新帧y=21冠尖新增像素。RGBA逐字节不同像素数量很大，包含生成重编码/细小色值差异，不把它等同于有意义动作幅度。
+
+已使用 view_image 实看四张生成原图和四张4×最近邻导出图，并对照前卡neutral 1×/4×。眼睛、脸和紧凑头身比仍可识别，细冠留空、小侧羽饰保留；所有帧脚部中央x=38…57末行y=93，画布留白完整，阈值后不透明采样裁切数0。正式PNG均RGBA8、alpha只有0/255，CRC重新解码通过，均远小于256KiB。
+
+**未通过/待复核项：**
+
+- 新帧冠尖最上方为y=21，neutral是y=22；固定整数偏移不能单独修复冠尖而不移动脚。上半头冠/发饰边缘存在18–29个alpha变化，1×/4×可对比，循环存在闪动风险，不能宣称无抖动或逐像素锁定。
+- soft-a的羽饰左右极值比neutral各收进5px，soft-b各收进2px；大于提示词所期望的1–2px，发梢也有形变。实际更像小幅收羽/发梢起伏，不能宣称精确的纯胸腔呼吸。A/B/neutral往返的平滑感需用户评审。
+- 笑脸表情明确，但非眼部也有重绘色值和细线差异。没有足够证据把4张候选标记为外观一致性通过。
+
+### 可复核预览与实际验证
+
+[独立检查页 idle-inspection.html](../../assets/characters/aemeath-v1/source/idle-inspection.html)内嵌真实PNG，离线即可打开；含浅/深底3×、源帧1×、六项逐帧按钮、逐毫秒拖条、循环/单次及15秒待机→笑脸→待机预览。4张 `source/*-preview-4x.png` 是最近邻静态检查图，不是额外动画帧。检查页由 [make-idle-preview.py](../../assets/characters/aemeath-v1/source/make-idle-preview.py)生成，只作审查，不改变宿主。
+
+实际命令与结果：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/export-idle.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/make-idle-preview.py
+& ./scripts/build.ps1 -Publish
+foreach ($name in @('soft-a','soft-b','smile-half','smile-closed')) {
+  & ./scripts/qa/Inspect-Png.ps1 -Path "assets/characters/aemeath-v1/frames/$name.png"
+}
+```
+
+上述命令均exit0。构建0警告0错误；没有重跑无关全套测试。预览生成检查引用均存在、两动作各6项/3个不同图、时长数组与1400/1200ms精确匹配，固定锚点正确；独立既有 Inspect-Png.ps1复核四帧格式、二值alpha及字节数通过。
+
+复用生产宿主/加载器以及现有 smoke-character-host 的断言，使用实际角色目录参数（未修改现有验证脚本）：
+
+```powershell
+$artExe = Join-Path $PWD 'artifacts/host-win-x64/Aemeath.Host.exe'
+$artPackage = Join-Path $PWD 'assets/characters/aemeath-v1'
+$artLog = Join-Path $PWD 'assets/characters/aemeath-v1/source/idle-host-automatic.jsonl'
+$artProbe = Start-Process -FilePath $artExe -ArgumentList @('--package', ('"' + $artPackage + '"'), '--diagnostics', ('"' + $artLog + '"'), '--mode', 'automatic', '--scale', '2', '--exit-after-ms', '18000') -WorkingDirectory $env:TEMP -WindowStyle Hidden -PassThru
+$artProbe.WaitForExit(30000)
+```
+
+实际PID52448，exit0；日志 [idle-host-automatic.jsonl](../../assets/characters/aemeath-v1/source/idle-host-automatic.jsonl)有package-loaded/render-callback/shutdown，无package-rejected/position-error；从首个idle-soft到首个idle-smile精确15000ms，笑脸索引0…5均出现，仅1次natural-end，此后返回idle-soft。宿主exe SHA256为 `E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0`，代码基线9f7d270。另一次60秒3×运行PID41528用于窗口检查，记录在 [idle-host-validation.jsonl](../../assets/characters/aemeath-v1/source/idle-host-validation.jsonl)，正常定时退出。
+
+使用computer-use技能/sky实际查看原生控制窗：0.2.0角色包已加载、自动idle-soft、DPI144、3×；显示可播放neutral/idle-soft/idle-smile，缺失三个拖动动作。透明宠物窗口未出现在可选窗口列表，未通过猜测句柄绕过。该截图只证明控制窗状态，不能作为宠物连续视觉验收。浏览器检查页已在本地打开且观察到时间项前进；独立Chrome界面检查被Computer Use终止，原因是无法足够可靠确定当前浏览器URL以执行策略。此后停止所有界面输入，没有绕过。连续播放的视觉平顺性、浅深底动态表现、原生宠物的15秒笑脸切换视觉均保留待验，日志不代替它们。
+
+### 交接
+
+PM可从上述HTML直接逐帧比较，重点看冠尖y21/22和发冠边线。当前manifest是便于加载的0.2.0候选，未获准替换默认皮肤；neutral原件完整保留。若要求像素完全锁定的静止区域，下一步需PM决定重新生成策略或另行授权锁区合成，不能在本卡仅允许的格式转换外自行修补。交付本次候选和具体失败证据后等待下一卡，不继续扩展动作。

@@ -16,6 +16,8 @@
 
 ## 从这里开始
 
+- [项目状态与 PM 工作台](docs/project-status.md)
+- [PM 任务卡](docs/task-cards/README.md)
 - [需求与参考调查](docs/aemeath-reference-notes.md)
 - [开发流程和任务分工](docs/development-workflow.md)
 - [第一阶段工作计划](docs/superpowers/plans/2026-09-16-project-bootstrap.md)

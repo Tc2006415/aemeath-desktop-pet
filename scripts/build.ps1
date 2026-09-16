@@ -5,7 +5,7 @@ $dotnetExe = Join-Path $env:LOCALAPPDATA 'Aemeath/toolchains/dotnet/10.0.401/dot
 if (-not (Test-Path -LiteralPath $dotnetExe)) { throw 'Required user SDK 10.0.401 is not installed.' }
 Push-Location $repoDir
 try {
-    & $dotnetExe restore Aemeath.slnx
+    & $dotnetExe restore Aemeath.slnx --locked-mode
     if ($LASTEXITCODE -ne 0) { throw 'Restore failed' }
     & $dotnetExe build Aemeath.slnx -c Release --no-restore
     if ($LASTEXITCODE -ne 0) { throw 'Build failed' }

@@ -69,11 +69,12 @@ internal sealed class DiagnosticWindow : Window
             log.Write("package-rejected", new { category = session.Error, retained = session.Current is not null }); return;
         }
         var package = session.Current!;
-        pet.SetPackage(package); pet.Show();
         string kind = package.Kind == "diagnostic" ? "诊断素材（不是角色成品）" : "角色素材声明（未代表视觉验收）";
         packageLabel.Text = $"{kind} · {package.Id} / {package.Version}";
         var unavailable = new[] { "neutral", "idle-soft", "idle-smile", "drag-pickup", "drag-hold", "drag-release" }.Where(id => !package.Clips.ContainsKey(id));
         ReportError($"可播放：{string.Join(", ", package.Clips.Keys)}\n缺失或停用：{string.Join(", ", unavailable)}");
+        // Loaded/ApplyLayout may report a positioning failure. Do not overwrite that error after Show.
+        pet.SetPackage(package); pet.Show();
     }
     public void Stop()
     {

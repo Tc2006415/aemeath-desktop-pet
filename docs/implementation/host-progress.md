@@ -66,3 +66,12 @@ Current display as read by this application: DPI 144. Actual own-window rectangl
 - Manual checks: select idle-soft, drag visible pixels for two cycles, release outside/cancel, inspect transparent margin and rectangle-outside clicks; switch 1x/2x; use Tab/Enter, Alt+X, Alt+F4 and Narrator to verify exit. Load a rejected package then verify the old valid package persists. Log categories intentionally omit private paths and stack traces.
 - QA independently reported baseline 372e38d: locked restore/build + 20 tests, 10 extra contract probes and two actual Windows junction rejections passed. Full window review requested separately against the next fixed commit.
 - H1 partial (build/process/render evidence only); H2 native input pending; H4 numeric 144 DPI measurements passed but visual/hit checks pending; H5 loader/first-failure process behavior passed but real keyboard/Narrator pending. H3 not implemented; H6 clean-machine acceptance not performed. No claim that these gates or a release are accepted.
+
+Initial complete-host publish provenance (code commit `e0e0eac238f06ce4d1c43d2d8d22c9df6416673e`, rebuilt after commit with `dotnet publish ... -c Release -r win-x64 --self-contained true --no-restore -p:PublishTrimmed=false -p:PublishSingleFile=false -o artifacts/host-win-x64`): 407 files, 146,436,415 bytes, including all three PNGs and manifest. Repeated idle-soft own-process smoke passed at this fixed source revision (PID 17824, exit 0).
+
+- Aemeath.Host.exe SHA256: `4FE0A0A764589A61F7DAB3D10684A27B4DC458C1EF176F22DA0365D4567A5A85`
+- Aemeath.Host.dll SHA256: `191ED790B1170F60641DDF389D89A46D830BE6B51CBF1BB9F27C1116B01E152A`
+
+These identify this local directory build, not a signed release. Both the executable and its adjacent runtime/assets directory are required. Full UI and clean-machine gates remain as listed above.
+
+Review follow-up: load status is now set before showing the pixel window, so Loaded/ApplyLayout errors remain visible. scripts/validate.ps1 after this change passed locked restore, build 0 warnings/errors and 20/20 tests. QA independently rebuilt and ran e0e0eac loop/once/bad-neutral probes successfully; actual input/visual checks remain pending.

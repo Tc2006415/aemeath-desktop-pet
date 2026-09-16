@@ -1,6 +1,7 @@
 # Windows 桌宠运行方案提案
 
 状态：待统筹评审；不是已接受的 ADR 或共享接口。调查日期：2026-09-16。
+状态更新（DEV-002）：DEV-001 文档提交 `02626be` 已由 PM 验收；运行方向现按 PM 决策 `bf673927` 确定为独立 Windows 桌宠。下文保留历史候选与调查，未因文档验收冻结数值/接口；当前最小宿主候选见 [windows-host-v1.md](../specs/windows-host-v1.md)，以最新 PM 输入为准。
 关联：[Issue #1](https://github.com/Tc2006415/aemeath-desktop-pet/issues/1)。基线提交：`369b826`。
 
 ## 结论与实施门槛

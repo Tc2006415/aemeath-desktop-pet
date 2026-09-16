@@ -1,8 +1,8 @@
 # 首批角色素材制作记录
 
-状态：基准原图已交付，待外观评审及技术转换授权；不属于可加载角色包。2026-09-16。
+状态：ART-005 已导出并由现有宿主实际加载 neutral 单帧包，待 PM/QA 外观与交互验收；不是完整六动作首包。2026-09-16。
 
-最新候选：ART-004-H 的 v2 头饰修订见本文末节；仍待用户外观确认，v1保留。下列ART-003记录为历史制作证据，不表示已获转换或动画扩展授权。
+最新产物：ART-005 neutral 正式格式帧见本文末节。用户已接受 v2 头饰方向，并明确授权最近邻缩放、alpha 阈值及整数像素对齐。下列 ART-003/004 的“未获授权”“等待确认”是历史状态，已由本次授权取代；没有动画扩展授权。全部原图保留。
 
 ## 基线、范围和产物
 
@@ -70,3 +70,49 @@
 | alpha、像素成品和实机播放 | 本轮未统计完整alpha分布或验证二值alpha，未做像素清理、正式帧或运行验收；边缘噪点已视觉确认 |
 
 本轮只新增上述PNG、提示词并补充本记录，提交前检查 `git diff --cached --check` 与暂存路径。没有改代码、接口、manifest或其他图帧。到此停止，等待外观反馈；之前提出的确定性转换建议仍未因本轮复制归档而获得授权。
+
+## ART-005：一次边缘清理及 neutral 单帧包
+
+用户通过 PM 明确授权格式转换；范围为本角色目录和制作记录，转换脚本只能位于 source，无新增依赖。本轮仅使用内置 imagegen 对 v2 做一次局部清理，没有扩大动作或修改代码、接口及契约。
+
+### 来源、固定参数和产物
+
+- 原始生成副本：[v3清理源图](../../assets/characters/aemeath-v1/source/neutral-generated-v3-edge-cleanup.png)，[完整提示词](../../assets/characters/aemeath-v1/source/neutral-generated-v3-edge-cleanup.prompt.txt)。工具原件为 `C:/Users/bigxi/.codex/generated_images/01a0abdf-e294-78d3-a6b8-eb0cef96a2a9/exec-3e65628b-c292-45b2-ba1d-37bf93f035db.png`，复制归档不覆盖 v1/v2。
+- 视觉检查 v3 后保留其作为转换基线：未观察到已认可的头冠留空、紧凑侧羽饰、面部、粉发与身体轮廓被破坏；清理并未消除所有冠尖/细线边缘噪点，不声称逐像素不变或完全干净。
+- [转换脚本](../../assets/characters/aemeath-v1/source/export-neutral.py)仅用 Python 标准库。完整 1205×1306 画布映射至 96×104，使用像素中心最近邻：`sx=floor((2*x+1)*1205/(2*96))`，y 同理；无裁剪、无包围盒归一化。alpha <128 设透明且 RGB 清零，其余保留采样 RGB 并设 alpha=255。最后固定整数偏移 `(0,+5)`，不做手工补像素、描边或颜色量化。
+- [正式帧](../../assets/characters/aemeath-v1/frames/neutral.png)、[最小 manifest](../../assets/characters/aemeath-v1/manifest.json)、[4×最近邻检查图](../../assets/characters/aemeath-v1/source/neutral-preview-4x.png)、[可重现导出报告](../../assets/characters/aemeath-v1/source/neutral-export-report.json)。预览不是动作帧。
+- manifest 为 `aemeath-v1 / 0.1.0 / character`，固定锚点 `(48,94)`；仅 original neutral 一帧、loop、1000 ms。未用重复帧补造其他动作。
+
+### 实际检查与结果
+
+| 检查 | 结果 |
+| --- | --- |
+| 源图 SHA-256 | `45b754f137d68f7d7acd38c25719e853af75bd4f4d11ca1cbd33cfca91a35948` |
+| 正式 PNG | 静态 RGBA8，96×104，8860 bytes，小于256 KiB；重新解码且所有块 CRC 通过 |
+| alpha | 仅0/255；3108个不透明像素 |
+| 可见范围（含端点） | `(9,22)–(86,97)`；平移裁掉的不透明采样数为0，头冠、侧羽饰及下方羽饰未触画布边 |
+| 脚部基线 | 中央脚部 x=38…57 范围末行在 y=93，y=94/95 无不透明像素；锚点保持契约常量 |
+| 正式帧 SHA-256 | `5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d` |
+| 静态视觉 | 用 view_image 实际查看正式1×帧及4×最近邻图；细冠尖拱、冠与粉发留空、金色眼睛、小侧羽饰和下方羽尖仍可辨认，无观察到裁边。冠尖仍有不规则像素；1×细节明显少于高分辨率原图，最终外观由用户/PM/QA判断 |
+| 现有验证脚本 | `./scripts/validate.ps1 -Publish`，exit 0；Release构建0警告0错误，现有测试20通过、0失败、0跳过 |
+| 真实包加载 | 复用现有宿主 CLI，下述命令参数启动自有进程 PID18276，exit 0；日志具备 control-rendered、package-loaded、pet-loaded、render-callback、layout、shutdown，无 package-rejected/position-error |
+
+重现导出命令：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe assets/characters/aemeath-v1/source/export-neutral.py
+```
+
+现有 `smoke-host.ps1` 没有 package 参数，因此没有改写它；以它的证据断言复用现有宿主参数直接加载角色目录。实际调用（在工作区根目录解析绝对路径）：
+
+```powershell
+$artExe = Join-Path $PWD 'artifacts/host-win-x64/Aemeath.Host.exe'
+$artPackage = Join-Path $PWD 'assets/characters/aemeath-v1'
+$artLog = Join-Path $PWD 'artifacts/art005-neutral-load.jsonl'
+$artProbe = Start-Process -FilePath $artExe -ArgumentList @('--package', ('"' + $artPackage + '"'), '--diagnostics', ('"' + $artLog + '"'), '--clip', 'neutral', '--scale', '2', '--exit-after-ms', '3500') -WorkingDirectory $env:TEMP -WindowStyle Hidden -PassThru
+$artProbe.WaitForExit(15000)
+```
+
+[本次完整自有进程日志](../../assets/characters/aemeath-v1/source/neutral-host-validation.jsonl)记录加载 `aemeath-v1`，Kind=character，disabled=[]；这是没有失效的已声明动作，不表示六动作齐全。另五动作 idle-soft、idle-smile、drag-pickup、drag-hold、drag-release 未声明，尚未交付。实测日志 dpi=144、scale=2、192×208 px，clientOffsetX/Y均为0；日志不能代替原生UI视觉验收。本轮没有桌面截图、拖动/中断、浅深背景或跨屏DPI验收，没有真实Codex状态联动或发布。
+
+交接：PM/QA以本次 neutral 包做下一步外观和实机验收，通过后再派多动作。本分支仅提交角色资源及此记录，复用 Draft PR #5；未合并PR、关闭Issue或新增任务。

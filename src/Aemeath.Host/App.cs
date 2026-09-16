@@ -20,7 +20,7 @@ public sealed class App : Application
     private void Start(string[] args)
     {
         string package = Path.Combine(AppContext.BaseDirectory, "assets", "diagnostic");
-        string? logPath = null, optionError = null, initialClip = null; int? exitAfter = null; int scale = 2;
+        string? logPath = null, optionError = null, initialClip = null; int? exitAfter = null; int scale = 2; bool automatic = false;
         for (int i = 0; i < args.Length; i++)
         {
             if (i + 1 >= args.Length) { optionError = "启动参数不完整。"; break; }
@@ -29,6 +29,7 @@ public sealed class App : Application
             else if (key == "--diagnostics") logPath = value;
             else if (key == "--clip" && value is "neutral" or "idle-soft" or "idle-smile" or "drag-pickup" or "drag-hold" or "drag-release") initialClip = value;
             else if (key == "--scale" && int.TryParse(value, out var k) && k is >= 1 and <= 3) scale = k;
+            else if (key == "--mode" && value is "automatic" or "manual") automatic = value == "automatic";
             else if (key == "--exit-after-ms" && int.TryParse(value, out var ms) && ms is >= 100 and <= 60000) exitAfter = ms;
             else { optionError = "启动参数无效。"; break; }
         }
@@ -41,7 +42,7 @@ public sealed class App : Application
         control.Closed += (_, _) => Stop();
         control.Show();
         if (optionError is not null) control.ReportError(optionError);
-        else control.Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new Action(() => control.LoadInitial(package, initialClip, scale)));
+        else control.Dispatcher.BeginInvoke(DispatcherPriority.ContextIdle, new Action(() => control.LoadInitial(package, initialClip, scale, automatic)));
         if (exitAfter is int delay)
         {
             exitTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(delay) };

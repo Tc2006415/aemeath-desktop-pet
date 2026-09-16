@@ -13,6 +13,8 @@ internal sealed class DiagnosticWindow : Window
     private readonly TextBlock metrics = new() { Text = "尚未加载", TextWrapping = TextWrapping.Wrap };
     private readonly TextBlock errors = new() { TextWrapping = TextWrapping.Wrap };
     private readonly ComboBox actions = new() { MinWidth = 180, SelectedIndex = 0 };
+    private readonly CheckBox automatic = new() { Content = "自动角色交互（待机 / 笑脸 / 拖动）", Margin = new Thickness(0, 10, 0, 4) };
+    private readonly Button playButton;
     private readonly PetWindow pet;
     private readonly DiagnosticLog log;
     private bool stopped;
@@ -23,17 +25,23 @@ internal sealed class DiagnosticWindow : Window
         Title = "爱弥斯宿主诊断（模拟/未连接）"; Width = 640; Height = 510; MinWidth = 480; MinHeight = 420;
         var panel = new StackPanel { Margin = new Thickness(20) }; Content = new ScrollViewer { Content = panel, VerticalScrollBarVisibility = ScrollBarVisibility.Auto };
         AddText(panel, "来源：未连接 · 任务状态：未知", 20);
-        AddText(panel, "仅手动诊断播放；没有真实 Codex 联动。素材错误不会改变任务状态。");
+        AddText(panel, "本地角色交互 / 手动诊断；没有真实 Codex 联动。笑脸不表示任务成功。");
         AddText(panel, "本地素材包目录");
         path = new TextBox { Text = initialPackage, Margin = new Thickness(0, 4, 0, 8) }; SetAccessibleName(path, "本地素材包目录"); panel.Children.Add(path);
         var loading = new StackPanel { Orientation = Orientation.Horizontal };
         loading.Children.Add(Button("加载 / 重载", LoadPackage));
         loading.Children.Add(Button("重新居中", () => { if (session.Current is not null) { pet.Show(); pet.Center(); } }));
         panel.Children.Add(loading); panel.Children.Add(packageLabel);
+        SetAccessibleName(automatic, "自动角色交互模式");
+        panel.Children.Add(automatic);
+        AddText(panel, "勾选自动模式：待机 15 秒后笑脸一次；拖动时拎起、悬停、松手。取消勾选恢复手动诊断。");
         foreach (var action in new[] { "neutral", "idle-soft", "idle-smile", "drag-pickup", "drag-hold", "drag-release" }) actions.Items.Add(action);
         SetAccessibleName(actions, "手动选择诊断动作");
         var playback = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 12, 0, 8) };
-        playback.Children.Add(actions); playback.Children.Add(Button("播放所选动作", () => pet.Play((string)actions.SelectedItem))); panel.Children.Add(playback);
+        playButton = Button("播放所选动作", () => pet.Play((string)actions.SelectedItem));
+        playback.Children.Add(actions); playback.Children.Add(playButton); panel.Children.Add(playback);
+        automatic.Checked += (_, _) => ChangeMode(true);
+        automatic.Unchecked += (_, _) => ChangeMode(false);
         var scales = new StackPanel { Orientation = Orientation.Horizontal };
         foreach (int scale in new[] { 1, 2, 3 }) scales.Children.Add(Button($"{scale}× 像素", () => pet.SetScale(scale)));
         var topmost = new CheckBox { Content = "置顶", Margin = new Thickness(12, 8, 0, 0) }; SetAccessibleName(topmost, "像素窗口置顶");
@@ -55,10 +63,14 @@ internal sealed class DiagnosticWindow : Window
     private static void AddText(Panel parent, string text, double fontSize = 14)
         => parent.Children.Add(new TextBlock { Text = text, FontSize = fontSize, TextWrapping = TextWrapping.Wrap, Margin = new Thickness(0, 0, 0, 8) });
     public void ReportError(string text) { errors.Text = text; }
-    internal void LoadInitial(string root, string? clip, int scale)
+    private void ChangeMode(bool enabled)
     {
-        path.Text = root; pet.SetScale(scale); LoadPackage();
-        if (clip is not null) { actions.SelectedItem = clip; pet.Play(clip); }
+        actions.IsEnabled = playButton.IsEnabled = !enabled; pet.SetAutomatic(enabled);
+    }
+    internal void LoadInitial(string root, string? clip, int scale, bool autoMode)
+    {
+        path.Text = root; pet.SetScale(scale); automatic.IsChecked = autoMode; LoadPackage();
+        if (clip is not null && !autoMode) { actions.SelectedItem = clip; pet.Play(clip); }
     }
     public void LoadPackage()
     {

@@ -20,7 +20,8 @@ internal sealed class PetWindow : Window
     private readonly DiagnosticLog log;
     private readonly Action<string> status, error;
     private AssetPackage? package;
-    private Playback? player;
+    private CharacterController? controller;
+    private bool automatic;
     private Dictionary<string, BitmapSource> images = [];
     private HwndSource? source;
     private IntPtr hwnd;
@@ -60,17 +61,26 @@ internal sealed class PetWindow : Window
             var bitmap = BitmapSource.Create(96, 104, 96, 96, PixelFormats.Bgra32, null, decoded.Bgra, 96 * 4);
             bitmap.Freeze(); nextImages.Add(path, bitmap);
         }
-        package = next; images = nextImages; player = new Playback(next.Clips); player.Play("neutral", clock.ElapsedMilliseconds);
+        package = next; images = nextImages;
+        controller = new CharacterController(next.Clips, () => clock.ElapsedMilliseconds);
+        controller.SetAutomatic(automatic);
         lastFrame = null; Draw();
         log.Write("package-loaded", new { next.Id, next.Version, next.Kind, disabled = next.DisabledActions.Keys });
     }
     public void Play(string action)
     {
-        if (player is null) return;
-        var id = player.Play(action, clock.ElapsedMilliseconds);
-        log.Write("play-request", new { action, id, available = id != 0 });
-        if (id == 0) error("动作缺失或已停用；已回 neutral。");
+        if (controller is null) return;
+        if (automatic) { error("自动模式中不能手动选择动作；请先切换到手动模式。"); return; }
+        bool available = controller.PlayManual(action);
+        log.Write("play-request", new { action, available });
+        if (!available) error("动作缺失或已停用；已回 neutral。");
         Draw();
+    }
+    public void SetAutomatic(bool enabled)
+    {
+        if (automatic == enabled) return;
+        EndDrag("mode-change"); automatic = enabled; controller?.SetAutomatic(enabled);
+        log.Write("mode", new { automatic }); lastFrame = null; Draw();
     }
     public void SetScale(int next) { EndDrag("scale-change"); var prior = scale; scale = next; ApplyLayout(false, prior); }
     public void Center() { EndDrag("recenter"); ApplyLayout(true); }
@@ -82,16 +92,16 @@ internal sealed class PetWindow : Window
     }
     private void Draw()
     {
-        if (player is null || package is null || stopped) return;
-        var sample = player.Sample(clock.ElapsedMilliseconds);
+        if (controller is null || package is null || stopped) return;
+        var sample = controller.Sample();
         var path = package.Clips[sample.Action].Frames[sample.FrameIndex].Path;
         image.Source = images[path];
         var key = $"{sample.PlaybackId}:{sample.Action}:{sample.FrameIndex}";
         if (key != lastFrame)
         {
             lastFrame = key;
-            log.Write("frame", new { sample.Action, sample.FrameIndex, sample.PlaybackId, dragging = drag.Active });
-            status($"{sample.Action} · 帧 {sample.FrameIndex + 1} · DPI {dpi} · 倍率 {scale}× · {(drag.Active ? "拖动中" : "未拖动")}");
+            log.Write("frame", new { sample.Action, sample.FrameIndex, sample.PlaybackId, dragging = drag.Active, automatic });
+            status($"{(automatic ? "自动交互" : "手动诊断")} · {sample.Action} · 帧 {sample.FrameIndex + 1} · DPI {dpi} · 倍率 {scale}× · {(drag.Active ? "拖动中" : "未拖动")}");
         }
         if (sample.CompletedId is long completed) log.Write("natural-end", new { completed });
     }
@@ -102,7 +112,9 @@ internal sealed class PetWindow : Window
         {
             var cursor = NativeMethods.Cursor(); var rect = NativeMethods.Bounds(hwnd);
             if (!CaptureMouse()) { error("鼠标捕获失败；未进入拖动。"); return; }
-            drag.Start(cursor, new(rect.Left, rect.Top)); Focus();
+            drag.Start(cursor, new(rect.Left, rect.Top));
+            controller?.BeginDrag();
+            Focus();
             log.Write("drag-start", new { cursor, origin = new ScreenPx(rect.Left, rect.Top) });
             lastFrame = null; Draw(); e.Handled = true;
         }
@@ -127,8 +139,8 @@ internal sealed class PetWindow : Window
         // Clear first: ReleaseMouseCapture synchronously raises LostMouseCapture.
         if (!drag.End()) return;
         if (IsMouseCaptured) ReleaseMouseCapture();
+        controller?.EndDrag();
         log.Write("drag-end", new { reason }); lastFrame = null; Draw();
-        // DEV-003 has no state integration: the explicitly selected clip simply keeps its own clock.
     }
     private void ApplyLayout(bool center, int? oldScale = null)
     {
@@ -179,7 +191,7 @@ internal sealed class PetWindow : Window
         EndDrag("shutdown"); stopped = true;
         if (renderingSubscribed) { CompositionTarget.Rendering -= Render; renderingSubscribed = false; }
         source?.RemoveHook(WindowMessage);
-        image.Source = null; images.Clear(); player = null; package = null;
+        image.Source = null; images.Clear(); controller = null; package = null;
         log.Write("pet-stopped");
     }
 }

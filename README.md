@@ -12,12 +12,12 @@
 - 任务状态：工作、等待用户、完成、失败能区分。
 - Windows 桌面：透明背景、拖动、位置恢复、缩放、退出入口。
 
-独立桌宠是推荐方案；Codex 内置兼容皮肤作为备选。平台方案将在技术验证后通过 ADR 明确，不修改 Codex 安装包。
+用户已确定采用独立 Windows 桌宠；技术栈与共享接口正在收敛，尚无可运行版本。不修改 Codex 安装包。
 
 ## 从这里开始
 
 - [项目状态与 PM 工作台](docs/project-status.md)
-- [PM 任务卡](docs/task-cards/README.md)
+- 现行 PM 任务卡直接发送到各任务对话；仓库任务卡仅供历史追溯。
 - [需求与参考调查](docs/aemeath-reference-notes.md)
 - [开发流程和任务分工](docs/development-workflow.md)
 - [第一阶段工作计划](docs/superpowers/plans/2026-09-16-project-bootstrap.md)

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Aemeath.Host/Aemeath.Host.csproj" />
+  <Project Path="src/Aemeath.Presentation/Aemeath.Presentation.csproj" />
+</Solution>

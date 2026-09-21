@@ -1,0 +1,19 @@
+{
+  "status":"Two endpoint candidates for PM review; not a completed animation or amplitude approval",
+  "selectedSources":["up-v2","down-v1"],
+  "imagegenCalls":{"up":2,"down":1},
+  "maskVersions":1,
+  "reviewedImages":["art012-compare-light-1x.png","art012-compare-dark-1x.png","art012-compare-light-3x.png","art012-compare-dark-3x.png"],
+  "visualFindings":"Wing angles distinguishable at 1x and3x. Fixed root neighborhoods remain connected; no obvious double old tips, rectangular seam or canvas crop. Head/hair/torso/face preserve hold-half. Up-v1 was rejected before composition because it raised roots and added large feathers beside hair.",
+  "amplitudeMethod":"Mean y of occupied pixels in outermost two columns of each outer wing ROI. This is an explicit silhouette proxy, not physical point tracking.",
+  "referenceTipMeanY":[93.222,93.222],
+  "upTipMeanY":[83.5,83.857],
+  "downTipMeanY":[96.375,96.375],
+  "upDeltaFromReference":[-9.722,-9.365],
+  "downDeltaFromReference":[3.153,3.153],
+  "endpointSpan":[12.875,12.518],
+  "halfEndpointSpan":[6.4375,6.259],
+  "amplitudeLimitation":"Not symmetric plus/minus4to6 around original hold. Up endpoint exceeds that trial target. Both endpoints fit96x104; PM must decide whether this reads as medium or requires a newly authorized narrower revision. Up reached2-attempt limit; no further generation here.",
+  "donorOutsideWingNote":"Both selected donors add one opaque pixel at(72,65), outside lower-wing region. It is ignored by explicit mask; candidate retains original hair pixel. This is not a cropped wing tip.",
+  "runtime":"No manifest/timings or host changes; no complete flap loop, original input validation, or expression timing claim. Both endpoints use unchanged accepted hold-half expression."
+}

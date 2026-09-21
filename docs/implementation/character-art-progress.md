@@ -545,3 +545,46 @@ build生成body-only来源；expressions再生成最终包。所有PNG经生产�
 1×小张嘴较含蓄；hold每720ms眨眼一次，节奏是否理想由PM视觉评审决定。羽饰沿用已验素材的峰值局部集合距离3px和内羽1px回摆限制。固定四项动作在中途松手/再抓会从目标动作入口开始，不做上一姿态插值；快松手可能跳过惊讶，属于取消pickup的预期。真实输入下的节奏及任何阶段切换自然度仍需QA评审，未宣称全部边界通过。
 
 本轮仅交付source/art011-*与本记录；请只选最终art011-package，不采用body-only历史过程包，不整体回流分支的旧正式0.2.0。等待PM/QA独立验收，正式0.3.0保持，不推广、发布或进入联动。
+
+## ART-012：中幅扇翼两端关键姿态试样（2026-09-21）
+
+### 任务边界与基线
+
+用户追加拖动时中等幅度扇动翅膀。PM派ART-012仅制作两端关键姿态供审核，暂停旧hold视觉放行；本卡不扩循环、不改时长、不替换正式包。读取最新PM状态后以395fce2的最终 `art011-package/frames/hold-half.png` 为不可变底图，保留微笑表情、收起身体、头冠、头发、脸外轮廓与锚点(48,94)。绘制仍以neutral-v3高分辨率原图为imagegen编辑源，最终只采用翼部像素。
+
+### 次数与来源
+
+内置imagegen共3次：上扬v1、上扬v2、下压v1。各原图与完整prompt保存为art012相应前缀source.png/prompt.txt。上扬v1明显把翅根提到头发两侧，翼片过大，主动退回；只保留原图、96×104完整donor与失败理由，不将其截断后冒充可用姿态。上扬v2已达2次上限；下压仅用1次。全部合成只用一版翼部mask，未新增程序绘制像素。
+
+生成原始文件：up-v1=exec-fcf73410-4dd2-4fd4-8226-85b3b2b5480c.png；up-v2=exec-383b3f01-d407-4cab-834c-091913dfb2c5.png；down-v1=exec-f097869e-bb8a-4dbf-92fb-4f87fd5cf853.png。原始generated_images文件保留，仓库副本逐字节复制。
+
+### 合成与幅度证据
+
+`art012-build.py`独立生成：1205×1306源采用既有pixel-center最近邻、alpha128、整数偏移(0,+5)，没有对整图或翅膀做程序旋转/平移/拉伸；姿态来自imagegen重绘。明确翼部mask左侧为x4…23/y78…84、x4…26/y85…88、x4…30/y89…102，右侧镜像x→95-x。全部y<78及中央x31…64保持底图；脚本禁止mask包含底图粉发像素。mask内完整RGBA替换包含透明擦除，去除旧翼轮廓；mask外RGBA差分0。
+
+| 候选 | PNG字节 | 变化像素 | 旧不透明清除 / 新增 | 全图bbox | 底部透明余量 |
+| --- | --- | --- | --- | --- | --- |
+| up-v2 | 8758 | 450 | 122 / 90 | (9,22)-(86,96) | 7px |
+| down-v1 | 8731 | 472 | 152 / 111 | (12,22)-(83,99) | 4px |
+
+输出SHA：up-v2=`fe631808c7cef27795fdae51daff0fae9ea98251b36356b855881062d6586a85`；down-v1=`e3af22f9bb6f9c9405ddc22b78badd1cf986658eb359e383ccec2de0acf0e2c0`。两图96×104 RGBA8、二值alpha、无越界不透明采样，冠顶y22；身体和表情与hold-half逐像素一致。两个生成donor在(72,65)各有一处额外不透明像素，属于翼区外重绘，遮罩明确丢弃并保留原头发像素，不是裁去翼尖。
+
+幅度采用明确可复核的轮廓代理：左右外翼区域最外两列不透明像素的平均y，不声称为同一物理羽尖的精确点跟踪。原hold左右均93.222；up左右83.500/83.857；down均96.375。因此相对原姿态上移9.722/9.365px、下移3.153px；两端总行程12.875/12.518px，半行程约6.44/6.26px。**这不是围绕原姿态对称±4–6px，上扬实际超出该试样目标**。画布容得下且静态角度可辨，但是否仍符合用户所说中幅需PM确认；不偷偷称幅度达标，也不因有余量继续突破上扬2次上限。此处像素均为96×104/sourceScale1角色像素；高分辨率生成源按同比例提示。
+
+### 实际验证和实看
+
+以下命令实际执行，退出0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art012-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art012-preview.py
+./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art012-up-v2-96.png
+./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art012-down-v1-96.png
+git diff --check
+```
+
+Inspect-Png的System.Drawing独立读取确认两图96×104、RGBA8/color6、0半透明，哈希同上；结果 `art012-inspect-png.json`。构建报告保留原图SHA、转换、完整mask坐标、静止区差分、透明清除、翼尖量化、四边余量，以及正式包和ART011最终包前后SHA不变证明。实际查看 `art012-compare-light-1x.png`、dark-1x、light-3x、dark-3x，顺序原hold / 上扬v2 / 下压v1。角度在1×也可辨；未见明显矩形接缝、翅根断裂、旧翼双影或触边；头部和身体稳定。原始上扬v1的失败及幅度限制完整记录于 `art012-visual-review.json`。
+
+### 交接
+
+只交两端姿态和并排图；另提供自含PNG的 `art012-inspection.html` 供切换，制作方本轮以PNG实看，未运行该网页。没有新增manifest或扇动时序，没有实际宿主播放本试样，不称完整动画或动态验收。既有表情来源原样保留，未来经PM批准的完整循环再同步其他表情。当前先交PM判断实际幅度，必要时收敛方案须另行授权；不修改已验ART011来源或正式0.3.0，交付后停止。

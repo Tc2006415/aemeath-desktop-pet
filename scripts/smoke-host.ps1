@@ -4,8 +4,9 @@ $repoDir = Split-Path $PSScriptRoot -Parent
 $exe = Join-Path $repoDir 'artifacts/host-win-x64/Aemeath.Host.exe'
 $logFile = Join-Path $repoDir "artifacts/smoke-$Clip-$Scale.jsonl"
 if (-not (Test-Path -LiteralPath $exe)) { throw 'Run scripts/validate.ps1 -Publish first.' }
-# This intentionally displays the app. Timed application shutdown is not a keyboard/UI acceptance check.
-$probe = Start-Process -FilePath $exe -ArgumentList @('--diagnostics', ('"' + $logFile + '"'), '--clip', $Clip, '--scale', "$Scale", '--exit-after-ms', '3500') -WorkingDirectory $env:TEMP -PassThru
+# Explicit legacy diagnostic/manual entry. Timed shutdown is not keyboard/UI acceptance.
+$diagnosticPackage = Join-Path $repoDir 'artifacts/host-win-x64/assets/diagnostic'
+$probe = Start-Process -FilePath $exe -ArgumentList @('--package', ('"' + $diagnosticPackage + '"'), '--mode', 'manual', '--diagnostics', ('"' + $logFile + '"'), '--clip', $Clip, '--scale', "$Scale", '--exit-after-ms', '3500') -WorkingDirectory $env:TEMP -WindowStyle Hidden -PassThru
 if (-not $probe.WaitForExit(15000)) { throw "Owned smoke PID $($probe.Id) did not exit; inspect the application." }
 if ($probe.ExitCode -ne 0) { throw "Host exited with code $($probe.ExitCode)." }
 $events = @(Get-Content -LiteralPath $logFile | ForEach-Object { $_ | ConvertFrom-Json })

@@ -1,8 +1,8 @@
 # 首批角色素材制作记录
 
-状态：ART-005 neutral 已获 PM/QA 本阶段验收；ART-006 的 idle-soft/idle-smile 已交付可加载候选，但存在头冠1px重绘差异，未满足无抖动视觉门槛，不能作为已验动画。不是完整六动作首包。2026-09-16。
+状态：ART-005 neutral 已获 PM/QA 本阶段验收；ART-006 动画候选仍未通过视觉门槛。2026-09-21 ART-007完成两次单帧试修，第二张修正冠尖高度但静止头饰仍有差异，总体失败，已停止生成并交PM。不是完整六动作首包。
 
-最新产物：ART-006 两动作候选见本文末节；已验 neutral 保持原件。用户已接受 v2 头饰方向，并明确授权最近邻缩放、alpha 阈值及整数像素对齐，本卡另授权 idle-soft/idle-smile。下列 ART-003/004 的“未获授权”“等待确认”是历史状态，已由后续授权取代。全部原图保留。
+最新产物：ART-007 source内两张失败试修及差分见本文末节；已验 neutral 和现有正式目录保持原件。用户已接受 v2 头饰方向，并明确授权最近邻缩放、alpha 阈值及整数像素对齐。ART-006曾授权两动作候选，本次ART-007只授权单帧试修，未扩展程序拼贴权限。下列 ART-003/004 的“未获授权”“等待确认”是历史状态，已由后续授权取代。全部原图保留。
 
 ## 基线、范围和产物
 
@@ -223,3 +223,62 @@ PM复核对象为提交 `6edab8fcf2d6cb8f38a236307e8884e8a7dd192c`、四帧既�
 4. **再做动态验收。** 在明确本地地址的检查页逐帧比较，并在浅深背景1×/3×看至少两个呼吸循环、一次完整笑脸、首尾接续和15秒切换；记录具体观察，而不是只取DOM状态。复用已有生产加载器/宿主验证引用与切换；原生宠物连续视觉若仍不能捕获则单列未验，由PM/QA安排，不用日志替代。无需重复无关全套测试。
 
 本轮实际仅补充本Markdown记录，未调用imagegen、未改变任何图片/manifest/预览或验证脚本。提交前以 `git diff --check`、暂存路径和资产目录差分检查确认范围；本提案不代表返修已完成或制作已获准开始。等待PM评审方案并发修订制作卡。
+
+## ART-007：单帧试修两次，未通过（2026-09-21）
+
+用户经PM明确恢复执行已通过的5863c9d方案，本卡只允许source新增候选/检查材料和本记录。沿用原worktree及分支，未重写提交。开工时工作区干净；重新读取README、开发流程、任务交接、ADR0003及现行方案。`Get-Command gh -ErrorAction SilentlyContinue`未找到CLI，本轮未能重新读取远端历史Issue #2；当前派单依据为对话中的ART-007，不以历史Issue替代新范围。
+
+**结论：两次imagegen额度已用完，两个候选均失败；不替换正式frames或manifest，不进入其他姿态或拖动。** 第二张仅解决冠尖高度，未解决固定头饰轮廓保持。失败是输出差异，不是PNG格式问题。没有执行程序锁区拼贴、补像素、手工描线、颜色修正或逐帧调整缩放/偏移。
+
+### 来源、固定转换及视觉检查
+
+采用imagegen技能与内置image_gen.imagegen，每次一张。生成前实看v3和正式neutral；第一次从v3局部编辑，仅请求低位羽尖微抬/微内收，neutral只作固定像素参照。首次失败后，第二次以首张为编辑目标、v3及neutral为参照，针对明确的头冠/侧羽饰漂移做唯一一次局部修订，要求保留其余区域。完整实际提示词保存在下表链接，不把提示词要求当作实际结果。
+
+| 次数 | 归档源图 / 提示词 | 工具原始输出文件名 |
+| --- | --- | --- |
+| 1 | [v1 source](../../assets/characters/aemeath-v1/source/art007-trial-v1-source.png) / [prompt](../../assets/characters/aemeath-v1/source/art007-trial-v1.prompt.txt) | `exec-b5c30698-63fd-473e-8a51-e4adb105286e.png` |
+| 2 | [v2 source](../../assets/characters/aemeath-v1/source/art007-trial-v2-source.png) / [prompt](../../assets/characters/aemeath-v1/source/art007-trial-v2.prompt.txt) | `exec-ed8d9189-05be-419c-a561-0e20103a1157.png` |
+
+工具原件目录为 `C:/Users/bigxi/.codex/generated_images/01a0abdf-e294-78d3-a6b8-eb0cef96a2a9/`，原件保留。两张实际都是1205×1306，取景/头身比例目视未见整体缩放或平移；脚基线也保持一致，但局部冠线变化仍不合格。同一固定变换：全画布像素中心最近邻到96×104、alpha阈值128、整数偏移(0,+5)，无裁剪、包围盒归一化或自适应对齐。
+
+新增 [check-art007.py](../../assets/characters/aemeath-v1/source/check-art007.py)仅在source写入本卡候选、4×并排检查图及JSON报告；复用既有PNG读写函数，不改正式素材。源画布尺寸不符时只输出失败报告，不继续适配导出。所有正式帧和manifest的哈希在脚本运行前后核对一致。
+
+| 项目 | 第一次v1 | 第二次v2 |
+| --- | --- | --- |
+| 96×104候选 | [art007-trial-v1-96.png](../../assets/characters/aemeath-v1/source/art007-trial-v1-96.png) | [art007-trial-v2-96.png](../../assets/characters/aemeath-v1/source/art007-trial-v2-96.png) |
+| 4×对比（左neutral，右候选） | [v1对比](../../assets/characters/aemeath-v1/source/art007-trial-v1-compare-4x.png) | [v2对比](../../assets/characters/aemeath-v1/source/art007-trial-v2-compare-4x.png) |
+| 只读差分与哈希 | [v1报告](../../assets/characters/aemeath-v1/source/art007-trial-v1-report.json) | [v2报告](../../assets/characters/aemeath-v1/source/art007-trial-v2-report.json) |
+| RGBA8 / 静态PNG / CRC / alpha=0或255 / 非全透明 | 全部通过 | 全部通过 |
+| 文件大小 / 不透明像素 | 8899 bytes / 3106 | 9067 bytes / 3127 |
+| 包围框（含端点） | (11,21)–(84,97) | (11,22)–(84,97) |
+| 冠尖 / 中央脚末行 | y21失败 / y93通过 | y22通过 / y93通过 |
+| 两侧羽饰极值内收 | 左2px、右2px | 左2px、右2px |
+| 羽饰左右alpha变化像素 | 32 / 33 | 35 / 36 |
+| 羽饰不透明集合最大Chebyshev距离* | 左3px、右3px | 左3px、右3px |
+| 全固定头部alpha变化像素 | 27 | 39 |
+| 上冠及相邻头发矩形alpha变化 | 25 | 31 |
+| 侧羽饰矩形alpha变化 | 3 | 6 |
+| 全固定头部共同不透明像素中的RGB变化数 | 1689 / 1766 | 1715 / 1762 |
+| 固定头部最大通道差 / 平均每像素最大通道差 | 131 / 6.751 | 249 / 10.697 |
+| 固定头部最大通道差>24的像素数 | 88 | 130 |
+
+*额外的幅度诊断：对两个羽饰不透明像素集合分别计算双向最近点的最大网格距离，并非语义对应羽尖的位移。它说明内收极值合格不代表全部局部变化均≤2px；不能将此指标单独解释成角色整体移动。固定头部检查范围为x0…95/y0…68；上冠及相邻头发为x20…75/y18…47；侧羽饰为x61…78/y39…59。后两者是保守矩形检查区，有重叠且包含相邻像素，不是假称精确分割的头饰mask，计数不相加。RGB只比较共同不透明像素，alpha新增/移除坐标另列在JSON中，不将色值变化和轮廓变化混成一个数字。
+
+两张均实际通过view_image查看原图、1×候选和4×并排图。脸、睁眼、衣服及脚保持可识别，低位羽饰有真实局部形变，绝非整图平移；阈值后平移裁掉的不透明采样数为0，留白未触边。v1冠尖高一像素、羽饰偏上翘；v2冠尖高度恢复，但冠弧走势与冠下留空相对neutral发生变化，侧羽饰和静止色块也没有完全保持。第二次修订没有达到“固定头饰alpha不变”，不能因y22通过就宣称头饰修复。RGB差异可能包含小幅重编码色差，因此单列统计；较大的局部差异与并排观察仍支持失败结论。
+
+没有新建manifest，(48,94)仅作为固定参照记录；不是新增包。未运行宿主、浏览器动态检查或无关全套测试：本卡单帧已在静态门槛失败，不将静态比较扩写为连续无闪动或可用动画。
+
+### 实际验证与交接
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/check-art007.py v1
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/check-art007.py v2
+& ./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art007-trial-v1-96.png
+& ./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art007-trial-v2-96.png
+git diff --check
+git diff --exit-code -- assets/characters/aemeath-v1/frames assets/characters/aemeath-v1/manifest.json
+```
+
+导出/报告命令exit0表示成功生成检查材料，**报告结论均为FAIL**，不是验收通过。既有Inspect-Png两次均exit0，确认96×104、位深8、色彩类型6、半透明0、alpha两种、大小低于256KiB。v1正式格式候选SHA-256为 `ea7b18fe821f32e9bf0586d122eb02f017c69e42528a411fbde44e03d885deac`，v2为 `6edad393443b1379d2bb7a688a3a5be2f7502de6140aa36fe8cffa205e92fc17`。这些文件只位于source；neutral及其余正式帧、manifest保持未变。
+
+交PM验收的是失败试修与可复核证据，不是获准使用的动画帧。已达到本卡最多两次生成限制，到此停止，不继续试图靠全局偏移修冠尖，也不通过程序拼贴静止区域绕过限制。按任务卡直接回报统筹，等待PM决定；自动跟进仍暂停，本任务不自行开启后续。

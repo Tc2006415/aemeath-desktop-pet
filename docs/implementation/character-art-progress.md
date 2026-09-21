@@ -467,3 +467,25 @@ git diff --name-only -- assets/characters/aemeath-v1/frames assets/characters/ae
 release胸前白饰压缩及手部收拢较明显，与neutral的衣饰轮廓有变化，需PM确认是否接受这一动作表达；当前未将其称为最终外观通过。锁定头部的方案使动作集中在小身体，1×动作比4×更含蓄。头冠原有不规则像素沿用已验neutral。没有头部整体换姿，没有新增完整动作时序或宿主接入，不宣称桌宠已播放这三张。
 
 建议统筹评审三个选中PNG和 `art010-inspection.html`，可从neutral切换观察保护区与身体接缝。浅深对照图顺序均neutral / pickup-v1 / hold-v2 / release-v1。只选择性采用本卡art010前缀source文件；不要合并本分支历史正式0.2.0包。后续逐帧扩展须等关键姿态确认及新任务卡；本轮交付后停止制作。
+
+## ART-010R：release衣饰保护返修（2026-09-21）
+
+PM审阅6732412后指出旧release胸前白饰变细，未接受ART-010整体，也未授权扩展时序。本卡仅复用现有release donor收紧局部合成mask；没有新imagegen调用，pickup/hold及正式包不动。
+
+使用 `art010-release-revise.py` 独立脚本，不修改ART-010既有脚本或候选。neutral仍来自只读复制的0.3.0基线；donor为 `art010-release-v1-donor.png`，SHA2303d2f49ea5cec19b941b536fb2db7ddb63fa807d61bbdcf76b165321d9d381。输出 `art010-release-r1-96.png`，SHA6162ae0feee072c7c6a06dbd7e94a89b2ef969cb354ed029d3f12a40209002eb。
+
+只尝试一版mask：闭区间x38…57/y83…94，另排除y83的x45…50和y84的x46…49，共230像素。全部y<83保留neutral；实际检查白色菱形至y83、金色尖端至y84，故采用阶梯状中央保护区，避免简单水平截断衣饰。更外侧手臂、衣摆和羽饰也全部保留neutral，变化集中在屈膝及短靴。区域内直接使用现有donor完整RGBA，包含透明擦除，不绘制或混合新像素。全部mask坐标见 `art010-release-r1-report.json`，可视mask见同前缀mask.png。
+
+实际验证命令（退出0）：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art010-release-revise.py
+./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art010-release-r1-96.png
+git diff --check
+```
+
+结果：96×104、RGBA8、alpha仅0/255、8869字节；205像素变化，mask外变化0，y<83变化0，冠顶y22、脚底y93，锚点仍(48,94)。脚本核验正式manifest/frames、pickup、hold、旧release及donor SHA不变；既有文件未覆盖。转换沿用已验96×104 donor，无额外缩放、平移或裁切。
+
+实际查看浅深底1×、4×对照PNG，均按neutral / 旧release / 修订release排列。白色菱形和金色尖端完整保留；屈腿与向外落脚仍可辨，未见明显矩形接缝、衣摆腿根断裂或旧脚双影。仅进行了静态并排视觉自检，没有宣称完整动画或原生宿主验收。附独立离线切换页 `art010-release-r1-preview.html` 供PM复核；本轮未用浏览器运行该页面。
+
+r1达到本次返修自检要求，不使用第二版mask额度。外观最终确认及ART-010整体验收仍由PM决定；不扩展完整拖动时序。交付仅source/art010-release-r*文件和本记录，不推广正式包。

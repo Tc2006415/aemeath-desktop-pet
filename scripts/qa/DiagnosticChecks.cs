@@ -16,6 +16,7 @@ internal static class DiagnosticChecks
     {
         if (args.Length == 1 && args[0] == "interaction") return InteractionChecks.Run();
         if (args.Length == 2 && args[0] == "neutral-package") return NeutralPackageChecks.Run(args[1]);
+        if (args.Length == 2 && args[0] == "art009-package") return Art009PackageChecks.Run(args[1]);
         if (args.Length == 2 && args[0] == "reject-package")
         {
             Run("reparse package must reject before decoder", () => {

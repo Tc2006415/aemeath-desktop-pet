@@ -150,3 +150,51 @@ T、C 和播放时长由被接受的规格提供，不在此编造秒数。边�
 实际预览 `artifacts/qa-neutral-background-preview.png` 的六组画面后：头冠与粉发间留空可辨，侧羽饰和下方羽尖均有保留，粉发、眼睛与紧凑身体可辨，未观察到明显裁边；透明区域显示各自检查背景，没有整块不透明底色。二值alpha由读取结果证明，检查预览不能代替真实桌面透明合成。4×下冠尖/冠线仍有不规则、零散像素，1×细节较少；不宣称边缘完美或逐像素复刻游戏。
 
 允许作为已检查的neutral单帧继续交接；五动作未交付，不计算为完整角色动画包。静态资源的4×预览不表示宿主支持4×（宿主现有倍率为1/2/3）。未操作原生窗口、未注入鼠标或键盘，未验真实拖动、跨屏、讲述人及首次启动坏素材；相关旧待验项保持不变。没有真实Codex联动，也未改默认包或发布。完成即交PM，等待下一张任务卡；沿用Draft PR #6，实际提交哈希随交接消息提供。
+
+## QA-006：ART-009 两动作候选独立验收（2026-09-21）
+
+**结论：0.3.0 候选在本卡范围内通过，无阻断项。** 格式/差分、真实加载、生产宿主时序，以及浅深底1×/3×浏览器逐项对照与播放截图抽样分别形成证据。羽饰局部1px回摆和峰值3px集合距离保留为视觉限制；不称为所有羽点单调运动或无像素阶梯。原生透明窗口观感未验，不由浏览器或日志代替。最终外观与是否替换正式包仍由用户/PM决定。
+
+### 固定输入和范围
+
+恢复授权仅为PM对话任务卡QA-006，自动跟进仍暂停。开工 `git status --short` 无输出，在原 `codex/acceptance-matrix` worktree执行 `git merge --no-edit 514f58dae7f530a237bd8bfa409c11c50f5e1481`，从90a2210快进成功。合并带入暂停期间既有历史资源；`git diff 514f58d^ 514f58d -- assets/characters/aemeath-v1/frames assets/characters/aemeath-v1/manifest.json` 无输出，确认ART-009本身没有改正式目录。本轮也未修改任何素材、生产代码、锁文件或契约。
+
+只验候选绝对目录 `C:/Users/bigxi/.codex/worktrees/26d3/桌宠/assets/characters/aemeath-v1/source/art009-v1-package`。版本0.3.0，character，锚点(48,94)，3动作/5个独立PNG；neutral单帧1000ms循环。idle-soft为6项400/150/150/400/150/150ms，共1400ms循环；idle-smile为6项120/120/500/120/120/220ms，共1200ms单次。重复引用是停留和往返，不算新增姿态。
+
+### 独立像素检查
+
+`scripts/qa/check_art009.py` 使用Python标准库独立读PNG块/CRC、解压和逆过滤，不导入ART构建脚本、不重新合成。核对候选、显式mask及预览HTML内嵌字节，输出 `artifacts/qa006-pixels.json`。
+
+| 帧 | 字节 | RGBA变化 / mask像素 | mask外差分 | alpha变化 | 不透明边界（含端点） |
+| --- | --- | --- | --- | --- | --- |
+| neutral | 8860 | 0 / 不适用 | 不适用 | 0 | (9,22)–(86,97) |
+| soft-light | 8767 | 263 / 374 | 0 | 52 | (11,22)–(84,96) |
+| soft-peak | 8793 | 278 / 392 | 0 | 65 | (11,22)–(84,97) |
+| smile-half | 8880 | 217 / 222 | 0 | 0 | (9,22)–(86,97) |
+| smile-closed | 8777 | 219 / 222 | 0 | 0 | (9,22)–(86,97) |
+
+五张均静态96×104 RGBA8，alpha仅0/255，PNG CRC通过，非全透明且未触画布边。冠顶y22、中央脚部末行y93。羽饰变动只在y≥83且x≤23或x≥72；表情变动只在眼口区域，两张整图alpha与neutral完全一致。没有整头或身体漂移。双侧羽饰相对neutral的对称Chebyshev集合距离，light各2px、peak各3px；这是集合距离，不是每个像素都有确定的3px位移轨迹。
+
+neutral与正式已验帧逐字节一致，SHA-256 `5C8F851A87F2E7C336365CE0323C76BB6FEFD6F6EB65D6EB5C76BAF701EE8E0D`；soft-peak与ART008v2逐字节一致，SHA-256 `31B0F4265B047685DB6256C6891882EB19ADA91B8D74499DB1C404177A49B749`。预览HTML内嵌manifest及5张PNG均与候选包实际字节一致，防止看错预览。完整五图SHA见独立报告。
+
+### 实际命令和宿主证据
+
+| 命令 / 检查 | 结果 |
+| --- | --- |
+| `python -B scripts/qa/check_art009.py` | 退出0，以上格式/差分/原件/预览一致性全部通过；最终输出另存 `artifacts/qa006-pixel-command.txt` |
+| `& $sdkExe run --project scripts/qa/DiagnosticChecks.csproj -c Release --no-restore -- art009-package assets/characters/aemeath-v1/source/art009-v1-package` | 退出0；生产PackageLoader/PngDecoder实际加载3动作5图、无停用项；逐项起止边界、1400ms循环回首、1200ms单次完成以及automatic 15000/16200ms边界通过 |
+| `git diff 9f0494d HEAD -- src` | 无输出；复用QA-004已验的本工作区发布产物，不重跑无关全套测试或重新发布 |
+| `./scripts/qa/Test-Art009Process.ps1` | 退出0；PID28892，绝对候选目录、automatic、Hidden启动请求，18.5秒定时退出；3动作候选实际加载，idle六索引出现，笑脸索引严格0,1,2,3,4,5，仅一次natural-end后回idle-soft，正常shutdown且无错误/拒绝 |
+| `git diff --cached --check`、`git diff --cached --name-only` | 提交前无空白错误；仅本矩阵及scripts/qa下必要验证 |
+
+`$sdkExe` 为 `$env:LOCALAPPDATA/Aemeath/toolchains/dotnet/10.0.401/dotnet.exe`。实际复用exe SHA-256为 `A77738411EACE423A8B45A106D98F0BB0A994E696A2010FF2931B3D87F0118F1`，不是ART机器产物哈希。日志 `artifacts/qa006-host-8546cfcd907c4fa8884f6e31873e39a4.jsonl`：加载0.3.0、disabled=[]；笑脸各项日志时刻16368/16493/16628/17119/17239/17361ms，17580ms一次natural-end，19740ms shutdown。首idle到首smile观测差14998ms；日志写入时刻有偏差，严格15秒边界由可控时钟另验，未据日志偏差认定提前播放。具备control-rendered、pet-loaded、render-callback；不表示实际鼠标/键盘/原生视觉通过。
+
+### 独立视觉判定
+
+本轮实际打开的URL为 `http://127.0.0.1:8876/art009-v1-inspection.html`。临时服务绑定127.0.0.1，目录为本worktree的 `assets/characters/aemeath-v1/source`；验后关闭。需要复现可从worktree根目录运行 `python -m http.server 8876 --bind 127.0.0.1 --directory assets/characters/aemeath-v1/source` 再打开同一URL。
+
+通过CUA浏览器在同页白底/深底、1×/3×四格实际查看neutral、light、peak、half、closed。逐项暂停400ms light与550ms peak比较，再恢复1400ms循环，约13017ms截图已超过9轮；另重播抽样截图233/342ms为neutral、463ms为light、572ms为peak。头冠、侧头饰、粉发和身体在对照中静止，羽根未观察到双影、透明洞或矩形拼接边。1×变化小，3×能辨认羽尖阶梯：light整体先收外羽，peak外尖进一步抬起，但较内下羽尖向下回摆1源像素（整体底界96→97）。此回摆可辨而非被消除；结合首尾回neutral及双侧动作对照，未看到整体收放方向明显倒序或大幅跳动，不列阻断。保留3px峰值局部距离和非线性内羽运动，不把“通过”解释为流畅度满分。
+
+笑脸逐项暂停half 120ms、closed 240ms；另实际重播截图约236ms为half、376ms为closed，之后5842ms为neutral。眼口变化可辨，未观察到原睁眼残影、面颊外缘断裂或大片异色矩形；恢复睁眼后头饰和轮廓不移位。这里是浏览器逐项对照及连续播放期间截图抽样，不是逐个显示刷新帧录像。单次页面模式结束回neutral符合检查页定义；生产automatic回idle-soft由独立宿主日志证明，不混为同一接口。
+
+未操作原生透明窗口，真实桌面透明合成与连续观感仍待验；未进入拖动动作、跨DPI、讲述人、真实Codex联动或发布。旧待验项未被本次覆盖。PM可依此接受候选局部合成和两个动作的定向门槛；是否推广正式素材另行决定。本卡完成即停止，未恢复定时跟进、未合并GitHub PR或进入下一阶段，提交哈希见交接回报。

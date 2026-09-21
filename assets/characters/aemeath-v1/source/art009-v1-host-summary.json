@@ -1,0 +1,19 @@
+{
+  "PID": 21956,
+  "ExitCode": 0,
+  "PackagePath": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\桌宠\\assets\\characters\\aemeath-v1\\source\\art009-v1-package",
+  "PackageVersion": "0.3.0",
+  "HostSHA256": "E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0",
+  "SmileDelayMs": 14999,
+  "SmileIndexes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "LastIdleMs": 19142,
+  "NaturalEnds": 1,
+  "Evidence": "Production loader and own host logs; not native UI visual acceptance"
+}

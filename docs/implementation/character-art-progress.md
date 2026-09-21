@@ -1,8 +1,8 @@
 # 首批角色素材制作记录
 
-状态：ART-005 neutral 已获 PM/QA 本阶段验收；ART-006/007生成候选仍未通过视觉门槛。2026-09-21 ART-008获新增局部合成授权，完成一张待机试样的两版mask，推荐v2：格式、静止像素及接缝自检通过，待PM验收局部幅度/观感。不是完整六动作首包。
+状态：ART-008 v2单帧合成方式已获PM验收；2026-09-21 ART-009完成source内两动作候选子包，格式/局部合成/浏览器检查及定向宿主加载自检通过，待PM/QA。峰值局部距离3px限制保留；正式目录未替换，不是完整六动作首包。
 
-最新产物：ART-008 source内局部合成试样、mask和检查预览见本文末节；已验neutral和现有正式目录保持原件。ART-007时尚未授权拼贴，ART-008已由用户明确追加“保留静止像素、仅合成下部羽饰”授权，历史限制不应误读为本轮仍禁止合成。全部原图和旧候选保留。
+最新产物：ART-009独立候选子包、眼口/羽饰mask及检查预览见本文末节；已验neutral和现有正式目录保持原件。ART-007时尚未授权拼贴，ART-008/009已明确授权限定区域合成，历史限制不应误读为本轮仍禁止合成。全部原图和旧候选保留。
 
 ## 基线、范围和产物
 
@@ -340,3 +340,72 @@ git diff --exit-code -- assets/characters/aemeath-v1/frames assets/characters/ae
 ```
 
 合成脚本和两次既有Inspect-Png均exit0；独立读取输出/mask再次比对，确认mask外RGBA零差分、mask内逐像素等于来源候选、y<83及x24…71保护区零差分、源文件哈希一致。正式目录无差分，未改变原件。自检通过的是**v2局部合成方式与该单帧接缝**；局部3px轮廓变化已显式交接，最终自然度和后续使用由PM决定。两版mask已停止，不扩大到头部，不进入其他动作。交付后直接回报统筹并等待验收，自动跟进仍暂停。
+
+## ART-009：两动作局部合成候选包（2026-09-21）
+
+前置：PM已独立验收ART-008提交1e736ab的v2方法，复核变化278像素、mask外/保护区0差分、格式8793 bytes及浅深底4×接缝；局部集合距离3px作为披露限制接受。最新对话卡授权在source内修订idle-soft/idle-smile候选，不授权替换正式目录或进入拖动。沿用现有worktree/分支，开工干净，现行ADR0003及契约不变。未新增imagegen、未手绘角色、未改生产代码/接口/锁文件，没有新增依赖。
+
+**本轮结论：候选自检通过，交PM/QA；不是正式素材切换或完整六动作交付。** 每张新合成只用一版mask，没有为消除差分扩大到无关区域。已验峰值帧直接复制，不再次合成或改动。
+
+### 候选包、来源与mask
+
+- 可加载候选目录：`C:/Users/bigxi/.codex/worktrees/eaf8/桌宠/assets/characters/aemeath-v1/source/art009-v1-package`，其内独立[manifest](../../assets/characters/aemeath-v1/source/art009-v1-package/manifest.json)为 `aemeath-v1 / 0.3.0 / character`；schema1、sourceScale1、96×104、anchor(48,94)、fallback neutral。
+- [构建脚本](../../assets/characters/aemeath-v1/source/build-art009-v1.py)、[差分/来源哈希/逐像素mask报告](../../assets/characters/aemeath-v1/source/art009-v1-report.json)。正式neutral逐字节复制，SHA仍为 `5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d`。
+- soft-light来自既有ART-006 `frames/soft-b.png`，只取外侧羽饰；soft-peak逐字节复制已验 `source/art008-v2-96.png`，SHA仍为 `31b0f4265b047685db6256c6891882eb19ada91b8d74499db1c404177a49b749`。没有用相同图假造中间态。
+- smile-half/closed来自既有同名生成导出帧，只替换眼口内像素；不改变面部外轮廓。所有来源完整提示词/原件在ART-006/007记录，未把局部合成称为新增绘画或游戏逐帧复刻。
+
+羽饰mask沿用ART-008 v2的允许域（y83–84:x15–23；y85–87:x12–23；y88–98:x8–23，右侧镜像x→95-x），再取base/donor轮廓并集及1px边带。眼部允许域按左眼逐行：y56:x33–41、y57:x33–43、y58–62:x32–44、y63:x34–43、y64:x35–42；右眼镜像。为避免带入发梢/腮红，排除neutral中 `R>130且R>1.2G且B>1.12G` 的粉色像素；此为限定ROI内保守筛选，不宣称通用人物分割。嘴部仅x45–50/y65–67。眼口mask内base/donor均为完全不透明；仅复制既有生成图RGBA，不绘制、调色或平滑边缘。mask外RGBA严格保持neutral。所有mask PNG与精确坐标在source和报告中，可独立复核。
+
+| 图帧 | Bytes | mask像素 | RGBA变化 | alpha变化 | mask外RGBA差分 |
+| --- | --- | --- | --- | --- | --- |
+| [soft-light](../../assets/characters/aemeath-v1/source/art009-v1-package/frames/soft-light.png) | 8767 | 374 | 263 | 52 | 0 |
+| [soft-peak](../../assets/characters/aemeath-v1/source/art009-v1-package/frames/soft-peak.png) | 8793 | 392（已验mask） | 278 | 65 | 0 |
+| [smile-half](../../assets/characters/aemeath-v1/source/art009-v1-package/frames/smile-half.png) | 8880 | 222 | 217 | 0 | 0 |
+| [smile-closed](../../assets/characters/aemeath-v1/source/art009-v1-package/frames/smile-closed.png) | 8777 | 222 | 219 | 0 | 0 |
+
+四张均冠尖y22、中央脚末行y93，无触边裁切；静态RGBA8、二值alpha、非全透明、CRC及256KiB门槛通过。笑脸整张alpha与neutral相同，面部外轮廓未变；头饰、头发、衣服、身体脚均在所选眼口mask外保留原像素。两张羽饰保留y<83及中央x24–71。轻/峰值两侧极值均内收2px，但局部集合距离分别2px/3px，左右alpha差分别26/26与32/33，真实形状和哈希不同。轻姿态先收外羽，峰值再抬外尖；内侧较低羽尖有1px回摆，并非每个点的线性插值。没有观察到整体幅度明显倒序，峰值3px限制保留待QA判断。
+
+### 时序与预览
+
+| 动作 | 六时序项 | 时长ms / 总时长 | 播放与来源 |
+| --- | --- | --- | --- |
+| idle-soft | neutral → soft-light → soft-peak → soft-peak → soft-light → neutral | 400,150,150,400,150,150 / 1400 | loop / original |
+| idle-smile | neutral → smile-half → smile-closed → smile-half → neutral → neutral | 120,120,500,120,120,220 / 1200 | once / adaptation |
+
+重复引用为峰值停留、收势或往返，非重复文件充数。总计3动作、5张不同PNG，neutral1000ms单帧回退。三个拖动动作未声明，不声称完整角色包。
+
+[离线检查预览](../../assets/characters/aemeath-v1/source/art009-v1-inspection.html)内嵌候选真实PNG和时序；[预览生成脚本](../../assets/characters/aemeath-v1/source/make-art009-v1-preview.py)核对6项时长数组、总时长、引用和固定锚点。每张另有 `art009-v1-<frame>-light/dark-1x/3x.png` 并排图（左neutral，右候选）及 `art009-v1-<frame>-mask.png`。脚本没有任何写入正式目录的步骤。
+
+实际CUA浏览器地址为 `http://127.0.0.1:8769/art009-v1-inspection.html`。已在浅/深底1×和3×实际看五种姿态，并检查重复时序项引用；半闭眼金色眼睛保留，闭眼帧没有明显原睁眼残影或矩形皮肤接缝，羽根未见双影或缺口，静止头饰无观察到跳变。逐帧暂停查看轻姿态450ms、半闭眼180ms、闭眼400ms等；连续idle运行在约4.8秒截图时已超过两个循环。
+
+15秒模式检查最初长等待选择器超时，未将该尝试记通过；随后按当前DOM状态重播，用2/4/6/8/10/12/14秒短检查点跟随，成功完成一次连续运行：DOM约4086ms为idle第6项（已超过两循环），15284ms为笑脸第3项，16393ms返回idle第1项。对应实际截图约4140/15345/16441ms，展示待机、闭眼笑、恢复睁眼待机，均含浅深1×/3×。这是浏览器运行与截图抽样，不是假称逐个显示刷新帧录制；结合先前逐帧眼口检查确认完整笑脸连接未见明显接缝。浏览器时序不代替下述生产宿主日志，更不代表原生透明窗口观感已由QA验收。
+
+### 定向格式与生产宿主验证
+
+实际命令：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/build-art009-v1.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/make-art009-v1-preview.py
+foreach ($name in @('neutral','soft-light','soft-peak','smile-half','smile-closed')) {
+  & ./scripts/qa/Inspect-Png.ps1 -Path "assets/characters/aemeath-v1/source/art009-v1-package/frames/$name.png"
+}
+```
+
+全部exit0；独立读取实际PNG和mask再核对四图mask外RGBA差分0、mask内donor不匹配0及报告SHA。neutral与已验soft-peak逐字节保持原件；正式目录全部保护哈希一致。未重跑无关全套测试。
+
+复用现有已验生产宿主，先核对exe SHA256等于 `E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0`（代码基线9f7d270），不重新构建无变化代码。实际启动参数：
+
+```powershell
+$art009Exe = Join-Path $PWD 'artifacts/host-win-x64/Aemeath.Host.exe'
+$art009Package = Join-Path $PWD 'assets/characters/aemeath-v1/source/art009-v1-package'
+$art009Log = Join-Path $PWD 'assets/characters/aemeath-v1/source/art009-v1-host.jsonl'
+$art009Probe = Start-Process -FilePath $art009Exe -ArgumentList @('--package', ('"' + $art009Package + '"'), '--diagnostics', ('"' + $art009Log + '"'), '--mode', 'automatic', '--scale', '2', '--exit-after-ms', '18000') -WorkingDirectory $env:TEMP -WindowStyle Hidden -PassThru
+$art009Probe.WaitForExit(30000)
+```
+
+实际PID21956、exit0；生产加载器接受 `aemeath-v1/0.3.0` 且disabled=[]。日志具备package-loaded、pet-loaded、render-callback、layout、shutdown，无package-rejected/position-error；从首个idle到首个smile14999ms（日志采样差），笑脸索引0…5齐全，仅1次natural-end，随后回idle-soft。完整[宿主日志](../../assets/characters/aemeath-v1/source/art009-v1-host.jsonl)和[摘要](../../assets/characters/aemeath-v1/source/art009-v1-host-summary.json)保留。这是生产加载与自有进程时序证据，不称为原生窗口连续视觉验收。
+
+### 交接
+
+交QA的是source内0.3.0候选子包及可重现mask/来源/预览，未修改正式frames或manifest。所有新增文件局限在source和本记录；提交前 `git diff --check` 及正式目录差分检查通过。局部合成和浏览器自检通过，但峰值3px局部距离、轻姿态内羽1px回摆及最终动态观感需QA独立评审。原生宠物视觉、跨DPI、拖动及真实Codex联动未在本卡执行。向统筹回报后等待QA，不进入拖动或其他后续，自动跟进仍暂停。

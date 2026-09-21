@@ -1,0 +1,20 @@
+{
+  "scope": "Observed in local browser UI; simulation, not native controller or input acceptance",
+  "url": "http://127.0.0.1:8911/art011-inspection.html",
+  "scalesAndBackgrounds": ["light 1x", "dark 1x", "light 3x", "dark 3x"],
+  "observations": [
+    {"mode":"normal","timeMs":1200,"action":"drag-hold","item":3,"method":"live DOM; screenshot sampled item4 at1309ms"},
+    {"mode":"normal","timeMs":2600,"action":"drag-release","item":2,"method":"paused slider and screenshot"},
+    {"mode":"normal","timeMs":2960,"action":"idle-soft","item":1,"method":"paused slider"},
+    {"mode":"quick","timeMs":440,"action":"drag-release","item":1,"method":"paused slider and screenshot"},
+    {"mode":"quick","timeMs":900,"action":"idle-soft","item":1,"method":"paused slider"},
+    {"mode":"regrab","timeMs":730,"action":"drag-pickup","item":1,"method":"paused slider and screenshot"},
+    {"mode":"drag-hold","timeMs":360,"action":"drag-hold","item":3,"method":"paused slider and screenshot"},
+    {"mode":"drag-hold","timeMs":719,"action":"drag-hold","item":4,"method":"paused slider"},
+    {"mode":"drag-hold","timeMs":720,"action":"drag-hold","item":1,"method":"paused slider and screenshot"},
+    {"mode":"drag-pickup","timesMs":[0,80,160,260],"items":[1,2,3,4],"method":"paused slider; screenshot at160ms"},
+    {"mode":"mid","timeMs":600,"action":"drag-release","item":1,"method":"paused slider and screenshot"},
+    {"mode":"interactive","timesMs":[173,476,737,1040],"actions":["drag-pickup","drag-hold","drag-release","idle-soft"],"method":"actual preview down/up buttons and live DOM"}
+  ],
+  "limitation": "A live wait for the 100ms release item2 timed out; replaced with exact slider checks. No claim of a continuous native drag visual review."
+}

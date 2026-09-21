@@ -489,3 +489,59 @@ git diff --check
 实际查看浅深底1×、4×对照PNG，均按neutral / 旧release / 修订release排列。白色菱形和金色尖端完整保留；屈腿与向外落脚仍可辨，未见明显矩形接缝、衣摆腿根断裂或旧脚双影。仅进行了静态并排视觉自检，没有宣称完整动画或原生宿主验收。附独立离线切换页 `art010-release-r1-preview.html` 供PM复核；本轮未用浏览器运行该页面。
 
 r1达到本次返修自检要求，不使用第二版mask额度。外观最终确认及ART-010整体验收仍由PM决定；不扩展完整拖动时序。交付仅source/art010-release-r*文件和本记录，不推广正式包。
+
+## ART-011：带表情的0.4.0拖动时序候选（2026-09-21）
+
+### 范围、最终入口与保留来源
+
+PM已接受ART-010的pickup-v1、hold-v2和release-r1作为时序基础。本轮按ART-011制作source内0.4.0候选；制作期间用户追加“可以在拿起，拖动和放下中修改人物表情，更加生动活泼”，PM明确扩展眼口mask范围，合并进入本轮交付。
+
+最终包为 `source/art011-package/`，完整互动页为 `art011-inspection.html`，表情并排图为 `art011-expression-keys-light-3x.png` / dark对应图及1×图，顺序neutral / pickup惊讶 / hold半睁眼 / release闭眼笑。实际最终加载证据文件统一为 `art011-expression-host-*`。无表情的早期预览和包另存 `art011-body-only-inspection.html`、`art011-body-only-package/`，原早期宿主日志 `art011-host-*` 和浏览器观察仅作过程来源，不能代替最终表情版验证。
+
+沿用art010-baseline已验0.3.0的五张PNG逐字节复制。manifest保留原始字节结构，仅替换版本并在actions末尾追加三动作；脚本反向删除新增块、恢复版本后，要求整份manifest与基线原字节相同，因此原三动作未重序列化或改时长。最终12张PNG、6动作，fallback neutral、96×104、锚点(48,94)不变。未合并统筹分支或历史0.2.0包；正式manifest/frames与代码未改。
+
+### 最终时序
+
+| 动作 | 播放 | 四项文件名（frames/内） | 毫秒 |
+| --- | --- | --- | --- |
+| drag-pickup | once | neutral → hold-surprise → pickup-surprise → hold-half | 80 / 80 / 100 / 100 = 360 |
+| drag-hold | loop | hold-half → hold-light-half → hold-peak-closed → hold-light-half | 180 / 180 / 180 / 180 = 720 |
+| drag-release | once | hold-half → release-closed → release-half → neutral | 80 / 100 / 120 / 160 = 460 |
+
+拎起先松腿再收腿，最后回悬停腿姿态并微笑，与hold首项逐字节同图。hold腿姿态保持，羽饰轻/峰/轻往返，峰值闭眼眨眼，其余半睁眼微笑；四项为三张不同图，不以静帧充数。release由松腿入落稳，闭眼笑后半睁眼，最后neutral与idle-soft首项同图。身体脚底沿用已验y88/91/93，不使用整图平移。pickup、release身体图直接来自PM已验关键姿态；新增hold羽饰图用已验soft-light/soft-peak局部像素合成。
+
+### 表情绘制与mask
+
+惊讶用内置imagegen编辑neutral-v3，只生成一次，源图 `art011-surprise-v1-source.png` 原样保留，原始文件exec-b61115c2-e2e8-4ea6-8ffc-c16c0de5c4cd.png，完整prompt在同前缀prompt.txt。没有程序绘脸。1205×1306源按既有pixel-center最近邻、alpha128、整数(0,+5)转换，越界不透明采样0。眼睛略睁大和小张嘴，不采用哭泣/恐惧表达；半睁眼和闭眼笑只复用0.3.0原素材。
+
+眼口mask复用ART-009已验222像素遮罩：眼部逐行范围限制在x32…63/y56…64，排除原粉色头发/腮红像素；嘴为x45…50/y65…67。全部原与donor像素alpha255，合成不改变身体图的任何alpha。脸外轮廓、腮红、头发、冠和侧头饰保持neutral。每个最终新图另有明确union-mask.png，身体/羽饰mask与眼口mask无交集，union外RGBA差分0。最终报告 `art011-expression-report.json` 包含来源和哈希；`art011-check-report.json` 从最终PNG和并集mask再次读回验证。
+
+身体mask继续采用ART-010的中央躯干范围；release采用已验ART-010R阶梯式胸前保护；hold-light/peak另并入ART-009各自下羽饰mask。新增表情仅1版mask，惊讶1/2生成机会，未扩大头部轮廓或新画无关区域。全部7张新合成相对neutral变化像素依次为660、664、668、931、948、424、422，union外0；惊讶/半睁眼/闭眼笑相对身体图分别改变209/217/219像素，脸部alpha变化0。
+
+### 实际验证与预览
+
+实际执行以下命令均退出0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art011-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art011-expressions.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art011-preview.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art011-face-preview.py
+./assets/characters/aemeath-v1/source/art011-run-host.ps1
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art011-check.py
+git diff --check
+```
+
+build生成body-only来源；expressions再生成最终包。所有PNG经生产格式检查脚本Inspect-Png读取：12张均96×104 RGBA8/color6、alpha仅0/255，0半透明，最大8886字节，小于256KiB。所有manifest引用存在；三段时长及4项固定值通过。原五张与基线字节相同，新七张的静止区/并集mask检查通过。
+
+实际自有宿主三次运行（manual模式显式clip，scale2，2200ms定时退出），最终表情版PID41972/41284/14376均exit0；生产加载器接受aemeath-v1/0.4.0、disabled=[]，三个动作的索引0…3均出现在真实frame日志，均有shutdown、无package-rejected/position-error。运行脚本记录exe和最终manifest SHA，保留完整jsonl及Inspect结果；为防覆盖证据，重新运行需先选择新的日志文件名。未修改程序；真实控制器和鼠标捕获边界留给独立QA。
+
+实际浏览器访问本地art011-inspection.html，制作方查看浅深1×/3×，检查表情关键帧、逐项与情境；最终观察记录 `art011-expression-browser-observations.json`。正常情境560ms为pickup惊讶，760ms转hold微笑，1120ms闭眼眨眼；2580ms落稳闭眼，2680ms半睁，2800ms恢复neutral，2960ms回idle。快松手440ms进入release半睁眼，跳过未到达的惊讶段；再抓730ms回pickup入口neutral，810ms惊讶，1090ms回hold微笑。hold719→720ms检查轻羽饰回首项，表情同为半睁眼。实际点击预览按下/松手按钮后，连续状态出现pickup→hold→release→idle。
+
+身体版早期曾因100ms时序项漏采样导致一次浏览器等待超时，改用时间滑块定位；未将该超时当成素材失败或连续视觉通过。最终采用关键时刻截图、逐项定位与按钮实时状态交叉检查。并排表情图可辨小惊讶、眯眼和闭眼笑；未见明显头冠抖动、脸边改变、衣摆/羽根断口或旧脚双影。该结论是制作方自检，不代替PM/QA动态验收，也不称网页模拟为原生拖动。
+
+### 限制与交接
+
+1×小张嘴较含蓄；hold每720ms眨眼一次，节奏是否理想由PM视觉评审决定。羽饰沿用已验素材的峰值局部集合距离3px和内羽1px回摆限制。固定四项动作在中途松手/再抓会从目标动作入口开始，不做上一姿态插值；快松手可能跳过惊讶，属于取消pickup的预期。真实输入下的节奏及任何阶段切换自然度仍需QA评审，未宣称全部边界通过。
+
+本轮仅交付source/art011-*与本记录；请只选最终art011-package，不采用body-only历史过程包，不整体回流分支的旧正式0.2.0。等待PM/QA独立验收，正式0.3.0保持，不推广、发布或进入联动。

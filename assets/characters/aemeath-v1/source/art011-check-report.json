@@ -1,0 +1,86 @@
+{
+  "neutralRelativeMaskChecks": {
+    "hold-surprise": {
+      "changes": 660,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "hold-surprise-union"
+      ]
+    },
+    "pickup-surprise": {
+      "changes": 664,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "pickup-surprise-union"
+      ]
+    },
+    "hold-half": {
+      "changes": 668,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "hold-half-union"
+      ]
+    },
+    "hold-light-half": {
+      "changes": 931,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "hold-light-half-union"
+      ]
+    },
+    "hold-peak-closed": {
+      "changes": 948,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "hold-peak-closed-union"
+      ]
+    },
+    "release-closed": {
+      "changes": 424,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "release-closed-union"
+      ]
+    },
+    "release-half": {
+      "changes": 422,
+      "outsideMaskChanges": 0,
+      "maskComponents": [
+        "release-half-union"
+      ]
+    }
+  },
+  "actualHostLogs": {
+    "drag-pickup": {
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "loadedVersion": "0.4.0",
+      "disabled": []
+    },
+    "drag-hold": {
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "loadedVersion": "0.4.0",
+      "disabled": []
+    },
+    "drag-release": {
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "loadedVersion": "0.4.0",
+      "disabled": []
+    }
+  },
+  "holdUniquePngBytes": 3
+}

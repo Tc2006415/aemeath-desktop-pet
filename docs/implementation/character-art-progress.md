@@ -588,3 +588,50 @@ Inspect-Png的System.Drawing独立读取确认两图96×104、RGBA8/color6、0�
 ### 交接
 
 只交两端姿态和并排图；另提供自含PNG的 `art012-inspection.html` 供切换，制作方本轮以PNG实看，未运行该网页。没有新增manifest或扇动时序，没有实际宿主播放本试样，不称完整动画或动态验收。既有表情来源原样保留，未来经PM批准的完整循环再同步其他表情。当前先交PM判断实际幅度，必要时收敛方案须另行授权；不修改已验ART011来源或正式0.3.0，交付后停止。
+
+## ART-013：中幅扇翼四项循环候选（2026-09-21）
+
+### 范围和交付入口
+
+PM接受f415df0两端作为循环制作基础，明确允许实际上扬约9–10px、下压约3px的不对称幅度进入动态评估。本卡使用既有来源和显式mask合成，imagegen调用0；只交 `source/art013-package/` 与 `art013-inspection.html` 及证据，仍为0.4.0候选。正式0.3.0、ART011/012来源、程序、锁文件不动，不进入随机漂浮。
+
+最终包13张PNG、6动作。相对ART011只替换manifest的drag-hold内三个图片引用，其他manifest字节完整保留；pickup360ms、release460ms及原0.3.0三动作不变，原五PNG逐字节相同。中位图使用原hold-half，故pickup尾→hold首相同；release尾→idle-soft首仍为neutral。
+
+hold四项均180ms、总720ms loop：`hold-half`（中位微笑）→ `hold-up-half`（上扬微笑）→ `hold-mid-closed`（中位闭眼笑）→ `hold-down-half`（下压微笑）→ 回首项。仅第三项闭眼，不在每个翼姿更换脸。上扬和下压PNG直接逐字节复制ART012已验两端；中位闭眼使用ART011 hold-half身体，仅在已验222像素眼口mask内采用0.3.0闭眼笑。
+
+### mask与来源
+
+`art013-build.py`记录各来源SHA。上扬/下压采用身体mask∪眼口mask∪翼部mask；中位闭眼采用身体∪眼口。三个组件互不相交，分别保留PNG；每张新图另存完整union-mask及坐标。旧pickup/release图附原ART011并集mask。所有8张非基线图从最终PNG读回检查，相对neutral并集外RGBA差分0。头冠、脸外轮廓、头发、中央躯干保持原像素；仅指定眼口和翼区动作变化。
+
+上扬SHA仍fe631808c7cef27795fdae51daff0fae9ea98251b36356b855881062d6586a85，下压仍e3af22f9bb6f9c9405ddc22b78badd1cf986658eb359e383ccec2de0acf0e2c0。最终manifest SHA为 `6df3616190d43b977157d0a110f9b3a609599802baabf1118ae3b2107e102abf`。没有程序变形、平移、重绘或新生成。
+
+### 实际验证
+
+以下实际运行，全部退出0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art013-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art013-preview.py
+./assets/characters/aemeath-v1/source/art013-run-host.ps1
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art013-check.py
+git diff --check
+```
+
+13图经Inspect-Png独立System.Drawing读取：96×104 RGBA8/color6、二值alpha、0半透明，最大8886字节，参考锚点(48,94)。引用、四项时长、原五图字节、首尾接续和mask检查通过；预览嵌入的13个PNG字节与最终包逐一一致。构建前后正式包和ART011源包SHA不变，Git禁止范围无差分。
+
+实际自有宿主只定向重跑变化的hold：PID18784、exit0，显式manual/drag-hold、scale2、4200ms定时退出。生产加载器接受aemeath-v1/0.4.0、disabled=[]；真实frame日志覆盖索引0…3，去除相邻重复后包含5次3→0完整循环回绕，正常shutdown，无package-rejected/position-error。exe SHA E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0；运行记录的manifestSHA与当前包一致。证据 `art013-host-hold.jsonl`、host-run.json、png-inspect.json、check-report.json。不重复无关控制器测试；既有QA007控制器检查留给QA复用判断，不冒充本任务重新执行。
+
+### 浏览器实看及发现
+
+在本地 `http://127.0.0.1:8913/art013-inspection.html` 实际运行最终候选预览，浅深底1×/3×均可见。正常情境400ms按下，760ms进入hold，4000ms松手：实时DOM/截图在1048/2035/3132ms取样，到3132ms已完整经过3个hold周期；4611ms观察到回idle。此为实时运行与抽样截图，不是原生窗口录像或鼠标捕获验收。
+
+逐时刻定位检查：上扬松手1039→1040ms、下压松手1399→1400ms；40ms快松手440ms进入release、900ms回idle；release期间再抓730ms回pickup neutral入口、810ms惊讶；hold360ms闭眼中位，719→720ms末项下压回首项中位。记录见 `art013-visual-review.json`。另实看 `art013-hold-light-3x.png` 并排四项，浅深1×/3×对照全部提供。
+
+未见明显翅根断口、旧翼双影、头冠或躯干晃动。扇动比旧hold明显，但上扬→中位的角度变化比下压→中位硬；上扬时松手立即回固定release入口，约9–10px翼尖收回在并排/切换中明显，下压松手和循环首尾约3px变化较小。每720ms一次闭眼显得规律。**本轮格式、加载与静态接缝自检通过，不宣称动态自然度已通过。** 按卡保留四项180ms，不自行调整或无限修补。
+
+### 最小调整提案（仅提案，未实施）
+
+- 降低眨眼重复感可不画新图：改为8项×180ms=1440ms，两组中位→上扬→中位→下压，第一组中位保持半睁、第二组才闭眼；扇翼仍720ms一轮，眨眼1440ms一次。须PM授权项数变化。
+- 固定release首图无法同时与两端翼姿完全一致；仅改时长不能消除上扬松手的9–10px瞬时回收。若PM不接受，需要另卡决定新增中间翼姿，或由统筹评估按当前翼相位选择release入口的表现接口；本ART卡不改控制器或自创接口。当前不增加新图、不作未授权变形。
+
+交PM/QA时请用art013-package及最终互动预览，重点复核上扬松手与720ms眨眼节奏；前代候选只作来源。完成即停，不推广正式包，不进入随机漂浮、联动或发布。

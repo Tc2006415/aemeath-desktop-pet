@@ -1,0 +1,20 @@
+{
+  "scope":"Final package web simulation, light/dark1x/3x; not native input acceptance",
+  "normalLongPress":{"downMs":400,"holdStartsMs":760,"upMs":4000,"liveDomSamples":[1048,2035,3132],"screenshotTimesMs":[1090,2072,3169],"returnedIdleObservedMs":4611,"minimumCompletedHoldLoopsObserved":3},
+  "pausedBoundaryChecks":[
+    {"scenario":"wingup","beforeMs":1039,"before":"hold-up-half","afterMs":1040,"after":"release item1 hold-half"},
+    {"scenario":"wingdown","beforeMs":1399,"before":"hold-down-half","afterMs":1400,"after":"release item1 hold-half"},
+    {"scenario":"quick","timeMs":440,"state":"release item1 hold-half"},
+    {"scenario":"quick","timeMs":900,"state":"idle-soft neutral"},
+    {"scenario":"regrab","timeMs":730,"state":"pickup item1 neutral"},
+    {"scenario":"regrab","timeMs":810,"state":"pickup item2 hold-surprise"},
+    {"scenario":"hold","timeMs":360,"state":"item3 hold-mid-closed"},
+    {"scenario":"hold","beforeMs":719,"before":"item4 hold-down-half","afterMs":720,"after":"item1 hold-half"}
+  ],
+  "visualFinding":"Medium flap distinguishable; fixed roots remain joined without obvious old-wing double outlines or face/crown movement. Four-item stroke has a stronger upward-to-middle step than downward-to-middle. Upstroke release resets outer tip about9to10px immediately; downstroke release and loop wrap reset about3px. Blink repeats once every720ms and looks regular.",
+  "verdict":"Format/loading/static seams pass self-check; do not declare full dynamic visual approval. Preserve exact requested four180ms items and report cadence/fixed-entry concern.",
+  "minimalProposalNotImplemented":[
+    "For less repetitive blinking, duplicate the four wing items into an eight-item1440ms asset loop; keep the first cycle middle half-eyed and close eyes only in the second cycle. Wing period remains720ms, blink period1440ms. Requires PM to authorize new timing item count.",
+    "A fixed release first image cannot exactly match both wing endpoints. If the9to10px upstroke reset is rejected, only retiming cannot remove it: PM must authorize an intermediate wing pose and/or a separate phase-aware release-entry design. Do not modify controller/interface in this ART card."
+  ]
+}

@@ -409,3 +409,61 @@ $art009Probe.WaitForExit(30000)
 ### 交接
 
 交QA的是source内0.3.0候选子包及可重现mask/来源/预览，未修改正式frames或manifest。所有新增文件局限在source和本记录；提交前 `git diff --check` 及正式目录差分检查通过。局部合成和浏览器自检通过，但峰值3px局部距离、轻姿态内羽1px回摆及最终动态观感需QA独立评审。原生宠物视觉、跨DPI、拖动及真实Codex联动未在本卡执行。向统筹回报后等待QA，不进入拖动或其他后续，自动跟进仍暂停。
+
+## ART-010：拖动三个关键姿态候选（2026-09-21）
+
+### 范围与基线
+
+现行对话任务卡优先。读取PM最新project-status和ADR0003；用户对正式0.3.0反馈“待机正常，拖动缩放和退出均没问题，可以进行下一步”。本卡只交pickup/hold/release各一张关键姿态，不创建4项动作或正式时序，不改正式manifest/frames、代码或其他模块。本轮无新增任务、无后台跟进恢复。
+
+选择不合并统筹分支，避免本分支历史0.2.0正式素材回流。只读复制PM工作区 `C:/Users/bigxi/Documents/ChatGPT/桌宠/assets/characters/aemeath-v1/` 的manifest和5帧到 `source/art010-baseline/`，PM读取时HEAD为 `a2442f3bd023a97fae70727e21f62af97b5adf68`。复制包版本0.3.0及逐文件SHA记录在 `art010-v1-report.json`。所有候选以复制的neutral为不可变底图，其SHA仍为5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d。
+
+绘制使用内置imagegen，以已验 `neutral-generated-v3-edge-cleanup.png` 为编辑源（1205×1306，SHA45b754f137d68f7d7acd38c25719e853af75bd4f4d11ca1cbd33cfca91a35948）。逐张prompt和原始生成源保存于art010前缀文件，未用程序绘画角色。没有将头冠当拎手，未改变头部姿势。
+
+### 生成与选择
+
+| 姿态 | 使用候选 | 次数 | 表现 | 脚底y |
+| --- | --- | --- | --- | --- |
+| pickup | art010-pickup-v1-96.png | 1/2 | 双膝收起，短靴靠拢，中央衣摆随屈腿变化 | 88 |
+| hold | art010-hold-v2-96.png | 2/2 | 双腿稍松、短靴微分开，仍高于neutral | 91 |
+| release | art010-release-v1-96.png | 1/2 | 双膝外展，手向中间收，脚落回原高度 | 93 |
+
+hold-v1被主动退回：长白靴改变造型且脚底y95，比neutral低2px。原图、转换、合成和报告保留为失败证据。第二次恢复短灰靴且脚底y91，不继续生成。pickup实际收高5px，比提示中的约4px略大，作为可评审动作幅度披露。
+
+原始生成文件对应：pickup-v1=exec-f894788d-0410-411e-8607-b9c11442d503.png；hold-v1=exec-a534899d-2d96-4d11-9011-97689907d723.png；hold-v2=exec-3171d7af-bdd9-47d4-9e21-e5b5f110cd2e.png；release-v1=exec-5e3885cf-f2c9-4783-8a32-e32ba9ae142e.png。均从当前任务generated_images目录原样复制，原文件保留。
+
+### 转换、动作mask与差分
+
+`art010-build.py`复用已验PNG编解码函数，最近邻pixel-center采样、alpha阈值128、整数偏移(0,+5)，没有按每帧外接框重新对齐。生成源都为1205×1306；阈值后越界不透明样本0。输出96×104、锚点参考(48,94)，全图bbox仍为(9,22)-(86,97)，因外侧羽饰静止，bbox不用于推断脚位置。
+
+每张只用一版mask：显式闭区间x35…60、y75…97，共598像素。范围限于中央躯干、内侧手臂、衣摆和腿靴；所有y<75或x<35或x>60像素直接来自neutral。区域内整RGBA替换，包含透明擦除旧脚；不叠加旧轮廓，不绘制新像素。mask PNG及全部坐标、边界变化坐标在报告中可复核。头冠、脸、头发及外侧羽饰保持原像素。
+
+| 使用候选 | RGBA变化像素 | mask外变化 | 头部变化 | PNG字节 |
+| --- | --- | --- | --- | --- |
+| pickup-v1 | 455 | 0 | 0 | 8596 |
+| hold-v2 | 451 | 0 | 0 | 8807 |
+| release-v1 | 472 | 0 | 0 | 8924 |
+
+### 实际验证
+
+以下均实际执行，退出0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art010-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art010-preview.py
+foreach ($name in @('pickup-v1','hold-v2','release-v1')) {
+    ./scripts/qa/Inspect-Png.ps1 -Path ("assets/characters/aemeath-v1/source/art010-" + $name + "-96.png")
+}
+git diff --check
+git diff --name-only -- assets/characters/aemeath-v1/frames assets/characters/aemeath-v1/manifest.json src
+```
+
+独立System.Drawing读取三张均96×104、RGBA8/color6、0半透明、仅两种alpha，体积均小于256KiB，结果保存在 `art010-inspect-png.json`。构建脚本检查正式文件前后SHA不变，Git正式目录与src差分为空。
+
+实际打开本地 `http://127.0.0.1:8910/art010-inspection.html`，浏览器逐次切换pickup→hold→release→neutral并读取状态与截图，检查浅深底4×及1×。三者姿态可区分，未见明显头部跳变、旧脚双影、颈口断裂或羽根断口；查看合成浅深底对照图。该检查是关键姿态自检，不是完整动画、独立QA或原生桌宠拖动验收。页面内全部PNG为嵌入数据，不依赖外网。
+
+### 限制与交接
+
+release胸前白饰压缩及手部收拢较明显，与neutral的衣饰轮廓有变化，需PM确认是否接受这一动作表达；当前未将其称为最终外观通过。锁定头部的方案使动作集中在小身体，1×动作比4×更含蓄。头冠原有不规则像素沿用已验neutral。没有头部整体换姿，没有新增完整动作时序或宿主接入，不宣称桌宠已播放这三张。
+
+建议统筹评审三个选中PNG和 `art010-inspection.html`，可从neutral切换观察保护区与身体接缝。浅深对照图顺序均neutral / pickup-v1 / hold-v2 / release-v1。只选择性采用本卡art010前缀source文件；不要合并本分支历史正式0.2.0包。后续逐帧扩展须等关键姿态确认及新任务卡；本轮交付后停止制作。

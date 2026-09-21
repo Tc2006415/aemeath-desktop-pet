@@ -19,8 +19,8 @@ public sealed class App : Application
     }
     private void Start(string[] args)
     {
-        string package = Path.Combine(AppContext.BaseDirectory, "assets", "diagnostic");
-        string? logPath = null, optionError = null, initialClip = null; int? exitAfter = null; int scale = 2; bool automatic = false;
+        string package = Path.Combine(AppContext.BaseDirectory, "assets", "characters", "aemeath-v1");
+        string? logPath = null, optionError = null, initialClip = null; int? exitAfter = null; int scale = 2; bool automatic = true;
         for (int i = 0; i < args.Length; i++)
         {
             if (i + 1 >= args.Length) { optionError = "启动参数不完整。"; break; }

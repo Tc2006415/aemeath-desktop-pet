@@ -37,3 +37,21 @@ QA independently reported all 8 new tests and five additional API probe groups p
 New mode switch usability, real pickup/hold/release transitions under Windows capture, frame appearance and final character artwork acceptance remain pending. Existing user-reported DEV-003 manual checks do not prove these new actions. First-load broken-assets keyboard behavior and Narrator remain as the upstream pending items. This increment contains no business status, real Codex connection, persistence, new startup registration, public release or default character-package change.
 
 Final QA handoff: independent publish of 9f0494d and Hidden-request process probe passed (PID 17664, exit 0, one natural-end then idle). Own-log observation showed 14999 ms between different instrumentation points; exact 15000 ms behavior is established by controlled-clock boundary tests, not a claim of millisecond-perfect OS scheduling. QA confirmed capture-success ordering, idempotent release before capture-loss reentry, all host EndDrag paths, same-clock use, and capture cancellation before mode switches. Real checkbox/input/character visual acceptance remains pending. Original branch and Draft PR #8 are updated for PM integration; no merge or new task.
+
+## DEV-005: default character package integration (2026-09-21)
+
+Supersedes the earlier diagnostic/manual default above. PM baseline `b1317dda23ea65c91c245b299c237c6147b07fbd` was merged fast-forward, preserving the approved character 0.3.0 manifest and five PNGs unchanged. App startup now resolves `assets/characters/aemeath-v1` relative to AppContext.BaseDirectory and defaults to automatic mode. Existing `--package`, `--mode manual` and control-window mode selection remain available. No animation coordination, interfaces, dependencies or state behavior changed.
+
+Packaging now includes only the manifest and direct frame PNGs for the character and diagnostic packages. The build script checks its workspace-contained output paths, rejects reparse output directories, removes stale published assets, and validates the rebuilt inventory/hashes. Source images, export scripts, README files and logs are not runtime resources.
+
+Actual checks:
+
+- `./scripts/Test-PublishedAssets.ps1` failed before implementation with missing character manifest; after publication it passed with exactly 10 runtime assets, all SHA256 identical to repository sources, zero extra files. Character package is manifest + five PNGs; diagnostic package is manifest + three PNGs.
+- `./scripts/build.ps1 -Publish`: locked restore, Release build (0 warnings/0 errors), self-contained win-x64 directory publish and asset check passed. No lockfile changes.
+- `./scripts/smoke-character-host.ps1`: actual published process, different cwd, no `--package` or `--mode`; only diagnostics and 18500 ms timed exit. PID 7812 exited 0. Loaded aemeath-v1/0.3.0 character with no disabled actions, automatic idle-soft, one idle-smile natural end and return to idle. Own-log observations: 75 idle frame changes, 15004 ms to smile, 1208 ms smile (manifest duration 1200 ms; scheduling/logging observation is not an exact clock assertion).
+- `./scripts/smoke-host.ps1 -Clip idle-smile -Scale 1`: explicit packaged diagnostic path plus manual mode, PID 35684 exited 0 with once completion. This checks retained diagnostic entry after the new defaults.
+- `git diff --check` passed; `git diff --quiet b1317dd -- assets` passed. No ART file, scripts/qa, Presentation code or dependency lock changed. Unchanged loader/controller/geometry suites were not repeated for constant defaults and packaging changes.
+
+Local executable: `C:\Users\bigxi\.codex\worktrees\e114\桌宠\artifacts\host-win-x64\Aemeath.Host.exe`. Preserve the whole adjacent directory. SHA256 executable `86F4C7AD2524F68F18FAD8F75A3E62E47598C343164FD2C145076EA9FF2712D5`; Host DLL `B060E6933668A03EB95C9044D05C1BE4D3439E20B121FE6B007DFBFB046401E7`. These identify this local build of the submitted source changes.
+
+Limits: own-process evidence only; native character appearance/animation acceptance remains with the user after PM integration. No new drag animation, real Codex link, persistence, startup registration, public distribution or next-stage task. PM receives the fixed commit and executable path, then provides the integrated acceptance files to the user.

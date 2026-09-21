@@ -1,8 +1,8 @@
 # 首批角色素材制作记录
 
-状态：ART-005 neutral 已获 PM/QA 本阶段验收；ART-006 动画候选仍未通过视觉门槛。2026-09-21 ART-007完成两次单帧试修，第二张修正冠尖高度但静止头饰仍有差异，总体失败，已停止生成并交PM。不是完整六动作首包。
+状态：ART-005 neutral 已获 PM/QA 本阶段验收；ART-006/007生成候选仍未通过视觉门槛。2026-09-21 ART-008获新增局部合成授权，完成一张待机试样的两版mask，推荐v2：格式、静止像素及接缝自检通过，待PM验收局部幅度/观感。不是完整六动作首包。
 
-最新产物：ART-007 source内两张失败试修及差分见本文末节；已验 neutral 和现有正式目录保持原件。用户已接受 v2 头饰方向，并明确授权最近邻缩放、alpha 阈值及整数像素对齐。ART-006曾授权两动作候选，本次ART-007只授权单帧试修，未扩展程序拼贴权限。下列 ART-003/004 的“未获授权”“等待确认”是历史状态，已由后续授权取代。全部原图保留。
+最新产物：ART-008 source内局部合成试样、mask和检查预览见本文末节；已验neutral和现有正式目录保持原件。ART-007时尚未授权拼贴，ART-008已由用户明确追加“保留静止像素、仅合成下部羽饰”授权，历史限制不应误读为本轮仍禁止合成。全部原图和旧候选保留。
 
 ## 基线、范围和产物
 
@@ -282,3 +282,61 @@ git diff --exit-code -- assets/characters/aemeath-v1/frames assets/characters/ae
 导出/报告命令exit0表示成功生成检查材料，**报告结论均为FAIL**，不是验收通过。既有Inspect-Png两次均exit0，确认96×104、位深8、色彩类型6、半透明0、alpha两种、大小低于256KiB。v1正式格式候选SHA-256为 `ea7b18fe821f32e9bf0586d122eb02f017c69e42528a411fbde44e03d885deac`，v2为 `6edad393443b1379d2bb7a688a3a5be2f7502de6140aa36fe8cffa205e92fc17`。这些文件只位于source；neutral及其余正式帧、manifest保持未变。
 
 交PM验收的是失败试修与可复核证据，不是获准使用的动画帧。已达到本卡最多两次生成限制，到此停止，不继续试图靠全局偏移修冠尖，也不通过程序拼贴静止区域绕过限制。按任务卡直接回报统筹，等待PM决定；自动跟进仍暂停，本任务不自行开启后续。
+
+## ART-008：授权局部合成，一张待机试样（2026-09-21）
+
+用户经PM明确回复“允许”，新增授权程序保留neutral静止像素，只合成下部羽饰变化区域。本卡按此授权执行，未调用imagegen、未用程序绘制新角色。开工工作区干净，重读README、开发流程、任务交接及ADR0003；Issue CLI仍沿用上轮不可用记录，现行范围以对话ART-008为准。只新增source试样、脚本、mask、报告和预览，正式frames、manifest、代码、接口、锁文件未修改。
+
+**自检结论：单帧局部合成可行，推荐v2；格式/静止像素/接缝自检通过，待PM验收。** 两版mask后停止。左右极值各内收2px，符合1–2px目标；外侧羽尖局部不透明集合最大网格距离仍为3px，属于保留的幅度限制，不能宣称所有局部像素只动1–2px，也不能将此试样称为完整自然呼吸动画。
+
+### 来源、合成规则与显式mask
+
+- 不可变底图：`frames/neutral.png`，SHA256 `5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d`。
+- 变化素材：`source/art007-trial-v1-96.png`，SHA256 `ea7b18fe821f32e9bf0586d122eb02f017c69e42528a411fbde44e03d885deac`。采用既有已对齐96×104候选；本轮没有再缩放、阈值化或移动，原始生成来源及完整提示词见ART-007。
+- mask由指定下部羽饰区域内的neutral/候选不透明轮廓并集及1px相邻透明边带形成，不是把矩形整块当mask。坐标零起算、两端包含，右侧按 `x→95-x` 对称；实际所有mask像素坐标保存在每版report.json的 `maskCoordinatesXY`，白色mask PNG为相同区域。
+- mask内**完整替换RGBA**，包括将旧姿态对应像素替换为透明；mask外直接保留neutral字节。没有仅透明叠加，没有手绘新像素或调色过渡，没有把mask扩大到头部。
+
+| 版本 | 左侧允许域（包含端点） | mask像素 / RGBA变化像素 | 选择理由 |
+| --- | --- | --- | --- |
+| v1 | y82–84:x15–26；y85–87:x12–26；y88–98:x8–26 | 494 / 357 | 初版接缝目视无明显断口，但内缘靠近发梢/羽根交界，保留为历史候选 |
+| v2（推荐） | y83–84:x15–23；y85–87:x12–23；y88–98:x8–23 | 392 / 278 | 进一步保留整条x24–71中央区域及y<83区域，减少静止羽根附近色值替换；保留同样的外侧动作轮廓 |
+
+脚本：[compose-art008-v1.py](../../assets/characters/aemeath-v1/source/compose-art008-v1.py)、[compose-art008-v2.py](../../assets/characters/aemeath-v1/source/compose-art008-v2.py)。均仅用标准库、复用既有PNG读写，运行前后检查全部正式帧和manifest哈希；未新增依赖。
+
+### 产物与实测数值
+
+| 产物 | v1 | v2（推荐） |
+| --- | --- | --- |
+| 试样96×104 | [v1 PNG](../../assets/characters/aemeath-v1/source/art008-v1-96.png) | [v2 PNG](../../assets/characters/aemeath-v1/source/art008-v2-96.png) |
+| 显式mask | [v1 mask](../../assets/characters/aemeath-v1/source/art008-v1-mask.png) | [v2 mask](../../assets/characters/aemeath-v1/source/art008-v2-mask.png) |
+| 差分/区域/哈希 | [v1报告](../../assets/characters/aemeath-v1/source/art008-v1-report.json) | [v2报告](../../assets/characters/aemeath-v1/source/art008-v2-report.json) |
+| 离线切换预览 | [v1 HTML](../../assets/characters/aemeath-v1/source/art008-v1-inspection.html) | [v2 HTML](../../assets/characters/aemeath-v1/source/art008-v2-inspection.html) |
+| 大小 | 8786 bytes | 8793 bytes |
+| mask外RGBA差分 / 头部差分 / 中央身体脚差分 | 0 / 0 / 0 | 0 / 0 / 0 |
+| 清除旧不透明 / 新增不透明 | 47 / 18 | 47 / 18 |
+| 包围框 / 中央脚末行 | (11,22)–(84,97) / y93 | 相同 |
+| alpha值 / 不透明像素 | 0、255 / 3079 | 相同 |
+| 羽饰左右极值内收 / 集合最大局部距离 | 2、2px / 3、3px | 相同 |
+
+两张CRC、静态RGBA8、96×104、二值alpha、非全透明、256KiB上限均通过。锚点沿用参照(48,94)，不创建manifest。v2输出SHA256为 `31b0f4265b047685db6256c6891882eb19ada91b8d74499db1c404177a49b749`。v2边界上两处alpha变化为外侧新增抬起羽尖 `(17,83)` / `(78,83)`，不是羽根切口；每版报告另列边界共同不透明色值变化坐标，不能因为mask外零差分就跳过接缝观察。3px距离按ART-007相同的双向不透明集合最近点度量计算，是局部轮廓变化诊断，不能等同整图移动或精确语义羽尖轨迹。
+
+### 实际视觉检查
+
+通过view_image实际查看两版浅底1×及浅/深底4×并排PNG（左neutral，右试样）。v2静态图：[浅底1×](../../assets/characters/aemeath-v1/source/art008-v2-light-1x.png)、[深底1×](../../assets/characters/aemeath-v1/source/art008-v2-dark-1x.png)、[浅底4×](../../assets/characters/aemeath-v1/source/art008-v2-light-4x.png)、[深底4×](../../assets/characters/aemeath-v1/source/art008-v2-dark-4x.png)。v1同名文件全部保留。
+
+随后通过CUA打开明确本地地址 `http://127.0.0.1:8768/art008-v1-inspection.html` 和v2对应地址，实际查看1×浅深底、4×浅底，并向下滚动查看4×深底；使用neutral/试样按钮暂停对照，再恢复600ms交替。浏览器截图观察到了neutral和试样两种状态，不能只凭DOM标签声称视觉通过。头冠、侧头饰、脸与脚在切换对照中保持位置/色块不变；外侧羽片上翘内收可辨，羽根连续，未见旧轮廓残留形成双翼、直角矩形缺口或边界突然断开。v2减少了羽根附近替换，仍能保留动作，故选为交付试样。细羽尖本身有原生成像素的尖角，4×下运动更明显；该检查支持单帧接缝可行，不代表所有节奏下动作自然。600ms仅为检查节奏，没有派生正式动作时序或扩展整套动画。
+
+无原生宿主运行、跨DPI或完整待机连续性验收；本卡没有改正式包，不重跑无关全套测试。预览HTML已内嵌图像，可离线打开，临时HTTP服务不作为永久交付依赖。
+
+### 实际命令、限制与交接
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/compose-art008-v1.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/compose-art008-v2.py
+& ./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art008-v1-96.png
+& ./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art008-v2-96.png
+git diff --check
+git diff --exit-code -- assets/characters/aemeath-v1/frames assets/characters/aemeath-v1/manifest.json
+```
+
+合成脚本和两次既有Inspect-Png均exit0；独立读取输出/mask再次比对，确认mask外RGBA零差分、mask内逐像素等于来源候选、y<83及x24…71保护区零差分、源文件哈希一致。正式目录无差分，未改变原件。自检通过的是**v2局部合成方式与该单帧接缝**；局部3px轮廓变化已显式交接，最终自然度和后续使用由PM决定。两版mask已停止，不扩大到头部，不进入其他动作。交付后直接回报统筹并等待验收，自动跟进仍暂停。

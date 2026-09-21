@@ -635,3 +635,25 @@ git diff --check
 - 固定release首图无法同时与两端翼姿完全一致；仅改时长不能消除上扬松手的9–10px瞬时回收。若PM不接受，需要另卡决定新增中间翼姿，或由统筹评估按当前翼相位选择release入口的表现接口；本ART卡不改控制器或自创接口。当前不增加新图、不作未授权变形。
 
 交PM/QA时请用art013-package及最终互动预览，重点复核上扬松手与720ms眨眼节奏；前代候选只作来源。完成即停，不推广正式包，不进入随机漂浮、联动或发布。
+
+## ART-014：单张中间翼姿（2026-09-21）
+
+按PM在DEV006之后的任务卡，只补中位与原上扬之间的一张真实中间翼姿。使用imagegen技能1次、沿用ART012翼部mask一个版本；未耗用第二次生成。交付候选 `source/art014-v1-96.png`，身体和脸来自ART013 hold-half，原上扬参考为hold-up-half。没有新增动作包或调整时序。
+
+原始生成文件exec-b5f88ca8-d1cd-4fd2-be73-b91eecb91305.png保留，副本为art014-v1-source.png，SHA256 `92aacc1a21e6805350c52ae0ba49f7c505b19b1bac76d589ca1d7a286d838703`。生成输入为neutral-generated-v3-edge-cleanup.png与art012-up-v2-source.png；完整提示词、转换donor、mask、逐像素mask坐标与来源SHA均随art014前缀文件交付。生成器重绘的其他区域不采用，只在已验1220像素翼部mask内替换RGBA。转换保持既有pixel-center nearest、96×104、alpha阈值128与全图整数偏移(0,+5)，没有以程序移动或拉伸翼部制造姿态。
+
+最终PNG为96×104 RGBA8/color6，8803字节，二值alpha；SHA256 `939767e70b9634464a137004293a68d2df2c379220749ea01c893574c73cd9ec`。434个像素变化，mask外RGBA差分0，清除86个旧不透明像素、增加75个，转换截断不透明样本0，翼区新donor不透明点超出mask为0。包围盒(8,22)至(87,97)，参考锚点仍(48,94)。正式包和ART013包前后SHA完全相同。
+
+翼尖代理沿用外侧两列不透明像素的平均y，不视为骨骼或同一物理点追踪：中位左右93.222，中间左右89.000，上扬左83.500/右83.857。故中位→中间上移4.222逻辑像素，中间→上扬左5.500/右5.143；中间外缘左右各比两端多伸出1像素。实际幅度接近目标4–5px，中间→上扬左侧略超过5px，保留该差异供PM判断，没有裁翼伪造数值。
+
+已实看原始生成图，以及light/dark两底1×与3×四张并排图；均按中位→中间→原上扬排列。三个角度可以辨认，中间长羽接近水平，短羽保留下垂分叉；未见明显矩形接缝、翅根断口或旧翼双影，头发、表情和身体稳定。静态检查支持进入下一轮动态验证，不代表release跳变或完整hold自然度已经通过。
+
+实际执行且退出0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art014-build.py
+./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art014-v1-96.png
+git diff --check
+```
+
+构建对候选PNG逐chunk验证CRC并解码回读RGBA；独立Inspect-Png/System.Drawing结果见art014-png-inspect.json，0半透明，SHA一致。art014-report.json保留量化与受保护文件SHA。未运行新姿态的应用动画；只交单图供PM决定下一卡如何用于release和hold，不实现三套release、全套包、两周期眨眼或idle/float，不推广正式素材。

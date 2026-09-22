@@ -786,3 +786,13 @@ art019-inspection.html从最终候选读取manifest和16图内嵌，回读确认
 art022-design.md提出三姿完整翼A/B/C，同一翼根、内外羽同步、左右同相，三枚主要羽尖/分叉顺序稳定。建议neutral/soft-light/soft-peak为A/B/C，smile-half/closed为B/C，保留1400/1200ms。五图为最小核心候选；neutral共24处引用、覆盖全部16release入口终点，旧pickup/hold/release基础翼及五张大幅帧均需定向连续性检查，追加修改由PM先冻结。提出完整翼包络和语义mask，非本轮绘制许可。
 
 art022-diagnose.py实际exit0：PNG CRC、修复soft SHA、17正式文件前后SHA、逐字节原图副本、分区diff和全manifest引用映射。原图页实看截图并列及16帧3×浅/1×深；art022-*只保留原图、证据、设计和预览，不生成新像素。git diff --check通过。Issue #2读取因gh不可用失败，按现行规则以PM对话卡为准，限制写入设计。没有改正式包/时序/代码/其他动作，没有imagegen，没有新动画成品声明。交PM设计后停，自动跟进仍暂停。
+
+## ART-023：A放松整翼单帧尝试，视觉未通过（2026-09-22）
+
+按PM接受ART022后的单帧卡制作，仅source/art023-*及本记录。以PM52ef940 neutral为固定底，实际标定发尾下深色根部左x24..27/y82..85、右镜像，共32样本保护；逐行阶梯语义mask838样本，非矩形覆盖，不沿旧羽片中段分割。完整mask/坐标/参数随交付。
+
+imagegen2次、总合成2版、共用1张mask。第一版10×实看新根部偏高形成尖角，内羽仍竖直，故第二次针对这两项生成。第二版缩短部分羽尖但根部外缘仍凸出（23,82和72,82），内羽仍未融入共同外展走势，判视觉失败并按上限停止。没有选定可采用A，不派生B/C或表情帧，不继续重试。
+
+两生成源1205×1305，仅最近邻整画布格式转换96×104及alpha128，再显式局部合成；没有历史+5配准、整图平移、羽翼旋转/扭曲或程序绘像素。两版RGBA改变389/383，mask外和固定根部差分0，头脸身脚anchor保护，正式17文件SHA不变；独立PNG检查96×104 RGBA8二值alpha。两版8邻接均1分量，但不以连通性冒充自然造型。实际浅深1/2/3×、根部10×和与neutral/smile-closed/hold-half/release-half并列查看；旧拖动回切会恢复较长下垂中羽及旧折点，不声称无缝。
+
+prepare/compose1/compose2/check/preview脚本、两张Inspect-Png.ps1、git diff --check实际exit0；formatPass true、visualPass false明确分开。源图/prompt/donor/mask/SHA/参数/diff/失败预览与交付说明art023-delivery.md齐全。完成直接回PM，由PM决定下一卡；不改正式包/时序/代码/拖动大幅上扬，不进入float，自动跟进保持暂停。

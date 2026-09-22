@@ -1,0 +1,208 @@
+{
+  "card": "ART-016",
+  "verdict": "not acceptable for final timing freeze in this review",
+  "imagegenCalls": 0,
+  "pixelEdits": 0,
+  "preview": "art016-inspection.html",
+  "url": "http://127.0.0.1:8916/art016-inspection.html",
+  "nativeSourceRouting": false,
+  "positionFreeze": "numeric coordinate simulation only; sprites deliberately stationary",
+  "liveObservation": {
+    "mode": "hold",
+    "domAtMs": [
+      822,
+      7930,
+      8044
+    ],
+    "screenshotAtMs": [
+      864,
+      7972
+    ],
+    "completeWingCycles": 11,
+    "note": "Continuous page execution between samples; not continuous video or native rendering evidence."
+  },
+  "pausedObservations": [
+    {
+      "mode": "hold",
+      "t": 480,
+      "frame": "mid"
+    },
+    {
+      "mode": "hold",
+      "t": 1200,
+      "frame": "closed"
+    },
+    {
+      "mode": "hold",
+      "t": 1260,
+      "frame": "down"
+    },
+    {
+      "mode": "hold",
+      "t": 2640,
+      "frame": "closed"
+    },
+    {
+      "mode": "up",
+      "t": 400,
+      "frame": "up",
+      "position": [
+        140,
+        200
+      ]
+    },
+    {
+      "mode": "up",
+      "t": 440,
+      "frame": "b7",
+      "position": [
+        140,
+        200
+      ]
+    },
+    {
+      "mode": "up",
+      "t": 560,
+      "frame": "mid",
+      "position": [
+        140,
+        200
+      ]
+    },
+    {
+      "mode": "b7",
+      "t": 520,
+      "frame": "mid"
+    },
+    {
+      "mode": "b7",
+      "t": 980,
+      "frame": "neutral"
+    },
+    {
+      "mode": "b4",
+      "t": 480,
+      "frame": "mid"
+    },
+    {
+      "mode": "b4",
+      "t": 940,
+      "frame": "neutral"
+    },
+    {
+      "mode": "b2",
+      "t": 440,
+      "frame": "mid"
+    },
+    {
+      "mode": "b2",
+      "t": 900,
+      "frame": "neutral"
+    },
+    {
+      "mode": "mid",
+      "t": 440,
+      "frame": "mid"
+    },
+    {
+      "mode": "mid",
+      "t": 900,
+      "frame": "neutral"
+    },
+    {
+      "mode": "down",
+      "t": 400,
+      "frame": "down"
+    },
+    {
+      "mode": "down",
+      "t": 440,
+      "frame": "mid"
+    },
+    {
+      "mode": "quick",
+      "t": 439,
+      "frame": "neutral",
+      "phase": "pickup"
+    },
+    {
+      "mode": "quick",
+      "t": 440,
+      "frame": "mid",
+      "phase": "release-fallback"
+    },
+    {
+      "mode": "quick",
+      "t": 900,
+      "frame": "neutral"
+    },
+    {
+      "mode": "regrab",
+      "t": 479,
+      "frame": "b7"
+    },
+    {
+      "mode": "regrab",
+      "t": 480,
+      "frame": "neutral",
+      "phase": "pickup"
+    },
+    {
+      "mode": "regrab",
+      "t": 560,
+      "frame": "surprise"
+    },
+    {
+      "mode": "regrab",
+      "t": 840,
+      "frame": "mid",
+      "phase": "hold"
+    }
+  ],
+  "manualFreezeSamples": [
+    {
+      "time": 660,
+      "phase": "release",
+      "position": [
+        138,
+        200
+      ]
+    },
+    {
+      "time": 9822,
+      "phase": "idle-after-release",
+      "position": [
+        138,
+        200
+      ]
+    }
+  ],
+  "visualFindings": {
+    "positive": "Incremental upward release avoids the former single9\u201310px collapse. Head/body fixed, no obvious root separation or rectangular seam in sampled views.",
+    "concerns": "B7 short feathers visibly contract/expand across neighboring poses; right contour extends1px. B2/B4 differ subtly while lower pose holds180ms, making timing uneven. Closed60ms executes but brief perceptual readability was not established by sparse screenshots.",
+    "limitations": "Live screenshots are samples, not frame-complete motion capture. All six routes are webpage probes only. Quick pickup release uses old R fallback and still changes neutral to hold-half. Physical mouse capture/window-position freeze and host source selection remain unimplemented."
+  },
+  "minimumSuggestion": "One later timing-only trial, if PM authorizes: keep total720ms by moving40ms from down180 to return-mid60, yielding down140 and return-mid100; second cycle's same item uses closed100. This may ease the dwell and blink brevity, but cannot repair pixel contour breathing. No change applied here; no further generation.",
+  "liveReleaseCompletion": [
+    {
+      "mode": "up",
+      "timeMs": 1099,
+      "phase": "idle-after-release",
+      "frame": "neutral",
+      "position": [
+        140,
+        200
+      ]
+    },
+    {
+      "mode": "down",
+      "timeMs": 987,
+      "phase": "idle-after-release",
+      "frame": "neutral",
+      "position": [
+        140,
+        200
+      ]
+    }
+  ]
+}

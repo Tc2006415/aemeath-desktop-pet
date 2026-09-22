@@ -1,0 +1,53 @@
+{
+  "sources": {
+    "neutral": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\neutral.png",
+      "sha256": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d"
+    },
+    "soft-light": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art021-soft-light-v1-m2-96.png",
+      "sha256": "bc9fe556ac774ad2ca7c77d03446cdc451159819712e7e4fc9b8b245b48dcd70"
+    },
+    "soft-peak": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art021-soft-peak-v1-m2-96.png",
+      "sha256": "79d227136f70d87ccea3d7efa2ae94759f8868890c3ef87a984c2d8fcf045be2"
+    },
+    "old-light": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art021-soft-light-original.png",
+      "sha256": "b5fdc14c5d3b05d8189e2acd5f71116e2270bc36b77e4762478d65180e3828cf"
+    },
+    "old-peak": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art021-soft-peak-original.png",
+      "sha256": "31b0f4265b047685db6256c6891882eb19ada91b8d74499db1c404177a49b749"
+    }
+  },
+  "originalIdleSoftFrames": [
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 400
+    },
+    {
+      "path": "frames/soft-light.png",
+      "durationMs": 150
+    },
+    {
+      "path": "frames/soft-peak.png",
+      "durationMs": 150
+    },
+    {
+      "path": "frames/soft-peak.png",
+      "durationMs": 400
+    },
+    {
+      "path": "frames/soft-light.png",
+      "durationMs": 150
+    },
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 150
+    }
+  ],
+  "durationMs": 1400,
+  "embeddedBytesMatch": true,
+  "nativeAcceptance": false
+}

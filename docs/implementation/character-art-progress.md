@@ -770,3 +770,11 @@ art019-inspection.html从最终候选读取manifest和16图内嵌，回读确认
 证据和最小修复范围见source/art020-diagnosis.md、pixel-report.json、alpha-map.txt、inspection.html。预览仅原PNG内嵌/CSS放大，已实看全图1×3×和翅尾10×以及原时序浅深底播放，484ms截图为light。未取得用户指向点位的原生截图，不声称覆盖全部主观现象。建议后续卡仅soft-light/soft-peak，局部左x18..26/y89..97及右镜像x69..77/y89..97，保护正常分叉负空间，修细连接与mask交界；不盲填所有透明孔，不改neutral/时序/其他动作/代码。
 
 实际art020-diagnose.py和git diff --check退出0；CRC、三来源与ART019字节一致、历史mask重建、mask外差分、连通分量和内嵌字节检查完成，正式包前后SHA不变。没有生成新PNG、改正式素材或实施修复。交PM定位后停，自动跟进保持暂停，不进入漂浮。
+
+## ART-021：idle-soft翅尾局部修复候选（2026-09-22）
+
+依据PM最新卡，仅以正式0.4 soft-light/soft-peak为底，修许可窗口内连接和接缝。每帧imagegen1次、mask2版，最终为art021-soft-light-v1-m2-96.png与art021-soft-peak-v1-m2-96.png。生成整图经最近邻/alpha128与既有(0,+5)配准后，仅显式mask复制生成RGBA；没有程序绘补丁。初始未配准和宽mask失败证据保留，均不是候选。
+
+最终light33像素/peak30像素RGBA改变，窗口外0；alpha仅补已知4+1点，原实心不减少，其他透明空隙全部不变，始终一个8邻接分量。96×104 RGBA8二值alpha、bbox/头冠/脚/anchor保持，正式17文件SHA不变。原速1400ms浅深1×2×3×及局部10×实看，已知透背景缺口未再闪现；局部暗色连接点仍可辨，不能宣称全消主观接缝。浏览器播放截图28445ms light、28729ms peak，非原生验收。
+
+实际art021-build.py/check.py/preview.py、两张Inspect-Png.ps1及git diff --check退出0。原始源、prompt、donor、两版mask、SHA、diff、preview和失败证据均在source/art021-*；完整命令/限制/选定SHA见art021-delivery.md。仅交独立QA和PM决定；没有改正式包/其他动作/entry/代码/锁，不整包合并ART历史资产，不进入float。

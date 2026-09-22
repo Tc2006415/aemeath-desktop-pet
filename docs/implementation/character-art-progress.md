@@ -696,3 +696,30 @@ Inspect脚本对四次候选逐一调用独立Inspect-Png/System.Drawing，证�
 **本轮动态自评：不接受直接冻结。** 上扬逐级收翼改善原9–10px一次收回，头身稳定，采样实看未见明显断根或矩形缝。但B7短羽相对邻项仍有收放，右轮廓多伸1px；B2/B4差别小、下压停180ms，整体节奏不够均匀。闭眼60ms已执行，但稀疏截图不足以确认短时表情可读性，不以暂停清晰冒充实时自然。快松手固定R仍从neutral跳到hold-half，是明确标记的未实现源图选路，不计作该场景成功。
 
 最小建议仅供PM判断：若允许下一次纯时序探针，可将下压180减40至140，回中位60加40至100，第二周期同项闭眼100，维持720ms。该调整只可能改善停顿和短促闭眼，不能修复短羽像素形变；本轮未实施、不再生成。当前交探针与失败结论即停，待PM决定，不冻结共享契约、不进入随机漂浮/日常待机。
+
+## ART-017：保留高位，局部修复B7轮廓（2026-09-21）
+
+用户选择保留放下时的大幅上扬方向；本卡仅修B7，不将B4替代高位，也不从任意低位松手强切上扬。使用内置imagegen技能1次、显式mask1版，交art017-v1-96.png作为局部改善候选。原B4和ART012 up-v2高位完全不动，不耗用第二次生成、不重排hold/release。
+
+编辑输入为旧B7的art015-b7-v1-source.png，B4和高位源图仅供短羽长度/分叉参考。原始exec-a1aedc80-bd56-47e0-8eeb-64d140e00e9d.png保留，副本art017-v1-source.png，SHA `005312bd824ea0003a1c8679773561dbfa0d057327bee781c7dafeb27dcf6041`；完整提示词art017-v1-prompt.txt。按原nearest96×104、alpha128、全图整数偏移(0,+5)转换成donor，再局部合成旧B7身体/表情，未程序拉伸/旋转/平移羽翼造姿态。
+
+mask为原ART012翼mask的子集：左侧保留x≤23，以及y≥93时x24..26，右侧镜像；因此内侧羽毛/翼根x24..30上部及x27..30下部不采用生成结果。完整坐标和SHA见art017-report.json。donor在固定内侧羽区(68,92)有一个额外不透明点未采用，保留旧B7原像素；无翼尖截断，不扩大mask。最终mask外RGBA变化0，278像素变化，清除19/增加22不透明像素，转换不透明截断0。
+
+候选96×104 RGBA8/color6，8766B，alpha0/255；SHA `8cac356f170275806966d31364520c3bbc5ad3a66e04160ed59814dd4ab9557b`。包围盒(8,22)..(87,97)，参考锚点(48,94)。原正式包、ART013整个包、ART014/015/016全部文件前后SHA不变。
+
+轮廓代理显示改善：短羽下部ROI底缘B4/旧B7/新B7/高位分别97/95/97/96，左右一致；同ROI不透明点58/46/52/48，旧B7的收缩后回涨变为逐级减少。外缘分别8..87 / 8..88 / 8..87 / 9..86，旧右侧多伸1px已消除。此为下部轮廓代理，不是解剖羽长或同一点追踪。新B7外翼尖均值左86.714/右87.000，到高位仍差3.214/3.143px，不宣称≤3，也不为数值继续修绘。
+
+实际查看原生成图和四张art017-v1-compare-{light,dark}-{1,3}x.png，顺序B4/旧B7/新B7/高位。网页art017-inspection.html自含4张来源字节，旧/新同步B4→B7→高位→B7往返，浅深1×3×同时展示；没有位移、插值、淡化。实际运行各120ms观察档，1492ms DOM/1528ms截图已往返3次；暂停120/240/360ms逐项观察B7上行、高位、B7回程。再运行原片段50/50/100/50ms档，1392ms DOM/1427ms截图已5次，1523ms暂停为6次往返。只是局部网页片段，不是完整hold/release或原生播放验收。
+
+本轮自评为**局部改善，可以交PM复核**：新B7短羽的缩短突变比旧版弱，分叉保持，左右宽度协调；实看未见明显断根、旧翼双影或矩形mask接缝，头饰/脸/身体稳定。仍有羽片颜色/形状差异，高位两侧各收窄1px；不宣称完全无抖动或完整动作已通过。证据是实时运行的抽样截图及暂停对照，不是逐帧录像。
+
+实际命令均exit0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art017-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art017-preview.py
+./scripts/qa/Inspect-Png.ps1 -Path assets/characters/aemeath-v1/source/art017-v1-96.png
+git diff --check
+```
+
+CRC/RGBA回读、独立Inspect-Png格式/alpha/SHA检查、静止区差分、内嵌来源字节和保护文件SHA通过，报告见art017-report.json / contour-report.json / png-inspect.json / visual-review.json。只提交art017前缀和本记录，直接回PM后停止；未修改任何历史或正式候选包、共享schema、程序，不制作待机/漂浮。

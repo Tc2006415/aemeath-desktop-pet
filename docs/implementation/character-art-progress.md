@@ -737,3 +737,26 @@ CRC/RGBA回读、独立Inspect-Png格式/alpha/SHA检查、静止区差分、内
 **本轮制作方结论：完整视觉探针可交独立QA，未发现实际1×尺寸下阻断性的短羽突缩。** 新B7的短羽分叉较连贯，100ms闭眼已实时可见，头身和翅根采样中稳定；细微形色变化、高位两侧收窄1px、邻段像素步幅不均仍保留披露，不宣称完全无形变或严格≤3px。没有据此冻结素材/DEV契约，也不是原生桌宠动态验收。
 
 详细观察见art018-visual-review.json。自有测试页和8918服务器已关闭。只交source/art018-*及本记录，完成这一轮即停，后续由独立QA检查完整探针、PM统一决定；不改正式包/schema/程序，不做idle/float。
+
+## ART-019：ADR004 schema2真实候选包（2026-09-21）
+
+依PM22799b4冻结的ADR004制包，已只读读取现行ADR并原样保存为art019-frozen-adr.md，SHA记录于art019-source-report.json。该契约优先于旧探针限制。候选为source/art019-package，schemaVersion2/packageVersion0.4.0；未覆盖正式包，不合并本分支历史0.2。imagegen0、像素修改0。
+
+保留ART013全部13张PNG逐字节不变，新增hold-bridge-low/mid/high分别逐字节来自ART015 B2-v1、ART014 B4、ART017新B7，总16图。已与PM工作区正式0.3.0实物比较：五张基线PNG和neutral/idle-soft/idle-smile三个动作一致；pickup和基础release保持ART013。所有原始文件路径/SHA/字节数随source-report交付。
+
+hold按冻结表20项1440ms，第二周期唯一closed100ms。drag-release.entrySequences完整覆盖16个源PNG，首项path等于键、末项neutral；上扬620，H580/M540/L500，中位直接R460，下压500，闭眼中位460，两张惊讶500，neutral160，release-closed380，release-half280，四个idle表情/轻浮源各200。基础41项、入口63项、共104项。中位没有继承探针的额外40ms，低位源不先切高位。
+
+最终manifest SHA `eab91ecb10037da7320d4e9c9321c8dce0f122d3b9d5daa6e101a55e1e319da3`。文件检查从最终manifest读回，检查重复键、schema/元数据、路径/字段/正整数时长、16图来源字节、PNG CRC/96×104/RGBA8/二值alpha、图与项数量及上限、全部入口精确顺序和时长、首尾、每条期限前1ms/边界、pickup末→hold首和R末→idle首。期限检查为文件级数组检查，不是生产播放器测试。正式包、ART013源包及PM正式0.3实物前后SHA不变。
+
+实际命令全部exit0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art019-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art019-check.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art019-preview.py
+git diff --check
+```
+
+art019-inspection.html从最终候选读取manifest和16图内嵌，回读确认manifest对象与图片字节一致。浅深1×3×同时预览，可选六动作或任一源入口，暂停逐项和时间定位。实际运行hold：1287ms截图可见闭眼，3704ms DOM/3759ms截图已完整5翼周期。抽查中位0/459/460ms、neutral0/159/160ms、闭眼中位0/79/80/460ms、高位0/40/620ms、下压0/40/500ms均显示预期首图/下一项/到期结束。实看未发现相对已验ART018新增的角色像素变化；旧细微形变限制继续保留。证据check-report、preview-report、visual-review；网页SHA `7be3ccf7ea573f471c83bbd306359cbcbc97d57468ffea4c6ba51dab60ced3f4`。
+
+网页播放是数组展示，不是宿主按已提交帧自动选路。此任务未运行schema2生产加载器，不用旧加载器失败冒充成功；真实加载、控制器、快照/捕获和原生视觉交DEV007/QA。候选就绪直接向PM和DEV提供路径、提交和manifestSHA；自有8919测试页/服务器关闭。仅art019前缀及本记录，完成即停，不改正式素材/代码/锁，不进入漂浮、日常待机或发布。

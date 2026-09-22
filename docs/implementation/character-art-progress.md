@@ -723,3 +723,17 @@ git diff --check
 ```
 
 CRC/RGBA回读、独立Inspect-Png格式/alpha/SHA检查、静止区差分、内嵌来源字节和保护文件SHA通过，报告见art017-report.json / contour-report.json / png-inspect.json / visual-review.json。只提交art017前缀和本记录，直接回PM后停止；未修改任何历史或正式候选包、共享schema、程序，不制作待机/漂浮。
+
+## ART-018：完整动态探针复验（2026-09-21）
+
+按卡一次更新ART016完整网页探针，入口art018-inspection.html。全局B7图片绑定换成ART017新图，hold及全部收翼引用均使用该绑定。每周期回中位100ms、下压140ms，其余项保持；20项1440ms，第二周期第19项闭眼100ms，保留原高位。imagegen0、像素修改0，无额外调参迭代。
+
+`art018-preview.py`与`art018-check.py`实际执行exit0，`git diff --check` exit0。检查从最终HTML回读：12张内嵌PNG逐字节/SHA与指定来源一致，唯一图片绑定变化为B7；相对ART016只有hold零基索引8/9/18/19时长改成100/140/100/140，pickup/R及六收翼探针数组不变。正式包、ART013包、ART014至017源文件前后SHA相同。最终网页SHA `f53b38a87ff642842638a01621ac06de74fb9383da69ec106453b5d2a4c8f4a2`，证据art018-build-report.json和art018-check-report.json。
+
+实际浅深底1×/3×同时播放完整hold，重播后1280ms DOM仍closed，第一次截图1330ms已到down；继续到3656ms DOM/3698ms截图完整5翼周期，3776ms暂停。为明确100ms闭眼能否实看，另直接抽取实时截图1268ms，状态为播放/closed，第19项，四种底色倍率均能辨认闭眼笑；未通过延长或暂停伪造时长。该补充抽样没有改参数。实时截图是抽样证据，不是连续录像。
+
+上扬松手440ms暂停显示新B7，位置数值(140,200)已冻结；下压400→440ms从down直接回R中位，没有硬切高位。上扬实时1143ms、下压919ms均已结束neutral。快松手439ms pickup neutral→440ms明确release-fallback mid→900ms neutral；重抓479ms仍新B7收翼→480ms立即pickup neutral→560ms惊讶→840ms hold。保留真实源帧路由未实施标识；窗口位置冻结只是数值模拟，快松手仍为固定R回退，不冒充源帧选路已完成。
+
+**本轮制作方结论：完整视觉探针可交独立QA，未发现实际1×尺寸下阻断性的短羽突缩。** 新B7的短羽分叉较连贯，100ms闭眼已实时可见，头身和翅根采样中稳定；细微形色变化、高位两侧收窄1px、邻段像素步幅不均仍保留披露，不宣称完全无形变或严格≤3px。没有据此冻结素材/DEV契约，也不是原生桌宠动态验收。
+
+详细观察见art018-visual-review.json。自有测试页和8918服务器已关闭。只交source/art018-*及本记录，完成这一轮即停，后续由独立QA检查完整探针、PM统一决定；不改正式包/schema/程序，不做idle/float。

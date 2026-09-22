@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "changedHoldItemIndicesZeroBased": [
+    8,
+    9,
+    18,
+    19
+  ],
+  "onlyChangedImageBinding": "b7 -> art017-v1-96.png",
+  "embeddedImages": 12,
+  "holdDurationMs": 1440,
+  "closedDurationMs": 100,
+  "routeArraysUnchanged": true,
+  "nativeSourceRoutingImplemented": false,
+  "sha256": "f53b38a87ff642842638a01621ac06de74fb9383da69ec106453b5d2a4c8f4a2"
+}

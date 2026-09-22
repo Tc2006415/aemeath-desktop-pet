@@ -778,3 +778,11 @@ art019-inspection.html从最终候选读取manifest和16图内嵌，回读确认
 最终light33像素/peak30像素RGBA改变，窗口外0；alpha仅补已知4+1点，原实心不减少，其他透明空隙全部不变，始终一个8邻接分量。96×104 RGBA8二值alpha、bbox/头冠/脚/anchor保持，正式17文件SHA不变。原速1400ms浅深1×2×3×及局部10×实看，已知透背景缺口未再闪现；局部暗色连接点仍可辨，不能宣称全消主观接缝。浏览器播放截图28445ms light、28729ms peak，非原生验收。
 
 实际art021-build.py/check.py/preview.py、两张Inspect-Png.ps1及git diff --check退出0。原始源、prompt、donor、两版mask、SHA、diff、preview和失败证据均在source/art021-*；完整命令/限制/选定SHA见art021-delivery.md。仅交独立QA和PM决定；没有改正式包/其他动作/entry/代码/锁，不整包合并ART历史资产，不进入float。
+
+## ART-022：完整翼部轻扇定位与设计（2026-09-22）
+
+已实际查看用户截图及PM修复后0.4全部16张原帧。截图最接近smile-closed/idle-smile，hold-mid-closed为次选，外羽轮廓不完全相同且无当时路径日志，不宣称精确匹配。smile两图翼部与neutral逐像素相同；修复版soft两图内侧带仅各6点接缝变化，外侧263/279点，故涉及基础分组翼形、静止笑脸翼和局部外羽摆动，不能继续仅补孔。
+
+art022-design.md提出三姿完整翼A/B/C，同一翼根、内外羽同步、左右同相，三枚主要羽尖/分叉顺序稳定。建议neutral/soft-light/soft-peak为A/B/C，smile-half/closed为B/C，保留1400/1200ms。五图为最小核心候选；neutral共24处引用、覆盖全部16release入口终点，旧pickup/hold/release基础翼及五张大幅帧均需定向连续性检查，追加修改由PM先冻结。提出完整翼包络和语义mask，非本轮绘制许可。
+
+art022-diagnose.py实际exit0：PNG CRC、修复soft SHA、17正式文件前后SHA、逐字节原图副本、分区diff和全manifest引用映射。原图页实看截图并列及16帧3×浅/1×深；art022-*只保留原图、证据、设计和预览，不生成新像素。git diff --check通过。Issue #2读取因gh不可用失败，按现行规则以PM对话卡为准，限制写入设计。没有改正式包/时序/代码/其他动作，没有imagegen，没有新动画成品声明。交PM设计后停，自动跟进仍暂停。

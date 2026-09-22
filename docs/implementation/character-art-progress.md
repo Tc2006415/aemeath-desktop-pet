@@ -760,3 +760,13 @@ git diff --check
 art019-inspection.html从最终候选读取manifest和16图内嵌，回读确认manifest对象与图片字节一致。浅深1×3×同时预览，可选六动作或任一源入口，暂停逐项和时间定位。实际运行hold：1287ms截图可见闭眼，3704ms DOM/3759ms截图已完整5翼周期。抽查中位0/459/460ms、neutral0/159/160ms、闭眼中位0/79/80/460ms、高位0/40/620ms、下压0/40/500ms均显示预期首图/下一项/到期结束。实看未发现相对已验ART018新增的角色像素变化；旧细微形变限制继续保留。证据check-report、preview-report、visual-review；网页SHA `7be3ccf7ea573f471c83bbd306359cbcbc97d57468ffea4c6ba51dab60ced3f4`。
 
 网页播放是数组展示，不是宿主按已提交帧自动选路。此任务未运行schema2生产加载器，不用旧加载器失败冒充成功；真实加载、控制器、快照/捕获和原生视觉交DEV007/QA。候选就绪直接向PM和DEV提供路径、提交和manifestSHA；自有8919测试页/服务器关闭。仅art019前缀及本记录，完成即停，不改正式素材/代码/锁，不进入漂浮、日常待机或发布。
+
+## ART-020：普通idle-soft翅尾只读诊断（2026-09-22）
+
+用户原生验收报告待机翅尾像素断裂、其他正常；其他项仅作为用户报告，不扩展为代理原生实测。按卡只读PM正式0.4 neutral/soft-light/soft-peak，未检查或修drag-hold，imagegen0/像素修改0。
+
+已定位soft-light左(20,92)/(20,93)、右(75,92)/(75,93)为RGBA0，而neutral与soft-peak同位置均不透明；soft-peak另有右(76,90)透明、左镜像无同孔。缺口已存在于历史donor，并由ART009/ART008直接RGBA合成沿用；只读重建和正式图逐像素一致。light左侧为4邻接两像素孔，右侧为开放细缺口；三帧均未发现8邻接独立翅尾块，不能说整片羽翼脱落。mask左x≤23/右x≥72的硬边界另造成(24,91)/(71,91)源图近白亮部未采用、保留neutral暗部，可能加强重接感，非透明孔的唯一根因。
+
+证据和最小修复范围见source/art020-diagnosis.md、pixel-report.json、alpha-map.txt、inspection.html。预览仅原PNG内嵌/CSS放大，已实看全图1×3×和翅尾10×以及原时序浅深底播放，484ms截图为light。未取得用户指向点位的原生截图，不声称覆盖全部主观现象。建议后续卡仅soft-light/soft-peak，局部左x18..26/y89..97及右镜像x69..77/y89..97，保护正常分叉负空间，修细连接与mask交界；不盲填所有透明孔，不改neutral/时序/其他动作/代码。
+
+实际art020-diagnose.py和git diff --check退出0；CRC、三来源与ART019字节一致、历史mask重建、mask外差分、连通分量和内嵌字节检查完成，正式包前后SHA不变。没有生成新PNG、改正式素材或实施修复。交PM定位后停，自动跟进保持暂停，不进入漂浮。

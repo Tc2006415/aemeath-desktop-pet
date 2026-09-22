@@ -1,0 +1,60 @@
+using System.IO;
+using System.Text.Json.Nodes;
+using Aemeath.Host;
+using Aemeath.Presentation;
+
+static void Check(bool ok,string message) { if(!ok) throw new Exception(message); }
+static string P(string name)=>$"frames/{name}.png";
+var package=PackageLoader.Load(args[0],PngDecoder.Decode);
+// Oracle from ADR004, independent of the manifest's entry durations.
+(string Source,int Deadline)[] expected=[("hold-up-half",620),("hold-bridge-high",580),("hold-bridge-mid",540),("hold-bridge-low",500),("hold-half",460),("hold-down-half",500),("hold-mid-closed",460),("hold-surprise",500),("pickup-surprise",500),("neutral",160),("release-closed",380),("release-half",280),("soft-light",200),("soft-peak",200),("smile-half",200),("smile-closed",200)];
+var output=new List<string>();
+foreach(var (source,deadline) in expected) {
+ var playback=new Playback(package.Clips); long id=playback.Play("drag-release",0,P(source));
+ Check(playback.Sample(0).FramePath==P(source),source+" first");
+ var last=playback.Sample(deadline-1); Check(last.PlaybackId==id && last.CompletedId is null && last.FramePath==P("neutral"),source+" end-1");
+ Check(playback.Sample(deadline).CompletedId==id,source+" deadline"); Check(playback.Sample(deadline).CompletedId is null,source+" duplicate completion");
+ output.Add($"{source}: first source preserved; deadline {deadline} ms; completion once");
+}
+var longEntry=new Playback(package.Clips); longEntry.Play("drag-release",0,P("hold-up-half"));
+string[] chain=["hold-up-half","hold-bridge-high","hold-bridge-mid","hold-bridge-low","hold-half","release-closed","release-half","neutral"];
+int[] starts=[0,40,80,120,160,240,340,460];
+for(int i=0;i<chain.Length;i++) Check(longEntry.Sample(starts[i]).FramePath==P(chain[i]),"effective path "+i);
+output.Add("8-item effective-path chain verified beyond the 4-item base release");
+
+long now=0; var c=new CharacterController(package.Clips,()=>now,900);
+c.SetAutomatic(true); var idle=c.Sample(); c.CommitRendered(idle); c.BeginDrag(); now=39; c.EndDrag();
+Check(c.Sample().FramePath==idle.FramePath && c.ReleaseFallback is null,"undrawn pickup uses older committed ID");
+long oldRelease=c.Sample().PlaybackId; now=40; c.BeginDrag();
+Check(c.Sample().FramePath==P("neutral"),"regrab neutral first");
+now=1000; Check(c.Sample().CompletedId!=oldRelease,"old release cannot complete regrab");
+var held=c.Sample(); c.CommitRendered(held); now+=200;
+var uncommitted=c.Sample(); c.EndDrag(); Check(c.Sample().FramePath==held.FramePath,"undrawn boundary source");
+c.CommitRendered(uncommitted); Check(c.LastSubmitted!.Path==held.FramePath,"outdated sample rejected");
+var replacement=new CharacterController(package.Clips,()=>now,901); replacement.SetAutomatic(true);
+replacement.CommitRendered(held); replacement.BeginDrag(); replacement.EndDrag();
+Check(replacement.ReleaseFallback=="no-submitted-frame" && replacement.Sample().FramePath==P("hold-half"),"fresh epoch before first draw");
+c.SetAutomatic(false); Check(c.LastSubmitted is null,"mode invalidates snapshot");
+output.Add("undrawn press/release, boundary, regrab, stale sample, new epoch and mode checks passed");
+
+// Entry-only duration boundary and image failure: copy real PNG bytes, no invented image assets.
+var fixture=Path.Combine(args[1],"fixture"); Directory.CreateDirectory(Path.Combine(fixture,"frames"));
+foreach(var file in Directory.GetFiles(Path.Combine(args[0],"frames"))) File.Copy(file,Path.Combine(fixture,"frames",Path.GetFileName(file)),true);
+File.Copy(Path.Combine(args[0],"frames/neutral.png"),Path.Combine(fixture,"frames/only-entry.png"),true);
+var root=JsonNode.Parse(File.ReadAllText(Path.Combine(args[0],"manifest.json")))!;
+var entries=root["actions"]!["drag-release"]!["entrySequences"]!.AsObject(); entries.Clear();
+var seq=new JsonArray(); for(int i=0;i<6;i++) seq.Add(new JsonObject { ["path"]=P(i==5?"neutral":"only-entry"),["durationMs"]=10000 });
+entries[P("only-entry")]=seq;
+AssetPackage Load(){File.WriteAllText(Path.Combine(fixture,"manifest.json"),root.ToJsonString()); return PackageLoader.Load(fixture,PngDecoder.Decode);}
+Check(Load().Clips["drag-release"].EntrySequences[P("only-entry")].Sum(f=>f.DurationMs)==60000,"60000 inclusive");
+seq.Add(new JsonObject{["path"]=P("neutral"),["durationMs"]=1});
+bool rejected=false; try{Load();}catch(PackageException){rejected=true;} Check(rejected,"60001 rejected"); seq.RemoveAt(6);
+File.WriteAllBytes(Path.Combine(fixture,"frames/only-entry.png"),[0]); var degraded=Load();
+Check(!degraded.Clips.ContainsKey("drag-release") && degraded.Clips.ContainsKey("neutral") && degraded.Clips.ContainsKey("drag-hold"),"entry-only bad PNG isolates release");
+long t=0; var fallback=new CharacterController(degraded.Clips,()=>t); fallback.SetAutomatic(true); fallback.BeginDrag(); fallback.EndDrag();
+Check(fallback.Sample().Action=="idle-soft" && fallback.ReleaseFallback=="release-unavailable","disabled release falls back idle");
+root["actions"]!["drag-release"]!.AsObject().Remove("entrySequences"); root["schemaVersion"]=1;
+Check(Load().SchemaVersion==1 && Load().Clips["drag-release"].EntrySequences.Count==0,"schema1 compatibility");
+output.Add("60000/60001 ms entry boundary, entry-only corrupt PNG downgrade, missing-release idle and schema1 passed");
+File.WriteAllLines(Path.Combine(args[1],"results.txt"),output); foreach(var line in output) Console.WriteLine(line);
+Console.WriteLine("PASS: 16 ADR deadline cases + effective-path chain + controller isolation group + loader boundary/degradation group");

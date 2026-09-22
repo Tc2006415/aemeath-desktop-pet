@@ -1,0 +1,81 @@
+{
+  "sources": {
+    "A": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art024-neutral-A.png",
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8"
+    },
+    "B1": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art024-B-v1-candidate-96.png",
+      "sha256": "bbe5d8308529aa78f7227289d8acb2f0fc3256ad43dbd87fbe9a8441ca751ccc"
+    },
+    "B2": {
+      "path": "C:\\Users\\bigxi\\.codex\\worktrees\\eaf8\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\source\\art024-B-v2-candidate-96.png",
+      "sha256": "e67a59a7709f0b7599a496c78990927ece78a4a2fc1e5e5c8b5aaab69c054715"
+    },
+    "old-hold-bridge-high": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-bridge-high.png",
+      "sha256": "8cac356f170275806966d31364520c3bbc5ad3a66e04160ed59814dd4ab9557b"
+    },
+    "old-hold-bridge-low": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-bridge-low.png",
+      "sha256": "fa75d0a105183cf4f24208df965cd75b485efe92c54fe28b816a7f11131a0035"
+    },
+    "old-hold-bridge-mid": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-bridge-mid.png",
+      "sha256": "939767e70b9634464a137004293a68d2df2c379220749ea01c893574c73cd9ec"
+    },
+    "old-hold-down-half": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-down-half.png",
+      "sha256": "e3af22f9bb6f9c9405ddc22b78badd1cf986658eb359e383ccec2de0acf0e2c0"
+    },
+    "old-hold-half": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-half.png",
+      "sha256": "4443b8a3fdfdf2d2f7fe6be301bf9ee07eb9d3f8461d4a75b9ec3679faf96f82"
+    },
+    "old-hold-mid-closed": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-mid-closed.png",
+      "sha256": "cde50bd1ce3f4686a90e1803272e78bdf249cef6529f9245c50761fc507fac22"
+    },
+    "old-hold-surprise": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-surprise.png",
+      "sha256": "4edcc9c76eaa00a8a1d2fac9b95651768cd7433bda9e5c7447361512b9f38e33"
+    },
+    "old-hold-up-half": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-up-half.png",
+      "sha256": "fe631808c7cef27795fdae51daff0fae9ea98251b36356b855881062d6586a85"
+    },
+    "old-neutral": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\neutral.png",
+      "sha256": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d"
+    },
+    "old-pickup-surprise": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\pickup-surprise.png",
+      "sha256": "4574f4235d2611c30c19b7a088515d9a1b99aa11d98cc59930c8f352a5a6925a"
+    },
+    "old-release-closed": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\release-closed.png",
+      "sha256": "e32ec948fcaade0bc7fc13fd3ccebbd01f78fa9ad4b1f3246e2d820e634e3d54"
+    },
+    "old-release-half": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\release-half.png",
+      "sha256": "2d1096deb7f96ba461b54c00d4b8e290200875747588e798751bfb8a05fa3840"
+    },
+    "old-smile-closed": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\smile-closed.png",
+      "sha256": "9c8943a858b506feb7183a72204a48b55f5dbd62c54fb273c6648545b27a3fad"
+    },
+    "old-smile-half": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\smile-half.png",
+      "sha256": "d078c20f50b25c4cbd14d8680eccf24e60d5f16090619d49ed9a0ffd05d05c48"
+    },
+    "old-soft-light": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\soft-light.png",
+      "sha256": "bc9fe556ac774ad2ca7c77d03446cdc451159819712e7e4fc9b8b245b48dcd70"
+    },
+    "old-soft-peak": {
+      "path": "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\soft-peak.png",
+      "sha256": "79d227136f70d87ccea3d7efa2ae94759f8868890c3ef87a984c2d8fcf045be2"
+    }
+  },
+  "embeddedOriginalBytes": true
+}

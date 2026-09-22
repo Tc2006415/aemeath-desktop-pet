@@ -796,3 +796,15 @@ imagegen2次、总合成2版、共用1张mask。第一版10×实看新根部偏�
 两生成源1205×1305，仅最近邻整画布格式转换96×104及alpha128，再显式局部合成；没有历史+5配准、整图平移、羽翼旋转/扭曲或程序绘像素。两版RGBA改变389/383，mask外和固定根部差分0，头脸身脚anchor保护，正式17文件SHA不变；独立PNG检查96×104 RGBA8二值alpha。两版8邻接均1分量，但不以连通性冒充自然造型。实际浅深1/2/3×、根部10×和与neutral/smile-closed/hold-half/release-half并列查看；旧拖动回切会恢复较长下垂中羽及旧折点，不声称无缝。
 
 prepare/compose1/compose2/check/preview脚本、两张Inspect-Png.ps1、git diff --check实际exit0；formatPass true、visualPass false明确分开。源图/prompt/donor/mask/SHA/参数/diff/失败预览与交付说明art023-delivery.md齐全。完成直接回PM，由PM决定下一卡；不改正式包/时序/代码/拖动大幅上扬，不进入float，自动跟进保持暂停。
+
+## ART-024：A按用户选择固定，B两次失败后停止（2026-09-22）
+
+最新用户明确选择ART023-v2，PM接受为静态A；art024-neutral-A.png精确字节SHA e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8，不重画A，不再以其根尖/内羽造型否定用户选择。沿用838样本整翼语义mask和32固定根部样本，非翼保护。
+
+B imagegen2次/合成2版，用完单姿态上限：v1翼部抬得过高，合成可动区实心仅10（A182），形成2个5像素孤块；实看失败后第二次明确缩小幅度/保持三羽。v2可动区116，虽连通且无新增封闭透明孔，羽片明显缩短、上移过多，不能作为A整体轻抬。判B视觉失败并停止，C0次、未制作笑脸及5核心组，不以A/B旧图伪造1400/1200ms新动画验收。
+
+仅最近邻格式转换和alpha128、显式局部合成，无平移/旋转/扭曲或程序画羽。两版96×104 RGBA8二值alpha，mask外/固定根部RGBA差分0，头脸身脚anchor保护；A及正式17文件SHA不变。实际compose B1/B2、check、preview、两张Inspect-Png、git diff --check退出0，formatPass与visualPass分开；B1孤块未通过。
+
+art024-inspection.html实际看A/B1/B2浅深1/2/3×、翼10×及旧帧只读对照；原数组边界探针仅neutral显示A。实看release299ms旧release-half→300msA有翼长/展开方向切换。16入口末项均neutral160，11非idle非neutral入口同旧release-half→A风险，neutral入口只有A；4idle源40→A160的新B/C版本因缺合格源未验。旧hold低位内部未改，不声称与新A或未制B/C无缝。来源、prompt、mask、donor、差分、SHA及边界限制见art024-delivery.md/check-report等。
+
+只交固定A及B失败证据，不集成B，不改旧11帧/正式包/时序/代码/已认可大幅上扬。按卡停止，PM决定后续约束，不盲重置次数；自动跟进保持暂停，不进入漂浮/新表情。

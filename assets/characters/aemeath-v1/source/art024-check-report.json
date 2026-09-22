@@ -1,0 +1,283 @@
+{
+  "generationCalls": {
+    "B": 2,
+    "C": 0
+  },
+  "compositeVersions": {
+    "B": 2,
+    "C": 0
+  },
+  "AApprovedUnchanged": true,
+  "coreFiveDelivered": false,
+  "CAndSmileNotProduced": "B exhausted both attempts without retaining A feather identity; stop, no synthetic fallback",
+  "AComponents8": [
+    2911
+  ],
+  "AEditableOpaqueCount": 182,
+  "trials": {
+    "1": {
+      "sha256": "bbe5d8308529aa78f7227289d8acb2f0fc3256ad43dbd87fbe9a8441ca751ccc",
+      "changedPixelsVsA": 192,
+      "maskOutsideRgbaDiff": 0,
+      "fixedRootsRgbaDiff": 0,
+      "headFaceBodyFeetProtected": true,
+      "editableOpaqueCount": 10,
+      "AOriginalOpaqueCleared": 182,
+      "components8": [
+        5,
+        5,
+        2729
+      ],
+      "isolatedComponentsXY": [
+        [
+          [
+            75,
+            79
+          ],
+          [
+            76,
+            78
+          ],
+          [
+            76,
+            79
+          ],
+          [
+            77,
+            78
+          ],
+          [
+            78,
+            78
+          ]
+        ],
+        [
+          [
+            17,
+            78
+          ],
+          [
+            18,
+            78
+          ],
+          [
+            19,
+            78
+          ],
+          [
+            19,
+            79
+          ],
+          [
+            20,
+            79
+          ]
+        ]
+      ],
+      "newClosedTransparentComponents4XY": [],
+      "formatPass": true,
+      "visualPass": false,
+      "reason": "wing pixels mostly lost; isolated blocks"
+    },
+    "2": {
+      "sha256": "e67a59a7709f0b7599a496c78990927ece78a4a2fc1e5e5c8b5aaab69c054715",
+      "changedPixelsVsA": 234,
+      "maskOutsideRgbaDiff": 0,
+      "fixedRootsRgbaDiff": 0,
+      "headFaceBodyFeetProtected": true,
+      "editableOpaqueCount": 116,
+      "AOriginalOpaqueCleared": 118,
+      "components8": [
+        2845
+      ],
+      "isolatedComponentsXY": [],
+      "newClosedTransparentComponents4XY": [],
+      "formatPass": true,
+      "visualPass": false,
+      "reason": "three-feather identity lost, shortened and over-raised instead of gentle lift"
+    }
+  },
+  "formal17SHAUnchanged": true,
+  "idleTimingsUnchanged": {
+    "idle-soft": 1400,
+    "idle-smile": 1200
+  },
+  "releaseEntryEnds": {
+    "frames/hold-up-half.png": {
+      "first": {
+        "path": "frames/hold-up-half.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 620
+    },
+    "frames/hold-bridge-high.png": {
+      "first": {
+        "path": "frames/hold-bridge-high.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 580
+    },
+    "frames/hold-bridge-mid.png": {
+      "first": {
+        "path": "frames/hold-bridge-mid.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 540
+    },
+    "frames/hold-bridge-low.png": {
+      "first": {
+        "path": "frames/hold-bridge-low.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 500
+    },
+    "frames/hold-half.png": {
+      "first": {
+        "path": "frames/hold-half.png",
+        "durationMs": 80
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 460
+    },
+    "frames/hold-mid-closed.png": {
+      "first": {
+        "path": "frames/hold-mid-closed.png",
+        "durationMs": 80
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 460
+    },
+    "frames/hold-down-half.png": {
+      "first": {
+        "path": "frames/hold-down-half.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 500
+    },
+    "frames/hold-surprise.png": {
+      "first": {
+        "path": "frames/hold-surprise.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 500
+    },
+    "frames/pickup-surprise.png": {
+      "first": {
+        "path": "frames/pickup-surprise.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 500
+    },
+    "frames/neutral.png": {
+      "first": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 160
+    },
+    "frames/release-closed.png": {
+      "first": {
+        "path": "frames/release-closed.png",
+        "durationMs": 100
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 380
+    },
+    "frames/release-half.png": {
+      "first": {
+        "path": "frames/release-half.png",
+        "durationMs": 120
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 280
+    },
+    "frames/soft-light.png": {
+      "first": {
+        "path": "frames/soft-light.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 200
+    },
+    "frames/soft-peak.png": {
+      "first": {
+        "path": "frames/soft-peak.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 200
+    },
+    "frames/smile-half.png": {
+      "first": {
+        "path": "frames/smile-half.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 200
+    },
+    "frames/smile-closed.png": {
+      "first": {
+        "path": "frames/smile-closed.png",
+        "durationMs": 40
+      },
+      "last": {
+        "path": "frames/neutral.png",
+        "durationMs": 160
+      },
+      "durationMs": 200
+    }
+  }
+}

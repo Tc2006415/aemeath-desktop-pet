@@ -1,5 +1,7 @@
 namespace Aemeath.Presentation;
 
+public sealed record SubmittedFrame(long PackageEpoch, string Path, long PlaybackId, int FrameIndex, long SubmissionSequence);
+
 /// <summary>Local animation choices only; never infers or consumes task status.</summary>
 public sealed class CharacterController
 {
@@ -10,12 +12,25 @@ public sealed class CharacterController
     private long? idleStarted;
     private bool dragging;
     private Phase phase;
-    public CharacterController(IReadOnlyDictionary<string, Clip> clips, Func<long> clock)
+    private readonly long packageEpoch;
+    private long submissionSequence;
+    private PlaybackSample? issuedSample;
+    public CharacterController(IReadOnlyDictionary<string, Clip> clips, Func<long> clock, long packageEpoch = 0)
     {
-        this.clock = clock; player = new Playback(clips);
+        this.clock = clock; this.packageEpoch = packageEpoch; player = new Playback(clips);
         Select("neutral", Phase.Manual, Now());
     }
     public bool Automatic { get; private set; }
+    public SubmittedFrame? LastSubmitted { get; private set; }
+    public string? ReleaseFallback { get; private set; }
+    public void CommitRendered(PlaybackSample sample)
+    {
+        // Acknowledgment must refer to the actual object most recently sampled by this controller.
+        // Cloned/old-package/invalidated requests cannot fabricate a displayed pose.
+        if (!ReferenceEquals(sample, issuedSample)) return;
+        LastSubmitted = new(packageEpoch, sample.FramePath, sample.PlaybackId, sample.FrameIndex, checked(++submissionSequence));
+        issuedSample = null;
+    }
     private long Now()
     {
         long now = clock();
@@ -25,6 +40,7 @@ public sealed class CharacterController
     public void SetAutomatic(bool enabled)
     {
         long now = Now(); if (Automatic == enabled) return;
+        LastSubmitted = null;
         Automatic = enabled;
         if (!enabled) Select("neutral", Phase.Manual, now);
         else if (dragging) Pickup(now);
@@ -45,30 +61,40 @@ public sealed class CharacterController
         long now = Now(); if (!dragging) return;
         dragging = false;
         if (!Automatic) return;
-        if (player.Available("drag-release")) Select("drag-release", Phase.Release, now);
-        else Idle(now);
+        ReleaseFallback = null;
+        if (player.Available("drag-release"))
+        {
+            var source = LastSubmitted;
+            string? path = source?.PackageEpoch == packageEpoch ? source.Path : null;
+            if (path is null) ReleaseFallback = "no-submitted-frame";
+            else if (!player.HasReleaseEntry(path)) { ReleaseFallback = "no-entry-for-source"; path = null; }
+            Select("drag-release", Phase.Release, now, path);
+        }
+        else { ReleaseFallback = "release-unavailable"; Idle(now); }
     }
     public PlaybackSample Sample()
     {
         long now = Now(); var result = player.Sample(now);
-        if (!Automatic) return result;
+        if (!Automatic) return Issue(result);
         // Only this player owns completion production. Replaced instances cannot enqueue callbacks.
         if (result.CompletedId is long completed && completed == expectedInstance)
         {
             if (phase == Phase.Pickup) Hold(now);
             else if (phase is Phase.Smile or Phase.Release) Idle(now);
-            return player.Sample(now) with { CompletedId = completed };
+            return Issue(player.Sample(now) with { CompletedId = completed });
         }
         if (phase == Phase.Idle && idleStarted is long since && now - since >= 15000)
         {
             Select("idle-smile", Phase.Smile, now);
-            return player.Sample(now);
+            return Issue(player.Sample(now));
         }
-        return result;
+        return Issue(result);
     }
-    private void Select(string action, Phase next, long now)
+    private PlaybackSample Issue(PlaybackSample sample) { issuedSample = sample; return sample; }
+    private void Select(string action, Phase next, long now, string? releaseSource = null)
     {
-        idleStarted = null; phase = next; expectedInstance = player.Play(action, now);
+        issuedSample = null;
+        idleStarted = null; phase = next; expectedInstance = player.Play(action, now, releaseSource);
     }
     private void Idle(long now)
     {

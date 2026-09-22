@@ -22,6 +22,7 @@ internal sealed class PetWindow : Window
     private AssetPackage? package;
     private CharacterController? controller;
     private bool automatic;
+    private long packageEpoch;
     private Dictionary<string, BitmapSource> images = [];
     private HwndSource? source;
     private IntPtr hwnd;
@@ -62,10 +63,12 @@ internal sealed class PetWindow : Window
             bitmap.Freeze(); nextImages.Add(path, bitmap);
         }
         package = next; images = nextImages;
-        controller = new CharacterController(next.Clips, () => clock.ElapsedMilliseconds);
+        controller = new CharacterController(next.Clips, () => clock.ElapsedMilliseconds, checked(++packageEpoch));
         controller.SetAutomatic(automatic);
-        lastFrame = null; Draw();
-        log.Write("package-loaded", new { next.Id, next.Version, next.Kind, disabled = next.DisabledActions.Keys });
+        lastFrame = null;
+        log.Write("package-loaded", new { next.Id, next.Version, next.Kind, next.SchemaVersion, next.ManifestSha256, packageEpoch, disabled = next.DisabledActions.Keys });
+        if (next.Clips.TryGetValue("drag-release", out var release))
+            log.Write("release-entry-inventory", release.EntrySequences.Select(e => new { source = e.Key, durationMs = e.Value.Sum(f => f.DurationMs), paths = e.Value.Select(f => f.Path) }).ToArray());
     }
     public void Play(string action)
     {
@@ -74,13 +77,12 @@ internal sealed class PetWindow : Window
         bool available = controller.PlayManual(action);
         log.Write("play-request", new { action, available });
         if (!available) error("动作缺失或已停用；已回 neutral。");
-        Draw();
     }
     public void SetAutomatic(bool enabled)
     {
         if (automatic == enabled) return;
         EndDrag("mode-change"); automatic = enabled; controller?.SetAutomatic(enabled);
-        log.Write("mode", new { automatic }); lastFrame = null; Draw();
+        log.Write("mode", new { automatic }); lastFrame = null;
     }
     public void SetScale(int next) { EndDrag("scale-change"); var prior = scale; scale = next; ApplyLayout(false, prior); }
     public void Center() { EndDrag("recenter"); ApplyLayout(true); }
@@ -94,13 +96,14 @@ internal sealed class PetWindow : Window
     {
         if (controller is null || package is null || stopped) return;
         var sample = controller.Sample();
-        var path = package.Clips[sample.Action].Frames[sample.FrameIndex].Path;
+        var path = sample.FramePath;
         image.Source = images[path];
+        controller.CommitRendered(sample);
         var key = $"{sample.PlaybackId}:{sample.Action}:{sample.FrameIndex}";
         if (key != lastFrame)
         {
             lastFrame = key;
-            log.Write("frame", new { sample.Action, sample.FrameIndex, sample.PlaybackId, dragging = drag.Active, automatic });
+            log.Write("frame", new { sample.Action, sample.FrameIndex, sample.PlaybackId, path, packageEpoch, submission = controller.LastSubmitted?.SubmissionSequence, dragging = drag.Active, automatic });
             status($"{(automatic ? "自动交互" : "手动诊断")} · {sample.Action} · 帧 {sample.FrameIndex + 1} · DPI {dpi} · 倍率 {scale}× · {(drag.Active ? "拖动中" : "未拖动")}");
         }
         if (sample.CompletedId is long completed) log.Write("natural-end", new { completed });
@@ -116,7 +119,7 @@ internal sealed class PetWindow : Window
             controller?.BeginDrag();
             Focus();
             log.Write("drag-start", new { cursor, origin = new ScreenPx(rect.Left, rect.Top) });
-            lastFrame = null; Draw(); e.Handled = true;
+            lastFrame = null; e.Handled = true;
         }
         catch (Win32Exception) { FailPosition(); }
     }
@@ -138,9 +141,10 @@ internal sealed class PetWindow : Window
     {
         // Clear first: ReleaseMouseCapture synchronously raises LostMouseCapture.
         if (!drag.End()) return;
+        var submitted = controller?.LastSubmitted;
         if (IsMouseCaptured) ReleaseMouseCapture();
         controller?.EndDrag();
-        log.Write("drag-end", new { reason }); lastFrame = null; Draw();
+        log.Write("drag-end", new { reason, submitted, fallback = controller?.ReleaseFallback }); lastFrame = null;
     }
     private void ApplyLayout(bool center, int? oldScale = null)
     {
@@ -162,7 +166,7 @@ internal sealed class PetWindow : Window
             var actual = NativeMethods.Bounds(hwnd); var client = NativeMethods.ClientOrigin(hwnd);
             log.Write("layout", new { dpi, scale, widthPx = actual.Right - actual.Left, heightPx = actual.Bottom - actual.Top,
                 layout.WidthDip, layout.HeightDip, origin, client, clientOffsetX = client.X - actual.Left, clientOffsetY = client.Y - actual.Top });
-            lastFrame = null; Draw();
+            lastFrame = null;
         }
         catch (Exception ex) when (ex is Win32Exception or ArgumentOutOfRangeException)
         { FailPosition(); Hide(); error("当前显示参数不受支持。像素窗口已隐藏；可重新居中重试或退出。"); }

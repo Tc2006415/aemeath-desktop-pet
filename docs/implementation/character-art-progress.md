@@ -657,3 +657,26 @@ git diff --check
 ```
 
 构建对候选PNG逐chunk验证CRC并解码回读RGBA；独立Inspect-Png/System.Drawing结果见art014-png-inspect.json，0半透明，SHA一致。art014-report.json保留量化与受保护文件SHA。未运行新姿态的应用动画；只交单图供PM决定下一卡如何用于release和hold，不实现三套release、全套包、两周期眨眼或idle/float，不推广正式素材。
+
+## ART-015：B2/B7受限试样与失败证据（2026-09-21）
+
+PM接受ART014为B4静态来源后，派单补B2/B7。使用内置imagegen，每张恰好2次，共4次；两张共用既有ART012翼mask的副本art015-mask-v1.png，仅一个版本。保持ART013 hold-half头/身体/表情；只在mask内采用生成翼像素，沿用既有nearest96×104、alpha128、全图整数(0,+5)格式转换，没有程序平移、扭曲翅膀造姿态。只增加art015前缀文件及本记录。
+
+**结果有局限，达到次数上限即停止。** 两张第二版均过度修正，五级对照明确选首版作为当前较好试样，未宣称完全达到目标或可推广。B2-v1实际较中位上移3.222px，偏离约2px目标，且与B4仅差1px；B7-v1左/右上移6.555/6.822px，接近约7px目标。翼尖代理仍是外侧两列平均y，不是同一物理点追踪。
+
+五级顺序中位→B2-v1→B4→B7-v1→原上扬；左侧相邻上移3.222/1.000/2.333/3.167px，右侧3.222/1.000/2.600/2.543px。轮廓代理方向单调，但严格≤3px检查为false。最终评估留给PM，不以四舍五入掩盖超限。B2-v2反而比中位低0.492/0.778px，且donor在旧mask外多出(24,81)/(71,81)两个不透明点；不扩mask修这张失败图。B7-v2较中位上移8.722px，与B4相差4.5px，太接近原上扬。所有失败源图、donor、合成图、并排图和提示词保留，不能误用v2。
+
+交付入口为art015-b2-v1-96.png（8804B，SHA fa75d0a105183cf4f24208df965cd75b485efe92c54fe28b816a7f11131a0035）和art015-b7-v1-96.png（8726B，SHA 017cd78d9293cbe299c977175811ba2a426122a9a7043ccc5d8d7645f12d24da）。四张art015-five-{light,dark}-{1,3}x.png均已实看：长羽角度无明显反向、断根、矩形接缝或双影，头身脸不动；B2/B4差别在1×较小，B7右侧比左侧多伸1px，短羽底缘比B4高2px、到原上扬又低1px，有轮廓收放风险。未播放往返预览或原生应用，不把静态单调当成无抖动的动态验收。
+
+两张选定v1分别变化415/456像素，mask外RGBA变化均0，转换不透明截断0，翼区新donor超mask点0。四次候选均96×104 RGBA8/color6、alpha0/255；CRC与RGBA回读通过。正式包、ART013整个包及ART014全部文件前后SHA相同。源图SHA、引用输入、生成文件名、完整提示词、donor、mask坐标、差分、逐项量测均在art015-report.json / art015-five-report.json / art015-visual-review.json及同前缀文件中。
+
+实际执行，均exit0：
+
+```powershell
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art015-build.py
+& C:/Users/bigxi/AppData/Local/Programs/Python/Python312/python.exe -B assets/characters/aemeath-v1/source/art015-compare.py
+./assets/characters/aemeath-v1/source/art015-inspect.ps1
+git diff --check
+```
+
+Inspect脚本对四次候选逐一调用独立Inspect-Png/System.Drawing，证据art015-png-inspect.json。格式检查通过不等于姿态目标全通过；按卡一并交付两张最佳试样及失败证据后停止。不改已有包、代码、正式素材，不制定hold时长、眨眼节奏、release入口或schema2，不进入漂浮/待机。

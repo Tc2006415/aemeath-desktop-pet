@@ -1,0 +1,62 @@
+[
+  {
+    "Candidate": "b2-v1",
+    "Inspection": {
+      "Width": 96,
+      "Height": 104,
+      "Bytes": 8804,
+      "PngBitDepth": 8,
+      "PngColorType": 6,
+      "Transparent": 6927,
+      "Opaque": 3057,
+      "Semitransparent": 0.0,
+      "AlphaValues": 2,
+      "SHA256": "FA75D0A105183CF4F24208DF965CD75B485EFE92C54FE28B816A7F11131A0035"
+    }
+  },
+  {
+    "Candidate": "b2-v2",
+    "Inspection": {
+      "Width": 96,
+      "Height": 104,
+      "Bytes": 8768,
+      "PngBitDepth": 8,
+      "PngColorType": 6,
+      "Transparent": 6935,
+      "Opaque": 3049,
+      "Semitransparent": 0.0,
+      "AlphaValues": 2,
+      "SHA256": "7FDB6C1B2DE8BC7B55A261C5EBDA5676A9B868172279AF3075707A65B8374FB6"
+    }
+  },
+  {
+    "Candidate": "b7-v1",
+    "Inspection": {
+      "Width": 96,
+      "Height": 104,
+      "Bytes": 8726,
+      "PngBitDepth": 8,
+      "PngColorType": 6,
+      "Transparent": 6942,
+      "Opaque": 3042,
+      "Semitransparent": 0.0,
+      "AlphaValues": 2,
+      "SHA256": "017CD78D9293CBE299C977175811BA2A426122A9A7043CCC5D8D7645F12D24DA"
+    }
+  },
+  {
+    "Candidate": "b7-v2",
+    "Inspection": {
+      "Width": 96,
+      "Height": 104,
+      "Bytes": 8713,
+      "PngBitDepth": 8,
+      "PngColorType": 6,
+      "Transparent": 6942,
+      "Opaque": 3042,
+      "Semitransparent": 0.0,
+      "AlphaValues": 2,
+      "SHA256": "6764A210DD14CE7B0B2D2A2A62A305DE5A827812DA0435AAE0E0FD533E9BA21A"
+    }
+  }
+]

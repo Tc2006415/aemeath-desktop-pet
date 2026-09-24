@@ -1,0 +1,54 @@
+{
+  "frames": {
+    "soft-light": {
+      "changed": 186,
+      "newIsolatedComponents": [],
+      "newClosedHoles": [
+        [
+          [
+            22,
+            88
+          ]
+        ],
+        [
+          [
+            73,
+            88
+          ]
+        ]
+      ],
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0"
+    },
+    "soft-peak": {
+      "changed": 224,
+      "newIsolatedComponents": [],
+      "newClosedHoles": [
+        [
+          [
+            21,
+            86
+          ]
+        ],
+        [
+          [
+            74,
+            86
+          ]
+        ]
+      ],
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03"
+    }
+  },
+  "formalUnchanged": true,
+  "AByteIdentical": true,
+  "maskProtection": true,
+  "smileWingExact": true,
+  "rawEmbeddedPngs": 10,
+  "cycleMs": [
+    1400,
+    1200
+  ],
+  "loopSeamSameA": true,
+  "nativeAcceptance": false,
+  "reviewStatus": "first draft with four-neighbour single-pixel alpha gaps; not production acceptance"
+}

@@ -1,0 +1,32 @@
+{
+  "source": "neutral-generated-v3-edge-cleanup.png",
+  "sourceSize": [
+    1205,
+    1306
+  ],
+  "sourceSha256": "45b754f137d68f7d7acd38c25719e853af75bd4f4d11ca1cbd33cfca91a35948",
+  "sampling": "pixel-center nearest neighbor: floor((2*x+1)*sourceWidth/(2*96)); same for y/104",
+  "alphaThreshold": 128,
+  "integerOffset": [
+    0,
+    5
+  ],
+  "clippedOpaqueSamples": 0,
+  "frameSize": [
+    96,
+    104
+  ],
+  "frameBytes": 8860,
+  "alphaValues": [
+    0,
+    255
+  ],
+  "opaquePixels": 3108,
+  "inclusiveBounds": [
+    9,
+    22,
+    86,
+    97
+  ],
+  "frameSha256": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d"
+}

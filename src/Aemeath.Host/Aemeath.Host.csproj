@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishSingleFile>false</PublishSingleFile>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Aemeath.Presentation/Aemeath.Presentation.csproj" />
+    <Content Include="../../assets/diagnostic/manifest.json" Link="assets/diagnostic/manifest.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="../../assets/diagnostic/frames/*.png" Link="assets/diagnostic/frames/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="../../assets/characters/aemeath-v1/manifest.json" Link="assets/characters/aemeath-v1/manifest.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="../../assets/characters/aemeath-v1/frames/*.png" Link="assets/characters/aemeath-v1/frames/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

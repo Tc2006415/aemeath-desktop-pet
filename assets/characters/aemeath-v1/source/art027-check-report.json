@@ -1,0 +1,43 @@
+{
+  "frames": {
+    "A-open.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8"
+    },
+    "A-half.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "b15a7750803798aa9a300a609fcdc4c136386e7c6cefbc76e8f760fb64a4da76"
+    },
+    "A-closed.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "b54dc3a7201ce7571b4ef2c2c25272179f81ad3528419d3e76784f914a01d0dd"
+    },
+    "B-open.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0"
+    },
+    "B-half.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8"
+    },
+    "B-closed.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "0bb5f579755e62fd1d0c8d86cfeec12cec4c867f2cb439e592e6fae15b266bf6"
+    },
+    "C-open.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03"
+    },
+    "C-half.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "dbf1f7563c60a896fd9aa2b78e0bafd84a9332e51edf73e687383bf2f9cea489"
+    },
+    "C-closed.png": {
+      "outsideEyeDiff": 0,
+      "sha256": "82a31a07f768121761ae70186b04e196f3b48c905a136153c66141bd67601bbe"
+    }
+  },
+  "ART026Unchanged": true,
+  "rawEmbeddedPNG": 9,
+  "nativeAcceptance": false
+}

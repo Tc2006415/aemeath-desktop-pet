@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "wingContinuousSamples": 80000,
+  "winkExclusiveSamples": 2400,
+  "randomDelayBoundarySamples": [
+    50000,
+    50000,
+    60000,
+    69999
+  ],
+  "automaticTrigger": true,
+  "dragBlocksAndInterrupts": true,
+  "releaseResamplesOnce": true,
+  "rescheduleFromCompletion": true,
+  "blinkRestartAfterCompletion": true
+}

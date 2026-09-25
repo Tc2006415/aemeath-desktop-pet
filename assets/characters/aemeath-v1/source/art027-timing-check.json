@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "independentWingSamples": 28000,
+  "blinkBoundaryCases": 70,
+  "stepChecks": 3,
+  "cycleMs": 240,
+  "startIntervalMs": 4000
+}

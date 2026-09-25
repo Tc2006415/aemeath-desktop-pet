@@ -1,0 +1,91 @@
+{
+  "card": "ART-019",
+  "manifestSha256": "eab91ecb10037da7320d4e9c9321c8dce0f122d3b9d5daa6e101a55e1e319da3",
+  "preview": "art019-inspection.html",
+  "liveHold": {
+    "blinkScreenshotMs": 1287,
+    "cycle5DomMs": 3704,
+    "cycle5ScreenshotMs": 3759,
+    "completeWingCycles": 5,
+    "view": "light/dark1x3x simultaneously"
+  },
+  "entrySamples": {
+    "holdHalf": [
+      [
+        0,
+        "hold-half"
+      ],
+      [
+        459,
+        "neutral playing"
+      ],
+      [
+        460,
+        "complete"
+      ]
+    ],
+    "neutral": [
+      [
+        0,
+        "neutral"
+      ],
+      [
+        159,
+        "neutral playing"
+      ],
+      [
+        160,
+        "complete"
+      ]
+    ],
+    "closed": [
+      [
+        0,
+        "hold-mid-closed"
+      ],
+      [
+        79,
+        "hold-mid-closed"
+      ],
+      [
+        80,
+        "release-closed"
+      ],
+      [
+        460,
+        "complete"
+      ]
+    ],
+    "up": [
+      [
+        0,
+        "hold-up-half"
+      ],
+      [
+        40,
+        "hold-bridge-high"
+      ],
+      [
+        620,
+        "complete"
+      ]
+    ],
+    "down": [
+      [
+        0,
+        "hold-down-half"
+      ],
+      [
+        40,
+        "hold-half"
+      ],
+      [
+        500,
+        "complete"
+      ]
+    ]
+  },
+  "assessment": "Final package data visibly matches accepted full probe wing cycle; source-specific arrays begin at selected pose, middle has no redundant40ms hold. Minor previously disclosed pixel differences remain.",
+  "limits": "Web rendering and file-level checks only. No schema2 production loader, source snapshot routing, native mouse capture or desktop visual acceptance performed here. DEV007/QA own real loading and controller verification.",
+  "cleanup": "Own preview tab and server stopped after checks."
+}

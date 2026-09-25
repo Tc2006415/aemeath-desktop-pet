@@ -1,0 +1,491 @@
+{
+  "source": "art007-trial-v1-source.png",
+  "sourceSize": [
+    1205,
+    1306
+  ],
+  "sourceSha256": "60d8772cfe56214cda1862b0b42ca0b69cdef55a02bcab72a80407aeadc104b4",
+  "protectedHashes": {
+    "manifest.json": "51b22ccb1585dd835836af1dfea339af9790053070f1bc3780c1c0b46df5b5ef",
+    "frames\\neutral.png": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d",
+    "frames\\smile-closed.png": "864c04205b9f12ef390d6c18d01fe5b89c27879214a1f3ab98437ee9001a6a2b",
+    "frames\\smile-half.png": "2b3ebe044554baf3fbbf2980259cb8ef009e431bdcf9f44d4dbafc00ab674911",
+    "frames\\soft-a.png": "1aa6b8520183e1ef6eebede2c49bf6d40404bb7a9b990d3b2b702655e924a6ac",
+    "frames\\soft-b.png": "96c627a1f2ac3f1a05785a9ade765c8780577dc82a373c4fe10a72ff0f424fbb"
+  },
+  "expectedSourceSize": [
+    1205,
+    1306
+  ],
+  "sampling": "full canvas center-nearest floor((2*x+1)*1205/(2*96)); analogous y/104",
+  "alphaThreshold": 128,
+  "integerOffset": [
+    0,
+    5
+  ],
+  "anchorReferenceOnly": [
+    48,
+    94
+  ],
+  "candidate": "art007-trial-v1-96.png",
+  "candidateSha256": "ea7b18fe821f32e9bf0586d122eb02f017c69e42528a411fbde44e03d885deac",
+  "frameBytes": 8899,
+  "frameSize": [
+    96,
+    104
+  ],
+  "alphaValues": [
+    0,
+    255
+  ],
+  "inclusiveBounds": [
+    11,
+    21,
+    84,
+    97
+  ],
+  "centralFeetBounds": [
+    38,
+    80,
+    57,
+    93
+  ],
+  "clippedOpaqueSamples": 0,
+  "regions": {
+    "crownAndUpperHair": {
+      "rectangleInclusive": [
+        20,
+        18,
+        75,
+        47
+      ],
+      "alphaChangedCount": 25,
+      "alphaChangesXYNeutralCandidate": [
+        [
+          47,
+          21,
+          0,
+          255
+        ],
+        [
+          48,
+          21,
+          0,
+          255
+        ],
+        [
+          46,
+          22,
+          0,
+          255
+        ],
+        [
+          47,
+          22,
+          0,
+          255
+        ],
+        [
+          49,
+          22,
+          0,
+          255
+        ],
+        [
+          46,
+          23,
+          0,
+          255
+        ],
+        [
+          49,
+          23,
+          0,
+          255
+        ],
+        [
+          46,
+          24,
+          0,
+          255
+        ],
+        [
+          45,
+          25,
+          0,
+          255
+        ],
+        [
+          50,
+          25,
+          0,
+          255
+        ],
+        [
+          38,
+          28,
+          0,
+          255
+        ],
+        [
+          57,
+          28,
+          0,
+          255
+        ],
+        [
+          49,
+          29,
+          0,
+          255
+        ],
+        [
+          34,
+          31,
+          0,
+          255
+        ],
+        [
+          42,
+          31,
+          0,
+          255
+        ],
+        [
+          43,
+          31,
+          0,
+          255
+        ],
+        [
+          52,
+          31,
+          0,
+          255
+        ],
+        [
+          53,
+          31,
+          0,
+          255
+        ],
+        [
+          61,
+          31,
+          0,
+          255
+        ],
+        [
+          58,
+          32,
+          0,
+          255
+        ],
+        [
+          59,
+          33,
+          0,
+          255
+        ],
+        [
+          32,
+          34,
+          0,
+          255
+        ],
+        [
+          69,
+          43,
+          0,
+          255
+        ],
+        [
+          70,
+          44,
+          0,
+          255
+        ],
+        [
+          70,
+          45,
+          0,
+          255
+        ]
+      ],
+      "commonOpaquePixelCount": 702,
+      "rgbChangedCommonOpaquePixels": 666,
+      "rgbMaxChannelDelta": 131,
+      "rgbMeanMaxChannelDelta": 7.514,
+      "rgbPixelsMaxDeltaAbove24": 35
+    },
+    "sideOrnament": {
+      "rectangleInclusive": [
+        61,
+        39,
+        78,
+        59
+      ],
+      "alphaChangedCount": 3,
+      "alphaChangesXYNeutralCandidate": [
+        [
+          69,
+          43,
+          0,
+          255
+        ],
+        [
+          70,
+          44,
+          0,
+          255
+        ],
+        [
+          70,
+          45,
+          0,
+          255
+        ]
+      ],
+      "commonOpaquePixelCount": 228,
+      "rgbChangedCommonOpaquePixels": 216,
+      "rgbMaxChannelDelta": 131,
+      "rgbMeanMaxChannelDelta": 12.93,
+      "rgbPixelsMaxDeltaAbove24": 37
+    },
+    "fixedHead": {
+      "rectangleInclusive": [
+        0,
+        0,
+        95,
+        68
+      ],
+      "alphaChangedCount": 27,
+      "alphaChangesXYNeutralCandidate": [
+        [
+          47,
+          21,
+          0,
+          255
+        ],
+        [
+          48,
+          21,
+          0,
+          255
+        ],
+        [
+          46,
+          22,
+          0,
+          255
+        ],
+        [
+          47,
+          22,
+          0,
+          255
+        ],
+        [
+          49,
+          22,
+          0,
+          255
+        ],
+        [
+          46,
+          23,
+          0,
+          255
+        ],
+        [
+          49,
+          23,
+          0,
+          255
+        ],
+        [
+          46,
+          24,
+          0,
+          255
+        ],
+        [
+          45,
+          25,
+          0,
+          255
+        ],
+        [
+          50,
+          25,
+          0,
+          255
+        ],
+        [
+          38,
+          28,
+          0,
+          255
+        ],
+        [
+          57,
+          28,
+          0,
+          255
+        ],
+        [
+          49,
+          29,
+          0,
+          255
+        ],
+        [
+          34,
+          31,
+          0,
+          255
+        ],
+        [
+          42,
+          31,
+          0,
+          255
+        ],
+        [
+          43,
+          31,
+          0,
+          255
+        ],
+        [
+          52,
+          31,
+          0,
+          255
+        ],
+        [
+          53,
+          31,
+          0,
+          255
+        ],
+        [
+          61,
+          31,
+          0,
+          255
+        ],
+        [
+          58,
+          32,
+          0,
+          255
+        ],
+        [
+          59,
+          33,
+          0,
+          255
+        ],
+        [
+          32,
+          34,
+          0,
+          255
+        ],
+        [
+          69,
+          43,
+          0,
+          255
+        ],
+        [
+          70,
+          44,
+          0,
+          255
+        ],
+        [
+          70,
+          45,
+          0,
+          255
+        ],
+        [
+          72,
+          65,
+          0,
+          255
+        ],
+        [
+          36,
+          68,
+          0,
+          255
+        ]
+      ],
+      "commonOpaquePixelCount": 1766,
+      "rgbChangedCommonOpaquePixels": 1689,
+      "rgbMaxChannelDelta": 131,
+      "rgbMeanMaxChannelDelta": 6.751,
+      "rgbPixelsMaxDeltaAbove24": 88
+    }
+  },
+  "feathers": {
+    "left": {
+      "neutralBounds": [
+        9,
+        82,
+        33,
+        97
+      ],
+      "candidateBounds": [
+        11,
+        82,
+        33,
+        97
+      ],
+      "inwardExtremeShift": 2,
+      "opaqueSetChebyshevDistance": 3,
+      "alphaChangedCount": 32
+    },
+    "right": {
+      "neutralBounds": [
+        62,
+        82,
+        86,
+        97
+      ],
+      "candidateBounds": [
+        62,
+        82,
+        84,
+        97
+      ],
+      "inwardExtremeShift": 2,
+      "opaqueSetChebyshevDistance": 3,
+      "alphaChangedCount": 33
+    }
+  },
+  "checks": {
+    "sourceCanvasMatches": true,
+    "staticRgba8Crc": true,
+    "frameSize": true,
+    "binaryAlphaNonempty": true,
+    "under256KiB": true,
+    "noCroppedOpaqueSamples": true,
+    "margins": true,
+    "crownTopY22": false,
+    "feetBottomY93": true,
+    "fixedHeadAlphaUnchanged": false,
+    "featherInwardShiftWithin2": true,
+    "featherOpaqueDistanceWithin2": false,
+    "localFeatherShapeChange": true
+  },
+  "result": "FAIL",
+  "failedChecks": [
+    "crownTopY22",
+    "fixedHeadAlphaUnchanged",
+    "featherOpaqueDistanceWithin2"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "card": "ART-015",
+  "imagegenCalls": {
+    "b2": 2,
+    "b7": 2
+  },
+  "maskVersions": 1,
+  "selectedBestAvailableTrials": {
+    "b2": "art015-b2-v1-96.png",
+    "b7": "art015-b7-v1-96.png"
+  },
+  "status": "bounded trial complete; approximate target only, not accepted production assets",
+  "failureEvidence": {
+    "b2v2": "Overcorrected: tip below neutral by 0.492/0.778 logical px; 2 new donor pixels beyond existing mask at (24,81),(71,81), retained only as rejected evidence.",
+    "b7v2": "Overcorrected: rise8.722 from neutral, gap4.5 from B4, too close to upper endpoint."
+  },
+  "viewed": [
+    "art015-b2-v1-source.png",
+    "art015-b7-v1-source.png",
+    "art015-b2-v2-light-3x.png",
+    "art015-b7-v2-light-3x.png",
+    "art015-five-light-1x.png",
+    "art015-five-dark-1x.png",
+    "art015-five-light-3x.png",
+    "art015-five-dark-3x.png"
+  ],
+  "visualReview": "Selected v1 five levels have no obvious long-feather direction reversal, root break, rectangular seam or old double outline. Head/body/face fixed. B2 vs B4 is subtle especially at1x; tip gaps nonuniform. B7 right extends one pixel beyond left symmetry; shorter feather lower bound rises2px vsB4 then drops1px at upper endpoint, a contour breathing risk that tip monotonicity alone does not clear.",
+  "limitations": "Static comparisons only; no live ping-pong/native playback. No animation timing, release entry table, schema2 or package change. Strict <=3px check false. Stop at generation cap; PM decides if approximate result is acceptable.",
+  "originalGeneratedFiles": {
+    "b2v1": "exec-f11bcd1a-361f-4371-a729-f43d8f08c9e2.png",
+    "b7v1": "exec-0a9ed397-150d-4712-8a8e-1db21bb42770.png",
+    "b2v2": "exec-e0e1faa1-9b3d-4c8b-9111-33ebefd3e014.png",
+    "b7v2": "exec-9449cc3a-104f-408f-a6f3-c29f682c76b6.png"
+  },
+  "referenceInputs": {
+    "b2v1": [
+      "neutral-generated-v3-edge-cleanup.png",
+      "art014-v1-source.png"
+    ],
+    "b7v1": [
+      "art014-v1-source.png",
+      "art012-up-v2-source.png"
+    ],
+    "b2v2": [
+      "art015-b2-v1-source.png"
+    ],
+    "b7v2": [
+      "art015-b7-v1-source.png"
+    ]
+  }
+}

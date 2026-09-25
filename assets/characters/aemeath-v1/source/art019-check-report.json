@@ -1,0 +1,130 @@
+{
+  "passed": true,
+  "schemaVersion": 2,
+  "packageVersion": "0.4.0",
+  "pngCount": 16,
+  "baseItems": 41,
+  "entryItems": 63,
+  "totalItems": 104,
+  "holdMs": 1440,
+  "baseReleaseMs": 460,
+  "baseline03FivePngsAndThreeActionsUnchanged": true,
+  "allOriginal13PngsUnchanged": true,
+  "entries": {
+    "frames/hold-up-half.png": {
+      "items": 8,
+      "durationMs": 620,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-bridge-high.png": {
+      "items": 7,
+      "durationMs": 580,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-bridge-mid.png": {
+      "items": 6,
+      "durationMs": 540,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-bridge-low.png": {
+      "items": 5,
+      "durationMs": 500,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-half.png": {
+      "items": 4,
+      "durationMs": 460,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-mid-closed.png": {
+      "items": 4,
+      "durationMs": 460,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-down-half.png": {
+      "items": 5,
+      "durationMs": 500,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/hold-surprise.png": {
+      "items": 5,
+      "durationMs": 500,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/pickup-surprise.png": {
+      "items": 5,
+      "durationMs": 500,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/neutral.png": {
+      "items": 1,
+      "durationMs": 160,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/release-closed.png": {
+      "items": 3,
+      "durationMs": 380,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/release-half.png": {
+      "items": 2,
+      "durationMs": 280,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/soft-light.png": {
+      "items": 2,
+      "durationMs": 200,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/soft-peak.png": {
+      "items": 2,
+      "durationMs": 200,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/smile-half.png": {
+      "items": 2,
+      "durationMs": 200,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    },
+    "frames/smile-closed.png": {
+      "items": 2,
+      "durationMs": 200,
+      "firstMatchesKey": true,
+      "lastNeutral": true,
+      "fileLevelDeadlineChecks": true
+    }
+  },
+  "manifestSha256": "eab91ecb10037da7320d4e9c9321c8dce0f122d3b9d5daa6e101a55e1e319da3",
+  "productionLoaderRun": false,
+  "note": "File-level PNG CRC/alpha/metadata/source/coverage/deadline audit; not production loader or native acceptance."
+}

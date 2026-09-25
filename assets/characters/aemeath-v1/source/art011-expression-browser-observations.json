@@ -1,0 +1,27 @@
+{
+  "scope":"Final expressive candidate observed via local UI; not native drag acceptance",
+  "url":"http://127.0.0.1:8911/art011-inspection.html",
+  "scaleBackgrounds":["light1x","dark1x","light3x","dark3x"],
+  "pausedSliderObservations":[
+    {"scenario":"normal","timeMs":560,"frame":"pickup-surprise"},
+    {"scenario":"normal","timeMs":760,"frame":"hold-half"},
+    {"scenario":"normal","timeMs":1120,"frame":"hold-peak-closed"},
+    {"scenario":"normal","timeMs":2580,"frame":"release-closed"},
+    {"scenario":"normal","timeMs":2680,"frame":"release-half"},
+    {"scenario":"normal","timeMs":2800,"action":"drag-release","frame":"neutral"},
+    {"scenario":"normal","timeMs":2960,"action":"idle-soft","frame":"neutral"},
+    {"scenario":"quick","timeMs":440,"action":"drag-release","frame":"hold-half"},
+    {"scenario":"regrab","timeMs":730,"action":"drag-pickup","frame":"neutral"},
+    {"scenario":"regrab","timeMs":810,"action":"drag-pickup","frame":"hold-surprise"},
+    {"scenario":"regrab","timeMs":1090,"action":"drag-hold","frame":"hold-half"},
+    {"scenario":"drag-hold","timeMs":719,"item":4,"frame":"hold-light-half"},
+    {"scenario":"drag-hold","timeMs":720,"item":1,"frame":"hold-half"}
+  ],
+  "liveManualButtonObservations":[
+    {"timeMs":190,"action":"drag-pickup","frame":"pickup-surprise"},
+    {"timeMs":396,"action":"drag-hold","frame":"hold-half"},
+    {"timeMs":705,"action":"drag-release","frame":"release-half"},
+    {"timeMs":1008,"action":"idle-soft","frame":"neutral"}
+  ],
+  "visualReview":"Expressions distinguish surprise, relaxed half eyes and closed smile. No obvious crown jump, face outline change, double feet or body/feather seam. Tiny mouth subtle at1x. Final dynamic aesthetic acceptance belongs to PM/QA."
+}

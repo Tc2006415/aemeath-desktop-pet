@@ -1,0 +1,37 @@
+import base64,hashlib,json
+from pathlib import Path
+R=Path(__file__).resolve().parent;F=Path('C:/Users/bigxi/Documents/ChatGPT/桌宠/assets/characters/aemeath-v1')
+names=['neutral','soft-light','soft-peak','smile-half','smile-closed']
+images={kind:{n:'data:image/png;base64,'+base64.b64encode((root/f'{n}.png').read_bytes()).decode() for n in names} for kind,root in [('new',R/'art026-core'),('old',F/'frames')]}
+timing=json.loads((R/'art026-timing.json').read_text())
+html='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>爱弥斯 · 待机动画初版</title><style>
+*{box-sizing:border-box}body{margin:0;background:#f4f1ee;color:#302937;font:16px "Microsoft YaHei",system-ui}main{max-width:1100px;margin:auto;padding:24px}h1{font-size:26px;margin:0 0 8px}p{line-height:1.6}.note{color:#685868;margin:0 0 18px}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}button,select{font:inherit;border:1px solid #cbbec6;border-radius:7px;padding:8px 13px;background:white;color:#302937;cursor:pointer}button.active{background:#5e4167;color:white}.views{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stage{padding:12px;min-height:350px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;border:1px solid #d7ced3;border-radius:10px}.light{background:#f0efeb}.dark{background:#1d222c;color:#eee}.sprite{image-rendering:pixelated;object-fit:contain;flex:none}.caption{font-size:13px;align-self:start}.status{font-size:14px;color:#66566c;min-height:24px}.frames{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.frame{display:flex;flex-direction:column;align-items:center;font-size:13px}.frame img{width:96px;height:104px;image-rendering:pixelated}details{margin:20px 0}summary{cursor:pointer}small{color:#726675}#oldViews[hidden]{display:none}#oldTitle[hidden]{display:none}@media(max-width:620px){main{padding:12px}.views{grid-template-columns:1fr}.stage{min-height:335px}}
+</style><main><h1>爱弥斯 · 待机动画初版</h1><p class="note">待用户审阅。沿用已选第二版外观，正式版本尚未替换。</p>
+<div class="controls"><button data-mode="auto" class="active">连续演示</button><button data-mode="idle-soft">轻扇循环</button><button data-mode="idle-smile">笑脸循环</button><label>显示大小 <select id="scale"><option value="1">1×</option><option value="2">2×</option><option value="3" selected>3×</option></select></label></div>
+<div class="controls"><button id="pause">暂停</button><button id="prev">上一帧</button><button id="next">下一帧</button><button id="restart">从头播放</button><label><input id="compare" type="checkbox">显示现正式版本对照（旧翼）</label></div><p id="status" class="status" aria-live="off"></p>
+<div class="views"><div class="stage light"><span class="caption">浅色背景 · 初版</span><img class="sprite" id="newLight"></div><div class="stage dark"><span class="caption">深色背景 · 初版</span><img class="sprite" id="newDark"></div></div>
+<h2 id="oldTitle" hidden>现正式版本对照</h2><div class="views" id="oldViews" hidden><div class="stage light"><span class="caption">浅色背景 · 旧翼</span><img class="sprite" id="oldLight"></div><div class="stage dark"><span class="caption">深色背景 · 旧翼</span><img class="sprite" id="oldDark"></div></div>
+<details open><summary>查看五张关键帧</summary><div class="frames" id="frames"></div></details><p><small>连续演示为三次轻扇后一次笑脸；轻扇1400毫秒、笑脸1200毫秒。笑脸循环仅供本页审阅。当前仅展示待机初版，拖动动作的衔接另行处理。</small></p></main>
+<script>const images=IMAGES,timing=TIMING;
+const labels={'neutral':'A · 放松','soft-light':'B · 轻抬','soft-peak':'C · 上端','smile-half':'半闭眼 · B翼','smile-closed':'闭眼笑 · C翼'};
+let mode='auto',elapsed=0,origin=performance.now(),paused=false,override=null,currentAction='idle-soft',currentIndex=0;
+function sample(t){let action=mode,local=t;if(mode==='auto'){let cycle=t%5400;action=cycle<4200?'idle-soft':'idle-smile';local=cycle<4200?cycle%1400:cycle-4200}let fs=timing[action],total=fs.reduce((s,f)=>s+f.durationMs,0),r=local%total,i=0;while(i<fs.length-1&&r>=fs[i].durationMs)r-=fs[i++].durationMs;return{action,index:i,name:fs[i].path.slice(7,-4),time:Math.floor(local%total),total}}
+function update(){let t=paused?elapsed:performance.now()-origin,s=sample(t);if(!override){currentAction=s.action;currentIndex=s.index}let n=override||s.name;['Light','Dark'].forEach(bg=>{document.getElementById('new'+bg).src=images.new[n];document.getElementById('old'+bg).src=images.old[n]});document.querySelector('#status').textContent=override?'静帧 · '+labels[n]:(paused?'已暂停 · ':'播放中 · ')+(s.action==='idle-soft'?'轻扇':'笑脸')+' '+s.time+' / '+s.total+'毫秒 · 第'+(s.index+1)+'项 · '+labels[n];requestAnimationFrame(update)}
+function pause(){if(!paused)elapsed=performance.now()-origin;paused=true;document.querySelector('#pause').textContent='继续'}
+function start(){origin=performance.now();elapsed=0;paused=false;override=null;document.querySelector('#pause').textContent='暂停'}
+function setMode(n){mode=n;document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===n));start()}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+document.querySelector('#pause').onclick=()=>{if(paused){override=null;origin=performance.now()-elapsed;paused=false;document.querySelector('#pause').textContent='暂停'}else pause()};
+function step(d){pause();let action=currentAction,fs=timing[action];currentIndex=(currentIndex+d+fs.length)%fs.length;mode=action;override=null;elapsed=fs.slice(0,currentIndex).reduce((s,f)=>s+f.durationMs,0);document.querySelectorAll('[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===action))}
+document.querySelector('#prev').onclick=()=>step(-1);document.querySelector('#next').onclick=()=>step(1);document.querySelector('#restart').onclick=start;
+document.querySelector('#scale').onchange=e=>{let s=Number(e.target.value);document.querySelectorAll('.sprite').forEach(el=>{el.width=96*s;el.height=104*s})};document.querySelector('#scale').dispatchEvent(new Event('change'));
+document.querySelector('#compare').onchange=e=>{document.querySelector('#oldViews').hidden=!e.target.checked;document.querySelector('#oldTitle').hidden=!e.target.checked};
+document.querySelector('#frames').innerHTML=Object.keys(labels).map(n=>`<button class="frame" data-frame="${n}"><img src="${images.new[n]}"><span>${labels[n]}</span></button>`).join('');
+document.querySelectorAll('[data-frame]').forEach(b=>b.onclick=()=>{pause();override=b.dataset.frame;currentAction=override.startsWith('smile')?'idle-smile':'idle-soft';mode=currentAction;document.querySelectorAll('[data-mode]').forEach(m=>m.classList.toggle('active',m.dataset.mode===mode));currentIndex=timing[currentAction].findIndex(f=>f.path==='frames/'+override+'.png');elapsed=timing[currentAction].slice(0,currentIndex).reduce((s,f)=>s+f.durationMs,0)});update();
+</script></html>'''
+html=html.replace('IMAGES',json.dumps(images)).replace('TIMING',json.dumps(timing))
+(R/'art026-demo.html').write_text(html,encoding='utf-8')
+for kind,root in [('new',R/'art026-core'),('old',F/'frames')]:
+    for n in names:assert base64.b64decode(images[kind][n].split(',')[1])==(root/f'{n}.png').read_bytes()
+(R/'art026-preview-report.json').write_text(json.dumps({'embeddedSHA':{kind:{n:hashlib.sha256(base64.b64decode(uri.split(',')[1])).hexdigest() for n,uri in group.items()} for kind,group in images.items()},'timings':timing,'autoSequenceMs':5400,'originalPngBytes':True,'nativeAcceptance':False},indent=2)+'\n',encoding='utf-8')
+print('PASS10 embedded PNG bytes; unchanged1400/1200ms; complete5 core')

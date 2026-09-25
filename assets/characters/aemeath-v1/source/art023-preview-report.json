@@ -1,0 +1,21 @@
+{
+  "images": {
+    "original-neutral": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d",
+    "v1-candidate-96": "44a7eb885356174df99f2a4763b11ef671f4cf0132abe4f61a801f7d7a6aab86",
+    "v2-candidate-96": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+    "original-smile-closed": "9c8943a858b506feb7183a72204a48b55f5dbd62c54fb273c6648545b27a3fad",
+    "original-hold-half": "4443b8a3fdfdf2d2f7fe6be301bf9ee07eb9d3f8461d4a75b9ec3679faf96f82",
+    "original-release-half": "2d1096deb7f96ba461b54c00d4b8e290200875747588e798751bfb8a05fa3840"
+  },
+  "bytesEmbeddedUnchanged": true,
+  "scales": [
+    1,
+    2,
+    3
+  ],
+  "backgrounds": [
+    "light",
+    "dark"
+  ],
+  "nativeAcceptance": false
+}

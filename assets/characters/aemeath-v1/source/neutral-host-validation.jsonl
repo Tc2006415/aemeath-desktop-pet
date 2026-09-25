@@ -1,0 +1,13 @@
+{"ms":11,"kind":"startup","data":{"pid":18276,"timedExit":3500,"note":"own-process-diagnostics-not-UI-acceptance"}}
+{"ms":1502,"kind":"control-rendered","data":null}
+{"ms":1586,"kind":"frame","data":{"Action":"neutral","FrameIndex":0,"PlaybackId":1,"dragging":false}}
+{"ms":1591,"kind":"package-loaded","data":{"Id":"aemeath-v1","Version":"0.1.0","Kind":"character","disabled":[]}}
+{"ms":1688,"kind":"layout","data":{"dpi":144,"scale":2,"widthPx":192,"heightPx":208,"WidthDip":128,"HeightDip":138.66666666666666,"origin":{"X":1184,"Y":580},"client":{"X":1184,"Y":580},"clientOffsetX":0,"clientOffsetY":0}}
+{"ms":1699,"kind":"frame","data":{"Action":"neutral","FrameIndex":0,"PlaybackId":1,"dragging":false}}
+{"ms":1699,"kind":"pet-loaded","data":{"hwnd":2294762}}
+{"ms":1700,"kind":"render-callback","data":null}
+{"ms":1703,"kind":"play-request","data":{"action":"neutral","id":2,"available":true}}
+{"ms":1704,"kind":"frame","data":{"Action":"neutral","FrameIndex":0,"PlaybackId":2,"dragging":false}}
+{"ms":4997,"kind":"timed-smoke-exit","data":null}
+{"ms":4998,"kind":"pet-stopped","data":null}
+{"ms":5017,"kind":"shutdown","data":null}

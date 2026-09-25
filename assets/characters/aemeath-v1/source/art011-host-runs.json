@@ -1,0 +1,20 @@
+[
+  {
+    "clip": "drag-pickup",
+    "pid": 29004,
+    "exitCode": 0,
+    "exeSha256": "E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0"
+  },
+  {
+    "clip": "drag-hold",
+    "pid": 34860,
+    "exitCode": 0,
+    "exeSha256": "E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0"
+  },
+  {
+    "clip": "drag-release",
+    "pid": 24844,
+    "exitCode": 0,
+    "exeSha256": "E3951560B446CB708F97A928BA96940FD4B4B3182DC9FAA1C754C2ACF27113B0"
+  }
+]

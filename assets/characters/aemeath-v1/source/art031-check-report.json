@@ -1,0 +1,452 @@
+{
+  "status": "PASS",
+  "errors": [],
+  "frames": {
+    "A-base-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "changes": 0
+    },
+    "A-base-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "bf61ddba24ce0a2d2fdf237ac3a9855a678051473dd3787dcd6a1038f5cd77aa",
+      "changes": 15
+    },
+    "A-base-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "b55e80bf77afea204be05a990b337d37496e01bc36510d82c47296af4f7ba457",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "A-base-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "b55e80bf77afea204be05a990b337d37496e01bc36510d82c47296af4f7ba457",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "A-light-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "37bc489b5603ffb8ec53709e60e35c3ebea45fb46969eb93c18d67f537f45769",
+      "changes": 0
+    },
+    "A-light-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "38ebde3c26b7d9b315f974bcf28cfcb940956fd2fb8a98ab502787be90518d6a",
+      "changes": 15
+    },
+    "A-light-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "c5a929a31b8e64a5972f0473c9c7edbd0dde505f184d713fdc444d4ffccd6e4e",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "A-light-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "c5a929a31b8e64a5972f0473c9c7edbd0dde505f184d713fdc444d4ffccd6e4e",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "A-upper-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "b2d646f937a768b421784f8df2e9e606c0ac45984686deec8d799fb373c8c1bd",
+      "changes": 0
+    },
+    "A-upper-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "724b1fc6ace32becd5d26c5f14afc2588847dad028cdffd708e6beebcd262bd9",
+      "changes": 15
+    },
+    "A-upper-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "723d6b13298676a38d1e8bd06e687ac201d98be8997c1741b2f56c46e909f665",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "A-upper-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "723d6b13298676a38d1e8bd06e687ac201d98be8997c1741b2f56c46e909f665",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "B-base-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "changes": 0
+    },
+    "B-base-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "af8f89ae5be6fbf1492bc017636a84863cb00b39183fca738ce7356aeb328685",
+      "changes": 15
+    },
+    "B-base-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "ec04023ad61373009c67d64b5da3f8089169b22ce5ceff0f10ed8753883105ce",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "B-base-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "ec04023ad61373009c67d64b5da3f8089169b22ce5ceff0f10ed8753883105ce",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "B-light-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "887220a79e11e9a86c4510dd76888c572e91b3098af91bdebb04cdfb6d6b7c8f",
+      "changes": 0
+    },
+    "B-light-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "d1caaf47e8d1d88c91c9449b89f854908b123f9bfaed65bd57057a81f8aa5ac5",
+      "changes": 15
+    },
+    "B-light-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "cbd48c611a7228e98ee1ace898095e3b9a07a77e982841b6b4de552b6f6cf2b6",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "B-light-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "cbd48c611a7228e98ee1ace898095e3b9a07a77e982841b6b4de552b6f6cf2b6",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "B-upper-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "43ccaf8deb3138679e306b17b323127941a2c0c4cf07d0163e2c518111706d94",
+      "changes": 0
+    },
+    "B-upper-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "f927d4bcb60f6c62863ee7f861fa58f956153201008d37e557ca91053e4ad1a4",
+      "changes": 15
+    },
+    "B-upper-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "5f359e7d831683bf773bf288cda46b3308e2f703311370e763bc7cd9885c2b84",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "B-upper-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "5f359e7d831683bf773bf288cda46b3308e2f703311370e763bc7cd9885c2b84",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "C-base-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "changes": 0
+    },
+    "C-base-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "af8f89ae5be6fbf1492bc017636a84863cb00b39183fca738ce7356aeb328685",
+      "changes": 15
+    },
+    "C-base-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "ec04023ad61373009c67d64b5da3f8089169b22ce5ceff0f10ed8753883105ce",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "C-base-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "ec04023ad61373009c67d64b5da3f8089169b22ce5ceff0f10ed8753883105ce",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "C-light-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "bb37db419c4047a3af0d1d839d1f752b5cb3a0897fc6dae63f24be8a7aab48ed",
+      "changes": 0
+    },
+    "C-light-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "d1caaf47e8d1d88c91c9449b89f854908b123f9bfaed65bd57057a81f8aa5ac5",
+      "changes": 15
+    },
+    "C-light-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "cbd48c611a7228e98ee1ace898095e3b9a07a77e982841b6b4de552b6f6cf2b6",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "C-light-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "cbd48c611a7228e98ee1ace898095e3b9a07a77e982841b6b4de552b6f6cf2b6",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "C-upper-neutral": {
+      "outsideMaskDiff": 0,
+      "sha256": "c1001fbd4bb2040285437f16f7688103f68bb8cf18b0371f2685f76987441c23",
+      "changes": 0
+    },
+    "C-upper-surprise": {
+      "outsideMaskDiff": 0,
+      "sha256": "f927d4bcb60f6c62863ee7f861fa58f956153201008d37e557ca91053e4ad1a4",
+      "changes": 15
+    },
+    "C-upper-pickup": {
+      "outsideMaskDiff": 0,
+      "sha256": "5f359e7d831683bf773bf288cda46b3308e2f703311370e763bc7cd9885c2b84",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    },
+    "C-upper-hold-entry": {
+      "outsideMaskDiff": 0,
+      "sha256": "5f359e7d831683bf773bf288cda46b3308e2f703311370e763bc7cd9885c2b84",
+      "changes": 58,
+      "feet": {
+        "oldArea": 43,
+        "newArea": 42,
+        "contourChebyshevMax": 1,
+        "bottomY": 93,
+        "holes": [],
+        "silhouetteRemoved": [
+          [
+            54,
+            91
+          ]
+        ],
+        "silhouetteAdded": []
+      }
+    }
+  },
+  "sourceToFirstDiff": {
+    "A-open-base": 0,
+    "B-open-base": 0,
+    "C-open-base": 0,
+    "A-half-base": 201,
+    "A-closed-base": 204,
+    "C-wink-upper": 1986,
+    "B-open-light": 0,
+    "C-open-upper": 0
+  },
+  "rawEmbeddedPNGs": 81,
+  "nativeAcceptance": false,
+  "visualFootAcceptance": false,
+  "taskAcceptance": "FAIL_B_TOE_TUCK"
+}

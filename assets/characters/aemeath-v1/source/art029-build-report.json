@@ -1,0 +1,271 @@
+{
+  "generationCalls": 3,
+  "overallCompositeVersion": 2,
+  "sources": {
+    "light": {
+      "sha256": "6a39feca457e8e8da877126309dbbbb6bce6fddd20ede2d242008a4a07de2e32",
+      "size": [
+        1254,
+        1254
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "feetY": 93,
+      "leftLowerEdgeY": [
+        91,
+        91,
+        90,
+        90,
+        90
+      ]
+    },
+    "upper": {
+      "sha256": "60ce3a0e6a6a4de2a6a6af64596efebae971cd9cf6f53a09fac3d459b658c008",
+      "size": [
+        1254,
+        1254
+      ],
+      "offset": [
+        0,
+        0
+      ],
+      "feetY": 93,
+      "leftLowerEdgeY": [
+        88,
+        87,
+        87,
+        88,
+        89
+      ]
+    }
+  },
+  "frames": {
+    "A-closed-base.png": {
+      "sha256": "b54dc3a7201ce7571b4ef2c2c25272179f81ad3528419d3e76784f914a01d0dd",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "A-closed-light.png": {
+      "sha256": "80ced148f60e65d86d995bacc3552b6e0d652e60822e03379355f0ff8b70923c",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-closed-upper.png": {
+      "sha256": "14b05da9d4796e6551fb679c38ae5504b97fc786043da5259e2e13f6ae4de045",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-half-base.png": {
+      "sha256": "b15a7750803798aa9a300a609fcdc4c136386e7c6cefbc76e8f760fb64a4da76",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "A-half-light.png": {
+      "sha256": "df95418e411776a72434e41ff83415ff47769de5a3dfb4e44e821db2f6d478a7",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-half-upper.png": {
+      "sha256": "73169adbf1cf22e31a6e7920fed78623284ea2f55e35ac46aebcf27734d4e722",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-mid-base.png": {
+      "sha256": "1248b01d9c4ba88bd4f1a8bc0e2cf0e9b02fb2ba1f852b82ba07b988d3159c57",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "A-mid-light.png": {
+      "sha256": "fc1f1c20dd934b418d7570f44d74dae46bd400c8f3204683c67f95ef42ec3c36",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-mid-upper.png": {
+      "sha256": "edad67297f9828f5c36dda95973f00124c34c287ed86eac276003e2447b5d643",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-open-base.png": {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "A-open-light.png": {
+      "sha256": "37bc489b5603ffb8ec53709e60e35c3ebea45fb46969eb93c18d67f537f45769",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-open-upper.png": {
+      "sha256": "b2d646f937a768b421784f8df2e9e606c0ac45984686deec8d799fb373c8c1bd",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-wink-base.png": {
+      "sha256": "4bd37f604be15f96ef9749cbb8939216c6afef0278bdeaf91e8e3f7a536580f6",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "A-wink-light.png": {
+      "sha256": "34a10ff5f836c1bdc7c71de31afa30c56106ae0d89491d0bed970fab496e676b",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "A-wink-upper.png": {
+      "sha256": "c7f055287650255be1971572b6da142ead64411679a602b4d1b6dfdcafa805d7",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-closed-base.png": {
+      "sha256": "0bb5f579755e62fd1d0c8d86cfeec12cec4c867f2cb439e592e6fae15b266bf6",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "B-closed-light.png": {
+      "sha256": "5b6238912a8ba7bea64a26da88156b2e4f0c064236192339461bd1266d7cfca2",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-closed-upper.png": {
+      "sha256": "4788bd17b9deedd7346c13a3f41cc3e030cc1b2e6e57a86b6e2f6e88cf4a40ce",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-half-base.png": {
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "B-half-light.png": {
+      "sha256": "c27c33b475dab14acbc9d69f196b7e55e3dbfdbd8f8261a6b2470023132fdaf2",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-half-upper.png": {
+      "sha256": "344e68fea320155bf900498d377c116ec8d01667b17d5220da980907f01df365",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-mid-base.png": {
+      "sha256": "46e83149c505a7245efba66576b36eb34904e373df29ab84dd40d20b59c6b560",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "B-mid-light.png": {
+      "sha256": "4d82e22e74da82b4a3fbd9e769bf2bcf80560e2de44b7611bef1a8490c614cb5",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-mid-upper.png": {
+      "sha256": "1e92f5a26cb925462d7789097a640bf87fe99fde5605bc8c7a0b1a9f6498b553",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-open-base.png": {
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "B-open-light.png": {
+      "sha256": "887220a79e11e9a86c4510dd76888c572e91b3098af91bdebb04cdfb6d6b7c8f",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-open-upper.png": {
+      "sha256": "43ccaf8deb3138679e306b17b323127941a2c0c4cf07d0163e2c518111706d94",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-wink-base.png": {
+      "sha256": "f4e3c1e6ecbacf7337b47528de761109e850e8429073246c196dda171731dcde",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "B-wink-light.png": {
+      "sha256": "9e5b2e6f896348130a667fa307bea1de774428b938f89ef9d21ed516fb43098c",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "B-wink-upper.png": {
+      "sha256": "c6dcd148349aba12e7f8411be3b355ad11591e83374866edb7dbad7cafa4a13d",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-closed-base.png": {
+      "sha256": "82a31a07f768121761ae70186b04e196f3b48c905a136153c66141bd67601bbe",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "C-closed-light.png": {
+      "sha256": "ee9cbd05671ea483bf868d5395b34a04c006bda80f511bb299af0c31c378b8ef",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-closed-upper.png": {
+      "sha256": "c614742c7b8572d93fe6b23b3737c051530b1f0871f4254ee8349411dda962d0",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-half-base.png": {
+      "sha256": "dbf1f7563c60a896fd9aa2b78e0bafd84a9332e51edf73e687383bf2f9cea489",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "C-half-light.png": {
+      "sha256": "0e8d1606f5dfbc766daa96a41ec577090b996c76ea186bfb67ec53494058d148",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-half-upper.png": {
+      "sha256": "19047c628b7620a8cd5d7229c84d728f83e25b52d7f1972e8424b6e951dc90a6",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-mid-base.png": {
+      "sha256": "acb60ad19f837c01074cb883c6e25a18ed64d7f52b8c7c49f8864d8dd37aa43f",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "C-mid-light.png": {
+      "sha256": "2ba12339d843c8d48355452684672c39a4988ec96c98595dfa8a6d2ffeef494a",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-mid-upper.png": {
+      "sha256": "6f1cc6ff3642862616133b07324d7dc9b664886be9ef72ce8dffc95c9249e055",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-open-base.png": {
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "C-open-light.png": {
+      "sha256": "bb37db419c4047a3af0d1d839d1f752b5cb3a0897fc6dae63f24be8a7aab48ed",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-open-upper.png": {
+      "sha256": "c1001fbd4bb2040285437f16f7688103f68bb8cf18b0371f2685f76987441c23",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-wink-base.png": {
+      "sha256": "55d66e84433bb7b98ca8f5d86b4369043624b45dc3a928d55b45daa49c11f557",
+      "changes": 0,
+      "outsideHemDiff": 0
+    },
+    "C-wink-light.png": {
+      "sha256": "83de541462ea9bbbdb7c3d373eaf1addb74afbaa80d003bc867f615f033942f4",
+      "changes": 46,
+      "outsideHemDiff": 0
+    },
+    "C-wink-upper.png": {
+      "sha256": "492d1e18be3993d4db78d08ff515cc304cb6d538ec61c3896b9906bae5a44f66",
+      "changes": 46,
+      "outsideHemDiff": 0
+    }
+  }
+}

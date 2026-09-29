@@ -1,0 +1,120 @@
+{
+  "art032-panic-left-source-v1.png": {
+    "sha256": "7ff38c124393315837775f1ee35f6851d2eee4a641fafca0c74c5bc801585974",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "map": [
+      32,
+      72,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "donor": "art032-panic-left-donor-v1.png",
+    "legBottom": {
+      "left": 94,
+      "right": 95
+    }
+  },
+  "art032-panic-left-source-v2.png": {
+    "sha256": "f0a404484a84855cdec5d6ba1c8f9c2b3e41c06cb77b7bf0ae2491bee283048a",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "map": [
+      32,
+      72,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "donor": "art032-panic-left-donor-v2.png",
+    "legBottom": {
+      "left": 92,
+      "right": 94
+    }
+  },
+  "art032-panic-right-source-v1.png": {
+    "sha256": "f1141fd593cc2b906270b1bcb6a84592411e02f22556bdf4002998e5551992f5",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "map": [
+      32,
+      72,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "donor": "art032-panic-right-donor-v1.png",
+    "legBottom": {
+      "left": 94,
+      "right": 92
+    }
+  },
+  "art032-annoyed-body-source-v1.png": {
+    "sha256": "f80b29b9961310c248cdb47160ca51b88c584322194e02f4c8c75ac40db6e6b0",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "map": [
+      32,
+      72,
+      32
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "donor": "art032-annoyed-body-donor-v1.png",
+    "legBottom": {
+      "left": 93,
+      "right": 93
+    }
+  },
+  "art032-annoyed-face-source-v1.png": {
+    "sha256": "256ba0183803b72604af1f450c3bc3459d7a69bb666cc1b84c2582ed438364ff",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "map": [
+      28,
+      44,
+      40
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "donor": "art032-annoyed-face-donor-v1.png"
+  },
+  "art032-release-wings-source-v1.png": {
+    "sha256": "b27fb519fa5a2041d0b5ce830e549745a5b3045cc90512ae0991ab05ff1fe3e4",
+    "sourceSize": [
+      1254,
+      1254
+    ],
+    "map": [
+      0,
+      56,
+      96
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "donor": "art032-release-wings-donor-v1.png"
+  }
+}

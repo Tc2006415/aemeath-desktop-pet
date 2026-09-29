@@ -1,0 +1,187 @@
+{
+  "status": "PASS_FORMAT_PROTECTION_TRANSITIONS_ONLY",
+  "frames": {
+    "left-panic-A": {
+      "sha256": "f60c524db23fdbc49ef06c5186d1c341cb013331ab82ebe6cd07e286cc7299b8",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "left-panic-B": {
+      "sha256": "7a07ef32f67c1835c4daea4e1e7d3c7b552d1ac543ea632c5bbd33ce0f576463",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "left-panic-C": {
+      "sha256": "081ffb04c1396c798daec411ca9f943fbb5a166c360bf42c5ba26cb54cf22696",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "left-panic-H": {
+      "sha256": "4cb46989b2a70f20bfba0ab1824291e125307be3551e606677001c2ade95d0eb",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "right-panic-A": {
+      "sha256": "ef390c693b1579a8d20dc2c591a388aa24d75b65db780c5e12bfa4f2d20d1358",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "right-panic-B": {
+      "sha256": "64816266066422dd7abf065ba746ed8f6121554784221a9dfd491d8751196437",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "right-panic-C": {
+      "sha256": "7265a67bddafb9b8381d045b316b2e66f9c84c06e6e5b20cf3d2a71d52ab7947",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "right-panic-H": {
+      "sha256": "3764a26540ed1c308f78442c07a8ac2d38fa218207bfed88065ea21c6ed21ac2",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "annoyed-annoyed-A": {
+      "sha256": "fd414b7bd98621226e27d1559a048d525cad6dd79322d0808d3e35b511382b60",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "annoyed-annoyed-B": {
+      "sha256": "e537f39b1f13f7230b6f78d8249a3874ef2b26993139279fe8acd2888592fd38",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "annoyed-annoyed-C": {
+      "sha256": "75e888b6d1cc31198c4978223ce7d90f50b80b1e235bf2d675baecfb8d33d886",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "annoyed-annoyed-H": {
+      "sha256": "36190ffc1714fc105974c2a9b33820bfcd74f2f34a24b399f0bf38e4149ca220",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "normal-normal-A": {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "normal-normal-B": {
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "normal-normal-C": {
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "normal-normal-H": {
+      "sha256": "81fbdf75061790214bd85e4ca40a7c077e03d6ef3b527e24b4f74264f6140a46",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    },
+    "normal-half-B": {
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "outsideMaskDiff": 0,
+      "legBottom": {
+        "left": 93,
+        "right": 93
+      },
+      "neckAndRootsExact": true,
+      "feetConnected": true
+    }
+  },
+  "embeddedActualPNGs": 62,
+  "generationCalls": 6,
+  "compositeVersions": 1,
+  "heldFaceBodyConstant": true,
+  "loopSeam": "same A PNG at both sides",
+  "nativeAcceptance": false,
+  "visualLimitations": [
+    "hand lift/curl weak after frozen mask",
+    "downturned mouth lost at coarse sampling; annoyance mostly brow",
+    "generated stockings/shoe local layer shifts need user review",
+    "source wink/head and hem reset seam remains"
+  ]
+}

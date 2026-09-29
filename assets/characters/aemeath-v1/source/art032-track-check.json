@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": 357,
+  "panicMs": 700,
+  "heldUntilRelease": true,
+  "releaseMs": 540,
+  "capturedFrameEntry": true,
+  "repressCancelsRelease": true
+}

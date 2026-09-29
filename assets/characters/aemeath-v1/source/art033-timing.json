@@ -1,0 +1,27 @@
+{
+  "panicMs": [
+    60,
+    140,
+    140,
+    140,
+    140,
+    80
+  ],
+  "heldWingLoopMs": [
+    400,
+    150,
+    550,
+    150,
+    150
+  ],
+  "releaseMs": [
+    60,
+    100,
+    100,
+    120,
+    160
+  ],
+  "heldMood": "annoyed until release",
+  "earlyRelease": "captured last rendered PNG first",
+  "idleAfterRelease": "new epoch resets wink/blink/hem"
+}

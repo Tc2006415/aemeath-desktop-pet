@@ -1,0 +1,616 @@
+{
+  "source": "art007-trial-v2-source.png",
+  "sourceSize": [
+    1205,
+    1306
+  ],
+  "sourceSha256": "a879b9a7cb4e0a283129dc5771825dd62aba5cfc819387ab73f8bef9253af728",
+  "protectedHashes": {
+    "manifest.json": "51b22ccb1585dd835836af1dfea339af9790053070f1bc3780c1c0b46df5b5ef",
+    "frames\\neutral.png": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d",
+    "frames\\smile-closed.png": "864c04205b9f12ef390d6c18d01fe5b89c27879214a1f3ab98437ee9001a6a2b",
+    "frames\\smile-half.png": "2b3ebe044554baf3fbbf2980259cb8ef009e431bdcf9f44d4dbafc00ab674911",
+    "frames\\soft-a.png": "1aa6b8520183e1ef6eebede2c49bf6d40404bb7a9b990d3b2b702655e924a6ac",
+    "frames\\soft-b.png": "96c627a1f2ac3f1a05785a9ade765c8780577dc82a373c4fe10a72ff0f424fbb"
+  },
+  "expectedSourceSize": [
+    1205,
+    1306
+  ],
+  "sampling": "full canvas center-nearest floor((2*x+1)*1205/(2*96)); analogous y/104",
+  "alphaThreshold": 128,
+  "integerOffset": [
+    0,
+    5
+  ],
+  "anchorReferenceOnly": [
+    48,
+    94
+  ],
+  "candidate": "art007-trial-v2-96.png",
+  "candidateSha256": "6edad393443b1379d2bb7a688a3a5be2f7502de6140aa36fe8cffa205e92fc17",
+  "frameBytes": 9067,
+  "frameSize": [
+    96,
+    104
+  ],
+  "alphaValues": [
+    0,
+    255
+  ],
+  "inclusiveBounds": [
+    11,
+    22,
+    84,
+    97
+  ],
+  "centralFeetBounds": [
+    38,
+    80,
+    57,
+    93
+  ],
+  "clippedOpaqueSamples": 0,
+  "regions": {
+    "crownAndUpperHair": {
+      "rectangleInclusive": [
+        20,
+        18,
+        75,
+        47
+      ],
+      "alphaChangedCount": 31,
+      "alphaChangesXYNeutralCandidate": [
+        [
+          49,
+          23,
+          0,
+          255
+        ],
+        [
+          50,
+          25,
+          0,
+          255
+        ],
+        [
+          42,
+          27,
+          255,
+          0
+        ],
+        [
+          53,
+          27,
+          255,
+          0
+        ],
+        [
+          44,
+          28,
+          0,
+          255
+        ],
+        [
+          50,
+          28,
+          0,
+          255
+        ],
+        [
+          51,
+          28,
+          0,
+          255
+        ],
+        [
+          57,
+          28,
+          0,
+          255
+        ],
+        [
+          37,
+          29,
+          255,
+          0
+        ],
+        [
+          43,
+          29,
+          0,
+          255
+        ],
+        [
+          49,
+          29,
+          0,
+          255
+        ],
+        [
+          44,
+          30,
+          0,
+          255
+        ],
+        [
+          45,
+          30,
+          0,
+          255
+        ],
+        [
+          46,
+          30,
+          0,
+          255
+        ],
+        [
+          49,
+          30,
+          0,
+          255
+        ],
+        [
+          50,
+          30,
+          0,
+          255
+        ],
+        [
+          51,
+          30,
+          0,
+          255
+        ],
+        [
+          42,
+          31,
+          0,
+          255
+        ],
+        [
+          43,
+          31,
+          0,
+          255
+        ],
+        [
+          52,
+          31,
+          0,
+          255
+        ],
+        [
+          53,
+          31,
+          0,
+          255
+        ],
+        [
+          37,
+          32,
+          0,
+          255
+        ],
+        [
+          58,
+          32,
+          0,
+          255
+        ],
+        [
+          36,
+          33,
+          0,
+          255
+        ],
+        [
+          59,
+          33,
+          0,
+          255
+        ],
+        [
+          32,
+          34,
+          0,
+          255
+        ],
+        [
+          35,
+          34,
+          0,
+          255
+        ],
+        [
+          60,
+          34,
+          0,
+          255
+        ],
+        [
+          69,
+          43,
+          0,
+          255
+        ],
+        [
+          70,
+          44,
+          0,
+          255
+        ],
+        [
+          70,
+          45,
+          0,
+          255
+        ]
+      ],
+      "commonOpaquePixelCount": 699,
+      "rgbChangedCommonOpaquePixels": 685,
+      "rgbMaxChannelDelta": 249,
+      "rgbMeanMaxChannelDelta": 15.933,
+      "rgbPixelsMaxDeltaAbove24": 85
+    },
+    "sideOrnament": {
+      "rectangleInclusive": [
+        61,
+        39,
+        78,
+        59
+      ],
+      "alphaChangedCount": 6,
+      "alphaChangesXYNeutralCandidate": [
+        [
+          69,
+          43,
+          0,
+          255
+        ],
+        [
+          70,
+          44,
+          0,
+          255
+        ],
+        [
+          70,
+          45,
+          0,
+          255
+        ],
+        [
+          74,
+          56,
+          0,
+          255
+        ],
+        [
+          74,
+          57,
+          0,
+          255
+        ],
+        [
+          74,
+          58,
+          0,
+          255
+        ]
+      ],
+      "commonOpaquePixelCount": 228,
+      "rgbChangedCommonOpaquePixels": 228,
+      "rgbMaxChannelDelta": 169,
+      "rgbMeanMaxChannelDelta": 11.689,
+      "rgbPixelsMaxDeltaAbove24": 31
+    },
+    "fixedHead": {
+      "rectangleInclusive": [
+        0,
+        0,
+        95,
+        68
+      ],
+      "alphaChangedCount": 39,
+      "alphaChangesXYNeutralCandidate": [
+        [
+          49,
+          23,
+          0,
+          255
+        ],
+        [
+          50,
+          25,
+          0,
+          255
+        ],
+        [
+          42,
+          27,
+          255,
+          0
+        ],
+        [
+          53,
+          27,
+          255,
+          0
+        ],
+        [
+          44,
+          28,
+          0,
+          255
+        ],
+        [
+          50,
+          28,
+          0,
+          255
+        ],
+        [
+          51,
+          28,
+          0,
+          255
+        ],
+        [
+          57,
+          28,
+          0,
+          255
+        ],
+        [
+          37,
+          29,
+          255,
+          0
+        ],
+        [
+          43,
+          29,
+          0,
+          255
+        ],
+        [
+          49,
+          29,
+          0,
+          255
+        ],
+        [
+          44,
+          30,
+          0,
+          255
+        ],
+        [
+          45,
+          30,
+          0,
+          255
+        ],
+        [
+          46,
+          30,
+          0,
+          255
+        ],
+        [
+          49,
+          30,
+          0,
+          255
+        ],
+        [
+          50,
+          30,
+          0,
+          255
+        ],
+        [
+          51,
+          30,
+          0,
+          255
+        ],
+        [
+          42,
+          31,
+          0,
+          255
+        ],
+        [
+          43,
+          31,
+          0,
+          255
+        ],
+        [
+          52,
+          31,
+          0,
+          255
+        ],
+        [
+          53,
+          31,
+          0,
+          255
+        ],
+        [
+          37,
+          32,
+          0,
+          255
+        ],
+        [
+          58,
+          32,
+          0,
+          255
+        ],
+        [
+          36,
+          33,
+          0,
+          255
+        ],
+        [
+          59,
+          33,
+          0,
+          255
+        ],
+        [
+          32,
+          34,
+          0,
+          255
+        ],
+        [
+          35,
+          34,
+          0,
+          255
+        ],
+        [
+          60,
+          34,
+          0,
+          255
+        ],
+        [
+          69,
+          43,
+          0,
+          255
+        ],
+        [
+          70,
+          44,
+          0,
+          255
+        ],
+        [
+          70,
+          45,
+          0,
+          255
+        ],
+        [
+          23,
+          48,
+          0,
+          255
+        ],
+        [
+          74,
+          56,
+          0,
+          255
+        ],
+        [
+          74,
+          57,
+          0,
+          255
+        ],
+        [
+          74,
+          58,
+          0,
+          255
+        ],
+        [
+          73,
+          64,
+          0,
+          255
+        ],
+        [
+          72,
+          65,
+          0,
+          255
+        ],
+        [
+          24,
+          66,
+          255,
+          0
+        ],
+        [
+          36,
+          68,
+          0,
+          255
+        ]
+      ],
+      "commonOpaquePixelCount": 1762,
+      "rgbChangedCommonOpaquePixels": 1715,
+      "rgbMaxChannelDelta": 249,
+      "rgbMeanMaxChannelDelta": 10.697,
+      "rgbPixelsMaxDeltaAbove24": 130
+    }
+  },
+  "feathers": {
+    "left": {
+      "neutralBounds": [
+        9,
+        82,
+        33,
+        97
+      ],
+      "candidateBounds": [
+        11,
+        82,
+        33,
+        97
+      ],
+      "inwardExtremeShift": 2,
+      "opaqueSetChebyshevDistance": 3,
+      "alphaChangedCount": 35
+    },
+    "right": {
+      "neutralBounds": [
+        62,
+        82,
+        86,
+        97
+      ],
+      "candidateBounds": [
+        62,
+        82,
+        84,
+        97
+      ],
+      "inwardExtremeShift": 2,
+      "opaqueSetChebyshevDistance": 3,
+      "alphaChangedCount": 36
+    }
+  },
+  "checks": {
+    "sourceCanvasMatches": true,
+    "staticRgba8Crc": true,
+    "frameSize": true,
+    "binaryAlphaNonempty": true,
+    "under256KiB": true,
+    "noCroppedOpaqueSamples": true,
+    "margins": true,
+    "crownTopY22": true,
+    "feetBottomY93": true,
+    "fixedHeadAlphaUnchanged": false,
+    "featherInwardShiftWithin2": true,
+    "featherOpaqueDistanceWithin2": false,
+    "localFeatherShapeChange": true
+  },
+  "result": "FAIL",
+  "failedChecks": [
+    "fixedHeadAlphaUnchanged",
+    "featherOpaqueDistanceWithin2"
+  ]
+}

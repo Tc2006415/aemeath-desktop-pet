@@ -1,0 +1,146 @@
+[
+  {
+    "frame": "soft-a.png",
+    "source": "soft-a-generated-v1.png",
+    "sourceSize": [
+      1205,
+      1306
+    ],
+    "sourceSha256": "68419d75707fe5f2703a547bff777eaa7754293823dcec0884a412009c550b44",
+    "sampling": "full canvas pixel-center nearest neighbor to 96x104; no crop",
+    "alphaThreshold": 128,
+    "integerOffset": [
+      0,
+      5
+    ],
+    "clippedOpaqueSamples": 0,
+    "frameSize": [
+      96,
+      104
+    ],
+    "frameBytes": 8566,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "inclusiveBounds": [
+      14,
+      21,
+      81,
+      95
+    ],
+    "centralFeetBottomY": 93,
+    "changedPixelsVsNeutral": 3108,
+    "headRegionChangedPixels": 1769,
+    "upperHeadAlphaChangesRows22to55": 29,
+    "frameSha256": "1aa6b8520183e1ef6eebede2c49bf6d40404bb7a9b990d3b2b702655e924a6ac"
+  },
+  {
+    "frame": "soft-b.png",
+    "source": "soft-b-generated-v1.png",
+    "sourceSize": [
+      1205,
+      1306
+    ],
+    "sourceSha256": "416d04ba9daa2c75b451d8c03aca84158861115c33d2dab5f05c928620bfd47a",
+    "sampling": "full canvas pixel-center nearest neighbor to 96x104; no crop",
+    "alphaThreshold": 128,
+    "integerOffset": [
+      0,
+      5
+    ],
+    "clippedOpaqueSamples": 0,
+    "frameSize": [
+      96,
+      104
+    ],
+    "frameBytes": 8728,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "inclusiveBounds": [
+      11,
+      21,
+      84,
+      96
+    ],
+    "centralFeetBottomY": 93,
+    "changedPixelsVsNeutral": 3069,
+    "headRegionChangedPixels": 1741,
+    "upperHeadAlphaChangesRows22to55": 18,
+    "frameSha256": "96c627a1f2ac3f1a05785a9ade765c8780577dc82a373c4fe10a72ff0f424fbb"
+  },
+  {
+    "frame": "smile-half.png",
+    "source": "smile-half-generated-v1.png",
+    "sourceSize": [
+      1205,
+      1306
+    ],
+    "sourceSha256": "73246ad7211e32fed4bdc5e334c4fea05af2abb35c64cf1ce884da9953c82662",
+    "sampling": "full canvas pixel-center nearest neighbor to 96x104; no crop",
+    "alphaThreshold": 128,
+    "integerOffset": [
+      0,
+      5
+    ],
+    "clippedOpaqueSamples": 0,
+    "frameSize": [
+      96,
+      104
+    ],
+    "frameBytes": 8945,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "inclusiveBounds": [
+      9,
+      21,
+      86,
+      97
+    ],
+    "centralFeetBottomY": 93,
+    "changedPixelsVsNeutral": 3037,
+    "headRegionChangedPixels": 1734,
+    "upperHeadAlphaChangesRows22to55": 26,
+    "frameSha256": "2b3ebe044554baf3fbbf2980259cb8ef009e431bdcf9f44d4dbafc00ab674911"
+  },
+  {
+    "frame": "smile-closed.png",
+    "source": "smile-closed-generated-v1.png",
+    "sourceSize": [
+      1205,
+      1306
+    ],
+    "sourceSha256": "e262aead4be68b72c10a41bec5de15ed919f56a696420b606dc652d58abbe9ec",
+    "sampling": "full canvas pixel-center nearest neighbor to 96x104; no crop",
+    "alphaThreshold": 128,
+    "integerOffset": [
+      0,
+      5
+    ],
+    "clippedOpaqueSamples": 0,
+    "frameSize": [
+      96,
+      104
+    ],
+    "frameBytes": 8843,
+    "alphaValues": [
+      0,
+      255
+    ],
+    "inclusiveBounds": [
+      9,
+      21,
+      86,
+      97
+    ],
+    "centralFeetBottomY": 93,
+    "changedPixelsVsNeutral": 3021,
+    "headRegionChangedPixels": 1738,
+    "upperHeadAlphaChangesRows22to55": 26,
+    "frameSha256": "864c04205b9f12ef390d6c18d01fe5b89c27879214a1f3ab98437ee9001a6a2b"
+  }
+]

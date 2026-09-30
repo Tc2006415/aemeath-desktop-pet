@@ -1,0 +1,59 @@
+using Aemeath.Host;
+using Aemeath.Presentation;
+
+internal static class Program
+{
+    [STAThread]
+    static int Main(string[] args)
+    {
+        var package = PackageLoader.Load(args[0], PngDecoder.Decode);
+        if (package.Version != "0.4.0" || package.Clips.Count != 6 || package.Images.Count != 12 || package.DisabledActions.Count != 0)
+            throw new Exception("Wrong final expressive candidate");
+        int passed = 0;
+        void Check(string label, Action test) { test(); Console.WriteLine("PASS " + label); passed++; }
+        void Equal<T>(T wanted, T actual) { if (!Equals(wanted, actual)) throw new Exception($"Expected {wanted}, actual {actual}"); }
+        Check("pickup 4 boundaries -> hold, 720ms loop wraps", () => {
+            long t=0; var c=new CharacterController(package.Clips,()=>t); c.SetAutomatic(true); c.BeginDrag();
+            foreach (var (time,index) in new (long,int)[] {(0,0),(79,0),(80,1),(159,1),(160,2),(259,2),(260,3),(359,3)}) {
+                t=time; var s=c.Sample(); Equal("drag-pickup",s.Action); Equal(index,s.FrameIndex);
+            }
+            t=360; Equal("drag-hold",c.Sample().Action);
+            foreach (var (time,index) in new (long,int)[] {(539,0),(540,1),(720,2),(900,3),(1079,3),(1080,0)}) {
+                t=time; var s=c.Sample(); Equal("drag-hold",s.Action); Equal(index,s.FrameIndex);
+            }
+        });
+        Check("fast release at every pickup/hold phase including 40ms; release returns idle", () => {
+            foreach (long releaseAt in new long[] {0,40,79,80,159,160,259,260,359,360,400,540,720,900,1080}) {
+                long t=0; var c=new CharacterController(package.Clips,()=>t); c.SetAutomatic(true); c.BeginDrag();
+                // Establish hold at its natural boundary before sampling later hold frames.
+                if (releaseAt>=360) { t=360; c.Sample(); }
+                t=releaseAt; c.Sample(); c.EndDrag(); var release=c.Sample(); Equal("drag-release",release.Action); Equal(0,release.FrameIndex);
+                foreach (var (delta,index) in new (long,int)[] {(79,0),(80,1),(179,1),(180,2),(299,2),(300,3),(459,3)}) {
+                    t=releaseAt+delta; var s=c.Sample(); Equal("drag-release",s.Action); Equal(index,s.FrameIndex);
+                }
+                t=releaseAt+460; var end=c.Sample(); Equal("idle-soft",end.Action); Equal<long?>(release.PlaybackId,end.CompletedId);
+                Equal<long?>(null,c.Sample().CompletedId);
+            }
+        });
+        Check("regrab at each release phase ignores old completion deadlines", () => {
+            foreach (long offset in new long[] {0,40,80,180,300,459}) {
+                long t=0; var c=new CharacterController(package.Clips,()=>t); c.SetAutomatic(true); c.BeginDrag();
+                t=40; c.EndDrag(); var old=c.Sample(); t=40+offset; c.Sample(); c.BeginDrag(); var fresh=c.Sample();
+                Equal("drag-pickup",fresh.Action); Equal(0,fresh.FrameIndex);
+                if (fresh.PlaybackId==old.PlaybackId) throw new Exception("Instance reused");
+                t=40+offset+360; var hold=c.Sample(); Equal("drag-hold",hold.Action); Equal<long?>(fresh.PlaybackId,hold.CompletedId);
+                t=Math.Max(t,501); Equal("drag-hold",c.Sample().Action); Equal<long?>(null,c.Sample().CompletedId);
+            }
+        });
+        Check("capture-loss EndDrag API is idempotent; stale pickup cannot overwrite release", () => {
+            long t=0; var c=new CharacterController(package.Clips,()=>t); c.SetAutomatic(true); c.BeginDrag();
+            var old=c.Sample(); t=40; c.EndDrag(); var release=c.Sample(); t=50; c.EndDrag();
+            Equal(release.PlaybackId,c.Sample().PlaybackId);
+            t=360; var s=c.Sample(); Equal("drag-release",s.Action); Equal<long?>(null,s.CompletedId);
+            t=500; var idle=c.Sample(); Equal("idle-soft",idle.Action); Equal<long?>(release.PlaybackId,idle.CompletedId);
+            if (idle.CompletedId==old.PlaybackId) throw new Exception("Old pickup completed");
+        });
+        Console.WriteLine($"{passed} focused groups passed; 15 release times, 6 regrab times; no native input");
+        return 0;
+    }
+}

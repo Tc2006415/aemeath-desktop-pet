@@ -1,10 +1,28 @@
 namespace Aemeath.Presentation;
 
-public sealed record SubmittedFrame(long PackageEpoch, string Path, long PlaybackId, int FrameIndex, long SubmissionSequence);
+public sealed record SubmittedFrame(long PackageEpoch, string Path, long PlaybackId, int FrameIndex, long SubmissionSequence)
+{
+    public string FrameKey { get; init; } = "";
+}
 
 /// <summary>Local animation choices only; never infers or consumes task status.</summary>
 public sealed class CharacterController
 {
+    public CharacterController(AssetPackage package, Func<long> clock, long packageEpoch = 0, Func<int,int,int>? random = null)
+        : this(package.Clips, clock, packageEpoch)
+    {
+        behavior=package.Behavior;
+        if(behavior is not null)
+        {
+            keysByPath=behavior.Images.ToDictionary(x=>x.Value.Path,x=>x.Key,StringComparer.Ordinal);
+            layered=new(behavior,random ?? ((min,max)=>Random.Shared.Next(min,checked(max+1))),NextInstance);
+        }
+    }
+    private readonly BehaviorDefinition? behavior;
+    private readonly LayeredBehaviorController? layered;
+    private readonly Dictionary<string,string>? keysByPath;
+    private long playbackSequence;
+    private long NextInstance() => checked(++playbackSequence);
     private enum Phase { Manual, Idle, Smile, Pickup, Hold, Release }
     private readonly Playback player;
     private readonly Func<long> clock;
@@ -17,18 +35,21 @@ public sealed class CharacterController
     private PlaybackSample? issuedSample;
     public CharacterController(IReadOnlyDictionary<string, Clip> clips, Func<long> clock, long packageEpoch = 0)
     {
-        this.clock = clock; this.packageEpoch = packageEpoch; player = new Playback(clips);
+        this.clock = clock; this.packageEpoch = packageEpoch; player = new Playback(clips,NextInstance);
         Select("neutral", Phase.Manual, Now());
     }
     public bool Automatic { get; private set; }
     public SubmittedFrame? LastSubmitted { get; private set; }
     public string? ReleaseFallback { get; private set; }
+    public string? SourceFallback { get; private set; }
+    public string? ReleaseRoute => Automatic ? layered?.Route : null;
     public void CommitRendered(PlaybackSample sample)
     {
         // Acknowledgment must refer to the actual object most recently sampled by this controller.
         // Cloned/old-package/invalidated requests cannot fabricate a displayed pose.
         if (!ReferenceEquals(sample, issuedSample)) return;
-        LastSubmitted = new(packageEpoch, sample.FramePath, sample.PlaybackId, sample.FrameIndex, checked(++submissionSequence));
+        if(behavior is not null && (!behavior.Images.TryGetValue(sample.FrameKey,out var image) || image.Path!=sample.FramePath)) return;
+        LastSubmitted = new(packageEpoch, sample.FramePath, sample.PlaybackId, sample.FrameIndex, checked(++submissionSequence)) { FrameKey=sample.FrameKey };
         issuedSample = null;
     }
     private long Now()
@@ -41,7 +62,10 @@ public sealed class CharacterController
     {
         long now = Now(); if (Automatic == enabled) return;
         LastSubmitted = null;
+        issuedSample = null; ReleaseFallback = SourceFallback = null;
         Automatic = enabled;
+        if(layered is not null && enabled)
+        { if(dragging) layered.Pickup(now,CapturedKey()); else layered.Idle(now); return; }
         if (!enabled) Select("neutral", Phase.Manual, now);
         else if (dragging) Pickup(now);
         else Idle(now);
@@ -54,14 +78,18 @@ public sealed class CharacterController
     public void BeginDrag()
     {
         long now = Now(); if (dragging) return;
-        dragging = true; if (Automatic) Pickup(now);
+        dragging = true;
+        if (Automatic && layered is not null) { issuedSample=null; ReleaseFallback=null; layered.Pickup(now,CapturedKey()); }
+        else if (Automatic) Pickup(now);
     }
     public void EndDrag()
     {
         long now = Now(); if (!dragging) return;
         dragging = false;
-        if (!Automatic) return;
         ReleaseFallback = null;
+        if (!Automatic) return;
+        if(layered is not null)
+        { issuedSample=null; string key=CapturedKey(); ReleaseFallback=SourceFallback; layered.Release(now,key); return; }
         if (player.Available("drag-release"))
         {
             var source = LastSubmitted;
@@ -74,7 +102,10 @@ public sealed class CharacterController
     }
     public PlaybackSample Sample()
     {
-        long now = Now(); var result = player.Sample(now);
+        long now = Now();
+        if(Automatic && layered is not null) return Issue(layered.Sample(now));
+        var result = player.Sample(now);
+        if(keysByPath is not null) result=result with { FrameKey=keysByPath[result.FramePath],BehaviorPhase="manual" };
         if (!Automatic) return Issue(result);
         // Only this player owns completion production. Replaced instances cannot enqueue callbacks.
         if (result.CompletedId is long completed && completed == expectedInstance)
@@ -91,6 +122,13 @@ public sealed class CharacterController
         return Issue(result);
     }
     private PlaybackSample Issue(PlaybackSample sample) { issuedSample = sample; return sample; }
+    private string CapturedKey()
+    {
+        var source=LastSubmitted;
+        if(source?.PackageEpoch==packageEpoch && behavior!.Images.TryGetValue(source.FrameKey,out var image) && image.Path==source.Path)
+        { SourceFallback=null; return source.FrameKey; }
+        SourceFallback="no-submitted-frame"; return behavior!.NeutralKey;
+    }
     private void Select(string action, Phase next, long now, string? releaseSource = null)
     {
         issuedSample = null;

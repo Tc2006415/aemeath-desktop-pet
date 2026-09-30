@@ -11,4 +11,8 @@ public sealed record BehaviorDefinition(
     EyeBehavior Blink, EyeBehavior Wink,
     int PickupSourceMs, IReadOnlyList<BehaviorStep> PickupTail, IReadOnlyList<BehaviorStep> Hold,
     int ReleaseSourceMs, IReadOnlyDictionary<string, string> Routes,
-    IReadOnlyDictionary<string, IReadOnlyList<BehaviorStep>> Tails);
+    IReadOnlyDictionary<string, IReadOnlyList<BehaviorStep>> Tails)
+{
+    public IReadOnlyList<BehaviorStep> BindRelease(string sourceKey) =>
+        Array.AsReadOnly(new[]{new BehaviorStep(sourceKey,ReleaseSourceMs)}.Concat(Tails[Routes[sourceKey]]).ToArray());
+}

@@ -89,11 +89,28 @@ public class BehaviorPackageTests
             m=>m["behavior"]!["idle"]!["blink"]!["track"]![0]!["durationMs"]=59,
             m=>m["behavior"]!["unknown"]=true,
             m=>m["actions"]!["drag-pickup"]!["frames"]![0]!["durationMs"]=61,
+            m=>m["behavior"]!["images"]!["idle:A-half-base"]!["path"]=BehaviorFixture.PathFor(BehaviorFixture.Neutral),
+            m=>m["behavior"]!["idle"]!["combinations"]![1]=m["behavior"]!["idle"]!["combinations"]![0]!.DeepClone(),
+            m=>m["behavior"]!["idle"]!["wing"]![0]!["value"]="C",
+            m=>m["behavior"]!["interaction"]!["release"]!["tails"]!["normal"]![0]!["key"]=BehaviorFixture.Neutral,
+            m=>m["behavior"]!["interaction"]!["pickup"]!["tail"]![4]!["key"]="pose:annoyed-annoyed-C",
+            m=>m["behavior"]!["interaction"]!["pickup"]!["sourceDurationMs"]=59,
+            m=>m["behavior"]!["interaction"]!["hold"]=new JsonArray(),
+            m=>m["behavior"]!["images"]![BehaviorFixture.Neutral]!["sha256"]="BAD",
+            m=>m["behavior"]!["idle"]!["wing"]![0]!["durationMs"]=0.1,
+            m=>m["behavior"]!["interaction"]!["release"]!["routes"]=new JsonArray(),
             m=>m["schemaVersion"]=2
         ];
         foreach(var change in changes) { f.Manifest=(JsonObject)original.DeepClone(); change(f.Manifest); Assert.ThrowsExactly<PackageException>(()=>f.Load()); }
         f.Manifest=(JsonObject)original.DeepClone(); var session=new PackageSession(); f.Load(); Assert.IsTrue(session.TryLoad(f.Root,PngDecoder.Decode)); var prior=session.Current;
         File.WriteAllBytes(Path.Combine(f.Root,BehaviorFixture.PathFor("idle:C-wink-upper")),[0]);
         Assert.IsFalse(session.TryLoad(f.Root,PngDecoder.Decode)); Assert.AreSame(prior,session.Current);
+    }
+    [TestMethod] public void DuplicateBehaviorKeysAndOversizedManifestAreRejected()
+    {
+        using var f=new BehaviorFixture(); f.Load(); string path=Path.Combine(f.Root,"manifest.json"), json=File.ReadAllText(path);
+        File.WriteAllText(path,json.Replace("\"behavior\":{","\"behavior\":{\"profile\":\"layered-idle-drag-v1\","));
+        Assert.ThrowsExactly<PackageException>(()=>PackageLoader.Load(f.Root,PngDecoder.Decode));
+        File.WriteAllText(path,json+new string(' ',65536)); Assert.ThrowsExactly<PackageException>(()=>PackageLoader.Load(f.Root,PngDecoder.Decode));
     }
 }

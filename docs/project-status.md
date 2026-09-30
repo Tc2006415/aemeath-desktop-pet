@@ -4,6 +4,10 @@
 
 ## 当前验收反馈：普通待机翅膀姿态与整体扇动
 
+v2原生候选已集成，等待用户人工验收。选择性接收DEV c608fa1/c9bac87及交接843da413、QA c9eeca7（PM对应5d6d7ac/c38263a/95fbaa1/982d275），未整分支合并。QA八组独立风险检查通过，无阻断代码发现。PM集成后重新执行受影响48测试，48通过/0失败/0跳过；publish到artifacts/native-v2-win-x64。显式ART036三次smoke（automatic PID31724、manual-wink PID20156、manual-release PID56172）均exit0，固定manifest95cf8f…b182、渲染与退出检查通过。不是原生鼠标或视觉验收通过。
+
+启动入口scripts/Start-V2-Preview.cmd显式加载已选择性复制的ART036 0.5.0候选，自动模式2倍；不要直接双击候选exe推断默认资源已推广。PM本次Host EXE SHA9A12AAD9976FBF953EB22163ACA905ED376118E66AC5BC437BB488BB4FB2CB76，Host DLL AFA75E5679F58A8119F88B81D775564E7AFD3C026255FA1CA0D5C6EDCF5B3B21，Presentation DLL5155D9EA4CC477F39DCCAA548BFF1D1F41BBAFADE8D13C208E6A271677050B06。正式0.4与artifacts/host-win-x64保持。用户需确认慢快拖/窗口外松手/重抓/失焦Escape、wink与眨眼及衔接观感；原生控制不可用，不用浏览器代验。阶段停在验收，不推进漂浮或自动跟进。
+
 用户确认正式眨眼随机4–7秒和wink优先规则，授权原生接入。PM接受DEV提案7a28a49并冻结ADR0005，schema3候选0.5.0；ART036仅按ART035清单制作64图候选包，DEV实现有限组合调度与真实提交源衔接。ART035已独立核对64文件SHA/长度与64条540ms释放映射。正式0.4.0仍保持，完成定向QA和真实宿主演示后等用户验收；随机漂浮和自动跟进不启动。
 
 用户在ART034嘟嘴/怒筋演示后回复“可以推进”，记录本项观感审核通过，冻结2c31b27候选。下一步准备已认可v2动作原生集成：ART035仅交实际图/key/SHA及行为映射（0生成/0改像素），DEV先交现有0.4/schema2兼容性和最小实施方案供PM冻结，不擅改共享接口。正式眨眼频率等网页预览与生产区别需方案列明；手部读感/入口回正接缝/原翼透明点仍是已披露限制。正式包尚未替换，后续真实鼠标验收再判运行通过；随机漂浮不并行，自动跟进暂停。

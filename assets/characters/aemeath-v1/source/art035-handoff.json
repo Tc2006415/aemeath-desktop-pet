@@ -1,0 +1,2570 @@
+{
+  "documentType": "ART035 selective-copy handoff; NOT production manifest",
+  "artworkCommit": "2c31b27c99550f9002662cfb6f55181bd9fc0deb",
+  "approval": "PM relayed user 可以推进 after ART034 demonstration; visual acceptance of shown result only",
+  "scope": "0 imagegen; 0 pixel edits; no PNG re-encoding; no formal package/host changes",
+  "pathBase": "repository root; preserve source subdirectories when selectively copying",
+  "canvasReference": {
+    "width": 96,
+    "height": 104,
+    "anchor": [
+      48,
+      94
+    ],
+    "meaning": "existing artwork coordinate convention; no new production schema"
+  },
+  "assets": [
+    {
+      "key": "idle:A-closed-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-closed-base.png",
+      "sha256": "b54dc3a7201ce7571b4ef2c2c25272179f81ad3528419d3e76784f914a01d0dd",
+      "bytes": 8298,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "closed",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-closed-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-closed-light.png",
+      "sha256": "80ced148f60e65d86d995bacc3552b6e0d652e60822e03379355f0ff8b70923c",
+      "bytes": 8290,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "closed",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-closed-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-closed-upper.png",
+      "sha256": "14b05da9d4796e6551fb679c38ae5504b97fc786043da5259e2e13f6ae4de045",
+      "bytes": 8289,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "closed",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-half-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-half-base.png",
+      "sha256": "b15a7750803798aa9a300a609fcdc4c136386e7c6cefbc76e8f760fb64a4da76",
+      "bytes": 8403,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "half",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-half-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-half-light.png",
+      "sha256": "df95418e411776a72434e41ff83415ff47769de5a3dfb4e44e821db2f6d478a7",
+      "bytes": 8393,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "half",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-half-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-half-upper.png",
+      "sha256": "73169adbf1cf22e31a6e7920fed78623284ea2f55e35ac46aebcf27734d4e722",
+      "bytes": 8393,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "half",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-mid-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-mid-base.png",
+      "sha256": "1248b01d9c4ba88bd4f1a8bc0e2cf0e9b02fb2ba1f852b82ba07b988d3159c57",
+      "bytes": 8039,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "mid",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-mid-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-mid-light.png",
+      "sha256": "fc1f1c20dd934b418d7570f44d74dae46bd400c8f3204683c67f95ef42ec3c36",
+      "bytes": 8033,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "mid",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-mid-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-mid-upper.png",
+      "sha256": "edad67297f9828f5c36dda95973f00124c34c287ed86eac276003e2447b5d643",
+      "bytes": 8031,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "mid",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-open-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-open-base.png",
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "bytes": 8392,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "open",
+        "hem": "base"
+      },
+      "duplicateByteKeys": [
+        "pose:normal-normal-A"
+      ]
+    },
+    {
+      "key": "idle:A-open-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-open-light.png",
+      "sha256": "37bc489b5603ffb8ec53709e60e35c3ebea45fb46969eb93c18d67f537f45769",
+      "bytes": 8381,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "open",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-open-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-open-upper.png",
+      "sha256": "b2d646f937a768b421784f8df2e9e606c0ac45984686deec8d799fb373c8c1bd",
+      "bytes": 8381,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "open",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-wink-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-wink-base.png",
+      "sha256": "4bd37f604be15f96ef9749cbb8939216c6afef0278bdeaf91e8e3f7a536580f6",
+      "bytes": 8051,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "wink",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-wink-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-wink-light.png",
+      "sha256": "34a10ff5f836c1bdc7c71de31afa30c56106ae0d89491d0bed970fab496e676b",
+      "bytes": 8042,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "wink",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:A-wink-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/A-wink-upper.png",
+      "sha256": "c7f055287650255be1971572b6da142ead64411679a602b4d1b6dfdcafa805d7",
+      "bytes": 8040,
+      "semantic": {
+        "wing": "A",
+        "eyeHead": "wink",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-closed-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-closed-base.png",
+      "sha256": "0bb5f579755e62fd1d0c8d86cfeec12cec4c867f2cb439e592e6fae15b266bf6",
+      "bytes": 8158,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "closed",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-closed-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-closed-light.png",
+      "sha256": "5b6238912a8ba7bea64a26da88156b2e4f0c064236192339461bd1266d7cfca2",
+      "bytes": 8149,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "closed",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-closed-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-closed-upper.png",
+      "sha256": "4788bd17b9deedd7346c13a3f41cc3e030cc1b2e6e57a86b6e2f6e88cf4a40ce",
+      "bytes": 8148,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "closed",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-half-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-half-base.png",
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "bytes": 8259,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "half",
+        "hem": "base"
+      },
+      "duplicateByteKeys": [
+        "pose:normal-half-B"
+      ]
+    },
+    {
+      "key": "idle:B-half-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-half-light.png",
+      "sha256": "c27c33b475dab14acbc9d69f196b7e55e3dbfdbd8f8261a6b2470023132fdaf2",
+      "bytes": 8253,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "half",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-half-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-half-upper.png",
+      "sha256": "344e68fea320155bf900498d377c116ec8d01667b17d5220da980907f01df365",
+      "bytes": 8253,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "half",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-mid-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-mid-base.png",
+      "sha256": "46e83149c505a7245efba66576b36eb34904e373df29ab84dd40d20b59c6b560",
+      "bytes": 7890,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "mid",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-mid-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-mid-light.png",
+      "sha256": "4d82e22e74da82b4a3fbd9e769bf2bcf80560e2de44b7611bef1a8490c614cb5",
+      "bytes": 7882,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "mid",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-mid-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-mid-upper.png",
+      "sha256": "1e92f5a26cb925462d7789097a640bf87fe99fde5605bc8c7a0b1a9f6498b553",
+      "bytes": 7883,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "mid",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-open-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-open-base.png",
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "bytes": 8250,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "open",
+        "hem": "base"
+      },
+      "duplicateByteKeys": [
+        "pose:normal-normal-B"
+      ]
+    },
+    {
+      "key": "idle:B-open-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-open-light.png",
+      "sha256": "887220a79e11e9a86c4510dd76888c572e91b3098af91bdebb04cdfb6d6b7c8f",
+      "bytes": 8240,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "open",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-open-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-open-upper.png",
+      "sha256": "43ccaf8deb3138679e306b17b323127941a2c0c4cf07d0163e2c518111706d94",
+      "bytes": 8239,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "open",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-wink-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-wink-base.png",
+      "sha256": "f4e3c1e6ecbacf7337b47528de761109e850e8429073246c196dda171731dcde",
+      "bytes": 7900,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "wink",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-wink-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-wink-light.png",
+      "sha256": "9e5b2e6f896348130a667fa307bea1de774428b938f89ef9d21ed516fb43098c",
+      "bytes": 7894,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "wink",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:B-wink-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/B-wink-upper.png",
+      "sha256": "c6dcd148349aba12e7f8411be3b355ad11591e83374866edb7dbad7cafa4a13d",
+      "bytes": 7890,
+      "semantic": {
+        "wing": "B",
+        "eyeHead": "wink",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-closed-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-closed-base.png",
+      "sha256": "82a31a07f768121761ae70186b04e196f3b48c905a136153c66141bd67601bbe",
+      "bytes": 8143,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "closed",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-closed-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-closed-light.png",
+      "sha256": "ee9cbd05671ea483bf868d5395b34a04c006bda80f511bb299af0c31c378b8ef",
+      "bytes": 8136,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "closed",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-closed-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-closed-upper.png",
+      "sha256": "c614742c7b8572d93fe6b23b3737c051530b1f0871f4254ee8349411dda962d0",
+      "bytes": 8134,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "closed",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-half-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-half-base.png",
+      "sha256": "dbf1f7563c60a896fd9aa2b78e0bafd84a9332e51edf73e687383bf2f9cea489",
+      "bytes": 8245,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "half",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-half-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-half-light.png",
+      "sha256": "0e8d1606f5dfbc766daa96a41ec577090b996c76ea186bfb67ec53494058d148",
+      "bytes": 8237,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "half",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-half-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-half-upper.png",
+      "sha256": "19047c628b7620a8cd5d7229c84d728f83e25b52d7f1972e8424b6e951dc90a6",
+      "bytes": 8237,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "half",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-mid-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-mid-base.png",
+      "sha256": "acb60ad19f837c01074cb883c6e25a18ed64d7f52b8c7c49f8864d8dd37aa43f",
+      "bytes": 7873,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "mid",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-mid-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-mid-light.png",
+      "sha256": "2ba12339d843c8d48355452684672c39a4988ec96c98595dfa8a6d2ffeef494a",
+      "bytes": 7867,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "mid",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-mid-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-mid-upper.png",
+      "sha256": "6f1cc6ff3642862616133b07324d7dc9b664886be9ef72ce8dffc95c9249e055",
+      "bytes": 7866,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "mid",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-open-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-open-base.png",
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "bytes": 8233,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "open",
+        "hem": "base"
+      },
+      "duplicateByteKeys": [
+        "pose:normal-normal-C"
+      ]
+    },
+    {
+      "key": "idle:C-open-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-open-light.png",
+      "sha256": "bb37db419c4047a3af0d1d839d1f752b5cb3a0897fc6dae63f24be8a7aab48ed",
+      "bytes": 8224,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "open",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-open-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-open-upper.png",
+      "sha256": "c1001fbd4bb2040285437f16f7688103f68bb8cf18b0371f2685f76987441c23",
+      "bytes": 8223,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "open",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-wink-base",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-wink-base.png",
+      "sha256": "55d66e84433bb7b98ca8f5d86b4369043624b45dc3a928d55b45daa49c11f557",
+      "bytes": 7878,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "wink",
+        "hem": "base"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-wink-light",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-wink-light.png",
+      "sha256": "83de541462ea9bbbdb7c3d373eaf1addb74afbaa80d003bc867f615f033942f4",
+      "bytes": 7869,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "wink",
+        "hem": "light"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "idle:C-wink-upper",
+      "path": "assets/characters/aemeath-v1/source/art029-frames/C-wink-upper.png",
+      "sha256": "492d1e18be3993d4db78d08ff515cc304cb6d538ec61c3896b9906bae5a44f66",
+      "bytes": 7869,
+      "semantic": {
+        "wing": "C",
+        "eyeHead": "wink",
+        "hem": "upper"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:annoyed-annoyed-A",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/annoyed-annoyed-A.png",
+      "sha256": "61ac90e7e3e914bb82a81e734218f8f505313f2e7e09a8daea44f6c69496e1e5",
+      "bytes": 8468,
+      "semantic": {
+        "body": "annoyed",
+        "face": "annoyed",
+        "wing": "A"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:annoyed-annoyed-B",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/annoyed-annoyed-B.png",
+      "sha256": "312421bd782bcf72069468edf186437e2070342d44d3a09a80732b194c71ccc4",
+      "bytes": 8327,
+      "semantic": {
+        "body": "annoyed",
+        "face": "annoyed",
+        "wing": "B"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:annoyed-annoyed-C",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/annoyed-annoyed-C.png",
+      "sha256": "b1055361b518f7433afebaa64e22b7a7bdbe6369d552be9a4dd751b7ba04a732",
+      "bytes": 8309,
+      "semantic": {
+        "body": "annoyed",
+        "face": "annoyed",
+        "wing": "C"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:annoyed-annoyed-H",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/annoyed-annoyed-H.png",
+      "sha256": "051b5145e5aeb7b250406b187ab6f45e59c45705f9b11c85112c6fc0b49558d1",
+      "bytes": 8499,
+      "semantic": {
+        "body": "annoyed",
+        "face": "annoyed",
+        "wing": "H"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:left-panic-A",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/left-panic-A.png",
+      "sha256": "0a2d037b73390371aa327c7fb7a0a2f4cd54c0a9dd812358e8a1fd40f9096756",
+      "bytes": 8384,
+      "semantic": {
+        "body": "left",
+        "face": "panic",
+        "wing": "A"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:left-panic-B",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/left-panic-B.png",
+      "sha256": "779458a3cc5baab7b0e421ff0837d3bbf6807438728a74536270bf41334c2d3d",
+      "bytes": 8240,
+      "semantic": {
+        "body": "left",
+        "face": "panic",
+        "wing": "B"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:left-panic-C",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/left-panic-C.png",
+      "sha256": "812f16cafaf7eddacd560cbbe8d2c35d1c3b7fdbc7459c323aa0380d8181d5e9",
+      "bytes": 8224,
+      "semantic": {
+        "body": "left",
+        "face": "panic",
+        "wing": "C"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:left-panic-H",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/left-panic-H.png",
+      "sha256": "97b8e50eead54646e874547b34adca4d80fe521897f45a81ef556694f10af894",
+      "bytes": 8411,
+      "semantic": {
+        "body": "left",
+        "face": "panic",
+        "wing": "H"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:normal-half-B",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/normal-half-B.png",
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "bytes": 8259,
+      "semantic": {
+        "body": "normal",
+        "face": "half",
+        "wing": "B"
+      },
+      "duplicateByteKeys": [
+        "idle:B-half-base"
+      ]
+    },
+    {
+      "key": "pose:normal-normal-A",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/normal-normal-A.png",
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "bytes": 8392,
+      "semantic": {
+        "body": "normal",
+        "face": "normal",
+        "wing": "A"
+      },
+      "duplicateByteKeys": [
+        "idle:A-open-base"
+      ]
+    },
+    {
+      "key": "pose:normal-normal-B",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/normal-normal-B.png",
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "bytes": 8250,
+      "semantic": {
+        "body": "normal",
+        "face": "normal",
+        "wing": "B"
+      },
+      "duplicateByteKeys": [
+        "idle:B-open-base"
+      ]
+    },
+    {
+      "key": "pose:normal-normal-C",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/normal-normal-C.png",
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "bytes": 8233,
+      "semantic": {
+        "body": "normal",
+        "face": "normal",
+        "wing": "C"
+      },
+      "duplicateByteKeys": [
+        "idle:C-open-base"
+      ]
+    },
+    {
+      "key": "pose:normal-normal-H",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/normal-normal-H.png",
+      "sha256": "81fbdf75061790214bd85e4ca40a7c077e03d6ef3b527e24b4f74264f6140a46",
+      "bytes": 8420,
+      "semantic": {
+        "body": "normal",
+        "face": "normal",
+        "wing": "H"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:right-panic-A",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/right-panic-A.png",
+      "sha256": "3d98533bd5423b47e5120e727c27e0d1878fd2f6c9a8425b0614865afa1e55da",
+      "bytes": 8375,
+      "semantic": {
+        "body": "right",
+        "face": "panic",
+        "wing": "A"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:right-panic-B",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/right-panic-B.png",
+      "sha256": "30955391f87d66b3452ad3a969b18f3796a2246074f73f1635fa5727400755a1",
+      "bytes": 8239,
+      "semantic": {
+        "body": "right",
+        "face": "panic",
+        "wing": "B"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:right-panic-C",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/right-panic-C.png",
+      "sha256": "8f77c1f698ff3d1568d3f10416854a0641ec5df44a39da87fbc7e2719bb2b12b",
+      "bytes": 8224,
+      "semantic": {
+        "body": "right",
+        "face": "panic",
+        "wing": "C"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:right-panic-H",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/right-panic-H.png",
+      "sha256": "62917ad5997e4b3c41eefd91db2ffc9e94852565aa81542263102a5b67715ae4",
+      "bytes": 8412,
+      "semantic": {
+        "body": "right",
+        "face": "panic",
+        "wing": "H"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:transition-annoyed-C",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/transition-annoyed-C.png",
+      "sha256": "ecb492012caeb97be2ed4a6af2117185b1066ca87911bcd922c2b648c97c2946",
+      "bytes": 8247,
+      "semantic": {
+        "body": "transition",
+        "face": "annoyed",
+        "wing": "C"
+      },
+      "duplicateByteKeys": []
+    },
+    {
+      "key": "pose:transition-annoyed-H",
+      "path": "assets/characters/aemeath-v1/source/art034-frames/transition-annoyed-H.png",
+      "sha256": "0d4181a901e0f993e847f48690ed3c4cea5c845f7749fd88d49adf21ef809421",
+      "bytes": 8439,
+      "semantic": {
+        "body": "transition",
+        "face": "annoyed",
+        "wing": "H"
+      },
+      "duplicateByteKeys": []
+    }
+  ],
+  "assetCount": 64,
+  "uniqueByteCount": 60,
+  "duplicateGroups": [
+    {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "keys": [
+        "idle:A-open-base",
+        "pose:normal-normal-A"
+      ]
+    },
+    {
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "keys": [
+        "idle:B-half-base",
+        "pose:normal-half-B"
+      ]
+    },
+    {
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "keys": [
+        "idle:B-open-base",
+        "pose:normal-normal-B"
+      ]
+    },
+    {
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "keys": [
+        "idle:C-open-base",
+        "pose:normal-normal-C"
+      ]
+    }
+  ],
+  "referenceFiles": [
+    {
+      "path": "assets/characters/aemeath-v1/source/art028-engine.js",
+      "sha256": "18294e7b82c4ff509345934f2290e07f9ec20591c098582a8a9565d2c08e9ca9",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "a3dab36a50474c34f63752bef73e0e15badd39f4f5a9ccb6aaeb66f557c8d4a4",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art029-track.js",
+      "sha256": "0387776f72c4bf8f42680112e5161f704a0ea8789c397cf9d1896d7b77409913",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "175d78bc0203446d1ee3c29a30629722357f83c46a687b1c22a9580794c3c8ab",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art029-timing.json",
+      "sha256": "a3c41e8c33d0d2b5ea28bf36d4739bd66274accca2674867e1c37397addb059f",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "86f41f3f008d3e5d2a155a162b39c33980a92680f45e03aa6b204ac6a6c6fcf4",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art034-track.js",
+      "sha256": "6af8e3b19c9ff12677bfa24638f760b48b589462aac6e3835607756b753730b8",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "c33dce979ee764357dec990f3fa1bec16ae77213b9746692cf6fbe961671b520",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art034-timing.json",
+      "sha256": "8b4d3c0f26eb844cbacdf03e3c8bb65fba2f7968e57e40a325c4f5916f0e23cf",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "7c3fbd85743aaac59a0479b8ab611d33a57e5f72ec0c3e277b3daa3cff1a6aca",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art029-delivery.md",
+      "sha256": "adf0cd2d6003592d77d9b1c2be27593564f1ab42618c6ede4bd9cafdf50a9efc",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "6d785985754545bd5a3d96dff6840aed081006ee77e3d3d174e23cf4b93a7494",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art034-delivery.md",
+      "sha256": "e73a6fd9308acf599ad9c57fbd4ab9c135e68f3cc791bd2d555d5a375b84d9b9",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "e08b771abb2c930de3fe5557dd5a00a4e9d18f54b0324dd10ab29db06770fc1e",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    },
+    {
+      "path": "assets/characters/aemeath-v1/source/art034-demo.html",
+      "sha256": "2b0d402c9c9057ccdd908cb333d87acb2d57f10153ebf0c9b9671cf238d45985",
+      "role": "behavior-reference-only; not a production manifest",
+      "gitBlobSha256": "673caf0ab6281b95d2589bbdd6061f8241e2f07eefa5cf6cb2dd9c0f0879873a",
+      "sha256Basis": "current working-tree bytes; text newline conversion can differ from gitBlobSha256"
+    }
+  ],
+  "idle": {
+    "keyTemplate": "idle:{wing}-{eyeHead}-{hem}",
+    "wings": [
+      "A",
+      "B",
+      "C"
+    ],
+    "eyeHead": [
+      "open",
+      "half",
+      "closed",
+      "mid",
+      "wink"
+    ],
+    "hem": [
+      "base",
+      "light",
+      "upper"
+    ],
+    "cycleMs": 1400,
+    "wingTrack": [
+      {
+        "startMs": 0,
+        "endMs": 400,
+        "value": "A"
+      },
+      {
+        "startMs": 400,
+        "endMs": 550,
+        "value": "B"
+      },
+      {
+        "startMs": 550,
+        "endMs": 700,
+        "value": "C"
+      },
+      {
+        "startMs": 700,
+        "endMs": 1100,
+        "value": "C"
+      },
+      {
+        "startMs": 1100,
+        "endMs": 1250,
+        "value": "B"
+      },
+      {
+        "startMs": 1250,
+        "endMs": 1400,
+        "value": "A"
+      }
+    ],
+    "hemTrack": [
+      {
+        "startMs": 0,
+        "endMs": 400,
+        "value": "base"
+      },
+      {
+        "startMs": 400,
+        "endMs": 550,
+        "value": "light"
+      },
+      {
+        "startMs": 550,
+        "endMs": 1200,
+        "value": "upper"
+      },
+      {
+        "startMs": 1200,
+        "endMs": 1350,
+        "value": "light"
+      },
+      {
+        "startMs": 1350,
+        "endMs": 1400,
+        "value": "base"
+      }
+    ],
+    "hemDownstrokeLagMs": 100,
+    "hemClock": "same local idle clock as wing; no independent random timer",
+    "blink": {
+      "firstDelayMs": 4000,
+      "timingStatus": "source explicitly labels 4 seconds demo-only; production cadence not frozen",
+      "track": [
+        {
+          "startMs": 0,
+          "endMs": 60,
+          "value": "half"
+        },
+        {
+          "startMs": 60,
+          "endMs": 140,
+          "value": "closed"
+        },
+        {
+          "startMs": 140,
+          "endMs": 200,
+          "value": "half"
+        },
+        {
+          "startMs": 200,
+          "endMs": 240,
+          "value": "open"
+        }
+      ],
+      "reschedule": "when sampled >= nextBlink+240 and no wink, nextBlink=sampleTime+4000"
+    },
+    "wink": {
+      "delayExpression": "50000 + floor(random()*20000)",
+      "delayRangeMsInclusive": [
+        50000,
+        69999
+      ],
+      "durationMs": 1200,
+      "track": [
+        {
+          "startMs": 0,
+          "endMs": 250,
+          "value": "mid"
+        },
+        {
+          "startMs": 250,
+          "endMs": 700,
+          "value": "wink"
+        },
+        {
+          "startMs": 700,
+          "endMs": 1050,
+          "value": "mid"
+        },
+        {
+          "startMs": 1050,
+          "endMs": 1200,
+          "value": "open"
+        }
+      ],
+      "side": "screen-left eye and same-side head tilt",
+      "mutualExclusion": "begin disables ordinary blink; wink end schedules next wink and next blink from scheduled wink end; wing/hem continue",
+      "lateSample": "source begins overdue wink at sample time, no catch-up replay"
+    },
+    "interactionSuppression": "ART034 draw does not sample WinkPreviewEngine during panic/held/release; final release completion constructs a new engine and idle local clock starts at releaseStart+540",
+    "art029StandaloneDifference": "standalone engine.press cancels wink, forces open; hemAt(dragging) returns base; engine.release schedules eye events but wing/hem retain global phase. ART034 full interaction supersedes that wrapper for integration reference."
+  },
+  "interaction": {
+    "intervalConvention": "half-open [start,end); elapsed uses monotonic local time",
+    "press": "cancel current release / interaction, capture last actually assigned image key, restart panic at press time",
+    "panicMs": 700,
+    "panicTrack": [
+      {
+        "startMs": 0,
+        "endMs": 60,
+        "value": "$capturedSource"
+      },
+      {
+        "startMs": 60,
+        "endMs": 200,
+        "value": "pose:left-panic-B"
+      },
+      {
+        "startMs": 200,
+        "endMs": 340,
+        "value": "pose:right-panic-C"
+      },
+      {
+        "startMs": 340,
+        "endMs": 480,
+        "value": "pose:left-panic-A"
+      },
+      {
+        "startMs": 480,
+        "endMs": 620,
+        "value": "pose:right-panic-B"
+      },
+      {
+        "startMs": 620,
+        "endMs": 700,
+        "value": "pose:transition-annoyed-C"
+      }
+    ],
+    "heldCycleMs": 1400,
+    "heldTrack": [
+      {
+        "startMs": 0,
+        "endMs": 400,
+        "value": "pose:annoyed-annoyed-A"
+      },
+      {
+        "startMs": 400,
+        "endMs": 550,
+        "value": "pose:annoyed-annoyed-B"
+      },
+      {
+        "startMs": 550,
+        "endMs": 1100,
+        "value": "pose:annoyed-annoyed-C"
+      },
+      {
+        "startMs": 1100,
+        "endMs": 1250,
+        "value": "pose:annoyed-annoyed-B"
+      },
+      {
+        "startMs": 1250,
+        "endMs": 1400,
+        "value": "pose:annoyed-annoyed-A"
+      }
+    ],
+    "heldEnd": "only release; never automatic mood softening",
+    "releaseMs": 540,
+    "releaseByCapturedKey": {
+      "idle:A-closed-base": [
+        {
+          "key": "idle:A-closed-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-closed-light": [
+        {
+          "key": "idle:A-closed-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-closed-upper": [
+        {
+          "key": "idle:A-closed-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-half-base": [
+        {
+          "key": "idle:A-half-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-half-light": [
+        {
+          "key": "idle:A-half-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-half-upper": [
+        {
+          "key": "idle:A-half-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-mid-base": [
+        {
+          "key": "idle:A-mid-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-mid-light": [
+        {
+          "key": "idle:A-mid-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-mid-upper": [
+        {
+          "key": "idle:A-mid-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-open-base": [
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-open-light": [
+        {
+          "key": "idle:A-open-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-open-upper": [
+        {
+          "key": "idle:A-open-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-wink-base": [
+        {
+          "key": "idle:A-wink-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-wink-light": [
+        {
+          "key": "idle:A-wink-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:A-wink-upper": [
+        {
+          "key": "idle:A-wink-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-closed-base": [
+        {
+          "key": "idle:B-closed-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-closed-light": [
+        {
+          "key": "idle:B-closed-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-closed-upper": [
+        {
+          "key": "idle:B-closed-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-half-base": [
+        {
+          "key": "idle:B-half-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-half-light": [
+        {
+          "key": "idle:B-half-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-half-upper": [
+        {
+          "key": "idle:B-half-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-mid-base": [
+        {
+          "key": "idle:B-mid-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-mid-light": [
+        {
+          "key": "idle:B-mid-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-mid-upper": [
+        {
+          "key": "idle:B-mid-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-open-base": [
+        {
+          "key": "idle:B-open-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-open-light": [
+        {
+          "key": "idle:B-open-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-open-upper": [
+        {
+          "key": "idle:B-open-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-wink-base": [
+        {
+          "key": "idle:B-wink-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-wink-light": [
+        {
+          "key": "idle:B-wink-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:B-wink-upper": [
+        {
+          "key": "idle:B-wink-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-closed-base": [
+        {
+          "key": "idle:C-closed-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-closed-light": [
+        {
+          "key": "idle:C-closed-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-closed-upper": [
+        {
+          "key": "idle:C-closed-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-half-base": [
+        {
+          "key": "idle:C-half-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-half-light": [
+        {
+          "key": "idle:C-half-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-half-upper": [
+        {
+          "key": "idle:C-half-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-mid-base": [
+        {
+          "key": "idle:C-mid-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-mid-light": [
+        {
+          "key": "idle:C-mid-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-mid-upper": [
+        {
+          "key": "idle:C-mid-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-open-base": [
+        {
+          "key": "idle:C-open-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-open-light": [
+        {
+          "key": "idle:C-open-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-open-upper": [
+        {
+          "key": "idle:C-open-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-wink-base": [
+        {
+          "key": "idle:C-wink-base",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-wink-light": [
+        {
+          "key": "idle:C-wink-light",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "idle:C-wink-upper": [
+        {
+          "key": "idle:C-wink-upper",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:annoyed-annoyed-A": [
+        {
+          "key": "pose:annoyed-annoyed-A",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:annoyed-annoyed-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:annoyed-annoyed-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:annoyed-annoyed-B": [
+        {
+          "key": "pose:annoyed-annoyed-B",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:annoyed-annoyed-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:annoyed-annoyed-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:annoyed-annoyed-C": [
+        {
+          "key": "pose:annoyed-annoyed-C",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:annoyed-annoyed-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:annoyed-annoyed-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:annoyed-annoyed-H": [
+        {
+          "key": "pose:annoyed-annoyed-H",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:annoyed-annoyed-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:annoyed-annoyed-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:left-panic-A": [
+        {
+          "key": "pose:left-panic-A",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:left-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:left-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:left-panic-B": [
+        {
+          "key": "pose:left-panic-B",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:left-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:left-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:left-panic-C": [
+        {
+          "key": "pose:left-panic-C",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:left-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:left-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:left-panic-H": [
+        {
+          "key": "pose:left-panic-H",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:left-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:left-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:normal-half-B": [
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:normal-normal-A": [
+        {
+          "key": "pose:normal-normal-A",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:normal-normal-B": [
+        {
+          "key": "pose:normal-normal-B",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:normal-normal-C": [
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:normal-normal-H": [
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:normal-normal-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-normal-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:right-panic-A": [
+        {
+          "key": "pose:right-panic-A",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:right-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:right-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:right-panic-B": [
+        {
+          "key": "pose:right-panic-B",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:right-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:right-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:right-panic-C": [
+        {
+          "key": "pose:right-panic-C",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:right-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:right-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:right-panic-H": [
+        {
+          "key": "pose:right-panic-H",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:right-panic-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:right-panic-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:transition-annoyed-C": [
+        {
+          "key": "pose:transition-annoyed-C",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:transition-annoyed-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:transition-annoyed-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ],
+      "pose:transition-annoyed-H": [
+        {
+          "key": "pose:transition-annoyed-H",
+          "durationMs": 60
+        },
+        {
+          "key": "pose:transition-annoyed-H",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:transition-annoyed-C",
+          "durationMs": 100
+        },
+        {
+          "key": "pose:normal-half-B",
+          "durationMs": 120
+        },
+        {
+          "key": "idle:A-open-base",
+          "durationMs": 160
+        }
+      ]
+    },
+    "releaseRouting": "idle sources -> normal/normal; pose sources split body-face-wing; half face routes normal. Source first60ms is exact current image, never resampled at release event.",
+    "symbol": "fixed identical glyph and pout in annoyed A/B/C/H; no glyph in transition aliases or other poses; released annoyed H/C retain it, normal-half-B at260ms removes it; neutral at380ms; idle at540ms",
+    "regrabException": "source-first60ms retains exact last image, including existing anger glyph if regrabbed from annoyed. New panic poses carry no glyph.",
+    "sourceMeaning": "last PNG assigned to browser img src, not display-present receipt. Native equivalent and package-generation validity require PM/DEV contract.",
+    "previewReleaseEvents": [
+      "pointerup",
+      "pointercancel",
+      "lostpointercapture if panic/held",
+      "Space/Enter keyup",
+      "explicit release button"
+    ],
+    "nativeNotImplementedHere": [
+      "actual window drag",
+      "focus loss/Escape policy",
+      "capture cleanup",
+      "package swaps/stale callbacks",
+      "native render commit identity"
+    ]
+  },
+  "transitionAliases": {
+    "pose:transition-annoyed-C": "byte copy of ART033 annoyed-annoyed-C, used panic620..700 and corresponding release C",
+    "pose:transition-annoyed-H": "byte copy of ART033 annoyed-annoyed-H, used early release from transition C"
+  },
+  "copyPolicy": {
+    "artwork": "copy exactly assets[].path byte-for-byte; all 64 logical keys must remain mapped even if storage deduplicates",
+    "references": "copy referenceFiles only as proposal evidence; do not execute preview build scripts or copy generation donors for runtime",
+    "exclude": [
+      "historical formal frames/manifest on ART branch",
+      "ART030/031/032/033 artwork as alternate runtime inputs",
+      "old 0.2 package",
+      "imagegen donor images/build scripts",
+      "whole-branch merge"
+    ],
+    "deduplication": "duplicate keys are semantic aliases; production storage choice pending PM/DEV"
+  },
+  "notFrozenProductionSemantics": [
+    "new package/schema version and manifest layout",
+    "production blink cadence",
+    "native independent track scheduler and source snapshot schema",
+    "native cancellation/capture/focus/package swap behavior",
+    "task-state overlays/fallback behavior (not authorized here)",
+    "random floating (paused, out of scope)"
+  ],
+  "knownLimits": [
+    "hand lift/bend read remains weak",
+    "wink/closed eye source snapshot then head-face returns upright; hem resets to base may jump",
+    "finite pose/wing transitions are not universally seamless",
+    "original wing transparent pixel points retained",
+    "visual approval does not certify native drag/DPI/exit behavior"
+  ],
+  "targetedVerification": {
+    "actualEmbeddedPngMatches": 64,
+    "releaseRoutesHaveExistingKeys": 64,
+    "formatRevalidation": false,
+    "historicalShaRegression": false,
+    "browserRerun": false,
+    "embeddedEnginesMatch": 3
+  }
+}

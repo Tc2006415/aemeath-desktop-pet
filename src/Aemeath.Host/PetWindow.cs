@@ -63,10 +63,12 @@ internal sealed class PetWindow : Window
             bitmap.Freeze(); nextImages.Add(path, bitmap);
         }
         package = next; images = nextImages;
-        controller = new CharacterController(next.Clips, () => clock.ElapsedMilliseconds, checked(++packageEpoch));
+        controller = new CharacterController(next, () => clock.ElapsedMilliseconds, checked(++packageEpoch));
         controller.SetAutomatic(automatic);
         lastFrame = null;
-        log.Write("package-loaded", new { next.Id, next.Version, next.Kind, next.SchemaVersion, next.ManifestSha256, packageEpoch, disabled = next.DisabledActions.Keys });
+        log.Write("package-loaded", new { next.Id, next.Version, next.Kind, next.SchemaVersion, next.ManifestSha256, profile=next.Behavior?.Profile, packageEpoch, disabled = next.DisabledActions.Keys });
+        if(next.Behavior is { } behavior)
+            log.Write("behavior-inventory",new { keys=behavior.Images.Count,combinations=behavior.Combinations.Count,routes=behavior.Routes.Count,tails=behavior.Tails.Count });
         if (next.Clips.TryGetValue("drag-release", out var release))
             log.Write("release-entry-inventory", release.EntrySequences.Select(e => new { source = e.Key, durationMs = e.Value.Sum(f => f.DurationMs), paths = e.Value.Select(f => f.Path) }).ToArray());
     }
@@ -99,11 +101,11 @@ internal sealed class PetWindow : Window
         var path = sample.FramePath;
         image.Source = images[path];
         controller.CommitRendered(sample);
-        var key = $"{sample.PlaybackId}:{sample.Action}:{sample.FrameIndex}";
+        var key = $"{sample.PlaybackId}:{sample.Action}:{sample.FrameIndex}:{sample.FrameKey}:{path}";
         if (key != lastFrame)
         {
             lastFrame = key;
-            log.Write("frame", new { sample.Action, sample.FrameIndex, sample.PlaybackId, path, packageEpoch, submission = controller.LastSubmitted?.SubmissionSequence, dragging = drag.Active, automatic });
+            log.Write("frame", new { sample.Action, sample.FrameIndex, sample.PlaybackId, sample.FrameKey, sample.BehaviorPhase, path, packageEpoch, submission = controller.LastSubmitted?.SubmissionSequence, dragging = drag.Active, automatic });
             status($"{(automatic ? "自动交互" : "手动诊断")} · {sample.Action} · 帧 {sample.FrameIndex + 1} · DPI {dpi} · 倍率 {scale}× · {(drag.Active ? "拖动中" : "未拖动")}");
         }
         if (sample.CompletedId is long completed) log.Write("natural-end", new { completed });
@@ -118,7 +120,7 @@ internal sealed class PetWindow : Window
             drag.Start(cursor, new(rect.Left, rect.Top));
             controller?.BeginDrag();
             Focus();
-            log.Write("drag-start", new { cursor, origin = new ScreenPx(rect.Left, rect.Top) });
+            log.Write("drag-start", new { cursor, origin = new ScreenPx(rect.Left, rect.Top),submitted=controller?.LastSubmitted,fallback=controller?.SourceFallback });
             lastFrame = null; e.Handled = true;
         }
         catch (Win32Exception) { FailPosition(); }
@@ -144,7 +146,7 @@ internal sealed class PetWindow : Window
         var submitted = controller?.LastSubmitted;
         if (IsMouseCaptured) ReleaseMouseCapture();
         controller?.EndDrag();
-        log.Write("drag-end", new { reason, submitted, fallback = controller?.ReleaseFallback }); lastFrame = null;
+        log.Write("drag-end", new { reason, submitted, route=controller?.ReleaseRoute, fallback = controller?.ReleaseFallback }); lastFrame = null;
     }
     private void ApplyLayout(bool center, int? oldScale = null)
     {

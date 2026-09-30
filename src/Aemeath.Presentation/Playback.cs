@@ -6,8 +6,12 @@ public sealed record Clip(string Id, bool Loop, IReadOnlyList<Frame> Frames)
     public int DurationMs => Frames.Sum(f => f.DurationMs);
     public IReadOnlyDictionary<string, IReadOnlyList<Frame>> EntrySequences { get; init; } = new Dictionary<string, IReadOnlyList<Frame>>().AsReadOnly();
 }
-public sealed record PlaybackSample(string Action, int FrameIndex, long PlaybackId, long? CompletedId, string FramePath = "");
-public sealed class Playback(IReadOnlyDictionary<string, Clip> clips)
+public sealed record PlaybackSample(string Action, int FrameIndex, long PlaybackId, long? CompletedId, string FramePath = "")
+{
+    public string FrameKey { get; init; } = "";
+    public string BehaviorPhase { get; init; } = "";
+}
+public sealed class Playback(IReadOnlyDictionary<string, Clip> clips, Func<long>? nextInstance = null)
 {
     private string current = "neutral";
     private long started, lastTime, sequence, instance;
@@ -24,7 +28,7 @@ public sealed class Playback(IReadOnlyDictionary<string, Clip> clips)
         activeFrames = current == "drag-release" && releaseSource is not null && clips[current].EntrySequences.TryGetValue(releaseSource, out var entry)
             ? entry : clips[current].Frames;
         started = now;
-        instance = checked(++sequence);
+        instance = nextInstance is null ? checked(++sequence) : nextInstance();
         return Available(action) ? instance : 0;
     }
     public void Cancel(long id, long now)

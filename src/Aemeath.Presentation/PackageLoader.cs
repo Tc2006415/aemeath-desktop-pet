@@ -10,6 +10,7 @@ public sealed record AssetPackage(string Id, string Version, string Kind,
 {
     public int SchemaVersion { get; init; } = 1;
     public string ManifestSha256 { get; init; } = "";
+    public BehaviorDefinition? Behavior { get; init; }
 }
 public sealed class PackageException(string category) : Exception(category);
 public static class PackageLoader
@@ -34,8 +35,11 @@ public static class PackageLoader
         if (manifest.AsSpan().StartsWith(new byte[] { 239, 187, 191 })) json = json[3..];
         using var doc = JsonDocument.Parse(json, new JsonDocumentOptions { MaxDepth = 8 });
         var m = doc.RootElement;
-        Fields(m, "schemaVersion", "packageId", "packageVersion", "packageKind", "sourceScale", "frameSize", "anchor", "fallbackAction", "actions");
-        int schema = Number(m.GetProperty("schemaVersion"), 1, 2); Number(m.GetProperty("sourceScale"), 1, 1);
+        Require(m.ValueKind == JsonValueKind.Object && m.TryGetProperty("schemaVersion", out _));
+        int schema = Number(m.GetProperty("schemaVersion"), 1, 3);
+        string[] fields = ["schemaVersion", "packageId", "packageVersion", "packageKind", "sourceScale", "frameSize", "anchor", "fallbackAction", "actions"];
+        Fields(m, schema == 3 ? [..fields, "behavior"] : fields);
+        Number(m.GetProperty("sourceScale"), 1, 1);
         var id = Text(m.GetProperty("packageId")); Match(id, "[a-z][a-z0-9-]{0,47}");
         var version = Text(m.GetProperty("packageVersion")); Match(version, "(?:0|[1-9][0-9]{0,3})\\.(?:0|[1-9][0-9]{0,3})\\.(?:0|[1-9][0-9]{0,3})");
         var kind = Text(m.GetProperty("packageKind")); Require(kind is "diagnostic" or "character");
@@ -87,6 +91,9 @@ public static class PackageLoader
         Require(clips.Count is >= 1 and <= 6 && clips.ContainsKey("neutral"));
         foreach (var clip in clips.Values)
             foreach (var entry in clip.EntrySequences.Values) Require(entry[^1].Path == clips["neutral"].Frames[0].Path);
+        BehaviorDefinition? behavior = schema == 3 ? BehaviorParser.Parse(m.GetProperty("behavior"), clips, ref totalFrames) : null;
+        if (behavior is not null) foreach (var image in behavior.Images.Values) paths.Add(image.Path);
+        Require(paths.Count <= 128);
         // Complete all path/size validation before invoking an image decoder.
         var bytes = new Dictionary<string, byte[]>(StringComparer.Ordinal);
         var bad = new HashSet<string>(StringComparer.Ordinal); long compressedTotal = 0;
@@ -96,6 +103,7 @@ public static class PackageLoader
             {
                 var buffer = files.Read(path, 256 * 1024); compressedTotal += buffer.Length;
                 Require(compressedTotal <= 8 * 1024 * 1024); bytes.Add(path, buffer);
+                if (behavior is not null) Require(Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(buffer)).Equals(behavior.Images.Values.Single(i => i.Path == path).Sha256, StringComparison.OrdinalIgnoreCase));
             }
             catch (Exception ex) when (ex is IOException or UnauthorizedAccessException) { bad.Add(path); }
         }
@@ -118,24 +126,24 @@ public static class PackageLoader
             catch (Exception ex) when (ex is InvalidDataException or NotSupportedException or ArgumentException or IOException or System.Runtime.InteropServices.COMException)
             { bad.Add(path); }
         }
-        Require(!clips["neutral"].Frames.Any(f => bad.Contains(f.Path)));
+        Require(!clips["neutral"].Frames.Any(f => bad.Contains(f.Path)) && (behavior is null || bad.Count == 0));
         var disabled = new Dictionary<string, string>(StringComparer.Ordinal);
         foreach (var clip in clips.Values.ToArray())
             if (clip.Frames.Concat(clip.EntrySequences.Values.SelectMany(f => f)).Any(f => bad.Contains(f.Path)))
             { disabled.Add(clip.Id, "invalid-image"); clips.Remove(clip.Id); }
         return new(id, version, kind, clips.AsReadOnly(), images.AsReadOnly(), disabled.AsReadOnly())
-        { SchemaVersion = schema, ManifestSha256 = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(manifest)) };
+        { SchemaVersion = schema, ManifestSha256 = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(manifest)), Behavior = behavior };
     }
-    private static string ValidPath(string path)
+    internal static string ValidPath(string path)
     {
         Match(path, "frames/[a-z0-9][a-z0-9_-]{0,63}\\.png");
         Require(!Regex.IsMatch(Path.GetFileNameWithoutExtension(path), "\\A(?:con|prn|aux|nul|com[1-9]|lpt[1-9])\\z", RegexOptions.CultureInvariant));
         return path;
     }
-    private static void Require(bool condition) { if (!condition) throw new PackageException("package-format-or-limit"); }
-    private static void Match(string value, string pattern) => Require(Regex.IsMatch(value, "\\A(?:" + pattern + ")\\z", RegexOptions.CultureInvariant));
-    private static string Text(JsonElement e) { Require(e.ValueKind == JsonValueKind.String); return e.GetString()!; }
-    private static int Number(JsonElement e, int min, int max)
+    internal static void Require(bool condition) { if (!condition) throw new PackageException("package-format-or-limit"); }
+    internal static void Match(string value, string pattern) => Require(Regex.IsMatch(value, "\\A(?:" + pattern + ")\\z", RegexOptions.CultureInvariant));
+    internal static string Text(JsonElement e) { Require(e.ValueKind == JsonValueKind.String); return e.GetString()!; }
+    internal static int Number(JsonElement e, int min, int max)
     {
         Require(e.ValueKind == JsonValueKind.Number);
         // Avoid rounding a fractional JSON number to an integer through double/decimal.
@@ -153,7 +161,7 @@ public static class PackageLoader
         for (int i = 0; i < shift; i++) n *= 10;
         Require(n >= min && n <= max); return n;
     }
-    private static void Fields(JsonElement e, params string[] names)
+    internal static void Fields(JsonElement e, params string[] names)
     {
         Require(e.ValueKind == JsonValueKind.Object);
         var found = new HashSet<string>(StringComparer.Ordinal);

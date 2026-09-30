@@ -1,0 +1,76 @@
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Security.Cryptography;
+using Aemeath.Host;
+using Aemeath.Presentation;
+
+var package=PackageLoader.Load(args[0],PngDecoder.Decode);
+var b=package.Behavior!;
+var results=new List<object>(); int failed=0;
+void Check(bool condition,string detail) { if(!condition) throw new Exception(detail); }
+void Run(string name,Action test) { try { test(); results.Add(new{name,status="PASS"}); Console.WriteLine("PASS "+name); } catch(Exception e) { failed++; results.Add(new{name,status="FAIL",error=e.ToString()}); Console.WriteLine("FAIL "+name+": "+e); } }
+Run("Joint wing/hem boundaries over two cycles",()=>{
+ long now=0; var c=new CharacterController(package,()=>now,11,(a,z)=>a); c.SetAutomatic(true);
+ (int T,string W,string H)[] cases=[(0,"A","base"),(399,"A","base"),(400,"B","light"),(549,"B","light"),(550,"C","upper"),(699,"C","upper"),(700,"C","upper"),(1099,"C","upper"),(1100,"B","upper"),(1199,"B","upper"),(1200,"B","light"),(1249,"B","light"),(1250,"A","light"),(1349,"A","light"),(1350,"A","base"),(1399,"A","base")];
+ for(int round=0;round<2;round++) foreach(var x in cases){now=round*1400+x.T; Check(c.Sample().FrameKey==$"idle:{x.W}-open-{x.H}",$"t={now}");}
+ now=2800;Check(c.Sample().FrameKey==b.NeutralKey,"loop boundary");
+});
+Run("Pickup half-open boundaries and late hold epoch",()=>{
+ long now=0;var c=new CharacterController(package,()=>now,11,(a,z)=>a);c.SetAutomatic(true);c.CommitRendered(c.Sample());c.BeginDrag();long pickup=c.Sample().PlaybackId;
+ (int T,string K)[] cases=[(59,b.NeutralKey),(60,"pose:left-panic-B"),(199,"pose:left-panic-B"),(200,"pose:right-panic-C"),(339,"pose:right-panic-C"),(340,"pose:left-panic-A"),(479,"pose:left-panic-A"),(480,"pose:right-panic-B"),(619,"pose:right-panic-B"),(620,"pose:transition-annoyed-C"),(699,"pose:transition-annoyed-C")];
+ foreach(var x in cases){now=x.T;var s=c.Sample();Check(s.FrameKey==x.K && s.PlaybackId==pickup && s.CompletedId is null,$"panic t={now}");}
+ now=1450;var hold=c.Sample();Check(hold.FrameKey=="pose:annoyed-annoyed-C" && hold.CompletedId==pickup && hold.BehaviorPhase=="held","late sample retains press+700 origin");
+ long held=hold.PlaybackId;now=2099;Check(c.Sample().FrameIndex==4,"hold end-1");now=2100;Check(c.Sample().FrameIndex==0 && c.Sample().PlaybackId==held && c.Sample().CompletedId is null,"hold wraps at press+2100");
+});
+Run("Release segments regrab the actually submitted source; old completion isolated",()=>{
+ foreach(int offset in new[]{0,59,60,159,160,259,260,379,380,539}){
+  long now=0;var c=new CharacterController(package,()=>now,22,(a,z)=>a);c.SetAutomatic(true);c.CommitRendered(c.Sample());c.BeginDrag();now=700;c.CommitRendered(c.Sample());c.EndDrag();long release=c.Sample().PlaybackId;
+  now=700+offset;var source=c.Sample();c.CommitRendered(source);c.BeginDrag();var start=c.Sample();Check(start.FrameKey==source.FrameKey && start.PlaybackId>release && start.BehaviorPhase=="panic",$"regrab offset={offset}");
+  now=1240;Check(c.Sample().CompletedId!=release,"old release cannot complete");now=700+offset+700;var end=c.Sample();Check(end.CompletedId==start.PlaybackId && end.BehaviorPhase=="held","new pickup owns completion");Check(c.Sample().CompletedId is null,"once");
+ }
+});
+Run("Late release uses release+540 idle origin and eye waits; no 15s smile",()=>{
+ long now=0;var calls=new List<(int,int)>();var c=new CharacterController(package,()=>now,33,(a,z)=>{calls.Add((a,z));return a;});c.SetAutomatic(true);c.CommitRendered(c.Sample());c.BeginDrag();now=20;c.EndDrag();long release=c.Sample().PlaybackId;
+ now=1000;var s=c.Sample();Check(s.FrameKey=="idle:B-open-light" && s.CompletedId==release,"idle local=440, not sample-time reset");Check(calls.Count==4,"release rearmed two waits once");
+ now=4559;Check(c.Sample().BehaviorPhase=="idle","blink end-origin-1");now=4560;Check(c.Sample().BehaviorPhase=="blink","blink at release20+540+4000");
+ now=15000;Check(c.Sample().BehaviorPhase=="blink","no legacy automatic 15s smile");
+});
+Run("Blink finishes at collision, wink wins, original wink deadline retained",()=>{
+ long now=0;var calls=new List<(int,int)>();var c=new CharacterController(package,()=>now,44,(a,z)=>{calls.Add((a,z));return a;});c.SetAutomatic(true);
+ now=49760;Check(c.Sample().BehaviorPhase=="blink","late blink starts now");now=49999;Check(c.Sample().BehaviorPhase=="blink","started blink finishes, even open40 phase");now=50000;Check(c.Sample().BehaviorPhase=="wink","blink completion cannot defer original wink");
+ now=51199;Check(c.Sample().BehaviorPhase=="wink","wink end-1");now=51200;Check(c.Sample().BehaviorPhase=="idle" && calls.Count==5,"wink rearms both from completion");
+ now=55199;Check(c.Sample().BehaviorPhase=="idle","fresh blink waiting");now=55200;Check(c.Sample().BehaviorPhase=="blink","no accumulated blink during wink");
+ now=2_000_000;var late=c.Sample();Check(late.BehaviorPhase=="wink" && calls.Count==6,"late completes one prior eye and starts at most one due eye");Check(c.Sample().CompletedId is null && calls.Count==6,"same-time no replay");
+});
+Run("Owned latest samples, old ID source, epoch, manual/automatic ID space",()=>{
+ long now=0;var c=new CharacterController(package,()=>now,55,(a,z)=>z);var manual=c.Sample();Check(manual.BehaviorPhase=="manual","manual phase");c.SetAutomatic(true);var idle=c.Sample();Check(idle.PlaybackId>manual.PlaybackId,"shared sequence");
+ c.CommitRendered(idle with {});Check(c.LastSubmitted is null,"clone rejected");c.CommitRendered(idle);c.BeginDrag();long pickup=c.Sample().PlaybackId;now=40;c.EndDrag();var release=c.Sample();Check(release.FrameKey==idle.FrameKey && release.PlaybackId>pickup,"undrawn press release retains older source");
+ c.CommitRendered(idle);Check(c.LastSubmitted!.PlaybackId==idle.PlaybackId,"stale sample no new submission");long seq=c.LastSubmitted.SubmissionSequence;
+ var stale=c.Sample();now=100;var latest=c.Sample();c.CommitRendered(stale);Check(c.LastSubmitted.SubmissionSequence==seq,"older issued object rejected");c.CommitRendered(latest);Check(c.LastSubmitted.SubmissionSequence==seq+1,"latest accepted");c.CommitRendered(latest);Check(c.LastSubmitted.SubmissionSequence==seq+1,"duplicate rejected");
+ c.SetAutomatic(false);Check(c.LastSubmitted is null,"mode clears");Check(c.Sample().PlaybackId>release.PlaybackId,"manual new ID remains monotonic");c.SetAutomatic(true);c.CommitRendered(latest);Check(c.LastSubmitted is null,"mode stale rejected");
+ var next=new CharacterController(package,()=>now,56,(a,z)=>z);next.SetAutomatic(true);next.CommitRendered(latest);next.BeginDrag();next.EndDrag();Check(next.ReleaseFallback=="no-submitted-frame" && next.Sample().FrameKey==b.NeutralKey,"new epoch fallback");
+});
+
+var fixture=Path.Combine(args[1],"mutated-package");Directory.CreateDirectory(Path.Combine(fixture,"frames"));
+foreach(var file in Directory.GetFiles(Path.Combine(args[0],"frames")))File.Copy(file,Path.Combine(fixture,"frames",Path.GetFileName(file)),true);
+string original=File.ReadAllText(Path.Combine(args[0],"manifest.json"));
+void Reject(string json,string reason){File.WriteAllText(Path.Combine(fixture,"manifest.json"),json);bool rejected=false;try{PackageLoader.Load(fixture,PngDecoder.Decode);}catch(PackageException){rejected=true;}Check(rejected,reason);}
+Run("Nested duplicate keys, equal-total wrong boundaries, schema2 entry leak rejected",()=>{
+ var node=JsonNode.Parse(original)!;string compact=node.ToJsonString();
+ foreach(string field in new[]{"images","routes","tails"}){
+  var owner=field=="images"?node["behavior"]![field]!:node["behavior"]!["interaction"]!["release"]![field]!;
+  var pair=owner.AsObject().First();string duplicate=JsonSerializer.Serialize(pair.Key)+":"+pair.Value!.ToJsonString()+",";
+  Reject(compact.Replace("\""+field+"\":{","\""+field+"\":{"+duplicate),"duplicate "+field);
+ }
+ node=JsonNode.Parse(original)!;var track=node["behavior"]!["idle"]!["wing"]!;track[0]!["durationMs"]=399;track[1]!["durationMs"]=151;Reject(node.ToJsonString(),"equal total shifted boundary");
+ node=JsonNode.Parse(original)!;node["actions"]!["drag-release"]!["entrySequences"]=new JsonObject();Reject(node.ToJsonString(),"schema3 rejects old entry syntax");
+});
+Run("Correct-hash corrupt behavior-only PNG rejects and preserves prior valid package",()=>{
+ var session=new PackageSession();Check(session.TryLoad(args[0],PngDecoder.Decode),"initial valid");var prior=session.Current;
+ var node=JsonNode.Parse(original)!;string key="idle:C-wink-upper";var entry=node["behavior"]!["images"]![key]!;string path=entry["path"]!.GetValue<string>();byte[] corrupt=[0];
+ File.WriteAllBytes(Path.Combine(fixture,path),corrupt);entry["sha256"]=Convert.ToHexString(SHA256.HashData(corrupt)).ToLowerInvariant();File.WriteAllText(Path.Combine(fixture,"manifest.json"),node.ToJsonString());
+ Check(!session.TryLoad(fixture,PngDecoder.Decode) && ReferenceEquals(prior,session.Current) && session.Error is not null,"decode failure rejects whole package, keeps old");
+});
+File.WriteAllText(Path.Combine(args[1],"independent-results.json"),JsonSerializer.Serialize(new{failed,results},new JsonSerializerOptions{WriteIndented=true}));
+if(failed>0)Environment.Exit(1);

@@ -1,6 +1,12 @@
 # 项目状态与 PM 工作台
 
-更新日期：2026-09-29。
+更新日期：2026-10-01。
+
+## 当前状态：v2 0.5.0 已成为本地默认包
+
+用户在 Codex 内全动作预览通过后，授权把 v2 同步为本地默认。PM 将固定 ART036 schema3/0.5.0 候选 manifest 和64张PNG逐字节复制到 `assets/characters/aemeath-v1/`，manifest SHA256 为 `95CF8F8102F9631D0A02AE40A46FA497F61D9D423FF350191A399104A0A4B182`；旧0.4源PNG留作本地历史文件，但宿主项目的运行白名单只打包64张 `idle-*` / `pose-*` v2图。默认可直接启动 `artifacts/host-win-x64/Aemeath.Host.exe`，`scripts/Start-V2-Preview.cmd` 也改为使用此默认程序。
+
+本地 `scripts/build.ps1 -Publish` 退出0：0警告、0错误；发布资源69个与仓库源逐项SHA一致、0额外。`scripts/smoke-character-host.ps1` 不传 `--package`，PID32100、exit0，日志确认schema3/0.5.0、64键/64路、自动待机与眨眼、正常退出。浏览器预览获通过不等于原生窗口鼠标/失焦验收；这一边界保留。未公开发布、未启动随机漂浮或联动。
 
 ## 当前验收反馈：普通待机翅膀姿态与整体扇动
 

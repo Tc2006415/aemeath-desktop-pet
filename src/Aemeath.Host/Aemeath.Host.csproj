@@ -16,6 +16,7 @@
     <Content Include="../../assets/diagnostic/manifest.json" Link="assets/diagnostic/manifest.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="../../assets/diagnostic/frames/*.png" Link="assets/diagnostic/frames/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
     <Content Include="../../assets/characters/aemeath-v1/manifest.json" Link="assets/characters/aemeath-v1/manifest.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
-    <Content Include="../../assets/characters/aemeath-v1/frames/*.png" Link="assets/characters/aemeath-v1/frames/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="../../assets/characters/aemeath-v1/frames/idle-*.png" Link="assets/characters/aemeath-v1/frames/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="../../assets/characters/aemeath-v1/frames/pose-*.png" Link="assets/characters/aemeath-v1/frames/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

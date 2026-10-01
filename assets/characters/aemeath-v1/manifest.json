@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "packageId": "aemeath-v1",
-  "packageVersion": "0.4.0",
+  "packageVersion": "0.5.0",
   "packageKind": "character",
   "sourceScale": 1,
   "frameSize": {
@@ -19,7 +19,7 @@
       "playback": "loop",
       "frames": [
         {
-          "path": "frames/neutral.png",
+          "path": "frames/idle-a-open-base.png",
           "durationMs": 1000
         }
       ]
@@ -29,27 +29,27 @@
       "playback": "loop",
       "frames": [
         {
-          "path": "frames/neutral.png",
+          "path": "frames/idle-a-open-base.png",
           "durationMs": 400
         },
         {
-          "path": "frames/soft-light.png",
+          "path": "frames/idle-b-open-base.png",
           "durationMs": 150
         },
         {
-          "path": "frames/soft-peak.png",
+          "path": "frames/idle-c-open-base.png",
           "durationMs": 150
         },
         {
-          "path": "frames/soft-peak.png",
+          "path": "frames/idle-c-open-base.png",
           "durationMs": 400
         },
         {
-          "path": "frames/soft-light.png",
+          "path": "frames/idle-b-open-base.png",
           "durationMs": 150
         },
         {
-          "path": "frames/neutral.png",
+          "path": "frames/idle-a-open-base.png",
           "durationMs": 150
         }
       ]
@@ -59,28 +59,20 @@
       "playback": "once",
       "frames": [
         {
-          "path": "frames/neutral.png",
-          "durationMs": 120
+          "path": "frames/idle-a-mid-base.png",
+          "durationMs": 250
         },
         {
-          "path": "frames/smile-half.png",
-          "durationMs": 120
+          "path": "frames/idle-a-wink-base.png",
+          "durationMs": 450
         },
         {
-          "path": "frames/smile-closed.png",
-          "durationMs": 500
+          "path": "frames/idle-a-mid-base.png",
+          "durationMs": 350
         },
         {
-          "path": "frames/smile-half.png",
-          "durationMs": 120
-        },
-        {
-          "path": "frames/neutral.png",
-          "durationMs": 120
-        },
-        {
-          "path": "frames/neutral.png",
-          "durationMs": 220
+          "path": "frames/idle-a-open-base.png",
+          "durationMs": 150
         }
       ]
     },
@@ -89,20 +81,28 @@
       "playback": "once",
       "frames": [
         {
-          "path": "frames/neutral.png",
+          "path": "frames/idle-a-open-base.png",
+          "durationMs": 60
+        },
+        {
+          "path": "frames/pose-left-panic-b.png",
+          "durationMs": 140
+        },
+        {
+          "path": "frames/pose-right-panic-c.png",
+          "durationMs": 140
+        },
+        {
+          "path": "frames/pose-left-panic-a.png",
+          "durationMs": 140
+        },
+        {
+          "path": "frames/pose-right-panic-b.png",
+          "durationMs": 140
+        },
+        {
+          "path": "frames/pose-transition-annoyed-c.png",
           "durationMs": 80
-        },
-        {
-          "path": "frames/hold-surprise.png",
-          "durationMs": 80
-        },
-        {
-          "path": "frames/pickup-surprise.png",
-          "durationMs": 100
-        },
-        {
-          "path": "frames/hold-half.png",
-          "durationMs": 100
         }
       ]
     },
@@ -111,84 +111,24 @@
       "playback": "loop",
       "frames": [
         {
-          "path": "frames/hold-half.png",
-          "durationMs": 80
+          "path": "frames/pose-annoyed-annoyed-a.png",
+          "durationMs": 400
         },
         {
-          "path": "frames/hold-bridge-low.png",
-          "durationMs": 50
+          "path": "frames/pose-annoyed-annoyed-b.png",
+          "durationMs": 150
         },
         {
-          "path": "frames/hold-bridge-mid.png",
-          "durationMs": 50
+          "path": "frames/pose-annoyed-annoyed-c.png",
+          "durationMs": 550
         },
         {
-          "path": "frames/hold-bridge-high.png",
-          "durationMs": 50
+          "path": "frames/pose-annoyed-annoyed-b.png",
+          "durationMs": 150
         },
         {
-          "path": "frames/hold-up-half.png",
-          "durationMs": 100
-        },
-        {
-          "path": "frames/hold-bridge-high.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-bridge-mid.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-bridge-low.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-half.png",
-          "durationMs": 100
-        },
-        {
-          "path": "frames/hold-down-half.png",
-          "durationMs": 140
-        },
-        {
-          "path": "frames/hold-half.png",
-          "durationMs": 80
-        },
-        {
-          "path": "frames/hold-bridge-low.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-bridge-mid.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-bridge-high.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-up-half.png",
-          "durationMs": 100
-        },
-        {
-          "path": "frames/hold-bridge-high.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-bridge-mid.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-bridge-low.png",
-          "durationMs": 50
-        },
-        {
-          "path": "frames/hold-mid-closed.png",
-          "durationMs": 100
-        },
-        {
-          "path": "frames/hold-down-half.png",
-          "durationMs": 140
+          "path": "frames/pose-annoyed-annoyed-a.png",
+          "durationMs": 150
         }
       ]
     },
@@ -197,307 +137,863 @@
       "playback": "once",
       "frames": [
         {
-          "path": "frames/hold-half.png",
-          "durationMs": 80
+          "path": "frames/idle-a-open-base.png",
+          "durationMs": 60
         },
         {
-          "path": "frames/release-closed.png",
+          "path": "frames/pose-normal-normal-h.png",
           "durationMs": 100
         },
         {
-          "path": "frames/release-half.png",
+          "path": "frames/pose-normal-normal-c.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/pose-normal-half-b.png",
           "durationMs": 120
         },
         {
-          "path": "frames/neutral.png",
+          "path": "frames/idle-a-open-base.png",
           "durationMs": 160
         }
+      ]
+    }
+  },
+  "behavior": {
+    "profile": "layered-idle-drag-v1",
+    "images": {
+      "idle:A-closed-base": {
+        "path": "frames/idle-a-closed-base.png",
+        "sha256": "b54dc3a7201ce7571b4ef2c2c25272179f81ad3528419d3e76784f914a01d0dd"
+      },
+      "idle:A-closed-light": {
+        "path": "frames/idle-a-closed-light.png",
+        "sha256": "80ced148f60e65d86d995bacc3552b6e0d652e60822e03379355f0ff8b70923c"
+      },
+      "idle:A-closed-upper": {
+        "path": "frames/idle-a-closed-upper.png",
+        "sha256": "14b05da9d4796e6551fb679c38ae5504b97fc786043da5259e2e13f6ae4de045"
+      },
+      "idle:A-half-base": {
+        "path": "frames/idle-a-half-base.png",
+        "sha256": "b15a7750803798aa9a300a609fcdc4c136386e7c6cefbc76e8f760fb64a4da76"
+      },
+      "idle:A-half-light": {
+        "path": "frames/idle-a-half-light.png",
+        "sha256": "df95418e411776a72434e41ff83415ff47769de5a3dfb4e44e821db2f6d478a7"
+      },
+      "idle:A-half-upper": {
+        "path": "frames/idle-a-half-upper.png",
+        "sha256": "73169adbf1cf22e31a6e7920fed78623284ea2f55e35ac46aebcf27734d4e722"
+      },
+      "idle:A-mid-base": {
+        "path": "frames/idle-a-mid-base.png",
+        "sha256": "1248b01d9c4ba88bd4f1a8bc0e2cf0e9b02fb2ba1f852b82ba07b988d3159c57"
+      },
+      "idle:A-mid-light": {
+        "path": "frames/idle-a-mid-light.png",
+        "sha256": "fc1f1c20dd934b418d7570f44d74dae46bd400c8f3204683c67f95ef42ec3c36"
+      },
+      "idle:A-mid-upper": {
+        "path": "frames/idle-a-mid-upper.png",
+        "sha256": "edad67297f9828f5c36dda95973f00124c34c287ed86eac276003e2447b5d643"
+      },
+      "idle:A-open-base": {
+        "path": "frames/idle-a-open-base.png",
+        "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8"
+      },
+      "idle:A-open-light": {
+        "path": "frames/idle-a-open-light.png",
+        "sha256": "37bc489b5603ffb8ec53709e60e35c3ebea45fb46969eb93c18d67f537f45769"
+      },
+      "idle:A-open-upper": {
+        "path": "frames/idle-a-open-upper.png",
+        "sha256": "b2d646f937a768b421784f8df2e9e606c0ac45984686deec8d799fb373c8c1bd"
+      },
+      "idle:A-wink-base": {
+        "path": "frames/idle-a-wink-base.png",
+        "sha256": "4bd37f604be15f96ef9749cbb8939216c6afef0278bdeaf91e8e3f7a536580f6"
+      },
+      "idle:A-wink-light": {
+        "path": "frames/idle-a-wink-light.png",
+        "sha256": "34a10ff5f836c1bdc7c71de31afa30c56106ae0d89491d0bed970fab496e676b"
+      },
+      "idle:A-wink-upper": {
+        "path": "frames/idle-a-wink-upper.png",
+        "sha256": "c7f055287650255be1971572b6da142ead64411679a602b4d1b6dfdcafa805d7"
+      },
+      "idle:B-closed-base": {
+        "path": "frames/idle-b-closed-base.png",
+        "sha256": "0bb5f579755e62fd1d0c8d86cfeec12cec4c867f2cb439e592e6fae15b266bf6"
+      },
+      "idle:B-closed-light": {
+        "path": "frames/idle-b-closed-light.png",
+        "sha256": "5b6238912a8ba7bea64a26da88156b2e4f0c064236192339461bd1266d7cfca2"
+      },
+      "idle:B-closed-upper": {
+        "path": "frames/idle-b-closed-upper.png",
+        "sha256": "4788bd17b9deedd7346c13a3f41cc3e030cc1b2e6e57a86b6e2f6e88cf4a40ce"
+      },
+      "idle:B-half-base": {
+        "path": "frames/idle-b-half-base.png",
+        "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8"
+      },
+      "idle:B-half-light": {
+        "path": "frames/idle-b-half-light.png",
+        "sha256": "c27c33b475dab14acbc9d69f196b7e55e3dbfdbd8f8261a6b2470023132fdaf2"
+      },
+      "idle:B-half-upper": {
+        "path": "frames/idle-b-half-upper.png",
+        "sha256": "344e68fea320155bf900498d377c116ec8d01667b17d5220da980907f01df365"
+      },
+      "idle:B-mid-base": {
+        "path": "frames/idle-b-mid-base.png",
+        "sha256": "46e83149c505a7245efba66576b36eb34904e373df29ab84dd40d20b59c6b560"
+      },
+      "idle:B-mid-light": {
+        "path": "frames/idle-b-mid-light.png",
+        "sha256": "4d82e22e74da82b4a3fbd9e769bf2bcf80560e2de44b7611bef1a8490c614cb5"
+      },
+      "idle:B-mid-upper": {
+        "path": "frames/idle-b-mid-upper.png",
+        "sha256": "1e92f5a26cb925462d7789097a640bf87fe99fde5605bc8c7a0b1a9f6498b553"
+      },
+      "idle:B-open-base": {
+        "path": "frames/idle-b-open-base.png",
+        "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0"
+      },
+      "idle:B-open-light": {
+        "path": "frames/idle-b-open-light.png",
+        "sha256": "887220a79e11e9a86c4510dd76888c572e91b3098af91bdebb04cdfb6d6b7c8f"
+      },
+      "idle:B-open-upper": {
+        "path": "frames/idle-b-open-upper.png",
+        "sha256": "43ccaf8deb3138679e306b17b323127941a2c0c4cf07d0163e2c518111706d94"
+      },
+      "idle:B-wink-base": {
+        "path": "frames/idle-b-wink-base.png",
+        "sha256": "f4e3c1e6ecbacf7337b47528de761109e850e8429073246c196dda171731dcde"
+      },
+      "idle:B-wink-light": {
+        "path": "frames/idle-b-wink-light.png",
+        "sha256": "9e5b2e6f896348130a667fa307bea1de774428b938f89ef9d21ed516fb43098c"
+      },
+      "idle:B-wink-upper": {
+        "path": "frames/idle-b-wink-upper.png",
+        "sha256": "c6dcd148349aba12e7f8411be3b355ad11591e83374866edb7dbad7cafa4a13d"
+      },
+      "idle:C-closed-base": {
+        "path": "frames/idle-c-closed-base.png",
+        "sha256": "82a31a07f768121761ae70186b04e196f3b48c905a136153c66141bd67601bbe"
+      },
+      "idle:C-closed-light": {
+        "path": "frames/idle-c-closed-light.png",
+        "sha256": "ee9cbd05671ea483bf868d5395b34a04c006bda80f511bb299af0c31c378b8ef"
+      },
+      "idle:C-closed-upper": {
+        "path": "frames/idle-c-closed-upper.png",
+        "sha256": "c614742c7b8572d93fe6b23b3737c051530b1f0871f4254ee8349411dda962d0"
+      },
+      "idle:C-half-base": {
+        "path": "frames/idle-c-half-base.png",
+        "sha256": "dbf1f7563c60a896fd9aa2b78e0bafd84a9332e51edf73e687383bf2f9cea489"
+      },
+      "idle:C-half-light": {
+        "path": "frames/idle-c-half-light.png",
+        "sha256": "0e8d1606f5dfbc766daa96a41ec577090b996c76ea186bfb67ec53494058d148"
+      },
+      "idle:C-half-upper": {
+        "path": "frames/idle-c-half-upper.png",
+        "sha256": "19047c628b7620a8cd5d7229c84d728f83e25b52d7f1972e8424b6e951dc90a6"
+      },
+      "idle:C-mid-base": {
+        "path": "frames/idle-c-mid-base.png",
+        "sha256": "acb60ad19f837c01074cb883c6e25a18ed64d7f52b8c7c49f8864d8dd37aa43f"
+      },
+      "idle:C-mid-light": {
+        "path": "frames/idle-c-mid-light.png",
+        "sha256": "2ba12339d843c8d48355452684672c39a4988ec96c98595dfa8a6d2ffeef494a"
+      },
+      "idle:C-mid-upper": {
+        "path": "frames/idle-c-mid-upper.png",
+        "sha256": "6f1cc6ff3642862616133b07324d7dc9b664886be9ef72ce8dffc95c9249e055"
+      },
+      "idle:C-open-base": {
+        "path": "frames/idle-c-open-base.png",
+        "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03"
+      },
+      "idle:C-open-light": {
+        "path": "frames/idle-c-open-light.png",
+        "sha256": "bb37db419c4047a3af0d1d839d1f752b5cb3a0897fc6dae63f24be8a7aab48ed"
+      },
+      "idle:C-open-upper": {
+        "path": "frames/idle-c-open-upper.png",
+        "sha256": "c1001fbd4bb2040285437f16f7688103f68bb8cf18b0371f2685f76987441c23"
+      },
+      "idle:C-wink-base": {
+        "path": "frames/idle-c-wink-base.png",
+        "sha256": "55d66e84433bb7b98ca8f5d86b4369043624b45dc3a928d55b45daa49c11f557"
+      },
+      "idle:C-wink-light": {
+        "path": "frames/idle-c-wink-light.png",
+        "sha256": "83de541462ea9bbbdb7c3d373eaf1addb74afbaa80d003bc867f615f033942f4"
+      },
+      "idle:C-wink-upper": {
+        "path": "frames/idle-c-wink-upper.png",
+        "sha256": "492d1e18be3993d4db78d08ff515cc304cb6d538ec61c3896b9906bae5a44f66"
+      },
+      "pose:annoyed-annoyed-A": {
+        "path": "frames/pose-annoyed-annoyed-a.png",
+        "sha256": "61ac90e7e3e914bb82a81e734218f8f505313f2e7e09a8daea44f6c69496e1e5"
+      },
+      "pose:annoyed-annoyed-B": {
+        "path": "frames/pose-annoyed-annoyed-b.png",
+        "sha256": "312421bd782bcf72069468edf186437e2070342d44d3a09a80732b194c71ccc4"
+      },
+      "pose:annoyed-annoyed-C": {
+        "path": "frames/pose-annoyed-annoyed-c.png",
+        "sha256": "b1055361b518f7433afebaa64e22b7a7bdbe6369d552be9a4dd751b7ba04a732"
+      },
+      "pose:annoyed-annoyed-H": {
+        "path": "frames/pose-annoyed-annoyed-h.png",
+        "sha256": "051b5145e5aeb7b250406b187ab6f45e59c45705f9b11c85112c6fc0b49558d1"
+      },
+      "pose:left-panic-A": {
+        "path": "frames/pose-left-panic-a.png",
+        "sha256": "0a2d037b73390371aa327c7fb7a0a2f4cd54c0a9dd812358e8a1fd40f9096756"
+      },
+      "pose:left-panic-B": {
+        "path": "frames/pose-left-panic-b.png",
+        "sha256": "779458a3cc5baab7b0e421ff0837d3bbf6807438728a74536270bf41334c2d3d"
+      },
+      "pose:left-panic-C": {
+        "path": "frames/pose-left-panic-c.png",
+        "sha256": "812f16cafaf7eddacd560cbbe8d2c35d1c3b7fdbc7459c323aa0380d8181d5e9"
+      },
+      "pose:left-panic-H": {
+        "path": "frames/pose-left-panic-h.png",
+        "sha256": "97b8e50eead54646e874547b34adca4d80fe521897f45a81ef556694f10af894"
+      },
+      "pose:normal-half-B": {
+        "path": "frames/pose-normal-half-b.png",
+        "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8"
+      },
+      "pose:normal-normal-A": {
+        "path": "frames/pose-normal-normal-a.png",
+        "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8"
+      },
+      "pose:normal-normal-B": {
+        "path": "frames/pose-normal-normal-b.png",
+        "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0"
+      },
+      "pose:normal-normal-C": {
+        "path": "frames/pose-normal-normal-c.png",
+        "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03"
+      },
+      "pose:normal-normal-H": {
+        "path": "frames/pose-normal-normal-h.png",
+        "sha256": "81fbdf75061790214bd85e4ca40a7c077e03d6ef3b527e24b4f74264f6140a46"
+      },
+      "pose:right-panic-A": {
+        "path": "frames/pose-right-panic-a.png",
+        "sha256": "3d98533bd5423b47e5120e727c27e0d1878fd2f6c9a8425b0614865afa1e55da"
+      },
+      "pose:right-panic-B": {
+        "path": "frames/pose-right-panic-b.png",
+        "sha256": "30955391f87d66b3452ad3a969b18f3796a2246074f73f1635fa5727400755a1"
+      },
+      "pose:right-panic-C": {
+        "path": "frames/pose-right-panic-c.png",
+        "sha256": "8f77c1f698ff3d1568d3f10416854a0641ec5df44a39da87fbc7e2719bb2b12b"
+      },
+      "pose:right-panic-H": {
+        "path": "frames/pose-right-panic-h.png",
+        "sha256": "62917ad5997e4b3c41eefd91db2ffc9e94852565aa81542263102a5b67715ae4"
+      },
+      "pose:transition-annoyed-C": {
+        "path": "frames/pose-transition-annoyed-c.png",
+        "sha256": "ecb492012caeb97be2ed4a6af2117185b1066ca87911bcd922c2b648c97c2946"
+      },
+      "pose:transition-annoyed-H": {
+        "path": "frames/pose-transition-annoyed-h.png",
+        "sha256": "0d4181a901e0f993e847f48690ed3c4cea5c845f7749fd88d49adf21ef809421"
+      }
+    },
+    "neutralKey": "idle:A-open-base",
+    "idle": {
+      "combinations": [
+        {
+          "wing": "A",
+          "eyeHead": "closed",
+          "hem": "base",
+          "key": "idle:A-closed-base"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "closed",
+          "hem": "light",
+          "key": "idle:A-closed-light"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "closed",
+          "hem": "upper",
+          "key": "idle:A-closed-upper"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "half",
+          "hem": "base",
+          "key": "idle:A-half-base"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "half",
+          "hem": "light",
+          "key": "idle:A-half-light"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "half",
+          "hem": "upper",
+          "key": "idle:A-half-upper"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "mid",
+          "hem": "base",
+          "key": "idle:A-mid-base"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "mid",
+          "hem": "light",
+          "key": "idle:A-mid-light"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "mid",
+          "hem": "upper",
+          "key": "idle:A-mid-upper"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "open",
+          "hem": "base",
+          "key": "idle:A-open-base"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "open",
+          "hem": "light",
+          "key": "idle:A-open-light"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "open",
+          "hem": "upper",
+          "key": "idle:A-open-upper"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "wink",
+          "hem": "base",
+          "key": "idle:A-wink-base"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "wink",
+          "hem": "light",
+          "key": "idle:A-wink-light"
+        },
+        {
+          "wing": "A",
+          "eyeHead": "wink",
+          "hem": "upper",
+          "key": "idle:A-wink-upper"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "closed",
+          "hem": "base",
+          "key": "idle:B-closed-base"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "closed",
+          "hem": "light",
+          "key": "idle:B-closed-light"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "closed",
+          "hem": "upper",
+          "key": "idle:B-closed-upper"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "half",
+          "hem": "base",
+          "key": "idle:B-half-base"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "half",
+          "hem": "light",
+          "key": "idle:B-half-light"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "half",
+          "hem": "upper",
+          "key": "idle:B-half-upper"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "mid",
+          "hem": "base",
+          "key": "idle:B-mid-base"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "mid",
+          "hem": "light",
+          "key": "idle:B-mid-light"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "mid",
+          "hem": "upper",
+          "key": "idle:B-mid-upper"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "open",
+          "hem": "base",
+          "key": "idle:B-open-base"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "open",
+          "hem": "light",
+          "key": "idle:B-open-light"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "open",
+          "hem": "upper",
+          "key": "idle:B-open-upper"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "wink",
+          "hem": "base",
+          "key": "idle:B-wink-base"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "wink",
+          "hem": "light",
+          "key": "idle:B-wink-light"
+        },
+        {
+          "wing": "B",
+          "eyeHead": "wink",
+          "hem": "upper",
+          "key": "idle:B-wink-upper"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "closed",
+          "hem": "base",
+          "key": "idle:C-closed-base"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "closed",
+          "hem": "light",
+          "key": "idle:C-closed-light"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "closed",
+          "hem": "upper",
+          "key": "idle:C-closed-upper"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "half",
+          "hem": "base",
+          "key": "idle:C-half-base"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "half",
+          "hem": "light",
+          "key": "idle:C-half-light"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "half",
+          "hem": "upper",
+          "key": "idle:C-half-upper"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "mid",
+          "hem": "base",
+          "key": "idle:C-mid-base"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "mid",
+          "hem": "light",
+          "key": "idle:C-mid-light"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "mid",
+          "hem": "upper",
+          "key": "idle:C-mid-upper"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "open",
+          "hem": "base",
+          "key": "idle:C-open-base"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "open",
+          "hem": "light",
+          "key": "idle:C-open-light"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "open",
+          "hem": "upper",
+          "key": "idle:C-open-upper"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "wink",
+          "hem": "base",
+          "key": "idle:C-wink-base"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "wink",
+          "hem": "light",
+          "key": "idle:C-wink-light"
+        },
+        {
+          "wing": "C",
+          "eyeHead": "wink",
+          "hem": "upper",
+          "key": "idle:C-wink-upper"
+        }
       ],
-      "entrySequences": {
-        "frames/hold-up-half.png": [
+      "wing": [
+        {
+          "value": "A",
+          "durationMs": 400
+        },
+        {
+          "value": "B",
+          "durationMs": 150
+        },
+        {
+          "value": "C",
+          "durationMs": 150
+        },
+        {
+          "value": "C",
+          "durationMs": 400
+        },
+        {
+          "value": "B",
+          "durationMs": 150
+        },
+        {
+          "value": "A",
+          "durationMs": 150
+        }
+      ],
+      "hem": [
+        {
+          "value": "base",
+          "durationMs": 400
+        },
+        {
+          "value": "light",
+          "durationMs": 150
+        },
+        {
+          "value": "upper",
+          "durationMs": 650
+        },
+        {
+          "value": "light",
+          "durationMs": 150
+        },
+        {
+          "value": "base",
+          "durationMs": 50
+        }
+      ],
+      "blink": {
+        "waitMinMs": 4000,
+        "waitMaxMs": 7000,
+        "track": [
           {
-            "path": "frames/hold-up-half.png",
-            "durationMs": 40
+            "value": "half",
+            "durationMs": 60
           },
           {
-            "path": "frames/hold-bridge-high.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-bridge-mid.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-bridge-low.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
+            "value": "closed",
             "durationMs": 80
           },
           {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
+            "value": "half",
+            "durationMs": 60
           },
           {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-bridge-high.png": [
-          {
-            "path": "frames/hold-bridge-high.png",
+            "value": "open",
             "durationMs": 40
-          },
-          {
-            "path": "frames/hold-bridge-mid.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-bridge-low.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-bridge-mid.png": [
-          {
-            "path": "frames/hold-bridge-mid.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-bridge-low.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-bridge-low.png": [
-          {
-            "path": "frames/hold-bridge-low.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-half.png": [
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-mid-closed.png": [
-          {
-            "path": "frames/hold-mid-closed.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-down-half.png": [
-          {
-            "path": "frames/hold-down-half.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/hold-surprise.png": [
-          {
-            "path": "frames/hold-surprise.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/pickup-surprise.png": [
-          {
-            "path": "frames/pickup-surprise.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/hold-half.png",
-            "durationMs": 80
-          },
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/neutral.png": [
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/release-closed.png": [
-          {
-            "path": "frames/release-closed.png",
-            "durationMs": 100
-          },
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/release-half.png": [
-          {
-            "path": "frames/release-half.png",
-            "durationMs": 120
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/soft-light.png": [
-          {
-            "path": "frames/soft-light.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/soft-peak.png": [
-          {
-            "path": "frames/soft-peak.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/smile-half.png": [
-          {
-            "path": "frames/smile-half.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
-          }
-        ],
-        "frames/smile-closed.png": [
-          {
-            "path": "frames/smile-closed.png",
-            "durationMs": 40
-          },
-          {
-            "path": "frames/neutral.png",
-            "durationMs": 160
           }
         ]
+      },
+      "wink": {
+        "waitMinMs": 50000,
+        "waitMaxMs": 69999,
+        "track": [
+          {
+            "value": "mid",
+            "durationMs": 250
+          },
+          {
+            "value": "wink",
+            "durationMs": 450
+          },
+          {
+            "value": "mid",
+            "durationMs": 350
+          },
+          {
+            "value": "open",
+            "durationMs": 150
+          }
+        ]
+      }
+    },
+    "interaction": {
+      "pickup": {
+        "sourceDurationMs": 60,
+        "tail": [
+          {
+            "key": "pose:left-panic-B",
+            "durationMs": 140
+          },
+          {
+            "key": "pose:right-panic-C",
+            "durationMs": 140
+          },
+          {
+            "key": "pose:left-panic-A",
+            "durationMs": 140
+          },
+          {
+            "key": "pose:right-panic-B",
+            "durationMs": 140
+          },
+          {
+            "key": "pose:transition-annoyed-C",
+            "durationMs": 80
+          }
+        ]
+      },
+      "hold": [
+        {
+          "key": "pose:annoyed-annoyed-A",
+          "durationMs": 400
+        },
+        {
+          "key": "pose:annoyed-annoyed-B",
+          "durationMs": 150
+        },
+        {
+          "key": "pose:annoyed-annoyed-C",
+          "durationMs": 550
+        },
+        {
+          "key": "pose:annoyed-annoyed-B",
+          "durationMs": 150
+        },
+        {
+          "key": "pose:annoyed-annoyed-A",
+          "durationMs": 150
+        }
+      ],
+      "release": {
+        "sourceDurationMs": 60,
+        "routes": {
+          "idle:A-closed-base": "normal",
+          "idle:A-closed-light": "normal",
+          "idle:A-closed-upper": "normal",
+          "idle:A-half-base": "normal",
+          "idle:A-half-light": "normal",
+          "idle:A-half-upper": "normal",
+          "idle:A-mid-base": "normal",
+          "idle:A-mid-light": "normal",
+          "idle:A-mid-upper": "normal",
+          "idle:A-open-base": "normal",
+          "idle:A-open-light": "normal",
+          "idle:A-open-upper": "normal",
+          "idle:A-wink-base": "normal",
+          "idle:A-wink-light": "normal",
+          "idle:A-wink-upper": "normal",
+          "idle:B-closed-base": "normal",
+          "idle:B-closed-light": "normal",
+          "idle:B-closed-upper": "normal",
+          "idle:B-half-base": "normal",
+          "idle:B-half-light": "normal",
+          "idle:B-half-upper": "normal",
+          "idle:B-mid-base": "normal",
+          "idle:B-mid-light": "normal",
+          "idle:B-mid-upper": "normal",
+          "idle:B-open-base": "normal",
+          "idle:B-open-light": "normal",
+          "idle:B-open-upper": "normal",
+          "idle:B-wink-base": "normal",
+          "idle:B-wink-light": "normal",
+          "idle:B-wink-upper": "normal",
+          "idle:C-closed-base": "normal",
+          "idle:C-closed-light": "normal",
+          "idle:C-closed-upper": "normal",
+          "idle:C-half-base": "normal",
+          "idle:C-half-light": "normal",
+          "idle:C-half-upper": "normal",
+          "idle:C-mid-base": "normal",
+          "idle:C-mid-light": "normal",
+          "idle:C-mid-upper": "normal",
+          "idle:C-open-base": "normal",
+          "idle:C-open-light": "normal",
+          "idle:C-open-upper": "normal",
+          "idle:C-wink-base": "normal",
+          "idle:C-wink-light": "normal",
+          "idle:C-wink-upper": "normal",
+          "pose:annoyed-annoyed-A": "annoyed",
+          "pose:annoyed-annoyed-B": "annoyed",
+          "pose:annoyed-annoyed-C": "annoyed",
+          "pose:annoyed-annoyed-H": "annoyed",
+          "pose:left-panic-A": "left-panic",
+          "pose:left-panic-B": "left-panic",
+          "pose:left-panic-C": "left-panic",
+          "pose:left-panic-H": "left-panic",
+          "pose:normal-half-B": "normal",
+          "pose:normal-normal-A": "normal",
+          "pose:normal-normal-B": "normal",
+          "pose:normal-normal-C": "normal",
+          "pose:normal-normal-H": "normal",
+          "pose:right-panic-A": "right-panic",
+          "pose:right-panic-B": "right-panic",
+          "pose:right-panic-C": "right-panic",
+          "pose:right-panic-H": "right-panic",
+          "pose:transition-annoyed-C": "transition",
+          "pose:transition-annoyed-H": "transition"
+        },
+        "tails": {
+          "normal": [
+            {
+              "key": "pose:normal-normal-H",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:normal-normal-C",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:normal-half-B",
+              "durationMs": 120
+            },
+            {
+              "key": "idle:A-open-base",
+              "durationMs": 160
+            }
+          ],
+          "left-panic": [
+            {
+              "key": "pose:left-panic-H",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:left-panic-C",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:normal-half-B",
+              "durationMs": 120
+            },
+            {
+              "key": "idle:A-open-base",
+              "durationMs": 160
+            }
+          ],
+          "right-panic": [
+            {
+              "key": "pose:right-panic-H",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:right-panic-C",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:normal-half-B",
+              "durationMs": 120
+            },
+            {
+              "key": "idle:A-open-base",
+              "durationMs": 160
+            }
+          ],
+          "annoyed": [
+            {
+              "key": "pose:annoyed-annoyed-H",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:annoyed-annoyed-C",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:normal-half-B",
+              "durationMs": 120
+            },
+            {
+              "key": "idle:A-open-base",
+              "durationMs": 160
+            }
+          ],
+          "transition": [
+            {
+              "key": "pose:transition-annoyed-H",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:transition-annoyed-C",
+              "durationMs": 100
+            },
+            {
+              "key": "pose:normal-half-B",
+              "durationMs": 120
+            },
+            {
+              "key": "idle:A-open-base",
+              "durationMs": 160
+            }
+          ]
+        }
       }
     }
   }

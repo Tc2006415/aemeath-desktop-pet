@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 2,
+  "packageId": "aemeath-v1",
+  "packageVersion": "0.4.0",
+  "packageKind": "character",
+  "sourceScale": 1,
+  "frameSize": {
+    "width": 96,
+    "height": 104
+  },
+  "anchor": {
+    "x": 48,
+    "y": 94
+  },
+  "fallbackAction": "neutral",
+  "actions": {
+    "neutral": {
+      "origin": "original",
+      "playback": "loop",
+      "frames": [
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 1000
+        }
+      ]
+    },
+    "idle-soft": {
+      "origin": "original",
+      "playback": "loop",
+      "frames": [
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 400
+        },
+        {
+          "path": "frames/soft-light.png",
+          "durationMs": 150
+        },
+        {
+          "path": "frames/soft-peak.png",
+          "durationMs": 150
+        },
+        {
+          "path": "frames/soft-peak.png",
+          "durationMs": 400
+        },
+        {
+          "path": "frames/soft-light.png",
+          "durationMs": 150
+        },
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 150
+        }
+      ]
+    },
+    "idle-smile": {
+      "origin": "adaptation",
+      "playback": "once",
+      "frames": [
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 120
+        },
+        {
+          "path": "frames/smile-half.png",
+          "durationMs": 120
+        },
+        {
+          "path": "frames/smile-closed.png",
+          "durationMs": 500
+        },
+        {
+          "path": "frames/smile-half.png",
+          "durationMs": 120
+        },
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 120
+        },
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 220
+        }
+      ]
+    },
+    "drag-pickup": {
+      "origin": "original",
+      "playback": "once",
+      "frames": [
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 80
+        },
+        {
+          "path": "frames/hold-surprise.png",
+          "durationMs": 80
+        },
+        {
+          "path": "frames/pickup-surprise.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/hold-half.png",
+          "durationMs": 100
+        }
+      ]
+    },
+    "drag-hold": {
+      "origin": "original",
+      "playback": "loop",
+      "frames": [
+        {
+          "path": "frames/hold-half.png",
+          "durationMs": 80
+        },
+        {
+          "path": "frames/hold-bridge-low.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-mid.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-high.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-up-half.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/hold-bridge-high.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-mid.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-low.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-half.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/hold-down-half.png",
+          "durationMs": 140
+        },
+        {
+          "path": "frames/hold-half.png",
+          "durationMs": 80
+        },
+        {
+          "path": "frames/hold-bridge-low.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-mid.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-high.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-up-half.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/hold-bridge-high.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-mid.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-bridge-low.png",
+          "durationMs": 50
+        },
+        {
+          "path": "frames/hold-mid-closed.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/hold-down-half.png",
+          "durationMs": 140
+        }
+      ]
+    },
+    "drag-release": {
+      "origin": "original",
+      "playback": "once",
+      "frames": [
+        {
+          "path": "frames/hold-half.png",
+          "durationMs": 80
+        },
+        {
+          "path": "frames/release-closed.png",
+          "durationMs": 100
+        },
+        {
+          "path": "frames/release-half.png",
+          "durationMs": 120
+        },
+        {
+          "path": "frames/neutral.png",
+          "durationMs": 160
+        }
+      ],
+      "entrySequences": {
+        "frames/hold-up-half.png": [
+          {
+            "path": "frames/hold-up-half.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-bridge-high.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-bridge-mid.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-bridge-low.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-bridge-high.png": [
+          {
+            "path": "frames/hold-bridge-high.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-bridge-mid.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-bridge-low.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-bridge-mid.png": [
+          {
+            "path": "frames/hold-bridge-mid.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-bridge-low.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-bridge-low.png": [
+          {
+            "path": "frames/hold-bridge-low.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-half.png": [
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-mid-closed.png": [
+          {
+            "path": "frames/hold-mid-closed.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-down-half.png": [
+          {
+            "path": "frames/hold-down-half.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/hold-surprise.png": [
+          {
+            "path": "frames/hold-surprise.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/pickup-surprise.png": [
+          {
+            "path": "frames/pickup-surprise.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/hold-half.png",
+            "durationMs": 80
+          },
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/neutral.png": [
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/release-closed.png": [
+          {
+            "path": "frames/release-closed.png",
+            "durationMs": 100
+          },
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/release-half.png": [
+          {
+            "path": "frames/release-half.png",
+            "durationMs": 120
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/soft-light.png": [
+          {
+            "path": "frames/soft-light.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/soft-peak.png": [
+          {
+            "path": "frames/soft-peak.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/smile-half.png": [
+          {
+            "path": "frames/smile-half.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ],
+        "frames/smile-closed.png": [
+          {
+            "path": "frames/smile-closed.png",
+            "durationMs": 40
+          },
+          {
+            "path": "frames/neutral.png",
+            "durationMs": 160
+          }
+        ]
+      }
+    }
+  }
+}

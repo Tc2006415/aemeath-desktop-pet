@@ -1,0 +1,27 @@
+{
+  "cycleMs": 1400,
+  "hem": [
+    {
+      "endMs": 400,
+      "pose": "base"
+    },
+    {
+      "endMs": 550,
+      "pose": "light"
+    },
+    {
+      "endMs": 1200,
+      "pose": "upper"
+    },
+    {
+      "endMs": 1350,
+      "pose": "light"
+    },
+    {
+      "endMs": 1400,
+      "pose": "base"
+    }
+  ],
+  "downstrokeLagMs": 100,
+  "wingUnchanged": "art026-timing.json"
+}

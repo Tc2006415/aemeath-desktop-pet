@@ -1,0 +1,28 @@
+[
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8758,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 6947,
+    "Opaque": 3037,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "FE631808C7CEF27795FDAE51DAFF0FAE9EA98251B36356B855881062D6586A85",
+    "Name": "up-v2"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8731,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 6956,
+    "Opaque": 3028,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "E3AF22F9BB6F9C9405DDC22B78BADD1CF986658EB359E383CCEC2DE0ACF0E2C0",
+    "Name": "down-v1"
+  }
+]

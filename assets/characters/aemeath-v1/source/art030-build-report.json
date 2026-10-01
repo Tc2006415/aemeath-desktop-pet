@@ -1,0 +1,58 @@
+{
+  "generationCalls": 2,
+  "overallCompositeVersion": 1,
+  "sources": {
+    "loose": {
+      "sha256": "4a6016563d285b4aed34cc1d6612cbd9c1d9b647bdf5ab1aeda2c1f2dd63b892",
+      "size": [
+        1254,
+        1254
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    },
+    "tuck": {
+      "sha256": "46c543c3bd8a7b6d56b17c1e577d6f654c1a7cc4739bd2ce430c0b34c361c23c",
+      "size": [
+        1254,
+        1254
+      ],
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "frames": {
+    "surprise": {
+      "bodySource": "loose",
+      "expression": "surprise",
+      "sha256": "7d7ce6ccc674f4d9597050ef5f5afc2e17d9d5d876a54d26baf300a293ab10c5",
+      "changes": 717,
+      "outsideMaskDiff": 0,
+      "feetY": 98
+    },
+    "pickup": {
+      "bodySource": "tuck",
+      "expression": "surprise",
+      "sha256": "62aa7c2efe5e30177785960d94c5fc80f18c52e0f5d3f79d387fe69a75d4ddb3",
+      "changes": 661,
+      "outsideMaskDiff": 0,
+      "feetY": 92
+    },
+    "hold-entry": {
+      "bodySource": "loose",
+      "expression": "half",
+      "sha256": "295a23f4ecceb2020a4316b9039a7d0847c8b242b289a83a1e34bef2f24b3847",
+      "changes": 709,
+      "outsideMaskDiff": 0,
+      "feetY": 98
+    }
+  },
+  "expressionSources": {
+    "surprise": "9c61074e8e896c5769e213569d9fd04c18de7619e1bedf20541cc9c3c29d5af2",
+    "half": "b15a7750803798aa9a300a609fcdc4c136386e7c6cefbc76e8f760fb64a4da76"
+  }
+}

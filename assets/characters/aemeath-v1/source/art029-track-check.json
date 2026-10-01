@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "hemBoundaryCases": 13,
+  "phaseIndependenceSamples": 5600,
+  "dragBaseAndCurrentPhaseResume": true,
+  "cycleSeam": "base/base",
+  "fallLagMs": 100,
+  "newRandomTimers": 0
+}

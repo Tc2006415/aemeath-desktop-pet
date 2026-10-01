@@ -1,0 +1,54 @@
+{
+  "idle-soft": [
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 400
+    },
+    {
+      "path": "frames/soft-light.png",
+      "durationMs": 150
+    },
+    {
+      "path": "frames/soft-peak.png",
+      "durationMs": 150
+    },
+    {
+      "path": "frames/soft-peak.png",
+      "durationMs": 400
+    },
+    {
+      "path": "frames/soft-light.png",
+      "durationMs": 150
+    },
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 150
+    }
+  ],
+  "idle-smile": [
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 120
+    },
+    {
+      "path": "frames/smile-half.png",
+      "durationMs": 120
+    },
+    {
+      "path": "frames/smile-closed.png",
+      "durationMs": 500
+    },
+    {
+      "path": "frames/smile-half.png",
+      "durationMs": 120
+    },
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 120
+    },
+    {
+      "path": "frames/neutral.png",
+      "durationMs": 220
+    }
+  ]
+}

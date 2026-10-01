@@ -1,0 +1,131 @@
+{
+  "maskChecks": {
+    "hold-down-half": {
+      "changedPixels": 1140,
+      "outsideMaskRgbaChanges": 0
+    },
+    "hold-half": {
+      "changedPixels": 668,
+      "outsideMaskRgbaChanges": 0
+    },
+    "hold-mid-closed": {
+      "changedPixels": 670,
+      "outsideMaskRgbaChanges": 0
+    },
+    "hold-surprise": {
+      "changedPixels": 660,
+      "outsideMaskRgbaChanges": 0
+    },
+    "hold-up-half": {
+      "changedPixels": 1118,
+      "outsideMaskRgbaChanges": 0
+    },
+    "pickup-surprise": {
+      "changedPixels": 664,
+      "outsideMaskRgbaChanges": 0
+    },
+    "release-closed": {
+      "changedPixels": 424,
+      "outsideMaskRgbaChanges": 0
+    },
+    "release-half": {
+      "changedPixels": 422,
+      "outsideMaskRgbaChanges": 0
+    }
+  },
+  "previewContainsExactCandidatePngBytes": true,
+  "actualHostPid": 18784,
+  "actualHostExit": 0,
+  "hostCompletedHoldLoops": 5,
+  "hostSequence": [
+    {
+      "ms": 1224,
+      "index": 0
+    },
+    {
+      "ms": 1422,
+      "index": 1
+    },
+    {
+      "ms": 1588,
+      "index": 2
+    },
+    {
+      "ms": 1765,
+      "index": 3
+    },
+    {
+      "ms": 1961,
+      "index": 0
+    },
+    {
+      "ms": 2149,
+      "index": 1
+    },
+    {
+      "ms": 2317,
+      "index": 2
+    },
+    {
+      "ms": 2485,
+      "index": 3
+    },
+    {
+      "ms": 2671,
+      "index": 0
+    },
+    {
+      "ms": 2856,
+      "index": 1
+    },
+    {
+      "ms": 3027,
+      "index": 2
+    },
+    {
+      "ms": 3211,
+      "index": 3
+    },
+    {
+      "ms": 3395,
+      "index": 0
+    },
+    {
+      "ms": 3565,
+      "index": 1
+    },
+    {
+      "ms": 3749,
+      "index": 2
+    },
+    {
+      "ms": 3935,
+      "index": 3
+    },
+    {
+      "ms": 4108,
+      "index": 0
+    },
+    {
+      "ms": 4287,
+      "index": 1
+    },
+    {
+      "ms": 4473,
+      "index": 2
+    },
+    {
+      "ms": 4657,
+      "index": 3
+    },
+    {
+      "ms": 4829,
+      "index": 0
+    },
+    {
+      "ms": 5011,
+      "index": 1
+    }
+  ],
+  "manifestSha256": "6df3616190d43b977157d0a110f9b3a609599802baabf1118ae3b2107e102abf"
+}

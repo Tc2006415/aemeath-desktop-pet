@@ -1,0 +1,320 @@
+{
+  "sources": {
+    "b4": {
+      "path": "art014-v1-96.png",
+      "sha256": "939767e70b9634464a137004293a68d2df2c379220749ea01c893574c73cd9ec"
+    },
+    "old": {
+      "path": "art015-b7-v1-96.png",
+      "sha256": "017cd78d9293cbe299c977175811ba2a426122a9a7043ccc5d8d7645f12d24da"
+    },
+    "up": {
+      "path": "art013-package/frames/hold-up-half.png",
+      "sha256": "fe631808c7cef27795fdae51daff0fae9ea98251b36356b855881062d6586a85"
+    },
+    "v1": {
+      "path": "art017-v1-96.png",
+      "sha256": "8cac356f170275806966d31364520c3bbc5ad3a66e04160ed59814dd4ab9557b"
+    }
+  },
+  "contourProxies": {
+    "b4": {
+      "left": {
+        "outerX": 8,
+        "shortFeatherBottomProxy": 97,
+        "shortRoiOpaqueCount": 58,
+        "rowExtentsY90to102": {
+          "90": [
+            14,
+            26
+          ],
+          "91": [
+            16,
+            25
+          ],
+          "92": [
+            16,
+            25
+          ],
+          "93": [
+            18,
+            24
+          ],
+          "94": [
+            17,
+            23
+          ],
+          "95": [
+            17,
+            22
+          ],
+          "96": [
+            17,
+            21
+          ],
+          "97": [
+            18,
+            20
+          ]
+        }
+      },
+      "right": {
+        "outerX": 87,
+        "shortFeatherBottomProxy": 97,
+        "shortRoiOpaqueCount": 58,
+        "rowExtentsY90to102": {
+          "90": [
+            69,
+            81
+          ],
+          "91": [
+            70,
+            79
+          ],
+          "92": [
+            70,
+            79
+          ],
+          "93": [
+            71,
+            77
+          ],
+          "94": [
+            72,
+            78
+          ],
+          "95": [
+            73,
+            78
+          ],
+          "96": [
+            74,
+            78
+          ],
+          "97": [
+            75,
+            77
+          ]
+        }
+      }
+    },
+    "old": {
+      "left": {
+        "outerX": 8,
+        "shortFeatherBottomProxy": 95,
+        "shortRoiOpaqueCount": 46,
+        "rowExtentsY90to102": {
+          "90": [
+            16,
+            26
+          ],
+          "91": [
+            16,
+            25
+          ],
+          "92": [
+            18,
+            25
+          ],
+          "93": [
+            17,
+            23
+          ],
+          "94": [
+            17,
+            22
+          ],
+          "95": [
+            17,
+            21
+          ]
+        }
+      },
+      "right": {
+        "outerX": 88,
+        "shortFeatherBottomProxy": 95,
+        "shortRoiOpaqueCount": 46,
+        "rowExtentsY90to102": {
+          "90": [
+            69,
+            79
+          ],
+          "91": [
+            70,
+            79
+          ],
+          "92": [
+            70,
+            77
+          ],
+          "93": [
+            72,
+            78
+          ],
+          "94": [
+            73,
+            78
+          ],
+          "95": [
+            74,
+            78
+          ]
+        }
+      }
+    },
+    "up": {
+      "left": {
+        "outerX": 9,
+        "shortFeatherBottomProxy": 96,
+        "shortRoiOpaqueCount": 48,
+        "rowExtentsY90to102": {
+          "90": [
+            18,
+            26
+          ],
+          "91": [
+            17,
+            25
+          ],
+          "92": [
+            16,
+            25
+          ],
+          "93": [
+            18,
+            24
+          ],
+          "94": [
+            18,
+            23
+          ],
+          "95": [
+            18,
+            22
+          ],
+          "96": [
+            18,
+            20
+          ]
+        }
+      },
+      "right": {
+        "outerX": 86,
+        "shortFeatherBottomProxy": 96,
+        "shortRoiOpaqueCount": 48,
+        "rowExtentsY90to102": {
+          "90": [
+            69,
+            77
+          ],
+          "91": [
+            70,
+            78
+          ],
+          "92": [
+            70,
+            79
+          ],
+          "93": [
+            71,
+            77
+          ],
+          "94": [
+            72,
+            77
+          ],
+          "95": [
+            73,
+            77
+          ],
+          "96": [
+            75,
+            77
+          ]
+        }
+      }
+    },
+    "v1": {
+      "left": {
+        "outerX": 8,
+        "shortFeatherBottomProxy": 97,
+        "shortRoiOpaqueCount": 52,
+        "rowExtentsY90to102": {
+          "90": [
+            17,
+            26
+          ],
+          "91": [
+            16,
+            25
+          ],
+          "92": [
+            19,
+            25
+          ],
+          "93": [
+            18,
+            24
+          ],
+          "94": [
+            18,
+            23
+          ],
+          "95": [
+            18,
+            22
+          ],
+          "96": [
+            18,
+            21
+          ],
+          "97": [
+            18,
+            20
+          ]
+        }
+      },
+      "right": {
+        "outerX": 87,
+        "shortFeatherBottomProxy": 97,
+        "shortRoiOpaqueCount": 52,
+        "rowExtentsY90to102": {
+          "90": [
+            69,
+            78
+          ],
+          "91": [
+            70,
+            79
+          ],
+          "92": [
+            70,
+            76
+          ],
+          "93": [
+            71,
+            77
+          ],
+          "94": [
+            72,
+            77
+          ],
+          "95": [
+            73,
+            77
+          ],
+          "96": [
+            74,
+            77
+          ],
+          "97": [
+            75,
+            77
+          ]
+        }
+      }
+    }
+  },
+  "embeddedBytesMatch": true,
+  "shortFeatherProxyNote": "ROI lower silhouette, not anatomical length or same-point tracking"
+}

@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "frames": {
+    "A-closed.png": {
+      "sha256": "b54dc3a7201ce7571b4ef2c2c25272179f81ad3528419d3e76784f914a01d0dd",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "A-half.png": {
+      "sha256": "b15a7750803798aa9a300a609fcdc4c136386e7c6cefbc76e8f760fb64a4da76",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "A-mid.png": {
+      "sha256": "1248b01d9c4ba88bd4f1a8bc0e2cf0e9b02fb2ba1f852b82ba07b988d3159c57",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "A-open.png": {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "A-wink.png": {
+      "sha256": "4bd37f604be15f96ef9749cbb8939216c6afef0278bdeaf91e8e3f7a536580f6",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "B-closed.png": {
+      "sha256": "0bb5f579755e62fd1d0c8d86cfeec12cec4c867f2cb439e592e6fae15b266bf6",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "B-half.png": {
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "B-mid.png": {
+      "sha256": "46e83149c505a7245efba66576b36eb34904e373df29ab84dd40d20b59c6b560",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "B-open.png": {
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "B-wink.png": {
+      "sha256": "f4e3c1e6ecbacf7337b47528de761109e850e8429073246c196dda171731dcde",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "C-closed.png": {
+      "sha256": "82a31a07f768121761ae70186b04e196f3b48c905a136153c66141bd67601bbe",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "C-half.png": {
+      "sha256": "dbf1f7563c60a896fd9aa2b78e0bafd84a9332e51edf73e687383bf2f9cea489",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "C-mid.png": {
+      "sha256": "acb60ad19f837c01074cb883c6e25a18ed64d7f52b8c7c49f8864d8dd37aa43f",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "C-open.png": {
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    },
+    "C-wink.png": {
+      "sha256": "55d66e84433bb7b98ca8f5d86b4369043624b45dc3a928d55b45daa49c11f557",
+      "outsideHeadMaskDiff": 0,
+      "format": "96x104 RGBA8 alpha0/255"
+    }
+  },
+  "protectedInputsUnchanged": true,
+  "neckSeamOpaque": true,
+  "embeddedOriginalPNGs": 15,
+  "nativeAcceptance": false
+}

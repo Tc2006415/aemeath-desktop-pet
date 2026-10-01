@@ -1,0 +1,67 @@
+[
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8392,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 7073,
+    "Opaque": 2911,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "E2F90C5DC97A24B9DC7714776D575FAFE56791B9DC568E03F152B111BADBE6C8",
+    "File": "neutral.png"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8148,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 7127,
+    "Opaque": 2857,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "4E179BF947F8EE14DE56B18F05D00943AA055B41FCB04AB6D4AB38CB6492033F",
+    "File": "smile-closed.png"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8262,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 7125,
+    "Opaque": 2859,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "7DF1D6EC1234960DDFDF4C84CF02B281ED0E29C3FDE90E2B23A5B3AC9BDF550E",
+    "File": "smile-half.png"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8250,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 7125,
+    "Opaque": 2859,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "8836D5AAB8A397C17D8DFEC8D071F6B67474E3CF07025EA88D1667FC94E84CF0",
+    "File": "soft-light.png"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8233,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 7127,
+    "Opaque": 2857,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "FB29CD2701E40306DA39FE45AB631BFE68D99FE7968FF8A25662CB5AE3535E03",
+    "File": "soft-peak.png"
+  }
+]

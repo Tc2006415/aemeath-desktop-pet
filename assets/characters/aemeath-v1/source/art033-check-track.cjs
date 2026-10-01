@@ -1,0 +1,5 @@
+const fs=require('fs'),assert=require('assert'),{InteractionPreview}=require('./art033-track.js');let cases=0;
+assert(fs.readFileSync(__dirname+'/art033-track.js').equals(fs.readFileSync(__dirname+'/art032-track.js')));
+const names=fs.readdirSync(__dirname+'/art033-frames').filter(n=>/^(left|right|annoyed)-/.test(n));
+for(const name of names){const source='pose:'+name.slice(0,-4),e=new InteractionPreview();e.press(0,source);e.release(1,source);assert.equal(e.sample(1).key,source);assert.equal(e.sample(60).key,source);for(const d of [60,160]){const key=e.sample(1+d).key;assert(key.startsWith('pose:'));assert(fs.existsSync(__dirname+'/art033-frames/'+key.slice(5)+'.png'));}assert.equal(e.sample(541).mode,'idle');cases++;}
+fs.writeFileSync(__dirname+'/art033-track-check.json',JSON.stringify({status:'PASS',affectedSources:cases,exactCapturedSourceThrough59ms:true,updatedReleaseHCExist:true,unchangedTiming:true},null,2));console.log('PASS',cases,'affected sources; exact captured entry; new H/C files; release completes');

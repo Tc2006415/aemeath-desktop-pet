@@ -1,0 +1,97 @@
+{
+  "imagegenCalls": 2,
+  "totalCompositeVersions": 2,
+  "distinctSemanticMasks": 1,
+  "visualGate": "FAIL both attempts; not selected; stop at cap",
+  "candidates": {
+    "1": {
+      "sha256": "44a7eb885356174df99f2a4763b11ef671f4cf0132abe4f61a801f7d7a6aab86",
+      "changedPixels": 389,
+      "outsideSemanticMaskRgbaDiff": 0,
+      "fixedRootsRgbaDiff": 0,
+      "headFaceBodyHandsFeetProtected": true,
+      "anchor": [
+        48,
+        94
+      ],
+      "components8": [
+        2953
+      ],
+      "newOpaqueAboveRootBottom": [
+        [
+          21,
+          82
+        ],
+        [
+          21,
+          83
+        ],
+        [
+          22,
+          81
+        ],
+        [
+          22,
+          82
+        ],
+        [
+          23,
+          82
+        ],
+        [
+          72,
+          82
+        ],
+        [
+          73,
+          81
+        ],
+        [
+          73,
+          82
+        ],
+        [
+          74,
+          82
+        ],
+        [
+          74,
+          83
+        ]
+      ],
+      "sourceFile": "art023-v1-source.png",
+      "donorFile": "art023-v1-donor-96.png",
+      "formatPass": true,
+      "visualPass": false
+    },
+    "2": {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "changedPixels": 383,
+      "outsideSemanticMaskRgbaDiff": 0,
+      "fixedRootsRgbaDiff": 0,
+      "headFaceBodyHandsFeetProtected": true,
+      "anchor": [
+        48,
+        94
+      ],
+      "components8": [
+        2911
+      ],
+      "newOpaqueAboveRootBottom": [
+        [
+          23,
+          82
+        ],
+        [
+          72,
+          82
+        ]
+      ],
+      "sourceFile": "art023-v2-source.png",
+      "donorFile": "art023-v2-donor-96.png",
+      "formatPass": true,
+      "visualPass": false
+    }
+  },
+  "formal17FilesUnchanged": true
+}

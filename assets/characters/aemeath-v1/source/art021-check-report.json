@@ -1,0 +1,75 @@
+{
+  "soft-light": {
+    "sha256": "bc9fe556ac774ad2ca7c77d03446cdc451159819712e7e4fc9b8b245b48dcd70",
+    "changedPixels": 33,
+    "newTransparentPixels": 0,
+    "addedOpaqueXY": [
+      [
+        20,
+        92
+      ],
+      [
+        20,
+        93
+      ],
+      [
+        75,
+        92
+      ],
+      [
+        75,
+        93
+      ]
+    ],
+    "allOtherTransparentPixelsUnchanged": true,
+    "outsideWindowRgbaChanges": 0,
+    "bboxBeforeAndAfter": [
+      11,
+      22,
+      84,
+      96
+    ],
+    "components8Before": [
+      3058
+    ],
+    "components8After": [
+      3062
+    ],
+    "allAdditionsTouchOriginalOpaque": true,
+    "anchorUnchanged": [
+      48,
+      94
+    ]
+  },
+  "soft-peak": {
+    "sha256": "79d227136f70d87ccea3d7efa2ae94759f8868890c3ef87a984c2d8fcf045be2",
+    "changedPixels": 30,
+    "newTransparentPixels": 0,
+    "addedOpaqueXY": [
+      [
+        76,
+        90
+      ]
+    ],
+    "allOtherTransparentPixelsUnchanged": true,
+    "outsideWindowRgbaChanges": 0,
+    "bboxBeforeAndAfter": [
+      11,
+      22,
+      84,
+      97
+    ],
+    "components8Before": [
+      3079
+    ],
+    "components8After": [
+      3080
+    ],
+    "allAdditionsTouchOriginalOpaque": true,
+    "anchorUnchanged": [
+      48,
+      94
+    ]
+  },
+  "protectedFormalFilesUnchanged": 17
+}

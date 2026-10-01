@@ -1,0 +1,75 @@
+{
+  "embeddedSHA": {
+    "new": {
+      "neutral": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "soft-light": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "soft-peak": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "smile-half": "7df1d6ec1234960ddfdf4c84cf02b281ed0e29c3fde90e2b23a5b3ac9bdf550e",
+      "smile-closed": "4e179bf947f8ee14de56b18f05d00943aa055b41fcb04ab6d4ab38cb6492033f"
+    },
+    "old": {
+      "neutral": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d",
+      "soft-light": "bc9fe556ac774ad2ca7c77d03446cdc451159819712e7e4fc9b8b245b48dcd70",
+      "soft-peak": "79d227136f70d87ccea3d7efa2ae94759f8868890c3ef87a984c2d8fcf045be2",
+      "smile-half": "d078c20f50b25c4cbd14d8680eccf24e60d5f16090619d49ed9a0ffd05d05c48",
+      "smile-closed": "9c8943a858b506feb7183a72204a48b55f5dbd62c54fb273c6648545b27a3fad"
+    }
+  },
+  "timings": {
+    "idle-soft": [
+      {
+        "path": "frames/neutral.png",
+        "durationMs": 400
+      },
+      {
+        "path": "frames/soft-light.png",
+        "durationMs": 150
+      },
+      {
+        "path": "frames/soft-peak.png",
+        "durationMs": 150
+      },
+      {
+        "path": "frames/soft-peak.png",
+        "durationMs": 400
+      },
+      {
+        "path": "frames/soft-light.png",
+        "durationMs": 150
+      },
+      {
+        "path": "frames/neutral.png",
+        "durationMs": 150
+      }
+    ],
+    "idle-smile": [
+      {
+        "path": "frames/neutral.png",
+        "durationMs": 120
+      },
+      {
+        "path": "frames/smile-half.png",
+        "durationMs": 120
+      },
+      {
+        "path": "frames/smile-closed.png",
+        "durationMs": 500
+      },
+      {
+        "path": "frames/smile-half.png",
+        "durationMs": 120
+      },
+      {
+        "path": "frames/neutral.png",
+        "durationMs": 120
+      },
+      {
+        "path": "frames/neutral.png",
+        "durationMs": 220
+      }
+    ]
+  },
+  "autoSequenceMs": 5400,
+  "originalPngBytes": true,
+  "nativeAcceptance": false
+}

@@ -1,0 +1,103 @@
+{
+  "card": "ART-018",
+  "verdict": "Complete visual probe ready for independent QA; no blocking short-feather contraction identified at1x in this sampled review.",
+  "imagegenCalls": 0,
+  "pixelEdits": 0,
+  "liveHold": {
+    "firstRun": {
+      "closedDomMs": 1280,
+      "firstScreenshotMs": 1330,
+      "cycle5DomMs": 3656,
+      "cycle5ScreenshotMs": 3698,
+      "pausedMs": 3776,
+      "completeCycles": 5
+    },
+    "blinkCapture": {
+      "timeMs": 1268,
+      "state": "playing closed item19",
+      "durationMs": 100,
+      "visible": "Closed smile visually identifiable on light/dark1x and3x without pausing."
+    },
+    "note": "Live browser execution and sampled screenshots, not continuous video."
+  },
+  "releaseSamples": [
+    {
+      "mode": "up",
+      "timeMs": 440,
+      "frame": "new b7",
+      "position": [
+        140,
+        200
+      ]
+    },
+    {
+      "mode": "down",
+      "timeMs": 400,
+      "frame": "down"
+    },
+    {
+      "mode": "down",
+      "timeMs": 440,
+      "frame": "mid"
+    },
+    {
+      "mode": "up",
+      "timeMs": 1143,
+      "frame": "neutral",
+      "phase": "idle-after-release",
+      "live": true
+    },
+    {
+      "mode": "down",
+      "timeMs": 919,
+      "frame": "neutral",
+      "phase": "idle-after-release",
+      "live": true
+    }
+  ],
+  "boundarySamples": {
+    "quick": [
+      [
+        439,
+        "pickup neutral"
+      ],
+      [
+        440,
+        "release-fallback mid"
+      ],
+      [
+        900,
+        "neutral"
+      ]
+    ],
+    "regrab": [
+      [
+        479,
+        "release new b7"
+      ],
+      [
+        480,
+        "pickup neutral"
+      ],
+      [
+        560,
+        "pickup surprise"
+      ],
+      [
+        840,
+        "hold mid"
+      ]
+    ]
+  },
+  "visualAssessment": {
+    "blink": "100ms visible in live screenshot; two-cycle cadence preserved.",
+    "shortFeathers": "No obvious blocking shrink/reexpand at actual1x in sampled full sequence. Repaired B7 keeps fork length closer to adjacent poses.",
+    "other": "Head/body/roots stable in sampled views. High amplitude preserved. Unequal frame-to-frame pixel steps and high-end1px narrowing remain; not described as zero deformation or <=3px."
+  },
+  "unimplemented": [
+    "Native source-frame routing",
+    "Real window-position freeze/mouse capture",
+    "Pickup source-dependent quick-release routing; webpage still labels old R fallback and neutral-to-mid change"
+  ],
+  "handoff": "One authorized timing revision only. No further changes; independent QA then PM contract freeze. Test tab/server closed."
+}

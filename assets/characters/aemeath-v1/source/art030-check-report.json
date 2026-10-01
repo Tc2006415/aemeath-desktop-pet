@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "frames": {
+    "hold-entry.png": {
+      "sha256": "295a23f4ecceb2020a4316b9039a7d0847c8b242b289a83a1e34bef2f24b3847",
+      "outsideMaskDiff": 0,
+      "neckSeamOpaque": true
+    },
+    "neutral.png": {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "outsideMaskDiff": 0,
+      "neckSeamOpaque": true
+    },
+    "pickup.png": {
+      "sha256": "62aa7c2efe5e30177785960d94c5fc80f18c52e0f5d3f79d387fe69a75d4ddb3",
+      "outsideMaskDiff": 0,
+      "neckSeamOpaque": true
+    },
+    "surprise.png": {
+      "sha256": "7d7ce6ccc674f4d9597050ef5f5afc2e17d9d5d876a54d26baf300a293ab10c5",
+      "outsideMaskDiff": 0,
+      "neckSeamOpaque": true
+    }
+  },
+  "sourceSeams": {
+    "A-open-base": {
+      "sourceToNeutralChangedPixels": 0,
+      "seamRisk": false
+    },
+    "B-open-base": {
+      "sourceToNeutralChangedPixels": 186,
+      "seamRisk": true
+    },
+    "C-open-base": {
+      "sourceToNeutralChangedPixels": 224,
+      "seamRisk": true
+    },
+    "A-half-base": {
+      "sourceToNeutralChangedPixels": 201,
+      "seamRisk": true
+    },
+    "A-closed-base": {
+      "sourceToNeutralChangedPixels": 204,
+      "seamRisk": true
+    },
+    "C-wink-upper": {
+      "sourceToNeutralChangedPixels": 2256,
+      "seamRisk": true
+    },
+    "B-open-light": {
+      "sourceToNeutralChangedPixels": 232,
+      "seamRisk": true
+    },
+    "C-open-upper": {
+      "sourceToNeutralChangedPixels": 270,
+      "seamRisk": true
+    }
+  },
+  "v2WingExact": true,
+  "protectedInputsUnchanged": true,
+  "rawEmbeddedPNGs": 49,
+  "nativeAcceptance": false
+}

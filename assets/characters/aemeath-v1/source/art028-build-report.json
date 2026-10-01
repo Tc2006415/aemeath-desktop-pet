@@ -1,0 +1,62 @@
+{
+  "generationCalls": 3,
+  "overallCompositeVersion": 1,
+  "poses": {
+    "mid": {
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSHA": "783d1d67ca0a9c340dd62cca6959065ae8790f884aa3537f97130c86e23185e8",
+      "integerOffset": [
+        0,
+        0
+      ],
+      "frames": {
+        "A": {
+          "sha256": "1248b01d9c4ba88bd4f1a8bc0e2cf0e9b02fb2ba1f852b82ba07b988d3159c57",
+          "changed": 2023,
+          "outsideMaskDiff": 0
+        },
+        "B": {
+          "sha256": "46e83149c505a7245efba66576b36eb34904e373df29ab84dd40d20b59c6b560",
+          "changed": 2023,
+          "outsideMaskDiff": 0
+        },
+        "C": {
+          "sha256": "acb60ad19f837c01074cb883c6e25a18ed64d7f52b8c7c49f8864d8dd37aa43f",
+          "changed": 2023,
+          "outsideMaskDiff": 0
+        }
+      }
+    },
+    "wink": {
+      "sourceSize": [
+        1254,
+        1254
+      ],
+      "sourceSHA": "2a721cba5aeb6a84ce246bca8b7134ec27f072e493730e32ebf393923d5d7de7",
+      "integerOffset": [
+        0,
+        0
+      ],
+      "frames": {
+        "A": {
+          "sha256": "4bd37f604be15f96ef9749cbb8939216c6afef0278bdeaf91e8e3f7a536580f6",
+          "changed": 1986,
+          "outsideMaskDiff": 0
+        },
+        "B": {
+          "sha256": "f4e3c1e6ecbacf7337b47528de761109e850e8429073246c196dda171731dcde",
+          "changed": 1986,
+          "outsideMaskDiff": 0
+        },
+        "C": {
+          "sha256": "55d66e84433bb7b98ca8f5d86b4369043624b45dc3a928d55b45daa49c11f557",
+          "changed": 1986,
+          "outsideMaskDiff": 0
+        }
+      }
+    }
+  }
+}

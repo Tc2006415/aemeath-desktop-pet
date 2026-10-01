@@ -1,0 +1,196 @@
+{
+  "status": "PASS_TARGETED_CHECKS",
+  "frames": {
+    "annoyed-annoyed-A": {
+      "sha256": "5543144c37700a3a3f43099e202e3f7eb8a4564031929b25a760a86ebaa93191",
+      "outsideMaskDiff": 0,
+      "changedPixels": 18,
+      "alphaExact": true
+    },
+    "annoyed-annoyed-B": {
+      "sha256": "73fda6151409e7a31b3fa616851b51fa129930c6bac4a378d8160eeb7dd6d686",
+      "outsideMaskDiff": 0,
+      "changedPixels": 18,
+      "alphaExact": true
+    },
+    "annoyed-annoyed-C": {
+      "sha256": "ecb492012caeb97be2ed4a6af2117185b1066ca87911bcd922c2b648c97c2946",
+      "outsideMaskDiff": 0,
+      "changedPixels": 18,
+      "alphaExact": true
+    },
+    "annoyed-annoyed-H": {
+      "sha256": "0d4181a901e0f993e847f48690ed3c4cea5c845f7749fd88d49adf21ef809421",
+      "outsideMaskDiff": 0,
+      "changedPixels": 18,
+      "alphaExact": true
+    },
+    "left-panic-A": {
+      "sha256": "0a2d037b73390371aa327c7fb7a0a2f4cd54c0a9dd812358e8a1fd40f9096756",
+      "outsideMaskDiff": 0,
+      "changedPixels": 54,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 4,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      }
+    },
+    "left-panic-B": {
+      "sha256": "779458a3cc5baab7b0e421ff0837d3bbf6807438728a74536270bf41334c2d3d",
+      "outsideMaskDiff": 0,
+      "changedPixels": 54,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 4,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      }
+    },
+    "left-panic-C": {
+      "sha256": "812f16cafaf7eddacd560cbbe8d2c35d1c3b7fdbc7459c323aa0380d8181d5e9",
+      "outsideMaskDiff": 0,
+      "changedPixels": 54,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 4,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      }
+    },
+    "left-panic-H": {
+      "sha256": "97b8e50eead54646e874547b34adca4d80fe521897f45a81ef556694f10af894",
+      "outsideMaskDiff": 0,
+      "changedPixels": 54,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 4,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 92,
+        "right": 94
+      }
+    },
+    "normal-half-B": {
+      "sha256": "61376256843d4cfd48f4b7f198bdf8685c089c91a1b7c2a7a37b95727dbc5ab8",
+      "outsideMaskDiff": 0,
+      "changedPixels": 0,
+      "alphaExact": true
+    },
+    "normal-normal-A": {
+      "sha256": "e2f90c5dc97a24b9dc7714776d575fafe56791b9dc568e03f152b111badbe6c8",
+      "outsideMaskDiff": 0,
+      "changedPixels": 0,
+      "alphaExact": true
+    },
+    "normal-normal-B": {
+      "sha256": "8836d5aab8a397c17d8dfec8d071f6b67474e3cf07025ea88d1667fc94e84cf0",
+      "outsideMaskDiff": 0,
+      "changedPixels": 0,
+      "alphaExact": true
+    },
+    "normal-normal-C": {
+      "sha256": "fb29cd2701e40306da39fe45ab631bfe68d99fe7968ff8a25662cb5ae3535e03",
+      "outsideMaskDiff": 0,
+      "changedPixels": 0,
+      "alphaExact": true
+    },
+    "normal-normal-H": {
+      "sha256": "81fbdf75061790214bd85e4ca40a7c077e03d6ef3b527e24b4f74264f6140a46",
+      "outsideMaskDiff": 0,
+      "changedPixels": 0,
+      "alphaExact": true
+    },
+    "right-panic-A": {
+      "sha256": "3d98533bd5423b47e5120e727c27e0d1878fd2f6c9a8425b0614865afa1e55da",
+      "outsideMaskDiff": 0,
+      "changedPixels": 56,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 5,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      }
+    },
+    "right-panic-B": {
+      "sha256": "30955391f87d66b3452ad3a969b18f3796a2246074f73f1635fa5727400755a1",
+      "outsideMaskDiff": 0,
+      "changedPixels": 56,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 5,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      }
+    },
+    "right-panic-C": {
+      "sha256": "8f77c1f698ff3d1568d3f10416854a0641ec5df44a39da87fbc7e2719bb2b12b",
+      "outsideMaskDiff": 0,
+      "changedPixels": 56,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 5,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      }
+    },
+    "right-panic-H": {
+      "sha256": "62917ad5997e4b3c41eefd91db2ffc9e94852565aa81542263102a5b67715ae4",
+      "outsideMaskDiff": 0,
+      "changedPixels": 56,
+      "alphaExact": true,
+      "ankleOrangePixels": {
+        "before": 5,
+        "after": 0
+      },
+      "legBottom": {
+        "left": 94,
+        "right": 92
+      }
+    }
+  },
+  "actualMouthPinkXY": [
+    [
+      46,
+      67
+    ],
+    [
+      47,
+      66
+    ],
+    [
+      48,
+      66
+    ],
+    [
+      49,
+      67
+    ]
+  ],
+  "allOriginalAlphaExact": true,
+  "unchangedControllerAndTiming": true,
+  "beforeAfterSameLogicalFrame": true,
+  "protectedInputsUnchanged": true,
+  "imagegenCalls": 3,
+  "compositeVersions": 1,
+  "nativeAcceptance": false
+}

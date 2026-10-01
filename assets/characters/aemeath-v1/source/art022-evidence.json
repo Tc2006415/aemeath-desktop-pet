@@ -1,0 +1,909 @@
+{
+  "formalVersion": "0.4.0",
+  "requiredRepairCommit": "52ef940",
+  "protectedSHA": {
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\manifest.json": "eab91ecb10037da7320d4e9c9321c8dce0f122d3b9d5daa6e101a55e1e319da3",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-bridge-high.png": "8cac356f170275806966d31364520c3bbc5ad3a66e04160ed59814dd4ab9557b",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-bridge-low.png": "fa75d0a105183cf4f24208df965cd75b485efe92c54fe28b816a7f11131a0035",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-bridge-mid.png": "939767e70b9634464a137004293a68d2df2c379220749ea01c893574c73cd9ec",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-down-half.png": "e3af22f9bb6f9c9405ddc22b78badd1cf986658eb359e383ccec2de0acf0e2c0",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-half.png": "4443b8a3fdfdf2d2f7fe6be301bf9ee07eb9d3f8461d4a75b9ec3679faf96f82",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-mid-closed.png": "cde50bd1ce3f4686a90e1803272e78bdf249cef6529f9245c50761fc507fac22",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-surprise.png": "4edcc9c76eaa00a8a1d2fac9b95651768cd7433bda9e5c7447361512b9f38e33",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\hold-up-half.png": "fe631808c7cef27795fdae51daff0fae9ea98251b36356b855881062d6586a85",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\neutral.png": "5c8f851a87f2e7c336365ce0323c76bb6fefd6f6eb65d6eb5c76baf701ee8e0d",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\pickup-surprise.png": "4574f4235d2611c30c19b7a088515d9a1b99aa11d98cc59930c8f352a5a6925a",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\release-closed.png": "e32ec948fcaade0bc7fc13fd3ccebbd01f78fa9ad4b1f3246e2d820e634e3d54",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\release-half.png": "2d1096deb7f96ba461b54c00d4b8e290200875747588e798751bfb8a05fa3840",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\smile-closed.png": "9c8943a858b506feb7183a72204a48b55f5dbd62c54fb273c6648545b27a3fad",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\smile-half.png": "d078c20f50b25c4cbd14d8680eccf24e60d5f16090619d49ed9a0ffd05d05c48",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\soft-light.png": "bc9fe556ac774ad2ca7c77d03446cdc451159819712e7e4fc9b8b245b48dcd70",
+    "C:\\Users\\bigxi\\Documents\\ChatGPT\\\u684c\u5ba0\\assets\\characters\\aemeath-v1\\frames\\soft-peak.png": "79d227136f70d87ccea3d7efa2ae94759f8868890c3ef87a984c2d8fcf045be2"
+  },
+  "screenshotSHA": "11a573d1904c1c792ea53fb08ace46115beb94c546f8a0c6324621c43e755992",
+  "regionDefinitions": {
+    "lowerSides": "y>=76, x<=35 or x>=60 (diagnostic rectangle, not an edit mask)",
+    "innerSideBand": "y76..98, x24..35 or x60..71",
+    "outerSideBand": "y76..98, x0..23 or x72..95"
+  },
+  "diffVsNeutral": {
+    "hold-bridge-high": {
+      "rgbaDiffVsNeutral": {
+        "whole": 1118,
+        "lowerSides": 482,
+        "innerSideBand": 128,
+        "outerSideBand": 354
+      },
+      "diffBBox": [
+        8,
+        56,
+        87,
+        97
+      ]
+    },
+    "hold-bridge-low": {
+      "rgbaDiffVsNeutral": {
+        "whole": 1083,
+        "lowerSides": 447,
+        "innerSideBand": 128,
+        "outerSideBand": 319
+      },
+      "diffBBox": [
+        8,
+        56,
+        87,
+        97
+      ]
+    },
+    "hold-bridge-mid": {
+      "rgbaDiffVsNeutral": {
+        "whole": 1102,
+        "lowerSides": 466,
+        "innerSideBand": 127,
+        "outerSideBand": 339
+      },
+      "diffBBox": [
+        8,
+        56,
+        87,
+        97
+      ]
+    },
+    "hold-down-half": {
+      "rgbaDiffVsNeutral": {
+        "whole": 1140,
+        "lowerSides": 504,
+        "innerSideBand": 156,
+        "outerSideBand": 340
+      },
+      "diffBBox": [
+        9,
+        56,
+        86,
+        99
+      ]
+    },
+    "hold-half": {
+      "rgbaDiffVsNeutral": {
+        "whole": 668,
+        "lowerSides": 32,
+        "innerSideBand": 32,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        93
+      ]
+    },
+    "hold-mid-closed": {
+      "rgbaDiffVsNeutral": {
+        "whole": 670,
+        "lowerSides": 32,
+        "innerSideBand": 32,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        93
+      ]
+    },
+    "hold-surprise": {
+      "rgbaDiffVsNeutral": {
+        "whole": 660,
+        "lowerSides": 32,
+        "innerSideBand": 32,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        93
+      ]
+    },
+    "hold-up-half": {
+      "rgbaDiffVsNeutral": {
+        "whole": 1118,
+        "lowerSides": 482,
+        "innerSideBand": 128,
+        "outerSideBand": 354
+      },
+      "diffBBox": [
+        9,
+        56,
+        86,
+        97
+      ]
+    },
+    "neutral": {
+      "rgbaDiffVsNeutral": {
+        "whole": 0,
+        "lowerSides": 0,
+        "innerSideBand": 0,
+        "outerSideBand": 0
+      },
+      "diffBBox": null
+    },
+    "pickup-surprise": {
+      "rgbaDiffVsNeutral": {
+        "whole": 664,
+        "lowerSides": 31,
+        "innerSideBand": 31,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        93
+      ]
+    },
+    "release-closed": {
+      "rgbaDiffVsNeutral": {
+        "whole": 424,
+        "lowerSides": 0,
+        "innerSideBand": 0,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        93
+      ]
+    },
+    "release-half": {
+      "rgbaDiffVsNeutral": {
+        "whole": 422,
+        "lowerSides": 0,
+        "innerSideBand": 0,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        93
+      ]
+    },
+    "smile-closed": {
+      "rgbaDiffVsNeutral": {
+        "whole": 219,
+        "lowerSides": 0,
+        "innerSideBand": 0,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        67
+      ]
+    },
+    "smile-half": {
+      "rgbaDiffVsNeutral": {
+        "whole": 217,
+        "lowerSides": 0,
+        "innerSideBand": 0,
+        "outerSideBand": 0
+      },
+      "diffBBox": [
+        32,
+        56,
+        63,
+        67
+      ]
+    },
+    "soft-light": {
+      "rgbaDiffVsNeutral": {
+        "whole": 269,
+        "lowerSides": 269,
+        "innerSideBand": 6,
+        "outerSideBand": 263
+      },
+      "diffBBox": [
+        9,
+        83,
+        86,
+        97
+      ]
+    },
+    "soft-peak": {
+      "rgbaDiffVsNeutral": {
+        "whole": 285,
+        "lowerSides": 285,
+        "innerSideBand": 6,
+        "outerSideBand": 279
+      },
+      "diffBBox": [
+        9,
+        83,
+        86,
+        97
+      ]
+    }
+  },
+  "usage": {
+    "hold-bridge-high": [
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 3,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 5,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 13,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 15,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 1,
+        "durationMs": 40
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "hold-bridge-low": [
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 1,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 7,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 11,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 17,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 3,
+        "durationMs": 40
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 2,
+        "durationMs": 40
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-mid.png",
+        "index": 1,
+        "durationMs": 40
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-low.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "hold-bridge-mid": [
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 2,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 6,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 12,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 16,
+        "durationMs": 50
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 2,
+        "durationMs": 40
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 1,
+        "durationMs": 40
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-mid.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "hold-down-half": [
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 9,
+        "durationMs": 140
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 19,
+        "durationMs": 140
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-down-half.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "hold-half": [
+      {
+        "action": "drag-pickup",
+        "sequence": "frames",
+        "index": 3,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 0,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 8,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 10,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames",
+        "index": 0,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 4,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 3,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-mid.png",
+        "index": 2,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-low.png",
+        "index": 1,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-half.png",
+        "index": 0,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-down-half.png",
+        "index": 1,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-surprise.png",
+        "index": 1,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/pickup-surprise.png",
+        "index": 1,
+        "durationMs": 80
+      }
+    ],
+    "hold-mid-closed": [
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 18,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-mid-closed.png",
+        "index": 0,
+        "durationMs": 80
+      }
+    ],
+    "hold-surprise": [
+      {
+        "action": "drag-pickup",
+        "sequence": "frames",
+        "index": 1,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-surprise.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "hold-up-half": [
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 4,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-hold",
+        "sequence": "frames",
+        "index": 14,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "neutral": [
+      {
+        "action": "neutral",
+        "sequence": "frames",
+        "index": 0,
+        "durationMs": 1000
+      },
+      {
+        "action": "idle-soft",
+        "sequence": "frames",
+        "index": 0,
+        "durationMs": 400
+      },
+      {
+        "action": "idle-soft",
+        "sequence": "frames",
+        "index": 5,
+        "durationMs": 150
+      },
+      {
+        "action": "idle-smile",
+        "sequence": "frames",
+        "index": 0,
+        "durationMs": 120
+      },
+      {
+        "action": "idle-smile",
+        "sequence": "frames",
+        "index": 4,
+        "durationMs": 120
+      },
+      {
+        "action": "idle-smile",
+        "sequence": "frames",
+        "index": 5,
+        "durationMs": 220
+      },
+      {
+        "action": "drag-pickup",
+        "sequence": "frames",
+        "index": 0,
+        "durationMs": 80
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames",
+        "index": 3,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 7,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 6,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-mid.png",
+        "index": 5,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-low.png",
+        "index": 4,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-half.png",
+        "index": 3,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-mid-closed.png",
+        "index": 3,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-down-half.png",
+        "index": 4,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-surprise.png",
+        "index": 4,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/pickup-surprise.png",
+        "index": 4,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/neutral.png",
+        "index": 0,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/release-closed.png",
+        "index": 2,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/release-half.png",
+        "index": 1,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/soft-light.png",
+        "index": 1,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/soft-peak.png",
+        "index": 1,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/smile-half.png",
+        "index": 1,
+        "durationMs": 160
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/smile-closed.png",
+        "index": 1,
+        "durationMs": 160
+      }
+    ],
+    "pickup-surprise": [
+      {
+        "action": "drag-pickup",
+        "sequence": "frames",
+        "index": 2,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/pickup-surprise.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "release-closed": [
+      {
+        "action": "drag-release",
+        "sequence": "frames",
+        "index": 1,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 5,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 4,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-mid.png",
+        "index": 3,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-low.png",
+        "index": 2,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-half.png",
+        "index": 1,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-mid-closed.png",
+        "index": 1,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-down-half.png",
+        "index": 2,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-surprise.png",
+        "index": 2,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/pickup-surprise.png",
+        "index": 2,
+        "durationMs": 100
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/release-closed.png",
+        "index": 0,
+        "durationMs": 100
+      }
+    ],
+    "release-half": [
+      {
+        "action": "drag-release",
+        "sequence": "frames",
+        "index": 2,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-up-half.png",
+        "index": 6,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-high.png",
+        "index": 5,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-mid.png",
+        "index": 4,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-bridge-low.png",
+        "index": 3,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-half.png",
+        "index": 2,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-mid-closed.png",
+        "index": 2,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-down-half.png",
+        "index": 3,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/hold-surprise.png",
+        "index": 3,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/pickup-surprise.png",
+        "index": 3,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/release-closed.png",
+        "index": 1,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/release-half.png",
+        "index": 0,
+        "durationMs": 120
+      }
+    ],
+    "smile-closed": [
+      {
+        "action": "idle-smile",
+        "sequence": "frames",
+        "index": 2,
+        "durationMs": 500
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/smile-closed.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "smile-half": [
+      {
+        "action": "idle-smile",
+        "sequence": "frames",
+        "index": 1,
+        "durationMs": 120
+      },
+      {
+        "action": "idle-smile",
+        "sequence": "frames",
+        "index": 3,
+        "durationMs": 120
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/smile-half.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "soft-light": [
+      {
+        "action": "idle-soft",
+        "sequence": "frames",
+        "index": 1,
+        "durationMs": 150
+      },
+      {
+        "action": "idle-soft",
+        "sequence": "frames",
+        "index": 4,
+        "durationMs": 150
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/soft-light.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ],
+    "soft-peak": [
+      {
+        "action": "idle-soft",
+        "sequence": "frames",
+        "index": 2,
+        "durationMs": 150
+      },
+      {
+        "action": "idle-soft",
+        "sequence": "frames",
+        "index": 3,
+        "durationMs": 400
+      },
+      {
+        "action": "drag-release",
+        "sequence": "frames/soft-peak.png",
+        "index": 0,
+        "durationMs": 40
+      }
+    ]
+  },
+  "copiesByteIdentical": true
+}

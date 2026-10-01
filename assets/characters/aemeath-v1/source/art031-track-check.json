@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "boundaryCases": 10,
+  "durationMs": 360,
+  "holdsNewEndpoint": true
+}

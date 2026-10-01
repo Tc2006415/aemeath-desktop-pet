@@ -1,0 +1,38 @@
+[
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8596,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 6980,
+    "Opaque": 3004,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "1C9388EA56FAB9459C6D1589AD5EFFC126D359A89B58E5A8A5B2AF091C16B7D3"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8807,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 6915,
+    "Opaque": 3069,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "031E6FBD2BE46EC411ACD4235AEE31BF55BC7D9FEEF8FF74FEF2BFB48BD22131"
+  },
+  {
+    "Width": 96,
+    "Height": 104,
+    "Bytes": 8924,
+    "PngBitDepth": 8,
+    "PngColorType": 6,
+    "Transparent": 6882,
+    "Opaque": 3102,
+    "Semitransparent": 0.0,
+    "AlphaValues": 2,
+    "SHA256": "B55DB234300D316C7AAFBBB826BDE7281F14D8DC2C5F6D68E7FB0375E70DFBBA"
+  }
+]

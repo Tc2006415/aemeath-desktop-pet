@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>爱弥斯 v2 · 动作预览</title>
+  <style>
+    :root { font-family: "Microsoft YaHei", "Segoe UI", sans-serif; color: #252932; background: #ece9e2; }
+    * { box-sizing: border-box; }
+    body { max-width: 1160px; margin: 0 auto; padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    h1 { margin: 0; font-size: clamp(23px, 3vw, 32px); letter-spacing: .02em; }
+    .eyebrow { margin: 0 0 5px; color: #765b62; font-size: 13px; font-weight: 700; letter-spacing: .12em; }
+    .subtitle { margin: 7px 0 0; color: #60636c; }
+    .badge { padding: 7px 11px; border: 1px solid #aa938d; border-radius: 999px; color: #70545b; background: #faf6ef; font-size: 13px; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; }
+    .stages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .stage { min-height: 440px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 15px; border: 1px solid #c7c3bd; border-radius: 12px; }
+    .stage.light { background: #f8f5ed; }
+    .stage.dark { background: #242a35; color: #f2ede7; border-color: #414b5b; }
+    .stage-label { align-self: start; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
+    .sprite-wrap { width: 100%; min-height: 330px; display: grid; place-items: center; }
+    .sprite { width: calc(96px * var(--scale, 3)); height: calc(104px * var(--scale, 3)); max-width: 100%; object-fit: contain; image-rendering: pixelated; }
+    .stage small { opacity: .7; }
+    aside { padding: 18px; border-radius: 12px; background: #fffdfa; border: 1px solid #d1c7be; }
+    h2 { margin: 0 0 12px; font-size: 17px; }
+    .group { margin-top: 19px; }
+    .group:first-of-type { margin-top: 0; }
+    .group-label { display: block; margin-bottom: 8px; color: #6a6c72; font-size: 13px; font-weight: 700; }
+    .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    button, select { min-height: 40px; padding: 8px 10px; border: 1px solid #b6ada8; border-radius: 7px; background: #f8f6f2; color: #282b32; font: inherit; cursor: pointer; }
+    button:hover, select:hover { background: #eee7e0; }
+    button:focus-visible, select:focus-visible { outline: 3px solid #d37286; outline-offset: 2px; }
+    button.primary { background: #5b4554; border-color: #5b4554; color: white; }
+    button.primary:hover { background: #473643; }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    .wide { grid-column: 1 / -1; }
+    .size-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .readout { display: grid; grid-template-columns: auto 1fr; gap: 7px 10px; margin-top: 18px; padding-top: 15px; border-top: 1px solid #ded8d1; font-size: 13px; }
+    .readout dt { color: #75747b; }
+    .readout dd { min-width: 0; margin: 0; overflow-wrap: anywhere; font-weight: 600; }
+    .note { margin: 16px 0 0; color: #66626a; font-size: 13px; line-height: 1.55; }
+    .error { color: #a73039; }
+    @media (max-width: 920px) { .layout { grid-template-columns: 1fr; } .stage { min-height: 390px; } }
+    @media (max-width: 610px) { body { padding: 14px; } .stages { grid-template-columns: 1fr; } .stage { min-height: 350px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">AEMEATH / SCHEMA 3 / 0.5.0</p>
+      <h1>爱弥斯 v2 · 全动作预览</h1>
+      <p class="subtitle">直接读取当前候选包的图片与时序。点击右侧动作，浅色和深色背景同步播放。</p>
+    </div>
+    <span class="badge">Codex 内动画预览</span>
+  </header>
+  <main class="layout">
+    <div class="stages">
+      <section class="stage light"><span class="stage-label">浅色桌面</span><div class="sprite-wrap"><img id="sprite-light" class="sprite" alt="爱弥斯 v2 浅色背景动作"></div><small>像素尺寸 96 × 104</small></section>
+      <section class="stage dark"><span class="stage-label">深色桌面</span><div class="sprite-wrap"><img id="sprite-dark" class="sprite" alt="爱弥斯 v2 深色背景动作"></div><small>最近邻放大</small></section>
+    </div>
+    <aside>
+      <h2>动作控制</h2>
+      <div class="group">
+        <span class="group-label">待机与表情</span>
+        <div class="buttons">
+          <button id="idle" class="primary">正常待机</button>
+          <button id="blink">立即看眨眼</button>
+          <button id="wink">立即看 wink</button>
+          <button id="reset" title="重新抽取眨眼和 wink 等待">重置等待</button>
+        </div>
+      </div>
+      <div class="group">
+        <span class="group-label">拿起 → 持握 → 放下</span>
+        <div class="buttons">
+          <button id="pickup" class="primary">拿起并保持</button>
+          <button id="release">放下恢复</button>
+          <button id="quick">快松演示</button>
+          <button id="regrab">重抓演示</button>
+        </div>
+      </div>
+      <div class="group size-row"><label for="scale">显示大小</label><select id="scale"><option value="1">1 倍</option><option value="2">2 倍</option><option value="3" selected>3 倍</option></select></div>
+      <dl class="readout"><dt>当前动作</dt><dd id="phase">正在加载…</dd><dt>图片</dt><dd id="key">—</dd><dt>下次随机</dt><dd id="next">—</dd></dl>
+      <p class="note">“立即看”仅用于跳过等待，自动播放按候选包的随机时序运行。拿起会打断眼部动作；持握恼怒会一直持续到放下。</p>
+      <p class="note">这是浏览器中的图片与动作预览，不能验证真实 Windows 窗口拖动、失焦或鼠标捕获。</p>
+    </aside>
+  </main>
+  <script>
+    const packageUrl = '../../assets/characters/aemeath-v1/source/art036-package/';
+    const $ = id => document.getElementById(id);
+    const label = { idle: '正常待机', pickup: '拿起 · 慌张', hold: '持握 · 恼怒', release: '放下 · 恢复' };
+    let behavior, imageUrl, combo, state, shownKey, timer;
+    const rand = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    const total = track => track.reduce((sum, item) => sum + item.durationMs, 0);
+    function itemAt(track, elapsed) {
+      let t = elapsed;
+      for (const item of track) { if (t < item.durationMs) return item; t -= item.durationMs; }
+      return track.at(-1);
+    }
+    function rearm(now) {
+      state.nextBlink = now + rand(behavior.idle.blink.waitMinMs, behavior.idle.blink.waitMaxMs);
+      state.nextWink = now + rand(behavior.idle.wink.waitMinMs, behavior.idle.wink.waitMaxMs);
+    }
+    function enterIdle(now) {
+      state.phase = 'idle'; state.started = now; state.idleEpoch = now; state.eye = null; state.pendingWink = false; rearm(now);
+    }
+    function startEye(kind, now) {
+      state.eye = { kind, started: now };
+      if (kind === 'wink') state.nextWink = Infinity;
+      else state.nextBlink = Infinity;
+    }
+    function tickEye(now) {
+      if (state.eye) {
+        const track = behavior.idle[state.eye.kind].track;
+        const end = state.eye.started + total(track);
+        if (now >= end) {
+          if (state.eye.kind === 'wink') rearm(end);
+          else state.nextBlink = end + rand(behavior.idle.blink.waitMinMs, behavior.idle.blink.waitMaxMs);
+          state.eye = null;
+          if (state.pendingWink) { state.pendingWink = false; startEye('wink', end); }
+        }
+      }
+      if (!state.eye) {
+        if (now >= state.nextWink) startEye('wink', now);
+        else if (now >= state.nextBlink) startEye('blink', now);
+      }
+    }
+    function keyFor(now) {
+      const interaction = behavior.interaction;
+      let age = Math.max(0, now - state.started);
+      if (state.phase === 'pickup' && age >= interaction.pickup.sourceDurationMs + total(interaction.pickup.tail)) {
+        state.phase = 'hold'; state.started += interaction.pickup.sourceDurationMs + total(interaction.pickup.tail); age = now - state.started;
+      }
+      if (state.phase === 'release' && age >= interaction.release.sourceDurationMs + total(state.releaseTail)) {
+        enterIdle(state.started + interaction.release.sourceDurationMs + total(state.releaseTail)); age = now - state.started;
+      }
+      if (state.phase === 'pickup') return age < interaction.pickup.sourceDurationMs ? state.source : itemAt(interaction.pickup.tail, age - interaction.pickup.sourceDurationMs).key;
+      if (state.phase === 'hold') return itemAt(interaction.hold, age % total(interaction.hold)).key;
+      if (state.phase === 'release') return age < interaction.release.sourceDurationMs ? state.source : itemAt(state.releaseTail, age - interaction.release.sourceDurationMs).key;
+      tickEye(now);
+      const wing = itemAt(behavior.idle.wing, (now - state.idleEpoch) % total(behavior.idle.wing)).value;
+      const hem = itemAt(behavior.idle.hem, (now - state.idleEpoch) % total(behavior.idle.hem)).value;
+      const eye = state.eye ? itemAt(behavior.idle[state.eye.kind].track, now - state.eye.started).value : 'open';
+      return combo.get(`${wing}|${eye}|${hem}`);
+    }
+    function render() {
+      if (!behavior) return;
+      const now = performance.now();
+      if (timer && now >= timer.at) { const action = timer.action; timer = null; action(); }
+      const key = keyFor(now);
+      if (!key || !imageUrl.has(key)) { $('phase').textContent = '找不到候选图片'; $('phase').classList.add('error'); return; }
+      if (key !== shownKey) {
+        shownKey = key;
+        $('sprite-light').src = imageUrl.get(key);
+        $('sprite-dark').src = imageUrl.get(key);
+        $('key').textContent = key;
+      }
+      $('phase').textContent = state.phase === 'idle' && state.eye ? `正常待机 · ${state.eye.kind === 'blink' ? '眨眼' : 'wink'}` : label[state.phase];
+      const waitText = deadline => Number.isFinite(deadline) ? `${Math.max(0, Math.ceil((deadline - now) / 1000))} 秒` : '播放中';
+      $('next').textContent = state.phase === 'idle' ? `眨眼 ${waitText(state.nextBlink)} · wink ${waitText(state.nextWink)}` : '交互期间暂停';
+      $('release').disabled = !['pickup', 'hold'].includes(state.phase);
+      requestAnimationFrame(render);
+    }
+    function beginPickup() {
+      if (!behavior) return;
+      const now = performance.now();
+      state.source = shownKey || behavior.neutralKey;
+      state.phase = 'pickup'; state.started = now; state.eye = null; state.pendingWink = false; timer = null;
+    }
+    function beginRelease() {
+      if (!behavior || !['pickup', 'hold'].includes(state.phase)) return;
+      const now = performance.now();
+      state.source = shownKey || behavior.neutralKey;
+      state.releaseTail = behavior.interaction.release.tails[behavior.interaction.release.routes[state.source]];
+      state.phase = 'release'; state.started = now; timer = null;
+    }
+    $('idle').onclick = () => { if (behavior) { timer = null; enterIdle(performance.now()); } };
+    $('reset').onclick = () => { if (behavior && state.phase === 'idle') { state.eye = null; rearm(performance.now()); } };
+    $('blink').onclick = () => { if (behavior && state.phase === 'idle') startEye('blink', performance.now()); };
+    $('wink').onclick = () => { if (behavior && state.phase === 'idle') { if (state.eye?.kind === 'blink') state.pendingWink = true; else startEye('wink', performance.now()); } };
+    $('pickup').onclick = beginPickup;
+    $('release').onclick = beginRelease;
+    $('quick').onclick = () => { beginPickup(); timer = { at: performance.now() + 80, action: beginRelease }; };
+    $('regrab').onclick = () => { if (state?.phase === 'release') beginPickup(); else { beginPickup(); timer = { at: performance.now() + 1050, action: () => { beginRelease(); timer = { at: performance.now() + 250, action: beginPickup }; } }; } };
+    $('scale').onchange = event => document.documentElement.style.setProperty('--scale', event.target.value);
+    fetch(packageUrl + 'manifest.json').then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(manifest => {
+      if (manifest.schemaVersion !== 3 || manifest.packageVersion !== '0.5.0') throw new Error('候选包版本不符');
+      behavior = manifest.behavior;
+      imageUrl = new Map(Object.entries(behavior.images).map(([key, value]) => [key, packageUrl + value.path]));
+      combo = new Map(behavior.idle.combinations.map(value => [`${value.wing}|${value.eyeHead}|${value.hem}`, value.key]));
+      state = {}; enterIdle(performance.now()); render();
+    }).catch(error => { $('phase').textContent = `加载失败：${error.message}`; $('phase').classList.add('error'); });
+  </script>
+</body>
+</html>
